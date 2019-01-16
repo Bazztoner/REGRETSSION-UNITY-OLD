@@ -56,7 +56,7 @@ public class WPN_RailCannon : WeaponBase
         _shooting = false;
     }
 
-    protected override void Reload()
+    public override void Reload()
     {
         StartCoroutine(ReloadWeapon());
     }

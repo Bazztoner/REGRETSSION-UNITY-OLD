@@ -16,6 +16,7 @@ public abstract class WeaponBase : MonoBehaviour
     protected bool _shooting = false;
     protected bool _reloading = false;
 
+    public byte wpnNumber;
     public int maxAmmo;
     public float shootCooldown;
     protected int _ammo;
@@ -24,6 +25,9 @@ public abstract class WeaponBase : MonoBehaviour
 
     protected Func<bool> _canShoot;
     protected Func<bool> _canReload;
+
+    public bool Drawn { get => _drawn; }
+    public bool Holstering { get => _holstering; }
 
     protected virtual void Awake()
     {
@@ -46,6 +50,7 @@ public abstract class WeaponBase : MonoBehaviour
 
         _an.Play("Entry");
 
+        _drawn = false;
         Draw();
     }
 
@@ -53,6 +58,8 @@ public abstract class WeaponBase : MonoBehaviour
     {
         _drawn = false;
         _holstering = false;
+        _reloading = false;
+        _shooting = false;
     }
 
     protected virtual void Update()
@@ -81,7 +88,7 @@ public abstract class WeaponBase : MonoBehaviour
         _drawn = true;
     }
 
-    protected virtual void ChangeWeapon()
+    public virtual void ChangeWeapon()
     {
         //_an.SetBool(_holsterHash, true);
         StartCoroutine(HolsterWeapon());
@@ -100,9 +107,12 @@ public abstract class WeaponBase : MonoBehaviour
         yield return new WaitUntil(() => smb.finishedAnim);
 
         _holstering = false;
+        _drawn = false;
+
+        gameObject.SetActive(false);
     }
 
-    protected virtual void Reload()
+    public virtual void Reload()
     {
         StartCoroutine(ReloadWeapon());
     }

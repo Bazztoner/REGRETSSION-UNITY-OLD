@@ -48,7 +48,7 @@ public class WPN_RocketLauncher : WeaponBase
         Reload();
     }
 
-    protected override void Reload()
+    public override void Reload()
     {
         StartCoroutine(ReloadWeapon());
     }
