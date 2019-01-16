@@ -1,0 +1,417 @@
+fileFormatVersion: 2
+guid: 1b0dab26e6f68ac4c94070c3b1b26020
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Bolt
+    100002: Charging Handle
+    100004: Cover
+    100006: L_Armdummy
+    100008: L_Forearm
+    100010: L_Index1
+    100012: L_Index2
+    100014: L_Index3
+    100016: L_Mid1
+    100018: L_Mid2
+    100020: L_Mid3
+    100022: L_Pinky1
+    100024: L_Pinky2
+    100026: L_Pinky3
+    100028: L_Ring1
+    100030: L_Ring2
+    100032: L_Ring3
+    100034: L_Thumb1
+    100036: L_Thumb2
+    100038: L_Thumb3
+    100040: L_Upperarm
+    100042: L_Wrist
+    100044: M4
+    100046: Magazine
+    100048: Mesh1
+    100050: R_Armdummy
+    100052: R_Forearm
+    100054: R_Index1
+    100056: R_Index2
+    100058: R_Index3
+    100060: R_Mid1
+    100062: R_Mid2
+    100064: R_Mid3
+    100066: R_Pinky1
+    100068: R_Pinky2
+    100070: R_Pinky3
+    100072: R_Ring1
+    100074: R_Ring2
+    100076: R_Ring3
+    100078: R_Thumb1
+    100080: R_Thumb2
+    100082: R_Thumb3
+    100084: R_Upperarm
+    100086: R_Wrist
+    100088: //RootNode
+    100090: Suppressor
+    100092: Trigger
+    400000: Bolt
+    400002: Charging Handle
+    400004: Cover
+    400006: L_Armdummy
+    400008: L_Forearm
+    400010: L_Index1
+    400012: L_Index2
+    400014: L_Index3
+    400016: L_Mid1
+    400018: L_Mid2
+    400020: L_Mid3
+    400022: L_Pinky1
+    400024: L_Pinky2
+    400026: L_Pinky3
+    400028: L_Ring1
+    400030: L_Ring2
+    400032: L_Ring3
+    400034: L_Thumb1
+    400036: L_Thumb2
+    400038: L_Thumb3
+    400040: L_Upperarm
+    400042: L_Wrist
+    400044: M4
+    400046: Magazine
+    400048: Mesh1
+    400050: R_Armdummy
+    400052: R_Forearm
+    400054: R_Index1
+    400056: R_Index2
+    400058: R_Index3
+    400060: R_Mid1
+    400062: R_Mid2
+    400064: R_Mid3
+    400066: R_Pinky1
+    400068: R_Pinky2
+    400070: R_Pinky3
+    400072: R_Ring1
+    400074: R_Ring2
+    400076: R_Ring3
+    400078: R_Thumb1
+    400080: R_Thumb2
+    400082: R_Thumb3
+    400084: R_Upperarm
+    400086: R_Wrist
+    400088: //RootNode
+    400090: Suppressor
+    400092: Trigger
+    2100000: rec
+    2100002: mag
+    2100004: stock
+    2100006: rec1
+    2100008: silencer
+    2100010: rec2
+    2100012: view_glove
+    2100014: view_finger
+    2100016: view_skin
+    4300000: Mesh1
+    7400000: reload_unsil
+    7400002: idle_unsil
+    7400004: draw
+    7400006: shoot1_unsil
+    7400008: shoot2_unsil
+    7400010: shoot3_unsil
+    9500000: //RootNode
+    13700000: Mesh1
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mag
+    second: {fileID: 2100000, guid: 338e5ff9b0b4fca43b154de10cf1c1f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rec
+    second: {fileID: 2100000, guid: d1305e328d56bcd418dbd562132e1e86, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rec1
+    second: {fileID: 2100000, guid: 12762bc40002bd04e8387594134bed1e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rec2
+    second: {fileID: 2100000, guid: 04583054955778443a3712920c530720, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: silencer
+    second: {fileID: 2100000, guid: d6530f0ef7ae3b64aa4c9842c74563c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stock
+    second: {fileID: 2100000, guid: 848ce80b46310b8448964152a7ceb114, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: view_finger
+    second: {fileID: 2100000, guid: 65287cdcbb1166843816342b98dd5ba7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: view_glove
+    second: {fileID: 2100000, guid: 92b72c3c5def4a042a0da1ec03d8f223, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: view_skin
+    second: {fileID: 2100000, guid: 869eab1cef715f546bcf7cee4ad001c0, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: reload_unsil
+      takeName: reload_unsil
+      firstFrame: 0
+      lastFrame: 172
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: idle_unsil
+      takeName: idle_unsil
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: draw
+      takeName: jumpdafuckup
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: shoot1_unsil
+      takeName: shoot1_unsil
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: shoot2_unsil
+      takeName: shoot2_unsil
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: shoot3_unsil
+      takeName: shoot3_unsil
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

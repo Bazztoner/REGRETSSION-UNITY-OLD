@@ -1,0 +1,363 @@
+fileFormatVersion: 2
+guid: b4cf433a15596f1448753b73468e27bd
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: damn
+    100002: damn01
+    100004: damn02
+    100006: Hands biped
+    100008: Hands biped L Clavicle
+    100010: Hands biped L Finger0
+    100012: Hands biped L Finger01
+    100014: Hands biped L Finger1
+    100016: Hands biped L Finger11
+    100018: Hands biped L Finger12
+    100020: Hands biped L Finger2
+    100022: Hands biped L Finger21
+    100024: Hands biped L Finger22
+    100026: Hands biped L Finger3
+    100028: Hands biped L Finger31
+    100030: Hands biped L Finger32
+    100032: Hands biped L Finger4
+    100034: Hands biped L Finger41
+    100036: Hands biped L Finger42
+    100038: Hands biped L Forearm
+    100040: Hands biped L Hand
+    100042: Hands biped L UpperArm
+    100044: Hands biped Neck
+    100046: Hands biped Pelvis
+    100048: Hands biped R Clavicle
+    100050: Hands biped R Forearm
+    100052: Hands biped R Hand
+    100054: Hands biped R UpperArm
+    100056: Hands biped Spine
+    100058: Hands biped Spine1
+    100060: Hands biped Spine2
+    100062: Hands biped Spine3
+    100064: Mesh1
+    100066: shock_rifle_bhorn
+    100068: shock_rifle_body
+    100070: shock_rifle_larm
+    100072: shock_rifle_rarm
+    100074: shock_rifle_rods
+    100076: shock_rifle_tarm
+    100078: shock_rifle_tele1
+    100080: shock_rifle_tele2
+    100082: shock_rifle_tele3
+    100084: shock_rifle_tele4
+    100086: shock_rifle_thorn
+    100088: //RootNode
+    400000: damn
+    400002: damn01
+    400004: damn02
+    400006: Hands biped
+    400008: Hands biped L Clavicle
+    400010: Hands biped L Finger0
+    400012: Hands biped L Finger01
+    400014: Hands biped L Finger1
+    400016: Hands biped L Finger11
+    400018: Hands biped L Finger12
+    400020: Hands biped L Finger2
+    400022: Hands biped L Finger21
+    400024: Hands biped L Finger22
+    400026: Hands biped L Finger3
+    400028: Hands biped L Finger31
+    400030: Hands biped L Finger32
+    400032: Hands biped L Finger4
+    400034: Hands biped L Finger41
+    400036: Hands biped L Finger42
+    400038: Hands biped L Forearm
+    400040: Hands biped L Hand
+    400042: Hands biped L UpperArm
+    400044: Hands biped Neck
+    400046: Hands biped Pelvis
+    400048: Hands biped R Clavicle
+    400050: Hands biped R Forearm
+    400052: Hands biped R Hand
+    400054: Hands biped R UpperArm
+    400056: Hands biped Spine
+    400058: Hands biped Spine1
+    400060: Hands biped Spine2
+    400062: Hands biped Spine3
+    400064: Mesh1
+    400066: shock_rifle_bhorn
+    400068: shock_rifle_body
+    400070: shock_rifle_larm
+    400072: shock_rifle_rarm
+    400074: shock_rifle_rods
+    400076: shock_rifle_tarm
+    400078: shock_rifle_tele1
+    400080: shock_rifle_tele2
+    400082: shock_rifle_tele3
+    400084: shock_rifle_tele4
+    400086: shock_rifle_thorn
+    400088: //RootNode
+    2100000: SHOCKRIFLE6
+    2100002: white
+    2100004: hand
+    2100006: skin
+    4300000: Mesh1
+    7400000: draw
+    7400002: fire
+    7400004: holster
+    7400006: idle1
+    7400008: idle3
+    7400010: FireLoop
+    9500000: //RootNode
+    13700000: Mesh1
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: draw
+      takeName: draw
+      firstFrame: 0
+      lastFrame: 46
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: fire
+      takeName: fire
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: holster
+      takeName: holster
+      firstFrame: 0
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: idle1
+      takeName: idle1
+      firstFrame: 0
+      lastFrame: 152
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: idle3
+      takeName: idle3
+      firstFrame: 0
+      lastFrame: 76.5
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: FireLoop
+      takeName: fire1
+      firstFrame: 4.8
+      lastFrame: 10.7
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
