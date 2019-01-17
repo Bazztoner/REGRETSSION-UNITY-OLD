@@ -14,6 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pluginID: 0
   last_scenesV2:
+  - guid: e0ab827af8c51da4e9ead44622dc4768
+    pin: 0
+    path: Assets/Scenes/Testing Particles.unity
+    additional_guid: []
+    additional_path: []
+  - guid: e401049735edf2d459544d7371a9df78
+    pin: 0
+    path: Assets/Scenes/04_Basics-Hit.unity
+    additional_guid: []
+    additional_path: []
   - guid: 6e68cdcf074e0c542a81ff49f521f7fd
     pin: 0
     path: Assets/Scenes/SampleScene.unity
