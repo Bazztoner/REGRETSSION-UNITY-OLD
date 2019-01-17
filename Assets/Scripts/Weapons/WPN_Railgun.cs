@@ -15,6 +15,12 @@ public class WPN_Railgun : WeaponBase
         }
     }
 
+    protected override void Draw()
+    {
+        base.Draw();
+        if (GetAmmo() == 0) ForceReload();
+    }
+
     protected override int GetAmmo()
     {
         return _ammo <= 0 ? 0 : _ammo;
@@ -43,7 +49,11 @@ public class WPN_Railgun : WeaponBase
 
         _an.CrossFadeInFixedTime("shoot", .1f);
 
-        yield return new WaitForSeconds(shootCooldown);
+        yield return new WaitForEndOfFrame();
+
+        //shoot
+
+        yield return new WaitForSeconds(shootCooldown - Time.deltaTime);
 
         Reload();
     }
@@ -65,6 +75,11 @@ public class WPN_Railgun : WeaponBase
 
         _reloading = false;
         _shooting = false;
+    }
+
+    void ForceReload()
+    {
+        StartCoroutine(base.ReloadWeapon());
     }
 }
 

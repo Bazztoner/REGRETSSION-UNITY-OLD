@@ -7,14 +7,17 @@ using System;
 public class PlayerController : MonoBehaviour
 {
     public List<WeaponBase> allWeapons;
-    byte _currentWpn = 0;
+    byte _currentWpn;
 
     List<KeyCode> _wpnKeys;
 
     bool _changingWeapon = false;
+    public Camera cam;
 
     void Start()
     {
+        cam = GetComponentInChildren<Camera>();
+
         _wpnKeys = new List<KeyCode>();
         for (byte i = 1; i <= 9; i++)
         {
@@ -24,6 +27,8 @@ public class PlayerController : MonoBehaviour
 
         WeaponControlUtilities.Initialize();
         allWeapons = GetComponentsInChildren<WeaponBase>(true).OrderBy(X => X.wpnNumber).ToList();
+        _currentWpn = allWeapons.Where(x => x.isActiveAndEnabled).First().wpnNumber;
+        _currentWpn--;
     }
 
     void Update()

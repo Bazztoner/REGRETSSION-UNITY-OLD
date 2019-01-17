@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedAnim: 0
+  reloadCancelled: 0
 --- !u!114 &114101815507049278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -420,7 +421,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: holster
-  m_Speed: -1
+  m_Speed: -1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101103146102047858}

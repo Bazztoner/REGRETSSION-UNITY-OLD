@@ -10,6 +10,8 @@ public abstract class WeaponBase : MonoBehaviour
     protected readonly int _shootHash = Animator.StringToHash("shoot");
     protected readonly int _holsterHash = Animator.StringToHash("holster");
     protected readonly int _reloadHash = Animator.StringToHash("reload");
+    protected PlayerController _owner;
+    protected WeaponMuzzle _muzzle;
 
     protected bool _drawn = false;
     protected bool _holstering = false;
@@ -22,6 +24,9 @@ public abstract class WeaponBase : MonoBehaviour
     protected int _ammo;
     protected abstract int GetAmmo();
     protected abstract void SetAmmo(int ammo);
+
+    public float damage;
+    public int pellets;
 
     protected Func<bool> _canShoot;
     protected Func<bool> _canReload;
@@ -36,6 +41,8 @@ public abstract class WeaponBase : MonoBehaviour
 
     protected virtual void Start()
     {
+        _owner = GetComponentInParent<PlayerController>();
+        _muzzle = GetComponentInChildren<WeaponMuzzle>();
         InitializeConditions();
         SetAmmo(maxAmmo);
     }
@@ -98,6 +105,13 @@ public abstract class WeaponBase : MonoBehaviour
     {
         //wait for anim
 
+        var sm = _an.GetCurrentAnimatorStateInfo(0);
+        if (sm.IsName("reload"))
+        {
+            var reloadState = _an.GetBehaviour<SMB_ReloadState>();
+            if (reloadState != null) reloadState.CancelReload();
+        }
+
         _holstering = true;
 
         _an.CrossFadeInFixedTime("holster", .1f);
@@ -109,6 +123,7 @@ public abstract class WeaponBase : MonoBehaviour
         _holstering = false;
         _drawn = false;
 
+        StopAllCoroutines();
         gameObject.SetActive(false);
     }
 
@@ -127,7 +142,7 @@ public abstract class WeaponBase : MonoBehaviour
 
         var smb = _an.GetBehaviour<SMB_ReloadState>();
 
-        yield return new WaitUntil(() => smb.finishedAnim);
+        yield return new WaitUntil(() => smb.finishedAnim && !smb.reloadCancelled);
 
         UpdateAmmo(maxAmmo);
 
@@ -137,6 +152,27 @@ public abstract class WeaponBase : MonoBehaviour
     protected virtual void UpdateAmmo(int ammo)
     {
         SetAmmo(_ammo + ammo);
+    }
+
+    protected virtual void ManageBullet()
+    {
+        //Owner.ApplyShake(ShakeDuration, ShakeIntensity);
+
+        var dir = (_owner.cam.transform.forward + _muzzle.transform.forward).normalized;
+        dir.Normalize();
+
+        var b = new HitscanBullet(_muzzle.transform.position, dir.normalized, damage, pellets);
+        var particleID = SimpleParticleSpawner.ParticleID.BULLET;
+
+        var particle = SimpleParticleSpawner.Instance.particles[particleID].GetComponentInChildren<ParticleSystem>();
+        var speed = particle.main.startSpeed.constant * particle.main.simulationSpeed;
+        var lifeTime = b.objDist / speed;
+        SimpleParticleSpawner.Instance.SpawnParticle(particle.gameObject,_muzzle.transform.position, dir.normalized, lifeTime);
+
+        var muzzleFlashID = SimpleParticleSpawner.ParticleID.MUZZLEFLASH;
+        var muzzleFlashParticle = SimpleParticleSpawner.Instance.particles[muzzleFlashID].GetComponentInChildren<ParticleSystem>();
+
+        SimpleParticleSpawner.Instance.SpawnParticle(muzzleFlashParticle.gameObject, _muzzle.transform.position, dir.normalized, _muzzle.transform);
     }
 }
 

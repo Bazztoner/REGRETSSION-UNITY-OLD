@@ -5,6 +5,15 @@ using System.Linq;
 
 public class WPN_SuperShotgun : WeaponBase
 {
+    public float dispersionConeRadius;
+    int _bullets = Animator.StringToHash("bullets");
+
+    protected override void OnEnable()
+    {
+        _an.SetInteger(_bullets, _ammo);
+        base.OnEnable();
+    }
+
     protected override void CheckInput()
     {
         if (Input.GetMouseButtonDown(0))
@@ -45,8 +54,46 @@ public class WPN_SuperShotgun : WeaponBase
 
         _an.CrossFadeInFixedTime("shoot", .1f);
 
-        yield return new WaitForSeconds(shootCooldown);
+        yield return new WaitForEndOfFrame();
+
+        ManageBullet();
+
+        yield return new WaitForSeconds(shootCooldown - Time.deltaTime);
 
         _shooting = false;
+    }
+
+    protected override void ManageBullet()
+    {
+        for (int i = 0; i < pellets; i++)
+        {
+            var dispersionFactor = 1 / dispersionConeRadius;
+
+            float xSpread = Random.Range(-dispersionFactor, dispersionFactor);
+            float ySpread = Random.Range(-(dispersionFactor/2), dispersionFactor/2);
+
+            var dirToCrosshair = (_owner.cam.transform.forward + _muzzle.transform.forward).normalized;
+
+            var dir = (dirToCrosshair + new Vector3(xSpread, ySpread, 0));
+
+            var b = new HitscanBullet(_muzzle.transform.position, dir.normalized, damage, pellets);
+
+            var bulletParticleID = SimpleParticleSpawner.ParticleID.BULLET;
+
+            var bulletParticle = SimpleParticleSpawner.Instance.particles[bulletParticleID].GetComponentInChildren<ParticleSystem>();
+            var speed = bulletParticle.main.startSpeed.constant * bulletParticle.main.simulationSpeed;
+            var lifeTime = b.objDist / speed;
+
+            SimpleParticleSpawner.Instance.SpawnParticle(bulletParticle.gameObject, _muzzle.transform.position, dir.normalized, lifeTime);
+
+        }
+
+        var muzzleFlashID = SimpleParticleSpawner.ParticleID.MUZZLEFLASH;
+        var muzzleFlashParticle = SimpleParticleSpawner.Instance.particles[muzzleFlashID].GetComponentInChildren<ParticleSystem>();
+
+        var muzzleDir = (_owner.cam.transform.forward + _muzzle.transform.forward).normalized;
+        muzzleDir.Normalize();
+
+        SimpleParticleSpawner.Instance.SpawnParticle(muzzleFlashParticle.gameObject, _muzzle.transform.position, muzzleDir.normalized, _muzzle.transform);
     }
 }

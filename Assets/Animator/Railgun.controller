@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedAnim: 0
+  reloadCancelled: 0
 --- !u!114 &114250607993014498
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -6,6 +6,12 @@ using System.Linq;
 public class SMB_ReloadState : StateMachineBehaviour
 {
     public bool finishedAnim = false;
+    public bool reloadCancelled = false;
+
+    public void CancelReload()
+    {
+        reloadCancelled = true;
+    }
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -19,6 +25,7 @@ public class SMB_ReloadState : StateMachineBehaviour
 
     public void StartReload()
     {
+        reloadCancelled = false;
         finishedAnim = false;
     }
 

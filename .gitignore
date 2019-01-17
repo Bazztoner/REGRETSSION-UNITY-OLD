@@ -35,4 +35,5 @@ sysinfo.txt
 *.rar
 
 #Add
-Assets/Additional packages/IgnoreInRepo
+Assets/IgnoreInRepo
+Assets/IgnoreInRepo.meta

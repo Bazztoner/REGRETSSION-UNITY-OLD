@@ -10,7 +10,7 @@ public class WPN_Displacer : WeaponBase
     public int minCharge;
     public float ticks;
     float _tickDuration;
-    bool _keyDown = false;
+    bool _keyDown = false, _canTap = true;
 
     public float ChargePerTick
     {
@@ -32,7 +32,11 @@ public class WPN_Displacer : WeaponBase
                 Shoot();
             }
         }
-        else _keyDown = false;
+        else
+        {
+            _keyDown = false;
+            _canTap = true;
+        }
     }
 
     protected override int GetAmmo()
@@ -47,13 +51,13 @@ public class WPN_Displacer : WeaponBase
 
     protected override void InitializeConditions()
     {
-        _canShoot = () => !_holstering && GetAmmo() >= minCharge && _drawn;
+        _canShoot = () => !_holstering && GetAmmo() >= minCharge && _drawn && _canTap;
         _canReload = () => !_shooting && !_reloading && !_holstering && GetAmmo() < maxAmmo && _drawn;
     }
 
     protected override void Shoot()
     {
-        if (!_keyDown) StartCoroutine(ShootHandler());
+        if (!_keyDown && _canTap) StartCoroutine(ShootHandler());
     }
 
     IEnumerator ShootHandler()
@@ -74,8 +78,6 @@ public class WPN_Displacer : WeaponBase
         {
             chargeAcum = Mathf.FloorToInt(Mathf.Lerp(minCharge, maxCharge, channelTime / maxChargeTime));
 
-            print(chargeAcum);
-
             yield return new WaitForSeconds(_tickDuration);
 
             if (channelTime < ChargePerTick && chargeAcum < maxCharge && chargeAcum < _ammo)
@@ -85,11 +87,16 @@ public class WPN_Displacer : WeaponBase
             else
             {
                 _keyDown = false;
+                _canTap = false;
             }
         }
 
         UpdateAmmo(-chargeAcum);
         _an.CrossFadeInFixedTime("fire", .1f);
+
+        yield return new WaitForEndOfFrame();
+
+        //shoot
 
         _shooting = false;
     }

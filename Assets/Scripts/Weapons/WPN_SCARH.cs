@@ -45,7 +45,11 @@ public class WPN_SCARH : WeaponBase
 
         _an.CrossFadeInFixedTime("shoot", .1f);
 
-        yield return new WaitForSeconds(shootCooldown);
+        yield return new WaitForEndOfFrame();
+
+        ManageBullet();
+
+        yield return new WaitForSeconds(shootCooldown - Time.deltaTime);
 
         _shooting = false;
     }

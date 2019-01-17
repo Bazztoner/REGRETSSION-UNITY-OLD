@@ -51,7 +51,11 @@ public class WPN_RailCannon : WeaponBase
         var stateName = "shoot" + rndStyle;
         _an.CrossFadeInFixedTime(stateName, .1f);
 
-        yield return new WaitForSeconds(shootCooldown);
+        yield return new WaitForEndOfFrame();
+
+        //shoot
+
+        yield return new WaitForSeconds(shootCooldown - Time.deltaTime);
 
         _shooting = false;
     }

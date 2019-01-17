@@ -7,6 +7,12 @@ public class WPN_Deagle : WeaponBase
 {
     int _bullets = Animator.StringToHash("bullets");
 
+    protected override void OnEnable()
+    {
+        _an.SetInteger(_bullets, _ammo);
+        base.OnEnable();
+    }
+
     protected override void CheckInput()
     {
         if (Input.GetMouseButtonDown(0))
@@ -50,7 +56,11 @@ public class WPN_Deagle : WeaponBase
 
         _an.CrossFadeInFixedTime(stateName, .1f);
 
-        yield return new WaitForSeconds(shootCooldown);
+        yield return new WaitForEndOfFrame();
+
+        ManageBullet();
+
+        yield return new WaitForSeconds(shootCooldown - Time.deltaTime);
 
         _shooting = false;
     }

@@ -43,7 +43,11 @@ public class WPN_RocketLauncher : WeaponBase
 
         _an.CrossFadeInFixedTime("shoot", .1f);
 
-        yield return new WaitForSeconds(shootCooldown);
+        yield return new WaitForEndOfFrame();
+
+        //shoot
+
+        yield return new WaitForSeconds(shootCooldown - Time.deltaTime);
 
         Reload();
     }
