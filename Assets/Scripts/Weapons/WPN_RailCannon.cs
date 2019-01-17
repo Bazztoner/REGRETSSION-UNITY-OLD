@@ -7,6 +7,12 @@ public class WPN_RailCannon : WeaponBase
 {
     public float reloadTime;
 
+    protected override void Draw()
+    {
+        base.Draw();
+        if (GetAmmo() == 0) ForceDrawReload();
+    }
+
     protected override void CheckInput()
     {
         if (Input.GetMouseButton(0))
@@ -78,5 +84,21 @@ public class WPN_RailCannon : WeaponBase
         UpdateAmmo(maxAmmo);
 
         _reloading = false;
+    }
+
+    void ForceDrawReload()
+    {
+        StartCoroutine(WaitForDrawEnd());
+    }
+
+    IEnumerator WaitForDrawEnd()
+    {
+        //wait for anim
+
+        var smb = _an.GetBehaviour<SMB_DrawState>();
+
+        yield return new WaitUntil(() => smb.finishedAnim);
+
+        Reload();
     }
 }

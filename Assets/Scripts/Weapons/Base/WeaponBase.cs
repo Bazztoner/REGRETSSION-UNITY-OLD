@@ -37,6 +37,7 @@ public abstract class WeaponBase : MonoBehaviour
     protected virtual void Awake()
     {
         _an = GetComponent<Animator>();
+        SetAmmo(maxAmmo);
     }
 
     protected virtual void Start()
@@ -44,7 +45,7 @@ public abstract class WeaponBase : MonoBehaviour
         _owner = GetComponentInParent<PlayerController>();
         _muzzle = GetComponentInChildren<WeaponMuzzle>();
         InitializeConditions();
-        SetAmmo(maxAmmo);
+        
     }
 
     protected abstract void InitializeConditions();

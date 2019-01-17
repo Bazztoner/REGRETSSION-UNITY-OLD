@@ -6,6 +6,13 @@ using System.Linq;
 public class WPN_RocketLauncher : WeaponBase
 {
     public float reloadTime;
+    public GameObject rocketPrefab;
+
+    protected override void Draw()
+    {
+        base.Draw();
+        if (GetAmmo() == 0) SetAmmo(maxAmmo);
+    }
 
     protected override void CheckInput()
     {
@@ -45,11 +52,27 @@ public class WPN_RocketLauncher : WeaponBase
 
         yield return new WaitForEndOfFrame();
 
-        //shoot
+        ManageBullet();
 
         yield return new WaitForSeconds(shootCooldown - Time.deltaTime);
 
         Reload();
+    }
+
+    protected override void ManageBullet()
+    {
+        //Owner.ApplyShake(ShakeDuration, ShakeIntensity);
+
+        var dir = (_owner.cam.transform.forward + _muzzle.transform.forward).normalized;
+        dir.Normalize();
+
+        var b = Instantiate(rocketPrefab, _muzzle.transform.position, Quaternion.identity);
+        b.transform.forward = dir.normalized;
+
+        var muzzleFlashID = SimpleParticleSpawner.ParticleID.MUZZLEFLASH;
+        var muzzleFlashParticle = SimpleParticleSpawner.Instance.particles[muzzleFlashID].GetComponentInChildren<ParticleSystem>();
+
+        SimpleParticleSpawner.Instance.SpawnParticle(muzzleFlashParticle.gameObject, _muzzle.transform.position, dir.normalized, _muzzle.transform);
     }
 
     public override void Reload()

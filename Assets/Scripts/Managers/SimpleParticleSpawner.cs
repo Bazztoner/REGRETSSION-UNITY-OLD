@@ -43,6 +43,7 @@ public class SimpleParticleSpawner : MonoBehaviour
     {
         public const int BULLET = 0;
         public const int MUZZLEFLASH = 1;
+        public const int ROCKETHIT = 2;
     }
 
     public GameObject GetParticleByID(int id)

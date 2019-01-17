@@ -5,6 +5,12 @@ using System.Linq;
 
 public class WPN_SCARH : WeaponBase
 {
+    protected override void Draw()
+    {
+        base.Draw();
+        if (GetAmmo() == 0) ForceDrawReload();
+    }
+
     protected override void CheckInput()
     {
         if (Input.GetMouseButton(0))
@@ -52,5 +58,21 @@ public class WPN_SCARH : WeaponBase
         yield return new WaitForSeconds(shootCooldown - Time.deltaTime);
 
         _shooting = false;
+    }
+
+    void ForceDrawReload()
+    {
+        StartCoroutine(WaitForDrawEnd());
+    }
+
+    IEnumerator WaitForDrawEnd()
+    {
+        //wait for anim
+
+        var smb = _an.GetBehaviour<SMB_DrawState>();
+
+        yield return new WaitUntil(() => smb.finishedAnim);
+
+        Reload();
     }
 }

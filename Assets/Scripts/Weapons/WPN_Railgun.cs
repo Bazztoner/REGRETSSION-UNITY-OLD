@@ -18,7 +18,7 @@ public class WPN_Railgun : WeaponBase
     protected override void Draw()
     {
         base.Draw();
-        if (GetAmmo() == 0) ForceReload();
+        if (GetAmmo() == 0) ForceDrawReload();
     }
 
     protected override int GetAmmo()
@@ -77,8 +77,19 @@ public class WPN_Railgun : WeaponBase
         _shooting = false;
     }
 
-    void ForceReload()
+    void ForceDrawReload()
     {
+        StartCoroutine(WaitForDrawEnd());
+    }
+
+    IEnumerator WaitForDrawEnd()
+    {
+        //wait for anim
+
+        var smb = _an.GetBehaviour<SMB_DrawState>();
+
+        yield return new WaitUntil(() => smb.finishedAnim);
+
         StartCoroutine(base.ReloadWeapon());
     }
 }
