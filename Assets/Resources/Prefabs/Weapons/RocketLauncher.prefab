@@ -49,7 +49,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &652008502
 Transform:
   m_ObjectHideFlags: 0
@@ -113,10 +113,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dde03dddd4509e046926004b93e4353b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recoilStats:
+    amount: 5
+    recoveryTime: 0.5
+    currentZPosition: 0
+    currentZPosVelocity: 0
   wpnNumber: 5
   maxAmmo: 1
   shootCooldown: 1.8
+  damage: 155
+  pellets: 1
   reloadTime: 1.55
+  rocketPrefab: {fileID: 2310548635278949358, guid: c10179b75c7574140bc29a2ce864674f,
+    type: 3}
 --- !u!1 &1104454261
 GameObject:
   m_ObjectHideFlags: 0
@@ -4097,16 +4106,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4922181808670527470, guid: 50eb1a0ef77bed641a70942532f8c891,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4922181808670527470, guid: 50eb1a0ef77bed641a70942532f8c891,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50eb1a0ef77bed641a70942532f8c891, type: 3}

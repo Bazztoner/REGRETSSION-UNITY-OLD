@@ -21,8 +21,6 @@ public class CameraController : MonoBehaviour
 
     void ManageRecoil()
     {
-        //recoilStats.currentZPosition -= recoilStats.amount;
-
         _currentRotation = Mathf.SmoothDamp(_currentRotation, 0, ref _currentRotVelocity, _recoilRecoveryTime);
 
         transform.localRotation = Quaternion.Euler(_currentRotation, 0, 0);

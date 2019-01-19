@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &452932143
 Transform:
   m_ObjectHideFlags: 0
@@ -65,9 +65,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1892e1a347139c641a4b8474bd14746d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recoilStats:
+    amount: 1.5
+    recoveryTime: 0.3
+    currentZPosition: 0
+    currentZPosVelocity: 0
   wpnNumber: 6
   maxAmmo: 52
   shootCooldown: 0.12
+  damage: 0
+  pellets: 0
   reloadTime: 4.333
 --- !u!1 &685236467
 GameObject:

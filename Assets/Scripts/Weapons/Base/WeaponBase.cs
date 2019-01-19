@@ -181,13 +181,10 @@ public abstract class WeaponBase : MonoBehaviour
     protected virtual void AddRecoil()
     {
         _owner.AddRecoil(recoilStats.recoveryTime, recoilStats.amount);
-        //recoilStats.currentZPosition -= recoilStats.amount;
     }
 
     protected virtual void ManageRecoil()
     {
-        //recoilStats.currentZPosition -= recoilStats.amount;
-
         recoilStats.currentZPosition = Mathf.SmoothDamp(recoilStats.currentZPosition, 0, ref recoilStats.currentZPosVelocity, recoilStats.recoveryTime);
 
         transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, recoilStats.currentZPosition);

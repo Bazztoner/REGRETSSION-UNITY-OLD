@@ -4,11 +4,13 @@ using UnityEngine;
 using System.Linq;
 using System;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
     public List<WeaponBase> allWeapons;
     CameraShake _camShake;
     CameraController _camController;
+    Rigidbody _rb;
     byte _currentWpn;
 
     List<KeyCode> _wpnKeys;
@@ -16,12 +18,23 @@ public class PlayerController : MonoBehaviour
     bool _changingWeapon = false;
     public Camera cam;
 
+    public float movementSpeed = 10f;
+
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         cam = GetComponentInChildren<Camera>();
         _camShake = cam.GetComponent<CameraShake>();
         _camController = cam.GetComponent<CameraController>();
+        _rb = GetComponent<Rigidbody>();
 
+        InitializeWeapons();
+    }
+
+    void InitializeWeapons()
+    {
         _wpnKeys = new List<KeyCode>();
         for (byte i = 1; i <= 9; i++)
         {
@@ -35,19 +48,21 @@ public class PlayerController : MonoBehaviour
         _currentWpn--;
     }
 
-    public void ApplyShake(float duration, float intensity)
-    {
-        _camShake.Shake(duration, intensity);
-    }
-
-    public void AddRecoil(float recoveryTime, float amount)
-    {
-        _camController.AddRecoil(recoveryTime, amount);
-    }
-
     void Update()
     {
         CheckChangeWeapon();
+    }
+
+    void FixedUpdate()
+    {
+        CheckMovement();
+    }
+
+    void CheckMovement()
+    {
+        var dir = transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal");
+        var movVector = _rb.position + dir.normalized * Time.fixedDeltaTime * movementSpeed;
+        _rb.MovePosition(movVector);
     }
 
     void CheckChangeWeapon()
@@ -79,6 +94,12 @@ public class PlayerController : MonoBehaviour
         yield return new WaitUntil(() => allWeapons[_currentWpn].Drawn);
 
         _changingWeapon = false;
+    }
+
+
+    public void AddRecoil(float recoveryTime, float amount)
+    {
+        _camController.AddRecoil(recoveryTime, amount);
     }
 }
 
