@@ -1338,8 +1338,8 @@ MonoBehaviour:
   - FavParams: 0
     FavString: []
     list:
-    - {fileID: 170076733}
-    ActiveGameObject: {fileID: 170076733}
+    - {fileID: 1981062163}
+    ActiveGameObject: {fileID: 1981062163}
     GUIDsList: []
     GUIDsActiveGameObject: 
     PATHsList: []
@@ -1350,8 +1350,8 @@ MonoBehaviour:
   - FavParams: 0
     FavString: []
     list:
-    - {fileID: 1981062163}
-    ActiveGameObject: {fileID: 1981062163}
+    - {fileID: 170076733}
+    ActiveGameObject: {fileID: 170076733}
     GUIDsList: []
     GUIDsActiveGameObject: 
     PATHsList: []
@@ -1762,9 +1762,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b740fc2f984a32f46845f6074143a81d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yClamp: 45
-  sensitivity: 1
-  smoothing: 0.3
+  rotClamp: 45
+  sensitivity: 200
+  rotationSpeed: 10
 --- !u!1001 &1994865135
 PrefabInstance:
   m_ObjectHideFlags: 0
