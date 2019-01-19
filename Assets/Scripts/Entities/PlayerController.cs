@@ -7,6 +7,8 @@ using System;
 public class PlayerController : MonoBehaviour
 {
     public List<WeaponBase> allWeapons;
+    CameraShake _camShake;
+    CameraController _camController;
     byte _currentWpn;
 
     List<KeyCode> _wpnKeys;
@@ -17,6 +19,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         cam = GetComponentInChildren<Camera>();
+        _camShake = cam.GetComponent<CameraShake>();
+        _camController = cam.GetComponent<CameraController>();
 
         _wpnKeys = new List<KeyCode>();
         for (byte i = 1; i <= 9; i++)
@@ -29,6 +33,16 @@ public class PlayerController : MonoBehaviour
         allWeapons = GetComponentsInChildren<WeaponBase>(true).OrderBy(X => X.wpnNumber).ToList();
         _currentWpn = allWeapons.Where(x => x.isActiveAndEnabled).First().wpnNumber;
         _currentWpn--;
+    }
+
+    public void ApplyShake(float duration, float intensity)
+    {
+        _camShake.Shake(duration, intensity);
+    }
+
+    public void AddRecoil(float recoveryTime, float amount)
+    {
+        _camController.AddRecoil(recoveryTime, amount);
     }
 
     void Update()

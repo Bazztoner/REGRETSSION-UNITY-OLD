@@ -96,7 +96,10 @@ public class WPN_Shockroach : WeaponBase
             if (channelTime > initialChargeDuration)
             {
                 _an.CrossFadeInFixedTime("shoot_channel", Mathf.Epsilon);
-            } 
+            }
+
+            //shoot
+            AddRecoil();
 
             yield return new WaitForSeconds(shootCooldown);
 

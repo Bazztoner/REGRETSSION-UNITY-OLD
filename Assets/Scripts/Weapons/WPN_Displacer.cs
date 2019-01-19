@@ -97,6 +97,7 @@ public class WPN_Displacer : WeaponBase
         yield return new WaitForEndOfFrame();
 
         //shoot
+        AddRecoil();
 
         _shooting = false;
     }

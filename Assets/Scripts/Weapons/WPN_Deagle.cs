@@ -64,7 +64,8 @@ public class WPN_Deagle : WeaponBase
 
         yield return new WaitForEndOfFrame();
 
-        ManageBullet();
+        ManageProjectile();
+        AddRecoil();
 
         yield return new WaitForSeconds(shootCooldown - Time.deltaTime);
 

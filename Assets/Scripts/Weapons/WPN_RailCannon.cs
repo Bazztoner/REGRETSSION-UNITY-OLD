@@ -60,6 +60,7 @@ public class WPN_RailCannon : WeaponBase
         yield return new WaitForEndOfFrame();
 
         //shoot
+        AddRecoil();
 
         yield return new WaitForSeconds(shootCooldown - Time.deltaTime);
 

@@ -25,8 +25,10 @@ public class HitscanBullet
             var appliableDamage = GetDamageByPellet(damage, pellets);
 
             var damageable = col.GetComponent(typeof(IDamageable)) as IDamageable;
-
-            damageable.TakeDamage(appliableDamage);
+            if (damageable != null)
+            {
+                damageable.TakeDamage(appliableDamage);
+            }
         }
         else
         {
@@ -39,17 +41,17 @@ public class HitscanBullet
     {
         return damage / pellets;
     }
+}
 
-    public struct HitscanLayers
+public struct HitscanLayers
+{
+    public static int DamagableLayerMask()
     {
-        public static int DamagableLayerMask()
-        {
-            return LayerMask.GetMask("Enemy");
-        }
+        return LayerMask.GetMask("Enemy");
+    }
 
-        public static int BlockerLayerMask()
-        {
-            return ~(LayerMask.GetMask("Unrenderizable", "Ignore Raycast"));
-        }
+    public static int BlockerLayerMask()
+    {
+        return ~(LayerMask.GetMask("Unrenderizable", "Ignore Raycast"));
     }
 }

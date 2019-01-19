@@ -52,14 +52,15 @@ public class WPN_RocketLauncher : WeaponBase
 
         yield return new WaitForEndOfFrame();
 
-        ManageBullet();
+        ManageProjectile();
+        AddRecoil();
 
         yield return new WaitForSeconds(shootCooldown - Time.deltaTime);
 
         Reload();
     }
 
-    protected override void ManageBullet()
+    protected override void ManageProjectile()
     {
         //Owner.ApplyShake(ShakeDuration, ShakeIntensity);
 

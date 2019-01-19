@@ -62,14 +62,15 @@ public class WPN_SuperShotgun : WeaponBase
 
         yield return new WaitForEndOfFrame();
 
-        ManageBullet();
+        ManageProjectile();
+        AddRecoil();
 
         yield return new WaitForSeconds(shootCooldown - Time.deltaTime);
 
         _shooting = false;
     }
 
-    protected override void ManageBullet()
+    protected override void ManageProjectile()
     {
         for (int i = 0; i < pellets; i++)
         {

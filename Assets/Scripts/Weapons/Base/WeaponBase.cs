@@ -18,6 +18,9 @@ public abstract class WeaponBase : MonoBehaviour
     protected bool _shooting = false;
     protected bool _reloading = false;
 
+    [SerializeField]
+    public WeaponRecoilStats recoilStats;
+
     public byte wpnNumber;
     public int maxAmmo;
     public float shootCooldown;
@@ -45,7 +48,7 @@ public abstract class WeaponBase : MonoBehaviour
         _owner = GetComponentInParent<PlayerController>();
         _muzzle = GetComponentInChildren<WeaponMuzzle>();
         InitializeConditions();
-        
+
     }
 
     protected abstract void InitializeConditions();
@@ -73,6 +76,7 @@ public abstract class WeaponBase : MonoBehaviour
     protected virtual void Update()
     {
         CheckInput();
+        //ManageRecoil();
     }
 
     protected abstract void CheckInput();
@@ -155,10 +159,8 @@ public abstract class WeaponBase : MonoBehaviour
         SetAmmo(_ammo + ammo);
     }
 
-    protected virtual void ManageBullet()
+    protected virtual void ManageProjectile()
     {
-        //Owner.ApplyShake(ShakeDuration, ShakeIntensity);
-
         var dir = (_owner.cam.transform.forward + _muzzle.transform.forward).normalized;
         dir.Normalize();
 
@@ -168,28 +170,37 @@ public abstract class WeaponBase : MonoBehaviour
         var particle = SimpleParticleSpawner.Instance.particles[particleID].GetComponentInChildren<ParticleSystem>();
         var speed = particle.main.startSpeed.constant * particle.main.simulationSpeed;
         var lifeTime = b.objDist / speed;
-        SimpleParticleSpawner.Instance.SpawnParticle(particle.gameObject,_muzzle.transform.position, dir.normalized, lifeTime);
+        SimpleParticleSpawner.Instance.SpawnParticle(particle.gameObject, _muzzle.transform.position, dir.normalized, lifeTime);
 
         var muzzleFlashID = SimpleParticleSpawner.ParticleID.MUZZLEFLASH;
         var muzzleFlashParticle = SimpleParticleSpawner.Instance.particles[muzzleFlashID].GetComponentInChildren<ParticleSystem>();
 
         SimpleParticleSpawner.Instance.SpawnParticle(muzzleFlashParticle.gameObject, _muzzle.transform.position, dir.normalized, _muzzle.transform);
     }
+
+    protected virtual void AddRecoil()
+    {
+        _owner.AddRecoil(recoilStats.recoveryTime, recoilStats.amount);
+        //recoilStats.currentZPosition -= recoilStats.amount;
+    }
+
+    protected virtual void ManageRecoil()
+    {
+        //recoilStats.currentZPosition -= recoilStats.amount;
+
+        recoilStats.currentZPosition = Mathf.SmoothDamp(recoilStats.currentZPosition, 0, ref recoilStats.currentZPosVelocity, recoilStats.recoveryTime);
+
+        transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, recoilStats.currentZPosition);
+    }
 }
 
-//Hay cosas de Unity que me enferman
+[Serializable]
+public struct WeaponRecoilStats
+{
+    [SerializeField]
+    public float amount, recoveryTime;
 
-/*IEnumerator OldShootHandler()
-   {
-       UpdateAmmo(-1);
-       _shooting = true;
+    [HideInInspector]
+    public float currentZPosition, currentZPosVelocity;
 
-       _an.SetBool(_shootHash, true);
-
-       var smb = _an.GetBehaviour<SMB_ShootState>();
-
-       yield return new WaitUntil(() => smb.finishedAnim);
-
-       _shooting = false;
-       _an.SetBool(_shootHash, _shooting);
-   }*/
+}

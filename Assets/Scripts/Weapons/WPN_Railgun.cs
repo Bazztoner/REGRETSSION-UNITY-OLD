@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class WPN_Railgun : WeaponBase
 {
+    [SerializeField]
+    public RailgunRecoilStats railgunRecoilStats;
+
+    public int maxTargets;
     public float reloadTime;
 
     protected override void CheckInput()
@@ -51,11 +56,29 @@ public class WPN_Railgun : WeaponBase
 
         yield return new WaitForEndOfFrame();
 
-        //shoot
+        ManageProjectile();
+        StartCoroutine(ProgressiveRecoil());
 
         yield return new WaitForSeconds(shootCooldown - Time.deltaTime);
 
         Reload();
+    }
+
+    IEnumerator ProgressiveRecoil()
+    {
+        var tickDuration = railgunRecoilStats.recoilDelay / railgunRecoilStats.delayTicks;
+
+        for (int i = 0; i < railgunRecoilStats.delayTicks; i++)
+        {
+            yield return new WaitForSeconds(tickDuration);
+            AddRecoil();
+        }
+
+    }
+
+    protected override void AddRecoil()
+    {
+        _owner.AddRecoil(recoilStats.recoveryTime, recoilStats.amount/ railgunRecoilStats.delayTicks);
     }
 
     public override void Reload()
@@ -92,5 +115,33 @@ public class WPN_Railgun : WeaponBase
 
         StartCoroutine(base.ReloadWeapon());
     }
+
+    protected override void ManageProjectile()
+    {
+        //Owner.ApplyShake(ShakeDuration, ShakeIntensity);
+
+        var dir = (_owner.cam.transform.forward + _muzzle.transform.forward).normalized;
+        dir.Normalize();
+
+        var b = new HitscanRay(_muzzle.transform.position, dir.normalized, damage, maxTargets);
+        var particleID = SimpleParticleSpawner.ParticleID.BULLET;
+
+        var particle = SimpleParticleSpawner.Instance.particles[particleID].GetComponentInChildren<ParticleSystem>();
+        var speed = particle.main.startSpeed.constant * particle.main.simulationSpeed;
+        var lifeTime = b.objDist / speed;
+        SimpleParticleSpawner.Instance.SpawnParticle(particle.gameObject, _muzzle.transform.position, dir.normalized, lifeTime);
+
+        var muzzleFlashID = SimpleParticleSpawner.ParticleID.MUZZLEFLASH;
+        var muzzleFlashParticle = SimpleParticleSpawner.Instance.particles[muzzleFlashID].GetComponentInChildren<ParticleSystem>();
+
+        SimpleParticleSpawner.Instance.SpawnParticle(muzzleFlashParticle.gameObject, _muzzle.transform.position, dir.normalized, _muzzle.transform);
+    }
+}
+
+[Serializable]
+public class RailgunRecoilStats
+{
+    public float recoilDelay;
+    public float delayTicks;
 }
 
