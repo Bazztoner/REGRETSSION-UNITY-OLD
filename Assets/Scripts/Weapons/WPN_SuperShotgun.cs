@@ -55,6 +55,8 @@ public class WPN_SuperShotgun : WeaponBase
 
     IEnumerator ShootHandler()
     {
+        if (!_canShoot()) yield break;
+
         UpdateAmmo(-1);
         _shooting = true;
 
@@ -68,6 +70,8 @@ public class WPN_SuperShotgun : WeaponBase
         yield return new WaitForSeconds(shootCooldown - Time.deltaTime);
 
         _shooting = false;
+
+        Reload();
     }
 
     protected override void ManageProjectile()
@@ -77,7 +81,7 @@ public class WPN_SuperShotgun : WeaponBase
             var dispersionFactor = 1 / dispersionConeRadius;
 
             float xSpread = Random.Range(-dispersionFactor, dispersionFactor);
-            float ySpread = Random.Range(-(dispersionFactor/2), dispersionFactor/2);
+            float ySpread = Random.Range(-(dispersionFactor / 2), dispersionFactor / 2);
 
             var dirToCrosshair = (_owner.cam.transform.forward + _muzzle.transform.forward).normalized;
 

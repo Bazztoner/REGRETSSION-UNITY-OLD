@@ -951,7 +951,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 64
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!4 &768880217 stripped
 Transform:
@@ -1334,6 +1334,18 @@ MonoBehaviour:
   - FavParams: 0
     FavString: []
     list:
+    - {fileID: 755012934}
+    ActiveGameObject: {fileID: 755012934}
+    GUIDsList: []
+    GUIDsActiveGameObject: 
+    PATHsList: []
+    PATHsActiveGameObject: 
+    InstanceID: 0
+    wasInit: 0
+    CashedBool: 0
+  - FavParams: 0
+    FavString: []
+    list:
     - {fileID: 837969627}
     ActiveGameObject: {fileID: 837969627}
     GUIDsList: []
@@ -1348,18 +1360,6 @@ MonoBehaviour:
     list:
     - {fileID: 396838086}
     ActiveGameObject: {fileID: 396838086}
-    GUIDsList: []
-    GUIDsActiveGameObject: 
-    PATHsList: []
-    PATHsActiveGameObject: 
-    InstanceID: 0
-    wasInit: 0
-    CashedBool: 0
-  - FavParams: 0
-    FavString: []
-    list:
-    - {fileID: 755012934}
-    ActiveGameObject: {fileID: 755012934}
     GUIDsList: []
     GUIDsActiveGameObject: 
     PATHsList: []

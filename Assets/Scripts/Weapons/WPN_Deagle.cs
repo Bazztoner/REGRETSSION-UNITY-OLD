@@ -55,6 +55,8 @@ public class WPN_Deagle : WeaponBase
 
     IEnumerator ShootHandler()
     {
+        if (!_canShoot()) yield break;
+
         UpdateAmmo(-1);
         _shooting = true;
 
@@ -70,6 +72,11 @@ public class WPN_Deagle : WeaponBase
         yield return new WaitForSeconds(shootCooldown - Time.deltaTime);
 
         _shooting = false;
+
+        if (GetAmmo() <= 0)
+        {
+            Reload();
+        }
     }
 
     void ForceDrawReload()

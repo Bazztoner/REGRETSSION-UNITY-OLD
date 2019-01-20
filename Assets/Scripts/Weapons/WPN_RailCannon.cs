@@ -48,6 +48,8 @@ public class WPN_RailCannon : WeaponBase
 
     IEnumerator ShootHandler()
     {
+        if (!_canShoot()) yield break;
+
         UpdateAmmo(-1);
         _shooting = true;
         var rndStyle = Random.Range(0, 2);
@@ -65,6 +67,11 @@ public class WPN_RailCannon : WeaponBase
         yield return new WaitForSeconds(shootCooldown - Time.deltaTime);
 
         _shooting = false;
+
+        if (GetAmmo() <= 0)
+        {
+            Reload();
+        }
     }
 
     public override void Reload()
