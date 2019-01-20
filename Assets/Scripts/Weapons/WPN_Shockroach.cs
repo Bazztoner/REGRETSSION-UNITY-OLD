@@ -8,13 +8,24 @@ public class WPN_Shockroach : WeaponBase
     public float initialChargeDuration;
 
     public float ammoPerSecond;
+    public float damagePerSecond;
     public float ticks;
     float _tickDuration;
     bool _keyDown = false;
 
-    public float RepairByTick
+    [Header("Beam")]
+    public float xSize;
+    public float ySize;
+    public float zSize;
+
+    public float ReloadByTick
     {
         get { return ammoPerSecond / ticks; }
+    }
+
+    Vector3 BeamSize
+    {
+        get => new Vector3(xSize, ySize, zSize);
     }
 
     protected override void Start()
@@ -96,16 +107,27 @@ public class WPN_Shockroach : WeaponBase
             if (channelTime > initialChargeDuration)
             {
                 _an.CrossFadeInFixedTime("shoot_channel", Mathf.Epsilon);
+
             }
 
-            //shoot
-            AddRecoil();
-
             yield return new WaitForSeconds(shootCooldown);
+
+            ManageProjectile();
+            AddRecoil();
 
             channelTime += shootCooldown;
         }
 
         _shooting = false;
+    }
+
+    protected override void ManageProjectile()
+    {
+        //Owner.ApplyShake(ShakeDuration, ShakeIntensity);
+
+        var dir = (_owner.cam.transform.forward + _muzzle.transform.forward).normalized;
+        dir.Normalize();
+
+        var b = new HitscanBeam(_muzzle.transform.position, dir.normalized, damage * shootCooldown, BeamSize);
     }
 }

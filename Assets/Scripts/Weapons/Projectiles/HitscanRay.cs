@@ -23,8 +23,10 @@ public class HitscanRay
                 Debug.DrawRay(origin, dir * dist, Color.red, 3);
 
                 var damageable = col.GetComponent(typeof(IDamageable)) as IDamageable;
-
-                damageable.TakeDamage(damage);
+                if (damageable != null)
+                {
+                    damageable.TakeDamage(damage);
+                }
             }
         }
         else

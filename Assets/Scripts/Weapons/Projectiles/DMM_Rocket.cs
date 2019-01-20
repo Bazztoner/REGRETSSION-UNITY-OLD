@@ -22,6 +22,7 @@ public class DMM_Rocket : MonoBehaviour
     {
         if (col.GetComponent<Enemy>())
         {
+            //overlapSphere
             col.GetComponent<Enemy>().TakeDamage(155);
 
             SpawnParticle();
