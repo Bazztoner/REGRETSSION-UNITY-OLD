@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        CheckInteract();
         CheckJump();
         CheckChangeWeapon();
     }
@@ -72,6 +73,26 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && _grounded)
         {
             _rb.AddForce(transform.up * jumpForce, ForceMode.VelocityChange);
+        }
+    }
+
+    void CheckInteract()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            var mask = HitscanLayers.BlockerLayerMask();
+            var hits = Physics.RaycastAll(cam.transform.position, cam.transform.forward, 3, mask);
+            IInteractuable interact;
+            if (hits != null)
+            {
+                interact = hits.Select(x => x.collider.GetComponentInParent(typeof(IInteractuable)) as IInteractuable).Where(x => x != null).FirstOrDefault();
+                if (interact != null) interact.Use();
+            }
+            else
+            {
+                //sound
+            }
+           
         }
     }
 
