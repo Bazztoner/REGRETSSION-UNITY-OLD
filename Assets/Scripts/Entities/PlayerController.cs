@@ -15,10 +15,11 @@ public class PlayerController : MonoBehaviour
 
     List<KeyCode> _wpnKeys;
 
-    bool _changingWeapon = false;
+    bool _changingWeapon = false, _grounded = false;
     public Camera cam;
 
-    public float movementSpeed = 10f;
+    public float movementSpeed, jumpForce;
+
 
     void Start()
     {
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        CheckJump();
         CheckChangeWeapon();
     }
 
@@ -63,6 +65,14 @@ public class PlayerController : MonoBehaviour
         var dir = transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal");
         var movVector = _rb.position + dir.normalized * Time.fixedDeltaTime * movementSpeed;
         _rb.MovePosition(movVector);
+    }
+
+    void CheckJump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && _grounded)
+        {
+            _rb.AddForce(transform.up * jumpForce, ForceMode.VelocityChange);
+        }
     }
 
     void CheckChangeWeapon()
@@ -96,10 +106,25 @@ public class PlayerController : MonoBehaviour
         _changingWeapon = false;
     }
 
-
     public void AddRecoil(float recoveryTime, float amount)
     {
         _camController.AddRecoil(recoveryTime, amount);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.LayerMatchesWith(LayerMask.NameToLayer("Floor")))
+        {
+            _grounded = true;
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.LayerMatchesWith(LayerMask.NameToLayer("Floor")))
+        {
+            _grounded = false;
+        }
     }
 }
 
