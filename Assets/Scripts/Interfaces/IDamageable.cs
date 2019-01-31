@@ -4,7 +4,5 @@ using UnityEngine;
 
 public interface IDamageable 
 {
-    void ResetHP();
-
-    void TakeDamage(float damage);
+    void TakeDamage(int damage);
 }

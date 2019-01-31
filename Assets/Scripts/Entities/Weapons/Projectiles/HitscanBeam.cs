@@ -20,7 +20,7 @@ public class HitscanBeam
                 var damageable = col.GetComponent(typeof(IDamageable)) as IDamageable;
                 if (damageable != null)
                 {
-                    damageable.TakeDamage(damage);
+                    damageable.TakeDamage(Mathf.RoundToInt(damage));
                 }
             }
         }
@@ -45,7 +45,7 @@ public class HitscanBeam
 
                 var damageable = col.GetComponent(typeof(IDamageable)) as IDamageable;
 
-                damageable.TakeDamage(damage);
+                damageable.TakeDamage(Mathf.RoundToInt(damage));
             }
         }
 

@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 3939717023419645363}
   - component: {fileID: 3939717023419645364}
   - component: {fileID: 3939717023419645367}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ MonoBehaviour:
   allWeapons: []
   cam: {fileID: 0}
   movementSpeed: 5
-  jumpForce: 3
+  jumpForce: 3.5
 --- !u!136 &3939717023419645367
 CapsuleCollider:
   m_ObjectHideFlags: 0

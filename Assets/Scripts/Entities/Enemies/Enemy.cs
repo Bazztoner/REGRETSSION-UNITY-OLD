@@ -3,40 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class Enemy : MonoBehaviour,IDamageable
+public class Enemy : MonoBehaviour, IDamageable
 {
-    public float hp = 200;
+    public int maxHp;
 
-    int pl = 0;
+    int _hp;
 
-    public void ResetHP()
+    public int HP
     {
-
+        get { return _hp; }
+        private set
+        {
+            _hp = value;
+            if (_hp > maxHp) _hp = maxHp;
+            else if (_hp < 0) _hp = 0;
+        }
     }
 
     void Start()
     {
-        //StartCoroutine(Puto());
+        _hp = maxHp;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int dmg)
     {
-        hp -= damage;
+        UpdateHP(dmg, false);
 
-        pl++;
+        if (HP <= 0) Die();
     }
 
-    public IEnumerator Puto()
+    public virtual void Die()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(.5f);
-            if (pl >0 && hp != 200)
-            {
-                print("daño " + pl * 8.33333f + " || plt " + pl);
-                pl = 0;
-                hp = 200;
-            }
-        }
+        //die
+    }
+
+    public virtual void AttackEnd()
+    {
+
+    }
+
+    public void UpdateHP(int amount, bool add = true)
+    {
+        HP = add ? HP += amount : HP -= amount;
     }
 }
