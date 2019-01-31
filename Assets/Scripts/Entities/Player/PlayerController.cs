@@ -20,11 +20,14 @@ public class PlayerController : MonoBehaviour
 
     public float movementSpeed, jumpForce;
 
+    Dictionary<KeysForDoors, bool> _keysOnInventory;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        _keysOnInventory = new Dictionary<KeysForDoors, bool>();
 
         cam = GetComponentInChildren<Camera>();
         _camShake = cam.GetComponent<CameraShake>();
@@ -146,6 +149,29 @@ public class PlayerController : MonoBehaviour
         {
             _grounded = false;
         }
+    }
+
+    public void SetKeyOnInventory(KeysForDoors key)
+    {
+        if (!_keysOnInventory.ContainsKey(key))
+        {
+            _keysOnInventory.Add(key, true);
+        }
+        else
+        {
+            _keysOnInventory[key] = true;
+        }
+
+    }
+
+    public bool GetIfKeyInInventory(KeysForDoors key)
+    {
+        if (!_keysOnInventory.ContainsKey(key))
+        {
+            _keysOnInventory.Add(key, false);
+        }
+
+        return _keysOnInventory[key];
     }
 }
 

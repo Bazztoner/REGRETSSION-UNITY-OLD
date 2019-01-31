@@ -5,11 +5,12 @@ using System.Linq;
 
 public class Door : MonoBehaviour, IInteractuable
 {
-    bool _opened = false;
-    Animator _an;
-    Queue<string> _states;
+    protected bool _opened = false;
+    public bool locked;
+    protected Animator _an;
+    protected Queue<string> _states;
 
-    void Start ()
+    protected virtual void Start()
     {
         _an = GetComponent<Animator>();
         _states = new Queue<string>();
@@ -17,8 +18,9 @@ public class Door : MonoBehaviour, IInteractuable
         _states.Enqueue("Close");
     }
 
-    public void Use()
+    public virtual void Use()
     {
+        if (locked) return;
         var dq = _states.Dequeue();
         _states.Enqueue(dq);
 
