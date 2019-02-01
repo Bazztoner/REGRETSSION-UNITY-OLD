@@ -12,8 +12,8 @@ public class HitscanBullet
         var pellets = Mathf.Max(1, inputPellets);
 
         var rch = new RaycastHit();
-        var damagableMask = HitscanLayers.BlockerLayerMask();
-        var hitDamagable = Physics.Raycast(origin, dir.normalized, out rch, 100, damagableMask);
+        var mask = HitscanLayers.DamagableLayerMask();
+        var hitDamagable = Physics.Raycast(origin, dir.normalized, out rch, 100, mask);
         var col = rch.collider;
         var dist = rch.distance;
         objDist = dist;
@@ -47,7 +47,7 @@ public struct HitscanLayers
 {
     public static int DamagableLayerMask()
     {
-        return LayerMask.GetMask("Enemy");
+        return ~(LayerMask.GetMask("Enemy", "Destructible"));
     }
 
     public static int BlockerLayerMask()

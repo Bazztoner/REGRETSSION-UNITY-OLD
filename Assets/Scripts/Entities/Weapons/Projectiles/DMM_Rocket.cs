@@ -6,6 +6,7 @@ using System.Linq;
 public class DMM_Rocket : MonoBehaviour
 {
     public float speed;
+    public int damage;
     Rigidbody _rb;
 
     void Awake()
@@ -13,17 +14,21 @@ public class DMM_Rocket : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
     }
 
-    void FixedUpdate ()
-	{
+    void FixedUpdate()
+    {
         _rb.MovePosition(_rb.position + transform.forward * speed * Time.fixedDeltaTime);
     }
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.GetComponent<Enemy>())
+        var dmgeable = col.GetComponent(typeof(IDamageable)) as IDamageable;
+        if (col.gameObject.LayerDifferentFrom(LayerMask.NameToLayer("Unrenderizable"), LayerMask.NameToLayer("Ignore Raycast"), LayerMask.NameToLayer("Player")))
         {
-            //overlapSphere
-            col.GetComponent<Enemy>().TakeDamage(155);
+            if (dmgeable != null)
+            {
+                //overlapSphere
+                dmgeable.TakeDamage(damage);
+            }
 
             SpawnParticle();
             Destroy(gameObject);

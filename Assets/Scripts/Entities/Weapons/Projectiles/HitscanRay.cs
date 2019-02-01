@@ -9,7 +9,7 @@ public class HitscanRay
 
     public HitscanRay(Vector3 origin, Vector3 dir, float damage, int maxEnemies)
     {
-        var damagableMask = HitscanLayers.BlockerLayerMask();
+        var damagableMask = HitscanLayers.DamagableLayerMask();
         var enemiesHit = Physics.RaycastAll(origin, dir.normalized, 100, damagableMask).Take(maxEnemies).ToArray();
         float objDist;
 

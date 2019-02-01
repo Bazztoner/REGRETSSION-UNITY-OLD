@@ -41,9 +41,14 @@ public class DrugAddict : MonoBehaviour
     bool _canChase = true;
     #endregion
 
-    //Follow
-    public float maxFollowDistance;
-    float _actualFollowDistance;
+    public float playerLostCountdown;
+    float _actualPlayerLostCountdown;
+
+    //Flinch
+    public float flinchCooldown;
+    bool _canFlinch = true;
+    public int initialFlinchPerc;
+    int _actualFlinchPerc;
 
     //Chase
     public float maxChaseDistance;
@@ -51,8 +56,6 @@ public class DrugAddict : MonoBehaviour
     public float maxChaseTime;
     float _actualChaseTime;
     public float chaseCooldown;
-    public int initialChasePerc;
-    int _chasePerc;
 
     //Attack
     public float attackCooldown;
@@ -65,15 +68,16 @@ public class DrugAddict : MonoBehaviour
 
     #region Properties
     private EventFSM<Inputs> _stateMachine;
-    public enum Inputs { EnemyFound, EnemyLost, EnemyInAttackRange, Anger, Rest, Die };
+    public enum Inputs { EnemyFound, EnemyLost, EnemyInAttackRange, Pain, StateEnd, Die };
 
     void InitFsm()
     {
         //-----------------------------------------STATE CREATE-------------------------------------------//
         var idle = new State<Inputs>("Idle");
-        var follow = new State<Inputs>("Follow");
+        var flinch = new State<Inputs>("Flinch");
         var chase = new State<Inputs>("Chase");
-        var attack = new State<Inputs>("AttackShort");
+        //var returnToStartPos = new State<Inputs>("ReturnToStartPosition");
+        var attack = new State<Inputs>("Attack");
         var death = new State<Inputs>("Death");
 
         /*
@@ -84,23 +88,17 @@ public class DrugAddict : MonoBehaviour
          * */
 
         StateConfigurer.Create(idle)
-            //.SetTransition(Inputs.EnemyFound, follow)
             .SetTransition(Inputs.EnemyFound, chase)
-            //.SetTransition(Inputs.Anger, chase)
-            .SetTransition(Inputs.Rest, idle)
+            .SetTransition(Inputs.Pain, flinch)
             .SetTransition(Inputs.Die, death)
             .Done();
 
         /*
-        follow(walk hacia jugador)
-	    EnemyLost -> idle/patrol
-	    Anger => chase
-	    EnemyInAttackRange > attackShort*/
+         * Flinch
+         */
 
-        StateConfigurer.Create(follow)
-            .SetTransition(Inputs.EnemyLost, idle)
-            .SetTransition(Inputs.Anger, chase)
-            .SetTransition(Inputs.EnemyInAttackRange, attack)
+        StateConfigurer.Create(flinch)
+            .SetTransition(Inputs.StateEnd, chase)
             .SetTransition(Inputs.Die, death)
             .Done();
 
@@ -110,18 +108,18 @@ public class DrugAddict : MonoBehaviour
         enemyInAttackRange > attackLong*/
 
         StateConfigurer.Create(chase)
+            .SetTransition(Inputs.Pain, flinch)
             .SetTransition(Inputs.EnemyLost, idle)
-            .SetTransition(Inputs.Rest, chase)
             .SetTransition(Inputs.EnemyInAttackRange, attack)
             .SetTransition(Inputs.Die, death)
             .Done();
 
         /*
-         attack(short de run, long de walk/idle)
+         attack
 	        rest => idle
          * */
         StateConfigurer.Create(attack)
-           .SetTransition(Inputs.Rest, idle)
+           .SetTransition(Inputs.StateEnd, chase)
            .SetTransition(Inputs.Die, death)
            .Done();
 
@@ -138,33 +136,6 @@ public class DrugAddict : MonoBehaviour
             _agent.isStopped = true;
         };
 
-        //follow
-        follow.OnEnter += x =>
-        {
-            _agent.isStopped = false;
-            _agent.SetDestination(player.transform.position);
-            _anim.SetWalk();
-            var dir = player.position - transform.position;
-            transform.forward = new Vector3(dir.x, 0, dir.z).normalized;
-            _agent.speed = movementSpeed;
-        };
-
-        follow.OnFixedUpdate += () =>
-        {
-            if (_canChase)
-            {
-                var rnd = UnityEngine.Random.Range(0, 100);
-                if (rnd < _chasePerc)
-                {
-                    ProcessInput(Inputs.Anger);
-                }
-            }
-            _agent.SetDestination(player.transform.position);
-            var dir = player.position - transform.position;
-            transform.forward = new Vector3(dir.x, 0, dir.z).normalized;
-        };
-
-
         //chase
         chase.OnEnter += x =>
         {
@@ -178,13 +149,6 @@ public class DrugAddict : MonoBehaviour
 
         chase.OnFixedUpdate += () =>
         {
-            if (_actualChaseTime >= maxChaseTime)
-            {
-                _actualChaseDistance = 0;
-                _actualChaseTime = 0;
-                ProcessInput(Inputs.Rest);
-            }
-            _actualChaseTime += Time.fixedDeltaTime;
             _agent.SetDestination(player.transform.position);
             var dir = player.position - transform.position;
             transform.forward = new Vector3(dir.x, 0, dir.z).normalized;
@@ -207,6 +171,18 @@ public class DrugAddict : MonoBehaviour
             StartCoroutine(AttackCooldown());
         };
 
+        //Flinch
+        flinch.OnEnter += x =>
+        {
+            _agent.isStopped = true;
+            _anim.SetFlinch();
+        };
+
+        //Flinch
+        flinch.OnExit += x =>
+        {
+            StartCoroutine(FlinchCooldown());
+        };
 
         //death
         death.OnEnter += x =>
@@ -215,12 +191,10 @@ public class DrugAddict : MonoBehaviour
             _rb.useGravity = false;
             GetComponent<Collider>().enabled = false;
             _agent.isStopped = true;
-            _agent.enabled = false;
         };
 
 
         //-----------------------------------------FSM INIT-------------------------------------------//
-        AddEvents();
         _stateMachine = new EventFSM<Inputs>(idle);
     }
 
@@ -237,51 +211,63 @@ public class DrugAddict : MonoBehaviour
 
     private void FixedUpdate()
     {
-        CheckSensors();
         _stateMachine.FixedUpdate();
     }
 
-    void AddEvents()
+    public void OnTakeDamage()
     {
+        UpdateFlinchPerc();
 
-    }
+        var rnd = Random.Range(0, 100 + 1);
 
-    void RemoveEvents()
-    {
-
+        if (rnd <= _actualFlinchPerc && _canFlinch)
+        {
+            ProcessInput(Inputs.Pain);
+        }
     }
 
     public void Die(bool frontalHit)
     {
         this.frontalHit = frontalHit;
         ProcessInput(Inputs.Die);
-        RemoveEvents();
+    }
+
+    public void FlinchEnd()
+    {
+
+        ProcessInput(Inputs.StateEnd);
     }
 
     public void AttackEnd()
     {
-        ProcessInput(Inputs.Rest);
+        ProcessInput(Inputs.StateEnd);
     }
 
     //Sensor checking
     void CheckSensors()
     {
         if (_loS.TargetInSight) ProcessInput(Inputs.EnemyFound);
-        else ProcessInput(Inputs.EnemyLost);
+        else if (_stateMachine.Current.Name == "Chase")
+        {
+            if (_actualPlayerLostCountdown >= playerLostCountdown)
+            {
+                ProcessInput(Inputs.EnemyLost);
+                _actualPlayerLostCountdown = 0;
+            }
+            else _actualPlayerLostCountdown += Time.deltaTime;
+        }
 
         if (PlayerInRange() && _canAttack) ProcessInput(Inputs.EnemyInAttackRange);
-
-        UpdateChasePerc();
     }
 
-    void UpdateChasePerc()
+    void UpdateFlinchPerc()
     {
-        // 1% hp ?> 50%
+        // 1% hp > 50%
         // 100%hp > 0%
 
         var percHp = _model.HP / _model.maxHp;
         var percBasedOnHp = Mathf.Lerp(50, 0, percHp);
-        _chasePerc = Mathf.FloorToInt(initialChasePerc + percBasedOnHp);
+        _actualFlinchPerc = Mathf.FloorToInt(initialFlinchPerc + percBasedOnHp);
     }
 
     bool PlayerInRange()
@@ -316,9 +302,18 @@ public class DrugAddict : MonoBehaviour
     {
         _canAttack = false;
 
-        yield return new WaitForSeconds(chaseCooldown);
+        yield return new WaitForSeconds(attackCooldown);
 
         _canAttack = true;
+    }
+
+    IEnumerator FlinchCooldown()
+    {
+        _canFlinch = false;
+
+        yield return new WaitForSeconds(flinchCooldown);
+
+        _canFlinch = true;
     }
 
     #endregion

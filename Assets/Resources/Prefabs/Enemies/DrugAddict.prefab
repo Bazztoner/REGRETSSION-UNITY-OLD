@@ -379,11 +379,12 @@ MonoBehaviour:
   movementSpeed: 1.5
   runSpeedMultiplier: 3.2
   player: {fileID: 0}
-  maxFollowDistance: 20
+  playerLostCountdown: 2
+  flinchCooldown: 0.5
+  initialFlinchPerc: 15
   maxChaseDistance: 15
   maxChaseTime: 5
   chaseCooldown: 2
-  initialChasePerc: 0
   attackCooldown: 0.1
   sightRange: 6
   attackRange: 1
@@ -422,7 +423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5792b662b7605c9469a21f1307d13134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
+  maxHp: 125
 --- !u!54 &1677228280
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -488,7 +489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  viewAngle: 65
+  viewAngle: 100
   viewDistance: 20
   showGizmosInEditor: 0
 --- !u!1 &2613893384486336666

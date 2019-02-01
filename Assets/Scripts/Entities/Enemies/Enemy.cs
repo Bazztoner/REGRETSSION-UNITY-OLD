@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour, IDamageable
         _hp = maxHp;
     }
 
-    public void TakeDamage(int dmg)
+    public virtual void TakeDamage(int dmg)
     {
         UpdateHP(dmg, false);
 
@@ -38,6 +38,11 @@ public class Enemy : MonoBehaviour, IDamageable
     }
 
     public virtual void AttackEnd()
+    {
+
+    }
+
+    public virtual void FlinchEnd()
     {
 
     }

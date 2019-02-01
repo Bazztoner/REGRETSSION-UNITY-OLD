@@ -7,7 +7,7 @@ public class HitscanBeam
 {
     public HitscanBeam(Vector3 origin, Vector3 dir, float damage, Vector3 size)
     {
-        var damagableMask = HitscanLayers.BlockerLayerMask();
+        var damagableMask = HitscanLayers.DamagableLayerMask();
         var enemiesHit = Physics.BoxCastAll(origin + new Vector3(0, 0,size.z), size, dir, Quaternion.identity, size.z, damagableMask);
 
         if (enemiesHit.Any())

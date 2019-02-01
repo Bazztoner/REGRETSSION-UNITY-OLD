@@ -21,6 +21,12 @@ public class DrugAddictAnimModule : MonoBehaviour
         _an.CrossFadeInFixedTime("idle", .1f);
     }
 
+    public void SetFlinch()
+    {
+        var rndIndx = Random.Range(0, PainAnimations.Count);
+        _an.CrossFadeInFixedTime(PainAnimations[rndIndx], .1f);
+    }
+
     public void SetWalk()
     {
         _an.CrossFadeInFixedTime("walk", .1f);
