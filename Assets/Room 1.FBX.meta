@@ -3,525 +3,119 @@ guid: 3a6220f034bc90c4295680922e8a517c
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Alfombra
-    100002: Box012
-    100004: Box013
-    100006: Box014
-    100008: Box015
-    100010: Box025
-    100012: Box026
-    100014: Box027
-    100016: Box028
-    100018: Box029
-    100020: Box030
-    100022: Box031
-    100024: Box032
-    100026: Box033
-    100028: Box034
-    100030: Box035
-    100032: Box036
-    100034: Box037
-    100036: Box038
-    100038: Box039
-    100040: Box040
-    100042: Box041
-    100044: Cama_
-    100046: Cylinder001
-    100048: Cylinder004
-    100050: Cylinder005
-    100052: Cylinder007
-    100054: Cylinder010
-    100056: Cylinder012
-    100058: Cylinder013
-    100060: Cylinder014
-    100062: Cylinder015
-    100064: Cylinder016
-    100066: Cylinder018
-    100068: Cylinder019
-    100070: Cylinder020
-    100072: Cylinder021
-    100074: Cylinder022
-    100076: Cylinder023
-    100078: Cylinder024
-    100080: Cylinder025
-    100082: Fragmentos de vidrios
-    100084: Line001
-    100086: Line002
-    100088: Line003
-    100090: Mesa
-    100092: "Mesa al lado de la l\xE1mpara"
-    100094: Mesa de luz
-    100096: Meza de luz
-    100098: Mueble
-    100100: Object
-    100102: Object001
-    100104: Object002
-    100106: Object003
-    100108: Placard
-    100110: Plane003
-    100112: Plane005
-    100114: Plane006
-    100116: Plane007
-    100118: Plane008
-    100120: Plane009
-    100122: Plane010
-    100124: Plane011
-    100126: Plane012
-    100128: Plane013
-    100130: Plane014
-    100132: Plane015
-    100134: Plane016
-    100136: Plane017
-    100138: Plane018
-    100140: Plane019
-    100142: Plane020
-    100144: Plane021
-    100146: Plane022
-    100148: Plane023
-    100150: Plane024
-    100152: Plane025
-    100154: Plane026
-    100156: Plane027
-    100158: Plane028
-    100160: Plane029
-    100162: Plane030
-    100164: Plane031
-    100166: Plane032
-    100168: Plane033
-    100170: Plane034
-    100172: Plane035
-    100174: Plane036
-    100176: Plane037
-    100178: Plane038
-    100180: Plane039
-    100182: Plane040
-    100184: Repisas
-    100186: //RootNode
-    100188: Silla
-    100190: Silla001
-    100192: Silla002
-    100194: Silla003
-    100196: Silla004
-    100198: Silla005
-    100200: Tele
-    100202: Tele001
-    100204: Toallas
-    100206: "Vidrio mesa al lado de la l\xE1mpara001"
-    400000: Alfombra
-    400002: Box012
-    400004: Box013
-    400006: Box014
-    400008: Box015
-    400010: Box025
-    400012: Box026
-    400014: Box027
-    400016: Box028
-    400018: Box029
-    400020: Box030
-    400022: Box031
-    400024: Box032
-    400026: Box033
-    400028: Box034
-    400030: Box035
-    400032: Box036
-    400034: Box037
-    400036: Box038
-    400038: Box039
-    400040: Box040
-    400042: Box041
-    400044: Cama_
-    400046: Cylinder001
-    400048: Cylinder004
-    400050: Cylinder005
-    400052: Cylinder007
-    400054: Cylinder010
-    400056: Cylinder012
-    400058: Cylinder013
-    400060: Cylinder014
-    400062: Cylinder015
-    400064: Cylinder016
-    400066: Cylinder018
-    400068: Cylinder019
-    400070: Cylinder020
-    400072: Cylinder021
-    400074: Cylinder022
-    400076: Cylinder023
-    400078: Cylinder024
-    400080: Cylinder025
-    400082: Fragmentos de vidrios
-    400084: Line001
-    400086: Line002
-    400088: Line003
-    400090: Mesa
-    400092: "Mesa al lado de la l\xE1mpara"
-    400094: Mesa de luz
-    400096: Meza de luz
-    400098: Mueble
-    400100: Object
-    400102: Object001
-    400104: Object002
-    400106: Object003
-    400108: Placard
-    400110: Plane003
-    400112: Plane005
-    400114: Plane006
-    400116: Plane007
-    400118: Plane008
-    400120: Plane009
-    400122: Plane010
-    400124: Plane011
-    400126: Plane012
-    400128: Plane013
-    400130: Plane014
-    400132: Plane015
-    400134: Plane016
-    400136: Plane017
-    400138: Plane018
-    400140: Plane019
-    400142: Plane020
-    400144: Plane021
-    400146: Plane022
-    400148: Plane023
-    400150: Plane024
-    400152: Plane025
-    400154: Plane026
-    400156: Plane027
-    400158: Plane028
-    400160: Plane029
-    400162: Plane030
-    400164: Plane031
-    400166: Plane032
-    400168: Plane033
-    400170: Plane034
-    400172: Plane035
-    400174: Plane036
-    400176: Plane037
-    400178: Plane038
-    400180: Plane039
-    400182: Plane040
-    400184: Repisas
-    400186: //RootNode
-    400188: Silla
-    400190: Silla001
-    400192: Silla002
-    400194: Silla003
-    400196: Silla004
-    400198: Silla005
-    400200: Tele
-    400202: Tele001
-    400204: Toallas
-    400206: "Vidrio mesa al lado de la l\xE1mpara001"
+    100000: "Ba\xF1o - Marco"
+    100002: "Ba\xF1o - Pared"
+    100004: "Ba\xF1o - Pared 001"
+    100006: "Ba\xF1o - Pared 003"
+    100008: "Ba\xF1o - Pared chica"
+    100010: "Ba\xF1o - Pared detalles"
+    100012: "Ba\xF1o - Piso"
+    100014: Box037
+    100016: Object002
+    100018: Pared 001
+    100020: Pared 002
+    100022: Pared 003
+    100024: Pared 005
+    100026: Pared chica
+    100028: Pared con marco
+    100030: Pared001
+    100032: Piso chico
+    100034: Piso chico 1
+    100036: Piso Largo
+    100038: Plane028
+    100040: //RootNode
+    100042: Techo
+    100044: Vidrio Roto
+    400000: "Ba\xF1o - Marco"
+    400002: "Ba\xF1o - Pared"
+    400004: "Ba\xF1o - Pared 001"
+    400006: "Ba\xF1o - Pared 003"
+    400008: "Ba\xF1o - Pared chica"
+    400010: "Ba\xF1o - Pared detalles"
+    400012: "Ba\xF1o - Piso"
+    400014: Box037
+    400016: Object002
+    400018: Pared 001
+    400020: Pared 002
+    400022: Pared 003
+    400024: Pared 005
+    400026: Pared chica
+    400028: Pared con marco
+    400030: Pared001
+    400032: Piso chico
+    400034: Piso chico 1
+    400036: Piso Largo
+    400038: Plane028
+    400040: //RootNode
+    400042: Techo
+    400044: Vidrio Roto
     2100000: 01 - Default
-    2100002: 07 - Default
-    2100004: 02 - Default
-    2100006: 03 - Default
-    2100008: No Name
-    2300000: Alfombra
-    2300002: Box012
-    2300004: Box013
-    2300006: Box014
-    2300008: Box015
-    2300010: Box025
-    2300012: Box026
-    2300014: Box027
-    2300016: Box028
-    2300018: Box029
-    2300020: Box030
-    2300022: Box031
-    2300024: Box032
-    2300026: Box033
-    2300028: Box034
-    2300030: Box035
-    2300032: Box036
-    2300034: Box037
-    2300036: Box038
-    2300038: Box039
-    2300040: Box040
-    2300042: Box041
-    2300044: Cama_
-    2300046: Cylinder001
-    2300048: Cylinder004
-    2300050: Cylinder005
-    2300052: Cylinder007
-    2300054: Cylinder010
-    2300056: Cylinder012
-    2300058: Cylinder013
-    2300060: Cylinder014
-    2300062: Cylinder015
-    2300064: Cylinder016
-    2300066: Cylinder018
-    2300068: Cylinder019
-    2300070: Cylinder020
-    2300072: Cylinder021
-    2300074: Cylinder022
-    2300076: Cylinder023
-    2300078: Cylinder024
-    2300080: Cylinder025
-    2300082: Line001
-    2300084: Line002
-    2300086: Line003
-    2300088: Mesa
-    2300090: "Mesa al lado de la l\xE1mpara"
-    2300092: Mesa de luz
-    2300094: Meza de luz
-    2300096: Mueble
-    2300098: Object
-    2300100: Object001
-    2300102: Object002
-    2300104: Object003
-    2300106: Placard
-    2300108: Plane003
-    2300110: Plane005
-    2300112: Plane006
-    2300114: Plane007
-    2300116: Plane008
-    2300118: Plane009
-    2300120: Plane010
-    2300122: Plane011
-    2300124: Plane012
-    2300126: Plane013
-    2300128: Plane014
-    2300130: Plane015
-    2300132: Plane016
-    2300134: Plane017
-    2300136: Plane018
-    2300138: Plane019
-    2300140: Plane020
-    2300142: Plane021
-    2300144: Plane022
-    2300146: Plane023
-    2300148: Plane024
-    2300150: Plane025
-    2300152: Plane026
-    2300154: Plane027
-    2300156: Plane028
-    2300158: Plane029
-    2300160: Plane030
-    2300162: Plane031
-    2300164: Plane032
-    2300166: Plane033
-    2300168: Plane034
-    2300170: Plane035
-    2300172: Plane036
-    2300174: Plane037
-    2300176: Plane038
-    2300178: Plane039
-    2300180: Plane040
-    2300182: Repisas
-    2300184: Silla
-    2300186: Silla001
-    2300188: Silla002
-    2300190: Silla003
-    2300192: Silla004
-    2300194: Silla005
-    2300196: Tele
-    2300198: Tele001
-    2300200: Toallas
-    2300202: "Vidrio mesa al lado de la l\xE1mpara001"
-    3300000: Alfombra
-    3300002: Box012
-    3300004: Box013
-    3300006: Box014
-    3300008: Box015
-    3300010: Box025
-    3300012: Box026
-    3300014: Box027
-    3300016: Box028
-    3300018: Box029
-    3300020: Box030
-    3300022: Box031
-    3300024: Box032
-    3300026: Box033
-    3300028: Box034
-    3300030: Box035
-    3300032: Box036
-    3300034: Box037
-    3300036: Box038
-    3300038: Box039
-    3300040: Box040
-    3300042: Box041
-    3300044: Cama_
-    3300046: Cylinder001
-    3300048: Cylinder004
-    3300050: Cylinder005
-    3300052: Cylinder007
-    3300054: Cylinder010
-    3300056: Cylinder012
-    3300058: Cylinder013
-    3300060: Cylinder014
-    3300062: Cylinder015
-    3300064: Cylinder016
-    3300066: Cylinder018
-    3300068: Cylinder019
-    3300070: Cylinder020
-    3300072: Cylinder021
-    3300074: Cylinder022
-    3300076: Cylinder023
-    3300078: Cylinder024
-    3300080: Cylinder025
-    3300082: Line001
-    3300084: Line002
-    3300086: Line003
-    3300088: Mesa
-    3300090: "Mesa al lado de la l\xE1mpara"
-    3300092: Mesa de luz
-    3300094: Meza de luz
-    3300096: Mueble
-    3300098: Object
-    3300100: Object001
-    3300102: Object002
-    3300104: Object003
-    3300106: Placard
-    3300108: Plane003
-    3300110: Plane005
-    3300112: Plane006
-    3300114: Plane007
-    3300116: Plane008
-    3300118: Plane009
-    3300120: Plane010
-    3300122: Plane011
-    3300124: Plane012
-    3300126: Plane013
-    3300128: Plane014
-    3300130: Plane015
-    3300132: Plane016
-    3300134: Plane017
-    3300136: Plane018
-    3300138: Plane019
-    3300140: Plane020
-    3300142: Plane021
-    3300144: Plane022
-    3300146: Plane023
-    3300148: Plane024
-    3300150: Plane025
-    3300152: Plane026
-    3300154: Plane027
-    3300156: Plane028
-    3300158: Plane029
-    3300160: Plane030
-    3300162: Plane031
-    3300164: Plane032
-    3300166: Plane033
-    3300168: Plane034
-    3300170: Plane035
-    3300172: Plane036
-    3300174: Plane037
-    3300176: Plane038
-    3300178: Plane039
-    3300180: Plane040
-    3300182: Repisas
-    3300184: Silla
-    3300186: Silla001
-    3300188: Silla002
-    3300190: Silla003
-    3300192: Silla004
-    3300194: Silla005
-    3300196: Tele
-    3300198: Tele001
-    3300200: Toallas
-    3300202: "Vidrio mesa al lado de la l\xE1mpara001"
-    4300000: Plane003
-    4300002: Box012
-    4300004: Box013
-    4300006: Object
-    4300008: Box014
-    4300010: Object001
-    4300012: Cylinder001
-    4300014: Cylinder004
-    4300016: Cylinder005
-    4300018: Line001
-    4300020: Box015
-    4300022: Cylinder007
-    4300024: Cylinder010
-    4300026: Cylinder012
-    4300028: Line002
-    4300030: Line003
-    4300032: Cylinder013
-    4300034: Cylinder014
-    4300036: Cylinder015
-    4300038: Cylinder016
-    4300040: Toallas
-    4300042: Box025
-    4300044: Box026
-    4300046: Box027
-    4300048: Box028
-    4300050: Box029
-    4300052: Box030
-    4300054: Box031
-    4300056: Box032
-    4300058: Box033
-    4300060: Box034
-    4300062: Box035
-    4300064: Box036
-    4300066: Cylinder018
-    4300068: Cylinder019
-    4300070: Object002
-    4300072: Box037
-    4300074: Object003
-    4300076: Plane009
-    4300078: Plane029
-    4300080: Plane008
-    4300082: Plane012
-    4300084: Plane016
-    4300086: Plane014
-    4300088: Plane007
-    4300090: Plane011
-    4300092: Plane015
-    4300094: Plane020
-    4300096: Plane019
-    4300098: Plane027
-    4300100: Plane010
-    4300102: Plane005
-    4300104: Plane021
-    4300106: Plane022
-    4300108: Plane028
-    4300110: Plane013
-    4300112: Plane023
-    4300114: Plane024
-    4300116: Plane030
-    4300118: Plane018
-    4300120: Plane017
-    4300122: Plane026
-    4300124: Plane025
-    4300126: Plane032
-    4300128: Plane031
-    4300130: Plane006
-    4300132: Cama_
-    4300134: Meza de luz
-    4300136: Mesa de luz
-    4300138: Repisas
-    4300140: Placard
-    4300142: Tele
-    4300144: Mueble
-    4300146: Tele001
-    4300148: Mesa
-    4300150: Silla
-    4300152: Silla001
-    4300154: Silla002
-    4300156: Silla003
-    4300158: Box038
-    4300160: Box039
-    4300162: Plane033
-    4300164: Cylinder020
-    4300166: Cylinder021
-    4300168: Cylinder022
-    4300170: Cylinder023
-    4300172: Plane034
-    4300174: Plane035
-    4300176: Plane036
-    4300178: Plane037
-    4300180: Plane038
-    4300182: Plane039
-    4300184: Plane040
-    4300186: Cylinder024
-    4300188: Cylinder025
-    4300190: Silla004
-    4300192: Silla005
-    4300194: "Mesa al lado de la l\xE1mpara"
-    4300196: "Vidrio mesa al lado de la l\xE1mpara001"
-    4300198: Alfombra
-    4300200: Box040
-    4300202: Box041
+    2300000: "Ba\xF1o - Marco"
+    2300002: "Ba\xF1o - Pared"
+    2300004: "Ba\xF1o - Pared 001"
+    2300006: "Ba\xF1o - Pared 003"
+    2300008: "Ba\xF1o - Pared chica"
+    2300010: "Ba\xF1o - Pared detalles"
+    2300012: "Ba\xF1o - Piso"
+    2300014: Box037
+    2300016: Object002
+    2300018: Pared 001
+    2300020: Pared 002
+    2300022: Pared 003
+    2300024: Pared 005
+    2300026: Pared chica
+    2300028: Pared con marco
+    2300030: Pared001
+    2300032: Piso chico
+    2300034: Piso chico 1
+    2300036: Piso Largo
+    2300038: Plane028
+    2300040: Techo
+    2300042: Vidrio Roto
+    3300000: "Ba\xF1o - Marco"
+    3300002: "Ba\xF1o - Pared"
+    3300004: "Ba\xF1o - Pared 001"
+    3300006: "Ba\xF1o - Pared 003"
+    3300008: "Ba\xF1o - Pared chica"
+    3300010: "Ba\xF1o - Pared detalles"
+    3300012: "Ba\xF1o - Piso"
+    3300014: Box037
+    3300016: Object002
+    3300018: Pared 001
+    3300020: Pared 002
+    3300022: Pared 003
+    3300024: Pared 005
+    3300026: Pared chica
+    3300028: Pared con marco
+    3300030: Pared001
+    3300032: Piso chico
+    3300034: Piso chico 1
+    3300036: Piso Largo
+    3300038: Plane028
+    3300040: Techo
+    3300042: Vidrio Roto
+    4300000: "Ba\xF1o - Piso"
+    4300002: Piso chico
+    4300004: Object002
+    4300006: Box037
+    4300008: Vidrio Roto
+    4300010: Plane028
+    4300012: Pared001
+    4300014: Pared con marco
+    4300016: Pared 001
+    4300018: Pared 002
+    4300020: Pared 003
+    4300022: Pared chica
+    4300024: Pared 005
+    4300026: Piso Largo
+    4300028: "Ba\xF1o - Pared chica"
+    4300030: "Ba\xF1o - Pared detalles"
+    4300032: "Ba\xF1o - Pared 001"
+    4300034: "Ba\xF1o - Pared"
+    4300036: "Ba\xF1o - Pared 003"
+    4300038: "Ba\xF1o - Marco"
+    4300040: Techo
+    4300042: Piso chico
   externalObjects: {}
   materials:
     importMaterials: 1
