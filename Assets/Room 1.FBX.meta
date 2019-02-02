@@ -107,6 +107,24 @@ ModelImporter:
     100202: Tele001
     100204: Toallas
     100206: "Vidrio mesa al lado de la l\xE1mpara001"
+    100208: Box006
+    100210: "Ba\xF1o - Marco"
+    100212: "Ba\xF1o - Pared"
+    100214: "Ba\xF1o - Pared 001"
+    100216: "Ba\xF1o - Pared 003"
+    100218: "Ba\xF1o - Pared chica"
+    100220: "Ba\xF1o - Pared detalles"
+    100222: "Ba\xF1o - Piso"
+    100224: Pared 001
+    100226: Pared 002
+    100228: Pared 003
+    100230: Pared 004
+    100232: Pared 005
+    100234: Pared con marco
+    100236: Pared001
+    100238: Piso chico
+    100240: Piso Largo
+    100242: Vidrio Roto
     400000: Alfombra
     400002: Box012
     400004: Box013
@@ -211,6 +229,24 @@ ModelImporter:
     400202: Tele001
     400204: Toallas
     400206: "Vidrio mesa al lado de la l\xE1mpara001"
+    400208: Box006
+    400210: "Ba\xF1o - Marco"
+    400212: "Ba\xF1o - Pared"
+    400214: "Ba\xF1o - Pared 001"
+    400216: "Ba\xF1o - Pared 003"
+    400218: "Ba\xF1o - Pared chica"
+    400220: "Ba\xF1o - Pared detalles"
+    400222: "Ba\xF1o - Piso"
+    400224: Pared 001
+    400226: Pared 002
+    400228: Pared 003
+    400230: Pared 004
+    400232: Pared 005
+    400234: Pared con marco
+    400236: Pared001
+    400238: Piso chico
+    400240: Piso Largo
+    400242: Vidrio Roto
     2100000: 01 - Default
     2100002: 07 - Default
     2100004: 02 - Default
@@ -318,6 +354,24 @@ ModelImporter:
     2300198: Tele001
     2300200: Toallas
     2300202: "Vidrio mesa al lado de la l\xE1mpara001"
+    2300204: Box006
+    2300206: "Ba\xF1o - Marco"
+    2300208: "Ba\xF1o - Pared"
+    2300210: "Ba\xF1o - Pared 001"
+    2300212: "Ba\xF1o - Pared 003"
+    2300214: "Ba\xF1o - Pared chica"
+    2300216: "Ba\xF1o - Pared detalles"
+    2300218: "Ba\xF1o - Piso"
+    2300220: Pared 001
+    2300222: Pared 002
+    2300224: Pared 003
+    2300226: Pared 004
+    2300228: Pared 005
+    2300230: Pared con marco
+    2300232: Pared001
+    2300234: Piso chico
+    2300236: Piso Largo
+    2300238: Vidrio Roto
     3300000: Alfombra
     3300002: Box012
     3300004: Box013
@@ -420,6 +474,24 @@ ModelImporter:
     3300198: Tele001
     3300200: Toallas
     3300202: "Vidrio mesa al lado de la l\xE1mpara001"
+    3300204: Box006
+    3300206: "Ba\xF1o - Marco"
+    3300208: "Ba\xF1o - Pared"
+    3300210: "Ba\xF1o - Pared 001"
+    3300212: "Ba\xF1o - Pared 003"
+    3300214: "Ba\xF1o - Pared chica"
+    3300216: "Ba\xF1o - Pared detalles"
+    3300218: "Ba\xF1o - Piso"
+    3300220: Pared 001
+    3300222: Pared 002
+    3300224: Pared 003
+    3300226: Pared 004
+    3300228: Pared 005
+    3300230: Pared con marco
+    3300232: Pared001
+    3300234: Piso chico
+    3300236: Piso Largo
+    3300238: Vidrio Roto
     4300000: Plane003
     4300002: Box012
     4300004: Box013
@@ -522,6 +594,24 @@ ModelImporter:
     4300198: Alfombra
     4300200: Box040
     4300202: Box041
+    4300204: Box006
+    4300206: "Ba\xF1o - Piso"
+    4300208: Piso chico
+    4300210: Vidrio Roto
+    4300212: Pared001
+    4300214: Pared con marco
+    4300216: Pared 001
+    4300218: Pared 002
+    4300220: Pared 003
+    4300222: Pared 004
+    4300224: Pared 005
+    4300226: Piso Largo
+    4300228: "Ba\xF1o - Pared chica"
+    4300230: "Ba\xF1o - Pared detalles"
+    4300232: "Ba\xF1o - Pared 001"
+    4300234: "Ba\xF1o - Pared"
+    4300236: "Ba\xF1o - Pared 003"
+    4300238: "Ba\xF1o - Marco"
   externalObjects: {}
   materials:
     importMaterials: 1

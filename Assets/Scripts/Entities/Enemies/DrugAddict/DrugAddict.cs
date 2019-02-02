@@ -11,7 +11,7 @@ public class DrugAddict : MonoBehaviour
     public float runSpeedMultiplier;
 
     DrugAddictAnimModule _anim;
-    DrugAddictModelModule _model;
+    DrugAddictModel _model;
     LineOfSight _loS;
     NavMeshAgent _agent;
     Rigidbody _rb;
@@ -22,7 +22,7 @@ public class DrugAddict : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _agent = GetComponent<NavMeshAgent>();
         _anim = GetComponent<DrugAddictAnimModule>();
-        _model = GetComponent<DrugAddictModelModule>();
+        _model = GetComponent<DrugAddictModel>();
         _loS = GetComponent<LineOfSight>();
         player = FindObjectOfType<PlayerController>().transform;
     }
@@ -36,10 +36,7 @@ public class DrugAddict : MonoBehaviour
     #region FSM
 
     #region Variables
-    #region State Conditions
-    bool _canAttack = true;
     bool _canChase = true;
-    #endregion
 
     public float playerLostCountdown;
     float _actualPlayerLostCountdown;
@@ -58,7 +55,6 @@ public class DrugAddict : MonoBehaviour
     public float chaseCooldown;
 
     //Attack
-    public float attackCooldown;
 
     public float sightRange;
     public float attackRange;
@@ -140,8 +136,8 @@ public class DrugAddict : MonoBehaviour
         chase.OnEnter += x =>
         {
             _agent.isStopped = false;
-            _agent.SetDestination(player.transform.position);
             _anim.SetRun();
+            _agent.SetDestination(player.transform.position);
             var dir = player.position - transform.position;
             transform.forward = new Vector3(dir.x, 0, dir.z).normalized;
             _agent.speed = movementSpeed * runSpeedMultiplier;
@@ -168,7 +164,7 @@ public class DrugAddict : MonoBehaviour
 
         attack.OnExit += x =>
         {
-            StartCoroutine(AttackCooldown());
+
         };
 
         //Flinch
@@ -224,6 +220,10 @@ public class DrugAddict : MonoBehaviour
         {
             ProcessInput(Inputs.Pain);
         }
+        else
+        {
+            ProcessInput(Inputs.EnemyFound);
+        }
     }
 
     public void Die(bool frontalHit)
@@ -234,7 +234,6 @@ public class DrugAddict : MonoBehaviour
 
     public void FlinchEnd()
     {
-
         ProcessInput(Inputs.StateEnd);
     }
 
@@ -257,7 +256,7 @@ public class DrugAddict : MonoBehaviour
             else _actualPlayerLostCountdown += Time.deltaTime;
         }
 
-        if (PlayerInRange() && _canAttack) ProcessInput(Inputs.EnemyInAttackRange);
+        if (PlayerInRange()) ProcessInput(Inputs.EnemyInAttackRange);
     }
 
     void UpdateFlinchPerc()
@@ -296,15 +295,6 @@ public class DrugAddict : MonoBehaviour
         yield return new WaitForSeconds(chaseCooldown);
 
         _canChase = true;
-    }
-
-    IEnumerator AttackCooldown()
-    {
-        _canAttack = false;
-
-        yield return new WaitForSeconds(attackCooldown);
-
-        _canAttack = true;
     }
 
     IEnumerator FlinchCooldown()

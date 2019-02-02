@@ -47,7 +47,7 @@ public struct HitscanLayers
 {
     public static int DamagableLayerMask()
     {
-        return ~(LayerMask.GetMask("Enemy", "Destructible"));
+        return (LayerMask.GetMask("Enemy", "Destructible"));
     }
 
     public static int BlockerLayerMask()
