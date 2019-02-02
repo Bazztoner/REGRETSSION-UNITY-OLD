@@ -47,6 +47,11 @@ public class Enemy : MonoBehaviour, IDamageable
 
     }
 
+    public virtual void EvadeEnd()
+    {
+
+    }
+
     public void UpdateHP(int amount, bool add = true)
     {
         HP = add ? HP += amount : HP -= amount;

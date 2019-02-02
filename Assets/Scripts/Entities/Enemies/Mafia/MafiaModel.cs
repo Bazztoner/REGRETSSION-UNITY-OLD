@@ -3,24 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class DrugAddictModelModule : Enemy
+public class MafiaModel : Enemy
 {
-    DrugAddict _logicModule;
+    Mafia _logicModule;
 
     void Awake()
     {
-        _logicModule = GetComponent<DrugAddict>();
-    }
-
-    public override void TakeDamage(int dmg)
-    {
-        _logicModule.OnTakeDamage();
-        base.TakeDamage(dmg);
+        _logicModule = GetComponent<Mafia>();
     }
 
     public override void Die()
     {
-
         var dirToTarget = _logicModule.player.transform.position - transform.position;
 
         var angleToTarget = Vector3.Angle(transform.forward, dirToTarget);
@@ -30,13 +23,20 @@ public class DrugAddictModelModule : Enemy
         _logicModule.Die(frontalHit);
     }
 
-    public override void AttackEnd()
+    public override void TakeDamage(int dmg)
     {
-        GetComponent<DrugAddict>().AttackEnd();
+        base.TakeDamage(dmg);
+        _logicModule.OnTakeDamage(); 
+
     }
 
-    public override void FlinchEnd()
+    public override void AttackEnd()
     {
-        GetComponent<DrugAddict>().FlinchEnd();
+        GetComponent<Mafia>().AttackEnd();
+    }
+
+    public override void EvadeEnd()
+    {
+        GetComponent<Mafia>().EvadeEnd();
     }
 }

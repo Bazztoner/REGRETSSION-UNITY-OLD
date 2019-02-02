@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4596007681400411155}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 Dito mano DX12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 422322896039804052}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.4981382}
 --- !u!1 &317943285831155582
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8430515509364367019}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 SX Piede
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1297187101777443534}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 3.2771063, y: 8.134136, z: -10.516699}
 --- !u!1 &470194765072872930
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1436906281770502197}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 DX Piede
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4837829368983534255}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -11.314335, y: -18.25003, z: -41.5906}
 --- !u!1 &975630555970715848
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,7 +99,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1297187101777443534}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 SX Polpaccio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ Transform:
   - {fileID: 8430515509364367019}
   m_Father: {fileID: 5445184762572170006}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 64.709465}
 --- !u!1 &1341541106646672847
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,7 +130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6998003457186358369}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 DX Braccio superiore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ Transform:
   - {fileID: 2024666531755974645}
   m_Father: {fileID: 2707699772804228486}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -44.769627, y: 26.521074, z: 61.790405}
 --- !u!1 &1687785066863798106
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3452696754740547489}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 DX Coscia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ Transform:
   - {fileID: 4837829368983534255}
   m_Father: {fileID: 5186302604952047112}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 17.514933, y: -158.01619, z: -11.367123}
 --- !u!1 &1816526527619690138
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7675913340214199566}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8847422597096183773}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 Dito mano DX0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ Transform:
   - {fileID: 4272175194037594239}
   m_Father: {fileID: 7552792552256803415}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -10.737603, y: 6.288443, z: -20.349478}
 --- !u!1 &2031353691640317106
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4272175194037594239}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 Dito mano DX01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7220009461494478835}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 Dito mano DX02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 1677228279}
   - component: {fileID: 1677228281}
   - component: {fileID: 1677228282}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DrugAddict
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,6 @@ MonoBehaviour:
   maxChaseDistance: 15
   maxChaseTime: 5
   chaseCooldown: 2
-  attackCooldown: 0.1
   sightRange: 6
   attackRange: 1
 --- !u!114 &8969947389081041401
@@ -435,7 +434,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
@@ -453,7 +452,7 @@ CapsuleCollider:
   m_Radius: 0.14
   m_Height: 0.88
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.03, z: 0}
 --- !u!195 &1677228281
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -501,7 +500,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 159134000462089774}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Dummy08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -522,7 +521,7 @@ Transform:
   - {fileID: 3493792148176802541}
   m_Father: {fileID: 7470251354715057236}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.00007558078, y: -0.00004230762, z: 105.9918}
 --- !u!1 &2620811993129909103
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,7 +531,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8562266007688001205}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 SX Mano
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -554,7 +553,7 @@ Transform:
   - {fileID: 7053962920466212938}
   m_Father: {fileID: 5732835535373558581}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -65.83512, y: 134.75133, z: -109.41503}
 --- !u!1 &2847355023423003487
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,7 +563,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 227809863399180975}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Dummy10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -585,7 +584,7 @@ Transform:
   - {fileID: 7675913340214199566}
   m_Father: {fileID: 7470251354715057236}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.00007558078, y: -0.00004230762, z: 105.9918}
 --- !u!1 &2890252968176529935
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,7 +594,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7470251354715057236}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 Testa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -618,7 +617,7 @@ Transform:
   - {fileID: 227809863399180975}
   m_Father: {fileID: 2911723281891625951}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 36.170727, y: 30.537945, z: 21.135794}
 --- !u!1 &3011168058501947245
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,7 +628,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4276513268772903726}
   - component: {fileID: 1284016809385194140}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mesh1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -749,7 +748,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5186302604952047112}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 Bacino
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -772,7 +771,7 @@ Transform:
   - {fileID: 5445184762572170006}
   m_Father: {fileID: 1599976102888301160}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 90, z: 0}
 --- !u!1 &3786703736195325291
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,7 +781,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5668360306985484798}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 SX Braccio superiore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -803,7 +802,7 @@ Transform:
   - {fileID: 5732835535373558581}
   m_Father: {fileID: 9151606545580129365}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -19.237015, y: -69.865685, z: 50.687595}
 --- !u!1 &4354587758839614207
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,7 +812,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7552792552256803415}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 DX Mano
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -835,7 +834,7 @@ Transform:
   - {fileID: 5754368561109438544}
   m_Father: {fileID: 2024666531755974645}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 58.137672, y: 96.63497, z: 120.2907}
 --- !u!1 &4754431495792253497
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,7 +844,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5445184762572170006}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 SX Coscia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -866,7 +865,7 @@ Transform:
   - {fileID: 1297187101777443534}
   m_Father: {fileID: 5186302604952047112}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -11.602616, y: 171.19, z: -51.44291}
 --- !u!1 &4983587232035994232
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,7 +875,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2911723281891625951}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 Collo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -899,7 +898,7 @@ Transform:
   - {fileID: 7470251354715057236}
   m_Father: {fileID: 5634801335709070674}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.000028020111, y: 0.000055151948, z: -26.986296}
 --- !u!1 &5319357487961232356
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,7 +908,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4837829368983534255}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 DX Polpaccio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -930,7 +929,7 @@ Transform:
   - {fileID: 1436906281770502197}
   m_Father: {fileID: 3452696754740547489}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 63.286743}
 --- !u!1 &5608093650446725033
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,7 +939,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8579042196215708071}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 Dito mano SX12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -960,7 +959,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2266674510996081641}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -84.49551}
 --- !u!1 &5663965548793771551
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,7 +969,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8981141657980349290}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 Dito mano SX02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1000,7 +999,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2707699772804228486}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 DX Clavicola
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1021,7 +1020,7 @@ Transform:
   - {fileID: 6998003457186358369}
   m_Father: {fileID: 2911723281891625951}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -26.45066, y: 77.179375, z: -174.2117}
 --- !u!1 &6249539653628459153
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,7 +1030,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3493792148176802541}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1061,7 +1060,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9151606545580129365}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 SX Clavicola
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1082,7 +1081,7 @@ Transform:
   - {fileID: 5668360306985484798}
   m_Father: {fileID: 2911723281891625951}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 26.450705, y: -77.17954, z: -174.21207}
 --- !u!1 &6346765478894131011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,7 +1091,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2024666531755974645}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 DX Avambraccio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1113,7 +1112,7 @@ Transform:
   - {fileID: 7552792552256803415}
   m_Father: {fileID: 6998003457186358369}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 91.32076}
 --- !u!1 &6775337144903603891
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,7 +1122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8019022554327017910}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1153,7 +1152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5634801335709070674}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 Dorso3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1174,7 +1173,7 @@ Transform:
   - {fileID: 2911723281891625951}
   m_Father: {fileID: 4836187940967584427}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -3.1166923, y: -4.643697, z: 12.514117}
 --- !u!1 &6957426358901710166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,7 +1183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5732835535373558581}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 SX Avambraccio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1205,7 +1204,7 @@ Transform:
   - {fileID: 8562266007688001205}
   m_Father: {fileID: 5668360306985484798}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 55.61752}
 --- !u!1 &7238280606353067139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,7 +1214,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7053962920466212938}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 Dito mano SX1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1236,7 +1235,7 @@ Transform:
   - {fileID: 2266674510996081641}
   m_Father: {fileID: 8562266007688001205}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.044977948, y: 2.4986832, z: -18.501404}
 --- !u!1 &7282380172735073993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,7 +1245,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5330495300148864284}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Dummy03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1267,7 +1266,7 @@ Transform:
   - {fileID: 8019022554327017910}
   m_Father: {fileID: 7470251354715057236}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.00007558078, y: -0.00004230762, z: 105.9918}
 --- !u!1 &7484011405325815599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1277,7 +1276,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8172341024637877466}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 Dito mano SX0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1298,7 +1297,7 @@ Transform:
   - {fileID: 1925212499091261361}
   m_Father: {fileID: 8562266007688001205}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 9.093386, y: 4.650617, z: -37.26588}
 --- !u!1 &7885590032507667808
 GameObject:
   m_ObjectHideFlags: 0
@@ -1308,7 +1307,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2266674510996081641}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 Dito mano SX11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1329,7 +1328,7 @@ Transform:
   - {fileID: 8579042196215708071}
   m_Father: {fileID: 7053962920466212938}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -36.989227}
 --- !u!1 &8061043878016728529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,7 +1338,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1925212499091261361}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 Dito mano SX01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1370,7 +1369,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1599976102888301160}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1391,7 +1390,7 @@ Transform:
   - {fileID: 5186302604952047112}
   m_Father: {fileID: 6709701098108259102}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 117.00238, z: 0}
 --- !u!1 &8521127285667219761
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,7 +1400,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4836187940967584427}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 Dorso2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1422,7 +1421,7 @@ Transform:
   - {fileID: 5634801335709070674}
   m_Father: {fileID: 8071835295859905794}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -7.949705, y: 1.9832609, z: -10.004144}
 --- !u!1 &8587747604293146702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1432,7 +1431,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5754368561109438544}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 Dito mano DX1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1453,7 +1452,7 @@ Transform:
   - {fileID: 422322896039804052}
   m_Father: {fileID: 7552792552256803415}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.059753843, y: -2.4989138, z: -2.001855}
 --- !u!1 &8847432304751944515
 GameObject:
   m_ObjectHideFlags: 0
@@ -1463,7 +1462,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4606851490533516094}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 Dorso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1484,7 +1483,7 @@ Transform:
   - {fileID: 8071835295859905794}
   m_Father: {fileID: 5186302604952047112}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -2.6943772, y: 3.0937288, z: -5.6936226}
 --- !u!1 &8929865807597105574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1494,7 +1493,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8071835295859905794}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 Dorso1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1515,7 +1514,7 @@ Transform:
   - {fileID: 4836187940967584427}
   m_Father: {fileID: 4606851490533516094}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -3.0032766, y: 0.36635834, z: -4.5116596}
 --- !u!1 &9140486517107025714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,7 +1524,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 422322896039804052}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bip01 Dito mano DX11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1546,4 +1545,4 @@ Transform:
   - {fileID: 4596007681400411155}
   m_Father: {fileID: 5754368561109438544}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.9913633}
