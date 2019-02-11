@@ -32,11 +32,11 @@ public class MafiaModel : Enemy
 
     public override void AttackEnd()
     {
-        GetComponent<Mafia>().AttackEnd();
+        _logicModule.AttackEnd();
     }
 
     public override void EvadeEnd()
     {
-        GetComponent<Mafia>().EvadeEnd();
+        _logicModule.EvadeEnd();
     }
 }

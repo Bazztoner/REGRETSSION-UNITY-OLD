@@ -316,8 +316,8 @@ GameObject:
   - component: {fileID: 6709701098108259102}
   - component: {fileID: 4057036526400437116}
   - component: {fileID: 3777931319194766286}
-  - component: {fileID: 8969947389081041401}
   - component: {fileID: 6779669827793793600}
+  - component: {fileID: 8969947389081041401}
   - component: {fileID: 1677228280}
   - component: {fileID: 1677228279}
   - component: {fileID: 1677228281}
@@ -382,11 +382,22 @@ MonoBehaviour:
   playerLostCountdown: 2
   flinchCooldown: 0.5
   initialFlinchPerc: 15
-  maxChaseDistance: 15
-  maxChaseTime: 5
   chaseCooldown: 2
   sightRange: 6
   attackRange: 1
+--- !u!114 &6779669827793793600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2548985429074131357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5792b662b7605c9469a21f1307d13134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 125
 --- !u!114 &8969947389081041401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,19 +421,6 @@ MonoBehaviour:
   PainAnimations:
   - flinch1
   - flinch2
---- !u!114 &6779669827793793600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2548985429074131357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5792b662b7605c9469a21f1307d13134, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHp: 125
 --- !u!54 &1677228280
 Rigidbody:
   m_ObjectHideFlags: 0

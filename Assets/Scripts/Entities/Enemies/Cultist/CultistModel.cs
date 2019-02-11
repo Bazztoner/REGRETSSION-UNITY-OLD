@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class DrugAddictModel : Enemy
+public class CultistModel : Enemy
 {
-    DrugAddict _logicModule;
+    Cultist _logicModule;
 
     void Awake()
     {
-        _logicModule = GetComponent<DrugAddict>();
+        _logicModule = GetComponent<Cultist>();
     }
 
     public override void TakeDamage(int dmg)

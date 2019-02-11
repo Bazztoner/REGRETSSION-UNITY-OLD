@@ -403,10 +403,8 @@ MonoBehaviour:
   runSpeedMultiplier: 2.7
   player: {fileID: 0}
   playerLostCountdown: 1.8
-  evadeCooldown: 0.8
+  evadeCooldown: 0.5
   initialEvadePerc: 20
-  maxChaseDistance: 15
-  maxChaseTime: 2
   chaseCooldown: 0.2
   attackCooldown: 0.2
   attackPerc: 15

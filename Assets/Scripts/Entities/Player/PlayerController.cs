@@ -8,10 +8,11 @@ using System;
 public class PlayerController : MonoBehaviour
 {
     public List<WeaponBase> allWeapons;
+    HashSet<string> _weaponAvailability;
     CameraShake _camShake;
     CameraController _camController;
     Rigidbody _rb;
-    byte _currentWpn;
+    int _currentWpn;
 
     List<KeyCode> _wpnKeys;
 
@@ -50,6 +51,27 @@ public class PlayerController : MonoBehaviour
         allWeapons = GetComponentsInChildren<WeaponBase>(true).OrderBy(X => X.wpnNumber).ToList();
         _currentWpn = allWeapons.Where(x => x.isActiveAndEnabled).First().wpnNumber;
         _currentWpn--;
+
+        _weaponAvailability = new HashSet<string>()
+        {
+            allWeapons[0].gameObject.name,
+            allWeapons[1].gameObject.name
+        };
+    }
+
+    public void OnPickedUpAmmo(int ammoGiven)
+    {
+        //set ammo on weapons
+    }
+
+    public void OnPickedUpWeapon(string name)
+    {
+        if (!_weaponAvailability.Contains(name))
+        {
+            _weaponAvailability.Add(name);
+            ExecuteChangeWeapon(allWeapons.Where(x => x.gameObject.name == name).FirstOrDefault().wpnNumber - 1);
+        }
+        //giff ammo kotl
     }
 
     void Update()
@@ -84,7 +106,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             var mask = HitscanLayers.BlockerLayerMask();
-            var hits = Physics.RaycastAll(cam.transform.position, cam.transform.forward, 3, mask);
+            var hits = Physics.RaycastAll(cam.transform.position, cam.transform.forward, 2, mask);
             IInteractuable interact;
             if (hits != null)
             {
@@ -95,7 +117,7 @@ public class PlayerController : MonoBehaviour
             {
                 //sound
             }
-           
+
         }
     }
 
@@ -103,19 +125,24 @@ public class PlayerController : MonoBehaviour
     {
         for (byte i = 0; i < _wpnKeys.Count; i++)
         {
-            if (i != _currentWpn)
+            if (i != _currentWpn && _weaponAvailability.Contains(allWeapons[i].gameObject.name))
             {
                 if (Input.GetKeyDown(_wpnKeys[i]) && !_changingWeapon)
                 {
-                    _changingWeapon = true;
-                    StartCoroutine(ChangeWeapon(i));
+                    ExecuteChangeWeapon(i);
                     return;
                 }
             }
         }
     }
 
-    IEnumerator ChangeWeapon(byte indx)
+    public void ExecuteChangeWeapon(int indx)
+    {
+        _changingWeapon = true;
+        StartCoroutine(ChangeWeapon(indx));
+    }
+
+    IEnumerator ChangeWeapon(int indx)
     {
         allWeapons[_currentWpn].ChangeWeapon();
 

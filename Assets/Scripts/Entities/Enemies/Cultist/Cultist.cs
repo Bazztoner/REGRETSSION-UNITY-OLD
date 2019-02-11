@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using FSM;
 using UnityEngine.AI;
+using FSM;
 
-public class DrugAddict : MonoBehaviour
+public class Cultist : MonoBehaviour
 {
     public float movementSpeed;
     public float runSpeedMultiplier;
+    public float berserkSpeedMultiplier;
 
-    DrugAddictAnimModule _anim;
-    DrugAddictModel _model;
+    CultistAnimModule _anim;
+    CultistModel _model;
     LineOfSight _loS;
     NavMeshAgent _agent;
     Rigidbody _rb;
@@ -21,8 +22,8 @@ public class DrugAddict : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _agent = GetComponent<NavMeshAgent>();
-        _anim = GetComponent<DrugAddictAnimModule>();
-        _model = GetComponent<DrugAddictModel>();
+        _anim = GetComponent<CultistAnimModule>();
+        _model = GetComponent<CultistModel>();
         _loS = GetComponent<LineOfSight>();
         player = FindObjectOfType<PlayerController>().transform;
     }
@@ -33,13 +34,14 @@ public class DrugAddict : MonoBehaviour
         InitFsm();
     }
 
-    #region FSM
-
-    #region Variables
     bool _canChase = true;
+    bool _frontalHit = false;
 
     public float playerLostCountdown;
     float _actualPlayerLostCountdown;
+
+    public float idleDuration;
+    float _currentIdleTime;
 
     //Flinch
     public float flinchCooldown;
@@ -47,69 +49,66 @@ public class DrugAddict : MonoBehaviour
     public int initialFlinchPerc;
     int _actualFlinchPerc;
 
+    public float berserkDuration;
+    float _currentBerserkDuration;
+    public float initialRagePerc;
+    float _currentRagePerc;
+
     //Chase
     public float chaseCooldown;
 
     //Attack
-
     public float sightRange;
     public float attackRange;
 
-    bool _frontalHit = false;
-    #endregion
+    bool frontalHit = false;
 
-    #region Properties
     private EventFSM<Inputs> _stateMachine;
-    public enum Inputs { EnemyFound, EnemyLost, EnemyInAttackRange, Pain, StateEnd, Die };
+    public enum Inputs { EnemyFound, EnemyLost, EnemyInAttackRange, Rage, Pain, StateEnd, Die };
 
-    void InitFsm()
+    public void InitFsm()
     {
         //-----------------------------------------STATE CREATE-------------------------------------------//
         var idle = new State<Inputs>("Idle");
         var flinch = new State<Inputs>("Flinch");
+        var patrol = new State<Inputs>("Patrol");
         var chase = new State<Inputs>("Chase");
-        //var returnToStartPos = new State<Inputs>("ReturnToStartPosition");
+        var berserk = new State<Inputs>("Berserk");
         var attack = new State<Inputs>("Attack");
         var death = new State<Inputs>("Death");
 
-        /*
-        idle - No se mueve. Puede ser un descanso
-	        EnemyFound -> follow
-	        Anger => chase
-	        Rest > patrol
-         * */
-
         StateConfigurer.Create(idle)
-            .SetTransition(Inputs.EnemyFound, chase)
             .SetTransition(Inputs.Pain, flinch)
+            .SetTransition(Inputs.StateEnd, patrol)
+            .SetTransition(Inputs.EnemyFound, chase)
             .SetTransition(Inputs.Die, death)
             .Done();
-
-        /*
-         * Flinch
-         */
 
         StateConfigurer.Create(flinch)
             .SetTransition(Inputs.StateEnd, chase)
             .SetTransition(Inputs.Die, death)
             .Done();
 
-        /*chase(run hacia jugador)
-        EnemyLost->idle
-        Rest => follow
-        enemyInAttackRange > attackLong*/
-
-        StateConfigurer.Create(chase)
+        StateConfigurer.Create(patrol)
             .SetTransition(Inputs.Pain, flinch)
-            .SetTransition(Inputs.EnemyLost, idle)
-            .SetTransition(Inputs.EnemyInAttackRange, attack)
+            .SetTransition(Inputs.EnemyFound, chase)
             .SetTransition(Inputs.Die, death)
             .Done();
 
-        /*
-         attack
-	        rest => idle
-         * */
+        StateConfigurer.Create(chase)
+             .SetTransition(Inputs.Pain, flinch)
+             .SetTransition(Inputs.EnemyLost, patrol)
+             .SetTransition(Inputs.EnemyInAttackRange, attack)
+             .SetTransition(Inputs.Rage, berserk)
+             .SetTransition(Inputs.Die, death)
+             .Done();
+
+        StateConfigurer.Create(berserk)
+            .SetTransition(Inputs.Pain, flinch)
+            .SetTransition(Inputs.StateEnd, idle)
+            .SetTransition(Inputs.Die, death)
+            .Done();
+
         StateConfigurer.Create(attack)
            .SetTransition(Inputs.StateEnd, chase)
            .SetTransition(Inputs.Pain, flinch)
@@ -118,18 +117,60 @@ public class DrugAddict : MonoBehaviour
 
         StateConfigurer.Create(death).Done();
 
-
         //-----------------------------------------STATE SET-------------------------------------------//
-        // idle  > follow > chase > attackLong > Death //
 
-        //idle
         idle.OnEnter += x =>
         {
+            _currentIdleTime = 0;
             _anim.SetIdle();
             _agent.isStopped = true;
         };
 
-        //chase
+        idle.OnUpdate += () =>
+        {
+            if (_currentIdleTime < idleDuration)
+            {
+                _currentIdleTime += Time.deltaTime;
+            }
+            else ProcessInput(Inputs.StateEnd);
+        };
+
+        idle.OnExit += x =>
+        {
+            _currentIdleTime = 0;
+        };
+
+
+        flinch.OnEnter += x =>
+        {
+            _agent.isStopped = true;
+            _anim.SetFlinch();
+        };
+
+        flinch.OnExit += x =>
+        {
+            StartCoroutine(FlinchCooldown());
+        };
+
+
+        patrol.OnEnter += x =>
+        {
+            //set waypoints
+
+            _agent.isStopped = false;
+            _anim.SetWalk();
+            /*_agent.SetDestination(player.transform.position);
+            var dir = player.position - transform.position;
+            transform.forward = new Vector3(dir.x, 0, dir.z).normalized;*/
+            _agent.speed = movementSpeed;
+        };
+
+        patrol.OnFixedUpdate += () =>
+        {
+            //cycle through waypoints
+        };
+
+
         chase.OnEnter += x =>
         {
             _agent.isStopped = false;
@@ -151,7 +192,6 @@ public class DrugAddict : MonoBehaviour
                 }
                 else _actualPlayerLostCountdown += Time.deltaTime;
             }
-
         };
 
         chase.OnFixedUpdate += () =>
@@ -166,7 +206,6 @@ public class DrugAddict : MonoBehaviour
             StartCoroutine(ChaseCooldown());
         };
 
-        //attack
         attack.OnEnter += x =>
         {
             _agent.isStopped = true;
@@ -178,20 +217,41 @@ public class DrugAddict : MonoBehaviour
 
         };
 
-        //Flinch
-        flinch.OnEnter += x =>
+        berserk.OnEnter += x =>
         {
-            _agent.isStopped = true;
-            _anim.SetFlinch();
+            _currentBerserkDuration = 0;
+
+            _agent.isStopped = false;
+
+            _agent.SetDestination(player.transform.position);
+            var dir = player.position - transform.position;
+            transform.forward = new Vector3(dir.x, 0, dir.z).normalized;
+            _agent.speed = movementSpeed * berserkSpeedMultiplier;
+
+            _anim.SetBerserk();
         };
 
-        //Flinch
-        flinch.OnExit += x =>
+        berserk.OnUpdate += () =>
         {
-            StartCoroutine(FlinchCooldown());
+            if (_currentBerserkDuration < berserkDuration)
+            {
+                _currentBerserkDuration += Time.deltaTime;
+            }
+            else ProcessInput(Inputs.StateEnd);
         };
 
-        //death
+        berserk.OnFixedUpdate += () =>
+        {
+            _agent.SetDestination(player.transform.position);
+            var dir = player.position - transform.position;
+            transform.forward = new Vector3(dir.x, 0, dir.z).normalized;
+        };
+
+        berserk.OnExit += x =>
+        {
+            _currentBerserkDuration = 0;
+        };
+
         death.OnEnter += x =>
         {
             _anim.SetDeath(_frontalHit);
@@ -200,8 +260,6 @@ public class DrugAddict : MonoBehaviour
             _agent.isStopped = true;
         };
 
-
-        //-----------------------------------------FSM INIT-------------------------------------------//
         _stateMachine = new EventFSM<Inputs>(idle);
     }
 
@@ -233,7 +291,11 @@ public class DrugAddict : MonoBehaviour
         }
         else
         {
-            ProcessInput(Inputs.EnemyFound);
+            UpdateBerserkPerc();
+
+            var input = rnd <= _currentRagePerc ? Inputs.Rage : Inputs.EnemyFound;
+
+            ProcessInput(input);
         }
     }
 
@@ -271,6 +333,17 @@ public class DrugAddict : MonoBehaviour
         _actualFlinchPerc = Mathf.FloorToInt(initialFlinchPerc + percBasedOnHp);
     }
 
+    void UpdateBerserkPerc()
+    {
+        // hp value > initial + hp based
+        // 1% hp > 50% + 25%
+        // 100%hp > 50% + 0%
+
+        var percHp = _model.HP / _model.maxHp;
+        var percBasedOnHp = Mathf.Lerp(25, 0, percHp);
+        _currentRagePerc = Mathf.FloorToInt(initialRagePerc + percBasedOnHp);
+    }
+
     bool PlayerInRange()
     {
         var xDistance = Vector3.Distance(new Vector3(player.position.x, 0), new Vector3(transform.position.x, 0));
@@ -283,12 +356,6 @@ public class DrugAddict : MonoBehaviour
 
         return xCondition && yCondition && zCondition;
     }
-
-    #endregion
-
-    #endregion
-
-    #region Corroutines
 
     IEnumerator ChaseCooldown()
     {
@@ -307,6 +374,4 @@ public class DrugAddict : MonoBehaviour
 
         _canFlinch = true;
     }
-
-    #endregion
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using FSM;
 using UnityEngine.AI;
+using PhoenixDevelopment.Utility;
 
 public class Mafia : MonoBehaviour
 {
@@ -56,10 +57,6 @@ public class Mafia : MonoBehaviour
     enum EvadeDirection { Duck, Left, Right, Forward, Backwards };
 
     //Chase
-    public float maxChaseDistance;
-    float _actualChaseDistance;
-    public float maxChaseTime;
-    float _actualChaseTime;
     public float chaseCooldown;
 
     //Attack
@@ -68,7 +65,7 @@ public class Mafia : MonoBehaviour
 
     public float attackRange;
 
-    bool frontalHit = false;
+    bool _frontalHit = false;
     #endregion
 
     #region Properties
@@ -166,6 +163,20 @@ public class Mafia : MonoBehaviour
 
         };
 
+        chase.OnUpdate += () =>
+        {
+            if (!_loS.TargetInSight)
+            {
+                if (_actualPlayerLostCountdown >= playerLostCountdown)
+                {
+                    ProcessInput(Inputs.EnemyLost);
+                    _actualPlayerLostCountdown = 0;
+                }
+                else _actualPlayerLostCountdown += Time.deltaTime;
+            }
+
+        };
+
         chase.OnFixedUpdate += () =>
         {
             _agent.SetDestination(player.transform.position);
@@ -230,7 +241,7 @@ public class Mafia : MonoBehaviour
 
         attack.OnExit += x =>
         {
-            
+
         };
 
         //Evade (roll ó duck)
@@ -238,7 +249,7 @@ public class Mafia : MonoBehaviour
         //death
         death.OnEnter += x =>
         {
-            _anim.SetDeath(frontalHit);
+            _anim.SetDeath(_frontalHit);
             _rb.useGravity = false;
             GetComponent<Collider>().enabled = false;
             _agent.isStopped = true;
@@ -271,7 +282,7 @@ public class Mafia : MonoBehaviour
 
     public void Die(bool frontalHit)
     {
-        this.frontalHit = frontalHit;
+        this._frontalHit = frontalHit;
         ProcessInput(Inputs.Die);
     }
 
@@ -294,15 +305,6 @@ public class Mafia : MonoBehaviour
     void CheckSensors()
     {
         if (_loS.TargetInSight) ProcessInput(Inputs.EnemyFound);
-        else if (_stateMachine.Current.Name == "Chase")
-        {
-            if (_actualPlayerLostCountdown >= playerLostCountdown)
-            {
-                ProcessInput(Inputs.EnemyLost);
-                _actualPlayerLostCountdown = 0;
-            }
-            else _actualPlayerLostCountdown += Time.deltaTime;
-        }
 
         if (PlayerInRange())
         {
@@ -323,7 +325,7 @@ public class Mafia : MonoBehaviour
 
                 ProcessInput(Inputs.Evade);
             }
-            
+
         }
     }
 
