@@ -28,10 +28,19 @@ public class WPN_Shockroach : WeaponBase
         get => new Vector3(xSize, ySize, zSize);
     }
 
+    protected override int GetBulletsInMag()
+    {
+        return _currentBulletsInMag <= 0 ? 0 : _currentBulletsInMag;
+    }
+
+    protected override void InitializeConditions()
+    {
+        _canShoot = () => !_shooting && !_reloading && !_holstering && GetReserveAmmo() > 0 && _drawn;
+    }
+
     protected override void Start()
     {
         base.Start();
-        UpdateAmmo(maxAmmo);
         _tickDuration = 1 / ticks;
         StartCoroutine(Recharge());
     }
@@ -55,32 +64,16 @@ public class WPN_Shockroach : WeaponBase
     IEnumerator Recharge()
     {
         var waitASecond = new WaitForSeconds(1);
-        var rechargeCondition = new WaitUntil(() => _ammo < maxAmmo && !_keyDown);
+        var rechargeCondition = new WaitUntil(() => _currentBulletsInMag < magSize && !_keyDown);
 
         while ("Nisman" != "Vivo")
         {
             yield return rechargeCondition;
 
-            UpdateAmmo(Mathf.RoundToInt(ammoPerSecond));
+            UpdateReserveAmmo(Mathf.RoundToInt(ammoPerSecond));
 
             yield return waitASecond;
         }
-    }
-
-    protected override int GetAmmo()
-    {
-        return _ammo <= 0 ? 0 : _ammo;
-    }
-
-    protected override void SetAmmo(int ammo)
-    {
-        _ammo = ammo <= 0 ? 0 : ammo >= maxAmmo ? maxAmmo : ammo;
-    }
-
-    protected override void InitializeConditions()
-    {
-        _canShoot = () => !_holstering && GetAmmo() > 0 && _drawn;
-        _canReload = () => !_shooting && !_reloading && !_holstering && GetAmmo() < maxAmmo && _drawn;
     }
 
     protected override void Shoot()
@@ -90,7 +83,7 @@ public class WPN_Shockroach : WeaponBase
 
     IEnumerator ShootHandler()
     {
-        UpdateAmmo(-1);
+        UpdateReserveAmmo(-1);
         _shooting = true;
 
         var channelTime = 0f;
@@ -129,5 +122,27 @@ public class WPN_Shockroach : WeaponBase
         dir.Normalize();
 
         var b = new HitscanBeam(_muzzle.transform.position, dir.normalized, damage * shootCooldown, BeamSize);
+    }
+
+    protected override void SetAmmoOnHUD()
+    {
+        HUDController.Instance.SetAmmo(GetReserveAmmo().ToString());
+    }
+
+    protected override int GetReserveAmmo()
+    {
+        return _owner.ammoReserve[ammoType];
+    }
+
+    protected override void SetBulletsInMag(int bullets, bool overrideBullets = false)
+    {
+        //
+    }
+
+    protected override void UpdateReserveAmmo(int ammo)
+    {
+        _owner.ammoReserve[ammoType] += ammo;
+
+        _owner.ammoReserve[ammoType] = Mathf.Clamp(_owner.ammoReserve[ammoType], 0, _owner.MaxAmmoReserve[(int)ammoType]);
     }
 }

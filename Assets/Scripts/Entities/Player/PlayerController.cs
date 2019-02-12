@@ -5,14 +5,19 @@ using System.Linq;
 using System;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable
 {
     public List<WeaponBase> allWeapons;
+
+    [SerializeField]
+    [Header("Bullets, Shells, Rockets, Cells, Energy, Cores")]
+    int[] _initialAmmoReserve, _maxAmmoReserve;
+
     HashSet<string> _weaponAvailability;
     CameraShake _camShake;
     CameraController _camController;
     Rigidbody _rb;
-    int _currentWpn;
+    [SerializeField] int _currentWpn;
 
     List<KeyCode> _wpnKeys;
 
@@ -20,15 +25,28 @@ public class PlayerController : MonoBehaviour
     public Camera cam;
 
     public float movementSpeed, jumpForce;
+    public int maxHp;
+    float _currentHp;
 
     Dictionary<KeysForDoors, bool> _keysOnInventory;
 
-    void Start()
+    public Dictionary<AmmoTypes, int> ammoReserve;
+
+    public int[] MaxAmmoReserve { get => _maxAmmoReserve; }
+
+    void Awake()
     {
+        InitializeAmmo();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        _currentHp = maxHp;
         _keysOnInventory = new Dictionary<KeysForDoors, bool>();
+    }
+
+    void Start()
+    {
+        HUDController.Instance.SetHealth(Mathf.Round(_currentHp).ToString());
 
         cam = GetComponentInChildren<Camera>();
         _camShake = cam.GetComponent<CameraShake>();
@@ -36,6 +54,15 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
 
         InitializeWeapons();
+    }
+
+    public void InitializeAmmo()
+    {
+        ammoReserve = new Dictionary<AmmoTypes, int>();
+        for (int i = 0; i < _initialAmmoReserve.Length; i++)
+        {
+            ammoReserve.Add((AmmoTypes)i, _initialAmmoReserve[i]);
+        }
     }
 
     void InitializeWeapons()
@@ -59,9 +86,9 @@ public class PlayerController : MonoBehaviour
         };
     }
 
-    public void OnPickedUpAmmo(int ammoGiven)
+    public void OnPickedUpAmmo(int ammoGiven, AmmoTypes type)
     {
-        //set ammo on weapons
+        ammoReserve[type] += ammoGiven;
     }
 
     public void OnPickedUpWeapon(string name)
@@ -71,7 +98,6 @@ public class PlayerController : MonoBehaviour
             _weaponAvailability.Add(name);
             ExecuteChangeWeapon(allWeapons.Where(x => x.gameObject.name == name).FirstOrDefault().wpnNumber - 1);
         }
-        //giff ammo kotl
     }
 
     void Update()
@@ -197,6 +223,7 @@ public class PlayerController : MonoBehaviour
             _keysOnInventory[key] = true;
         }
 
+        HUDController.Instance.SetKey(key);
     }
 
     public bool GetIfKeyInInventory(KeysForDoors key)
@@ -207,6 +234,26 @@ public class PlayerController : MonoBehaviour
         }
 
         return _keysOnInventory[key];
+    }
+
+    public void TakeDamage(int damage, string damageType)
+    {
+        _currentHp -= damage;
+
+        if (_currentHp < 1)
+        {
+            Die();
+            _currentHp = 0;
+        }
+
+        _currentHp = Mathf.Round(_currentHp);
+
+        HUDController.Instance.SetHealth(_currentHp.ToString());
+    }
+
+    void Die()
+    {
+        gameObject.SetActive(false);
     }
 }
 

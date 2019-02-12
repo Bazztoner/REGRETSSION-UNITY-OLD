@@ -6,18 +6,18 @@ using System.Linq;
 public class WPN_SuperShotgun : WeaponBase
 {
     public float dispersionConeRadius;
-    int _bullets = Animator.StringToHash("bullets");
+    int _bulletsInMagHash = Animator.StringToHash("bullets");
 
     protected override void OnEnable()
     {
-        _an.SetInteger(_bullets, _ammo);
+        _an.SetInteger(_bulletsInMagHash, _currentBulletsInMag);
         base.OnEnable();
     }
 
     protected override void Draw()
     {
         base.Draw();
-        if (GetAmmo() == 0) ForceDrawReload();
+        if (GetBulletsInMag() == 0) ForceDrawReload();
     }
 
     protected override void CheckInput()
@@ -26,26 +26,26 @@ public class WPN_SuperShotgun : WeaponBase
         {
             if (_canShoot()) Shoot();
         }
-        else if (Input.GetKeyDown(KeyCode.R))
-        {
-            if (_canReload()) Reload();
-        }
     }
 
-    protected override int GetAmmo()
+    void OnReload(int bulletsToReload)
     {
-        return _ammo <= 0 ? 0 : _ammo;
+        SetBulletsInMag(bulletsToReload);
+        UpdateReserveAmmo(-_currentBulletsInMag);
+
+        SetAmmoOnHUD();
     }
 
-    protected override void SetAmmo(int ammo)
+    void OnShoot()
     {
-        _ammo = ammo <= 0 ? 0 : ammo >= maxAmmo ? maxAmmo : ammo;
+        SetBulletsInMag(-1);
+        _an.SetInteger(_bulletsInMagHash, GetBulletsInMag());
+        SetAmmoOnHUD();
     }
 
     protected override void InitializeConditions()
     {
-        _canShoot = () => !_shooting && !_reloading && !_holstering && GetAmmo() > 0 && _drawn;
-        _canReload = () => !_shooting && !_reloading && !_holstering && GetAmmo() < maxAmmo && _drawn;
+        _canShoot = () => !_shooting && !_reloading && !_holstering && GetReserveAmmo() > 0 && _drawn;
     }
 
     protected override void Shoot()
@@ -57,7 +57,7 @@ public class WPN_SuperShotgun : WeaponBase
     {
         if (!_canShoot()) yield break;
 
-        UpdateAmmo(-1);
+        OnShoot();
         _shooting = true;
 
         _an.CrossFadeInFixedTime("shoot", .1f);
@@ -113,6 +113,12 @@ public class WPN_SuperShotgun : WeaponBase
         StartCoroutine(WaitForDrawEnd());
     }
 
+    public override void Reload()
+    {
+        base.Reload();
+        OnReload(1);
+    }
+
     IEnumerator WaitForDrawEnd()
     {
         //wait for anim
@@ -122,5 +128,40 @@ public class WPN_SuperShotgun : WeaponBase
         yield return new WaitUntil(() => smb.finishedAnim);
 
         Reload();
+    }
+
+    protected override void SetAmmoOnHUD()
+    {
+        HUDController.Instance.SetAmmo(GetReserveAmmo().ToString());
+    }
+
+    protected override int GetBulletsInMag()
+    {
+        return _currentBulletsInMag;
+    }
+
+    protected override int GetReserveAmmo()
+    {
+        return _owner.ammoReserve[ammoType];
+    }
+
+    protected override void SetBulletsInMag(int bullets, bool overrideBullets = false)
+    {
+        if (overrideBullets)
+        {
+            _currentBulletsInMag = bullets;
+        }
+        else
+        {
+            _currentBulletsInMag += bullets;
+            _currentBulletsInMag = Mathf.Clamp(_currentBulletsInMag, 0, magSize);
+        }
+    }
+
+    protected override void UpdateReserveAmmo(int ammo)
+    {
+        _owner.ammoReserve[ammoType] += ammo;
+
+        _owner.ammoReserve[ammoType] = Mathf.Clamp(_owner.ammoReserve[ammoType], 0, _owner.MaxAmmoReserve[(int)ammoType]);
     }
 }

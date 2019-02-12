@@ -12,9 +12,9 @@ public class CultistModel : Enemy
         _logicModule = GetComponent<Cultist>();
     }
 
-    public override void TakeDamage(int dmg)
+    public override void TakeDamage(int dmg, string damageType)
     {
-        base.TakeDamage(dmg);
+        base.TakeDamage(dmg, damageType);
         _logicModule.OnTakeDamage();
     }
 

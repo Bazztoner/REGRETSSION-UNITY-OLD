@@ -27,7 +27,7 @@ public class HitscanBullet
             var damageable = col.GetComponent(typeof(IDamageable)) as IDamageable;
             if (damageable != null)
             {
-                damageable.TakeDamage(Mathf.RoundToInt(appliableDamage));
+                damageable.TakeDamage(Mathf.RoundToInt(appliableDamage), DamageTypes.Bullet);
             }
         }
         else

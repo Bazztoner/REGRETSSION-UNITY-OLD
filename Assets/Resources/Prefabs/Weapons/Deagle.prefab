@@ -71,10 +71,13 @@ MonoBehaviour:
     currentZPosition: 0
     currentZPosVelocity: 0
   wpnNumber: 2
-  maxAmmo: 7
+  magSize: 7
+  maxReserveAmmo: 140
   shootCooldown: 0.35
-  damage: 0
-  pellets: 0
+  _currentBulletsInMag: 7
+  _currentReserveAmmo: 98
+  damage: 35
+  pellets: 1
 --- !u!1 &418369119487409627
 GameObject:
   m_ObjectHideFlags: 0

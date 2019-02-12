@@ -11,7 +11,6 @@ public class WPN_RocketLauncher : WeaponBase
     protected override void Draw()
     {
         base.Draw();
-        if (GetAmmo() == 0) SetAmmo(maxAmmo);
     }
 
     protected override void CheckInput()
@@ -22,20 +21,14 @@ public class WPN_RocketLauncher : WeaponBase
         }
     }
 
-    protected override int GetAmmo()
+    protected override int GetBulletsInMag()
     {
-        return _ammo <= 0 ? 0 : _ammo;
-    }
-
-    protected override void SetAmmo(int ammo)
-    {
-        _ammo = ammo <= 0 ? 0 : ammo >= maxAmmo ? maxAmmo : ammo;
+        return _currentBulletsInMag <= 0 ? 0 : _currentBulletsInMag;
     }
 
     protected override void InitializeConditions()
     {
-        _canShoot = () => !_shooting && !_reloading && !_holstering && GetAmmo() > 0 && _drawn;
-        _canReload = () => !_shooting && !_reloading && !_holstering && GetAmmo() < maxAmmo && _drawn;
+        _canShoot = () => !_shooting && !_reloading && !_holstering && GetReserveAmmo() > 0 && _drawn;
     }
 
     protected override void Shoot()
@@ -45,7 +38,7 @@ public class WPN_RocketLauncher : WeaponBase
 
     IEnumerator ShootHandler()
     {
-        UpdateAmmo(-1);
+        UpdateReserveAmmo(-1);
         _shooting = true;
 
         _an.CrossFadeInFixedTime("shoot", .1f);
@@ -62,7 +55,6 @@ public class WPN_RocketLauncher : WeaponBase
 
     protected override void ManageProjectile()
     {
-        //Owner.ApplyShake(ShakeDuration, ShakeIntensity);
 
         var dir = (_owner.cam.transform.forward + _muzzle.transform.forward).normalized;
         dir.Normalize();
@@ -89,9 +81,29 @@ public class WPN_RocketLauncher : WeaponBase
 
         yield return new WaitForSeconds(reloadTime);
 
-        UpdateAmmo(maxAmmo);
-
         _reloading = false;
         _shooting = false;
+    }
+
+    protected override void SetAmmoOnHUD()
+    {
+        HUDController.Instance.SetAmmo(GetReserveAmmo().ToString());
+    }
+
+    protected override int GetReserveAmmo()
+    {
+        return _owner.ammoReserve[ammoType];
+    }
+
+    protected override void SetBulletsInMag(int bullets, bool overrideBullets = false)
+    {
+        //
+    }
+
+    protected override void UpdateReserveAmmo(int ammo)
+    {
+        _owner.ammoReserve[ammoType] += ammo;
+
+        _owner.ammoReserve[ammoType] = Mathf.Clamp(_owner.ammoReserve[ammoType], 0, _owner.MaxAmmoReserve[(int)ammoType]);
     }
 }

@@ -19,7 +19,6 @@ public class WPN_Displacer : WeaponBase
     protected override void Start()
     {
         base.Start();
-        UpdateAmmo(maxAmmo);
         _tickDuration = 1 / ticks;
     }
 
@@ -39,20 +38,14 @@ public class WPN_Displacer : WeaponBase
         }
     }
 
-    protected override int GetAmmo()
+    protected override int GetBulletsInMag()
     {
-        return _ammo <= 0 ? 0 : _ammo;
-    }
-
-    protected override void SetAmmo(int ammo)
-    {
-        _ammo = ammo <= 0 ? 0 : ammo >= maxAmmo ? maxAmmo : ammo;
+        return _currentBulletsInMag <= 0 ? 0 : _currentBulletsInMag;
     }
 
     protected override void InitializeConditions()
     {
-        _canShoot = () => !_holstering && GetAmmo() >= minCharge && _drawn && _canTap;
-        _canReload = () => !_shooting && !_reloading && !_holstering && GetAmmo() < maxAmmo && _drawn;
+        _canShoot = () => !_holstering && GetReserveAmmo() >= minCharge && _drawn && _canTap;
     }
 
     protected override void Shoot()
@@ -80,7 +73,7 @@ public class WPN_Displacer : WeaponBase
 
             yield return new WaitForSeconds(_tickDuration);
 
-            if (channelTime < ChargePerTick && chargeAcum < maxCharge && chargeAcum < _ammo)
+            if (channelTime < ChargePerTick && chargeAcum < maxCharge && chargeAcum < _currentBulletsInMag)
             {
                 channelTime += _tickDuration;
             }
@@ -91,7 +84,7 @@ public class WPN_Displacer : WeaponBase
             }
         }
 
-        UpdateAmmo(-chargeAcum);
+        UpdateReserveAmmo(-chargeAcum);
         _an.CrossFadeInFixedTime("fire", .1f);
 
         yield return new WaitForEndOfFrame();
@@ -100,5 +93,27 @@ public class WPN_Displacer : WeaponBase
         AddRecoil();
 
         _shooting = false;
+    }
+
+    protected override void SetAmmoOnHUD()
+    {
+        HUDController.Instance.SetAmmo(GetReserveAmmo().ToString());
+    }
+
+    protected override int GetReserveAmmo()
+    {
+        return _owner.ammoReserve[ammoType];
+    }
+
+    protected override void SetBulletsInMag(int bullets, bool overrideBullets = false)
+    {
+        //
+    }
+
+    protected override void UpdateReserveAmmo(int ammo)
+    {
+        _owner.ammoReserve[ammoType] += ammo;
+
+        _owner.ammoReserve[ammoType] = Mathf.Clamp(_owner.ammoReserve[ammoType], 0, _owner.MaxAmmoReserve[(int)ammoType]);
     }
 }

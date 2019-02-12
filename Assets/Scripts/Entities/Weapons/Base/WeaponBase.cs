@@ -6,6 +6,8 @@ using System;
 
 public abstract class WeaponBase : MonoBehaviour
 {
+    public AmmoTypes ammoType;
+
     protected Animator _an;
     protected readonly int _shootHash = Animator.StringToHash("shoot");
     protected readonly int _holsterHash = Animator.StringToHash("holster");
@@ -22,11 +24,16 @@ public abstract class WeaponBase : MonoBehaviour
     public WeaponRecoilStats recoilStats;
 
     public byte wpnNumber;
-    public int maxAmmo;
+    public int magSize;
     public float shootCooldown;
-    protected int _ammo;
-    protected abstract int GetAmmo();
-    protected abstract void SetAmmo(int ammo);
+    [SerializeField] protected int _currentBulletsInMag;
+
+    protected abstract int GetBulletsInMag();
+    protected abstract int GetReserveAmmo();
+    protected abstract void SetBulletsInMag(int bullets, bool overrideBullets = false);
+    protected abstract void UpdateReserveAmmo(int ammo);
+
+    //"∞"
 
     public float damage;
     public int pellets;
@@ -40,15 +47,14 @@ public abstract class WeaponBase : MonoBehaviour
     protected virtual void Awake()
     {
         _an = GetComponent<Animator>();
-        SetAmmo(maxAmmo);
+        _owner = GetComponentInParent<PlayerController>();
     }
 
     protected virtual void Start()
     {
-        _owner = GetComponentInParent<PlayerController>();
         _muzzle = GetComponentInChildren<WeaponMuzzle>();
         InitializeConditions();
-
+        SetBulletsInMag(magSize);
     }
 
     protected abstract void InitializeConditions();
@@ -87,7 +93,11 @@ public abstract class WeaponBase : MonoBehaviour
     {
         //no hash needed
         StartCoroutine(DrawWeapon());
+        SetAmmoOnHUD();
     }
+
+    protected abstract void SetAmmoOnHUD();
+
 
     protected IEnumerator DrawWeapon()
     {
@@ -149,14 +159,9 @@ public abstract class WeaponBase : MonoBehaviour
 
         yield return new WaitUntil(() => smb.finishedAnim && !smb.reloadCancelled);
 
-        UpdateAmmo(maxAmmo);
-
         _reloading = false;
-    }
 
-    protected virtual void UpdateAmmo(int ammo)
-    {
-        SetAmmo(_ammo + ammo);
+        //override and add update ammo
     }
 
     protected virtual void ManageProjectile()
@@ -189,6 +194,16 @@ public abstract class WeaponBase : MonoBehaviour
 
         transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, recoilStats.currentZPosition);
     }
+}
+
+public enum AmmoTypes
+{
+    Bullets,
+    Shells,
+    Rockets,
+    Cells,
+    Energy,
+    Cores
 }
 
 [Serializable]

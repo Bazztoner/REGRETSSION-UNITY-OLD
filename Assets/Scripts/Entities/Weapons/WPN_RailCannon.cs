@@ -7,10 +7,40 @@ public class WPN_RailCannon : WeaponBase
 {
     public float reloadTime;
 
+    protected override int GetBulletsInMag()
+    {
+        return _currentBulletsInMag;
+    }
+
+    protected override int GetReserveAmmo()
+    {
+        return _owner.ammoReserve[ammoType];
+    }
+
+    protected override void SetBulletsInMag(int bullets, bool overrideBullets = false)
+    {
+        if (overrideBullets)
+        {
+            _currentBulletsInMag = bullets;
+        }
+        else
+        {
+            _currentBulletsInMag += bullets;
+            _currentBulletsInMag = Mathf.Clamp(_currentBulletsInMag, 0, magSize);
+        }
+    }
+
+    protected override void UpdateReserveAmmo(int ammo)
+    {
+        _owner.ammoReserve[ammoType] += ammo;
+
+        _owner.ammoReserve[ammoType] = Mathf.Clamp(_owner.ammoReserve[ammoType], 0, _owner.MaxAmmoReserve[(int)ammoType]);
+    }
+
     protected override void Draw()
     {
         base.Draw();
-        if (GetAmmo() == 0) ForceDrawReload();
+        if (GetBulletsInMag() == 0) ForceDrawReload();
     }
 
     protected override void CheckInput()
@@ -25,20 +55,10 @@ public class WPN_RailCannon : WeaponBase
         }
     }
 
-    protected override int GetAmmo()
-    {
-        return _ammo <= 0 ? 0 : _ammo;
-    }
-
-    protected override void SetAmmo(int ammo)
-    {
-        _ammo = ammo <= 0 ? 0 : ammo >= maxAmmo ? maxAmmo : ammo;
-    }
-
     protected override void InitializeConditions()
     {
-        _canShoot = () => !_shooting && !_reloading && !_holstering && GetAmmo() > 0 && _drawn;
-        _canReload = () => !_shooting && !_reloading && !_holstering && GetAmmo() < maxAmmo && _drawn;
+        _canShoot = () => !_shooting && !_reloading && !_holstering && GetBulletsInMag() > 0 && _drawn;
+        _canReload = () => !_shooting && !_reloading && !_holstering && GetBulletsInMag() < magSize && GetReserveAmmo() > 0 && _drawn;
     }
 
     protected override void Shoot()
@@ -50,7 +70,7 @@ public class WPN_RailCannon : WeaponBase
     {
         if (!_canShoot()) yield break;
 
-        UpdateAmmo(-1);
+        OnShoot();
         _shooting = true;
         var rndStyle = Random.Range(0, 2);
         var idleStyle = Random.Range(0, 2);
@@ -68,15 +88,10 @@ public class WPN_RailCannon : WeaponBase
 
         _shooting = false;
 
-        if (GetAmmo() <= 0)
+        if (GetBulletsInMag() <= 0)
         {
             Reload();
         }
-    }
-
-    public override void Reload()
-    {
-        StartCoroutine(ReloadWeapon());
     }
 
     protected override IEnumerator ReloadWeapon()
@@ -89,14 +104,29 @@ public class WPN_RailCannon : WeaponBase
 
         yield return new WaitForSeconds(reloadTime);
 
-        UpdateAmmo(maxAmmo);
-
         _reloading = false;
+
+        var bulletsToReload = GetReserveAmmo() >= magSize ? magSize : GetReserveAmmo();
+        OnReload(bulletsToReload);
     }
 
     void ForceDrawReload()
     {
         StartCoroutine(WaitForDrawEnd());
+    }
+
+    void OnReload(int bulletsToReload)
+    {
+        SetBulletsInMag(bulletsToReload);
+        UpdateReserveAmmo(-_currentBulletsInMag);
+
+        SetAmmoOnHUD();
+    }
+
+    void OnShoot()
+    {
+        SetBulletsInMag(-1);
+        SetAmmoOnHUD();
     }
 
     IEnumerator WaitForDrawEnd()
@@ -108,5 +138,10 @@ public class WPN_RailCannon : WeaponBase
         yield return new WaitUntil(() => smb.finishedAnim);
 
         Reload();
+    }
+
+    protected override void SetAmmoOnHUD()
+    {
+        HUDController.Instance.SetAmmo(_currentBulletsInMag + "/" + GetReserveAmmo());
     }
 }

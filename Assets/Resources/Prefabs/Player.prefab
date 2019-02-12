@@ -262,9 +262,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allWeapons: []
+  _initialAmmoReserve: 3f0000000f0000000500000034000000c800000000000000
+  _maxAmmoReserve: 2c010000320000001900000004010000f4010000fa000000
+  _currentWpn: 0
   cam: {fileID: 0}
   movementSpeed: 5
   jumpForce: 3.5
+  maxHp: 100
 --- !u!136 &3939717023419645367
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -404,8 +408,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 652008504, guid: 2ec48f0fbac2a224b8946f45965e7856, type: 3}
-      propertyPath: reloadTime
-      value: 1.1
+      propertyPath: ammoType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ec48f0fbac2a224b8946f45965e7856, type: 3}
@@ -470,14 +474,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 220313649, guid: 397f4570e753b2141982c116d95a1ed5, type: 3}
-      propertyPath: damage
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 220313649, guid: 397f4570e753b2141982c116d95a1ed5, type: 3}
-      propertyPath: pellets
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 397f4570e753b2141982c116d95a1ed5, type: 3}
 --- !u!4 &3939717022372341709 stripped
@@ -540,6 +536,10 @@ PrefabInstance:
     - target: {fileID: 768880217, guid: d90eea455df897b438ffc2ba28bde16e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 768880219, guid: d90eea455df897b438ffc2ba28bde16e, type: 3}
+      propertyPath: ammoType
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d90eea455df897b438ffc2ba28bde16e, type: 3}
@@ -605,16 +605,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 452932145, guid: e1055f68f4300e04e897822723ab64f3, type: 3}
-      propertyPath: damage
-      value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 452932145, guid: e1055f68f4300e04e897822723ab64f3, type: 3}
-      propertyPath: pellets
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 452932145, guid: e1055f68f4300e04e897822723ab64f3, type: 3}
-      propertyPath: reloadTime
-      value: 2.1665
+      propertyPath: ammoType
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1055f68f4300e04e897822723ab64f3, type: 3}
@@ -680,24 +672,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 252727927, guid: 33ce87f59d02d724fb903001d9e6bc24, type: 3}
-      propertyPath: damage
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 252727927, guid: 33ce87f59d02d724fb903001d9e6bc24, type: 3}
-      propertyPath: pellets
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 252727927, guid: 33ce87f59d02d724fb903001d9e6bc24, type: 3}
-      propertyPath: xSize
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 252727927, guid: 33ce87f59d02d724fb903001d9e6bc24, type: 3}
-      propertyPath: ySize
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 252727927, guid: 33ce87f59d02d724fb903001d9e6bc24, type: 3}
-      propertyPath: zSize
-      value: 3
+      propertyPath: ammoType
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33ce87f59d02d724fb903001d9e6bc24, type: 3}
@@ -762,14 +738,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 906433349, guid: d058c9353203932479942fd60b9dfe37, type: 3}
-      propertyPath: damage
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 906433349, guid: d058c9353203932479942fd60b9dfe37, type: 3}
-      propertyPath: pellets
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d058c9353203932479942fd60b9dfe37, type: 3}
 --- !u!4 &3939717021948502011 stripped
@@ -832,14 +800,6 @@ PrefabInstance:
     - target: {fileID: 851328831, guid: f47105ba6deebcc4eaf3b5255ca1609d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 851328833, guid: f47105ba6deebcc4eaf3b5255ca1609d, type: 3}
-      propertyPath: damage
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 851328833, guid: f47105ba6deebcc4eaf3b5255ca1609d, type: 3}
-      propertyPath: pellets
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f47105ba6deebcc4eaf3b5255ca1609d, type: 3}
@@ -904,6 +864,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1511616809, guid: 40cf89e90e8111d45a7cb1e8cb72f5ae, type: 3}
+      propertyPath: ammoType
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40cf89e90e8111d45a7cb1e8cb72f5ae, type: 3}
 --- !u!4 &3939717021923780230 stripped
@@ -966,6 +930,10 @@ PrefabInstance:
     - target: {fileID: 1239648437, guid: 545919b980f12644e91ddfeca558ce83, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239648439, guid: 545919b980f12644e91ddfeca558ce83, type: 3}
+      propertyPath: ammoType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 545919b980f12644e91ddfeca558ce83, type: 3}

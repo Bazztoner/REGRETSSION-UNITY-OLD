@@ -5,10 +5,40 @@ using System.Linq;
 
 public class WPN_SCARH : WeaponBase
 {
+    protected override int GetBulletsInMag()
+    {
+        return _currentBulletsInMag;
+    }
+
+    protected override int GetReserveAmmo()
+    {
+        return _owner.ammoReserve[ammoType];
+    }
+
+    protected override void SetBulletsInMag(int bullets, bool overrideBullets = false)
+    {
+        if (overrideBullets)
+        {
+            _currentBulletsInMag = bullets;
+        }
+        else
+        {
+            _currentBulletsInMag += bullets;
+            _currentBulletsInMag = Mathf.Clamp(_currentBulletsInMag, 0, magSize);
+        }
+    }
+
+    protected override void UpdateReserveAmmo(int ammo)
+    {
+        _owner.ammoReserve[ammoType] += ammo;
+
+        _owner.ammoReserve[ammoType] = Mathf.Clamp(_owner.ammoReserve[ammoType], 0, _owner.MaxAmmoReserve[(int)ammoType]);
+    }
+
     protected override void Draw()
     {
         base.Draw();
-        if (GetAmmo() == 0) ForceDrawReload();
+        if (GetBulletsInMag() == 0) ForceDrawReload();
     }
 
     protected override void CheckInput()
@@ -23,20 +53,24 @@ public class WPN_SCARH : WeaponBase
         }
     }
 
-    protected override int GetAmmo()
+    void OnReload(int bulletsToReload)
     {
-        return _ammo <= 0 ? 0 : _ammo;
+        SetBulletsInMag(bulletsToReload);
+        UpdateReserveAmmo(-bulletsToReload);
+
+        SetAmmoOnHUD();
     }
 
-    protected override void SetAmmo(int ammo)
+    void OnShoot()
     {
-        _ammo = ammo <= 0 ? 0 : ammo >= maxAmmo ? maxAmmo : ammo;
+        SetBulletsInMag(-1);
+        SetAmmoOnHUD();
     }
 
     protected override void InitializeConditions()
     {
-        _canShoot = () => !_shooting && !_reloading && !_holstering && GetAmmo() > 0 && _drawn;
-        _canReload = () => !_shooting && !_reloading && !_holstering && GetAmmo() < maxAmmo && _drawn;
+        _canShoot = () => !_shooting && !_reloading && !_holstering && GetBulletsInMag() > 0 && _drawn;
+        _canReload = () => !_shooting && !_reloading && !_holstering && GetBulletsInMag() < magSize && GetReserveAmmo() > 0 && _drawn;
     }
 
     protected override void Shoot()
@@ -48,7 +82,7 @@ public class WPN_SCARH : WeaponBase
     {
         if (!_canShoot()) yield break;
 
-        UpdateAmmo(-1);
+        OnShoot();
         _shooting = true;
 
         _an.CrossFadeInFixedTime("shoot", .1f);
@@ -62,7 +96,7 @@ public class WPN_SCARH : WeaponBase
 
         _shooting = false;
 
-        if (GetAmmo()<=0)
+        if (GetBulletsInMag()<=0)
         {
             Reload();
         }
@@ -83,5 +117,18 @@ public class WPN_SCARH : WeaponBase
         yield return new WaitUntil(() => smb.finishedAnim);
 
         Reload();
+    }
+
+    public override void Reload()
+    {
+        if (!_canReload()) return;
+        base.Reload();
+        var bulletsToReload = GetReserveAmmo() >= magSize ? magSize : GetReserveAmmo();
+        var diff = bulletsToReload - _currentBulletsInMag;
+        OnReload(diff);
+    }
+    protected override void SetAmmoOnHUD()
+    {
+        HUDController.Instance.SetAmmo(_currentBulletsInMag + "/" + GetReserveAmmo());
     }
 }

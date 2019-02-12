@@ -71,8 +71,11 @@ MonoBehaviour:
     currentZPosition: 0
     currentZPosVelocity: 0
   wpnNumber: 3
-  maxAmmo: 1
+  magSize: 1
+  maxReserveAmmo: 50
   shootCooldown: 1
+  _currentBulletsInMag: 1
+  _currentReserveAmmo: 0
   damage: 200
   pellets: 24
   dispersionConeRadius: 5

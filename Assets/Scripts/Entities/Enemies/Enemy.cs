@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour, IDamageable
         _hp = maxHp;
     }
 
-    public virtual void TakeDamage(int dmg)
+    public virtual void TakeDamage(int dmg, string damageType)
     {
         UpdateHP(dmg, false);
 

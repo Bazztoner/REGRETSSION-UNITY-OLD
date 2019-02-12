@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1847206743841996215}
   - component: {fileID: 3644424271706078282}
   - component: {fileID: 9190196549744636463}
+  - component: {fileID: 1116978899}
   m_Layer: 0
   m_Name: W_Scar
   m_TagString: Untagged
@@ -59,7 +60,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a106e12dcaffc4c429dfc16239e17c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ammoGiven: 35
+  _ammoGiven: 30
+  ammoType: 0
   _weaponName: SCAR-H
 --- !u!95 &9190196549744636463
 Animator:
@@ -80,6 +82,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1116978899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780765512424564540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d07ce676d7afda4dabb3b0f7dd5e654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 0
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &6228659997722726984
 GameObject:
   m_ObjectHideFlags: 0

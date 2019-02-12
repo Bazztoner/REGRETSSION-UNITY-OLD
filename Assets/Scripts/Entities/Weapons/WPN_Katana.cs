@@ -5,7 +5,17 @@ using System.Linq;
 
 public class WPN_Katana : WeaponBase
 {
-    int _attackStyle = Animator.StringToHash("attackStyle");
+    readonly int _attackStyle = Animator.StringToHash("attackStyle");
+
+    [Header("SwordCollider")]
+    public float xSize;
+    public float ySize;
+    public float zSize;
+
+    Vector3 SwordSize
+    {
+        get => new Vector3(xSize, ySize, zSize);
+    }
 
     protected override void CheckInput()
     {
@@ -15,19 +25,9 @@ public class WPN_Katana : WeaponBase
         }
     }
 
-    protected override int GetAmmo()
-    {
-        return 0;
-    }
-
     protected override void InitializeConditions()
     {
         _canShoot = () => !_shooting && !_reloading && !_holstering && _drawn;
-    }
-
-    protected override void SetAmmo(int ammo)
-    {
-       //
     }
 
     protected override void Shoot()
@@ -43,10 +43,43 @@ public class WPN_Katana : WeaponBase
 
         _shooting = true;
 
+        ManageProjectile();
+
         _an.CrossFadeInFixedTime(stateName, .1f);
 
         yield return new WaitForSeconds(shootCooldown);
-
         _shooting = false;
+    }
+
+    protected override void ManageProjectile()
+    {
+        var dir = _owner.cam.transform.forward;
+
+        var b = new MeleeHitscan(_owner.cam.transform.position, dir.normalized, damage, SwordSize);
+    }
+
+    protected override void SetAmmoOnHUD()
+    {
+        HUDController.Instance.SetAmmo("-");
+    }
+
+    protected override int GetReserveAmmo()
+    {
+        return 0;
+    }
+
+    protected override void SetBulletsInMag(int bullets, bool overrideBullets = false)
+    {
+        //
+    }
+
+    protected override void UpdateReserveAmmo(int ammo)
+    {
+       //
+    }
+
+    protected override int GetBulletsInMag()
+    {
+        return 0;
     }
 }

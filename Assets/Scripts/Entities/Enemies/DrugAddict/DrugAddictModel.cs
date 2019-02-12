@@ -12,9 +12,9 @@ public class DrugAddictModel : Enemy
         _logicModule = GetComponent<DrugAddict>();
     }
 
-    public override void TakeDamage(int dmg)
+    public override void TakeDamage(int dmg, string damageType)
     {
-        base.TakeDamage(dmg);
+        base.TakeDamage(dmg, damageType);
         _logicModule.OnTakeDamage();
     }
 

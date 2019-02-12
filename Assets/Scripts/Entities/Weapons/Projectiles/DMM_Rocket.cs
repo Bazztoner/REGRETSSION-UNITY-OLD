@@ -27,7 +27,7 @@ public class DMM_Rocket : MonoBehaviour
             if (dmgeable != null)
             {
                 //overlapSphere
-                dmgeable.TakeDamage(damage);
+                dmgeable.TakeDamage(damage, DamageTypes.Explosive);
             }
 
             SpawnParticle();

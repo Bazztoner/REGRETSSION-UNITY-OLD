@@ -119,11 +119,14 @@ MonoBehaviour:
     currentZPosition: 0
     currentZPosVelocity: 0
   wpnNumber: 5
-  maxAmmo: 1
+  magSize: 1
+  maxReserveAmmo: 25
   shootCooldown: 1.8
+  _currentBulletsInMag: 1
+  _currentReserveAmmo: 0
   damage: 155
   pellets: 1
-  reloadTime: 1.55
+  reloadTime: 1.1
   rocketPrefab: {fileID: 2310548635278949358, guid: c10179b75c7574140bc29a2ce864674f,
     type: 3}
 --- !u!1 &1104454261
