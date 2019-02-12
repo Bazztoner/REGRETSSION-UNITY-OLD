@@ -65,6 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2895e2792d916d46afd90bc8ce0c6d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ammoType: 1
   recoilStats:
     amount: 6
     recoveryTime: 0.2
@@ -72,10 +73,8 @@ MonoBehaviour:
     currentZPosVelocity: 0
   wpnNumber: 3
   magSize: 1
-  maxReserveAmmo: 50
   shootCooldown: 1
   _currentBulletsInMag: 1
-  _currentReserveAmmo: 0
   damage: 200
   pellets: 24
   dispersionConeRadius: 5

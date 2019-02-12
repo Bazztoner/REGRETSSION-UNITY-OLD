@@ -10,10 +10,7 @@ public class HitscanBullet
     public HitscanBullet(Vector3 origin, Vector3 dir, float damage, int inputPellets)
     {
         var pellets = Mathf.Max(1, inputPellets);
-
-        var rch = new RaycastHit();
-        var mask = HitscanLayers.DamagableLayerMask();
-        var hitDamagable = Physics.Raycast(origin, dir.normalized, out rch, 100, mask);
+        var hitDamagable = Physics.Raycast(origin, dir.normalized, out RaycastHit rch, 100);
         var col = rch.collider;
         var dist = rch.distance;
         objDist = dist;
@@ -24,10 +21,14 @@ public class HitscanBullet
 
             var appliableDamage = GetDamageByPellet(damage, pellets);
 
-            var damageable = col.GetComponent(typeof(IDamageable)) as IDamageable;
-            if (damageable != null)
+            if (col.GetComponent(typeof(IDamageable)) is IDamageable damageable)
             {
                 damageable.TakeDamage(Mathf.RoundToInt(appliableDamage), DamageTypes.Bullet);
+            }
+            else
+            {
+
+                //parts on hit
             }
         }
         else
@@ -43,6 +44,10 @@ public class HitscanBullet
     }
 }
 
+/// <summary>
+/// ~LayerMask: chocar contra todo excepto layerMask
+/// LayerMask: solo contra máscara
+/// </summary>
 public struct HitscanLayers
 {
     public static int DamagableLayerMask()

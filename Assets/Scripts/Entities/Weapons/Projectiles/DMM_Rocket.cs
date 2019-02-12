@@ -5,8 +5,8 @@ using System.Linq;
 
 public class DMM_Rocket : MonoBehaviour
 {
-    public float speed;
-    public int damage;
+    public float speed, radius;
+    public int hitDamage, splashDamage;
     Rigidbody _rb;
 
     void Awake()
@@ -21,13 +21,18 @@ public class DMM_Rocket : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        var dmgeable = col.GetComponent(typeof(IDamageable)) as IDamageable;
         if (col.gameObject.LayerDifferentFrom(LayerMask.NameToLayer("Unrenderizable"), LayerMask.NameToLayer("Ignore Raycast"), LayerMask.NameToLayer("Player")))
         {
-            if (dmgeable != null)
+            if (col.GetComponent(typeof(IDamageable)) is IDamageable dmgeable)
             {
-                //overlapSphere
-                dmgeable.TakeDamage(damage, DamageTypes.Explosive);
+                dmgeable.TakeDamage(hitDamage, DamageTypes.Explosive);
+            }
+
+            var overlapped = Physics.OverlapSphere(transform.position, radius, LayerMask.GetMask("Enemy", "Player", "Destructible")).Select(x => x.GetComponent(typeof(IDamageable)) as IDamageable).Where(x => x!=null).ToArray();
+
+            foreach (var item in overlapped)
+            {
+                item.TakeDamage(splashDamage, DamageTypes.Explosive);
             }
 
             SpawnParticle();

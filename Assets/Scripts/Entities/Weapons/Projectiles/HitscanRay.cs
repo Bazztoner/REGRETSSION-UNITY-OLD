@@ -9,8 +9,7 @@ public class HitscanRay
 
     public HitscanRay(Vector3 origin, Vector3 dir, float damage, int maxEnemies)
     {
-        var damagableMask = HitscanLayers.DamagableLayerMask();
-        var enemiesHit = Physics.RaycastAll(origin, dir.normalized, 100, damagableMask).Take(maxEnemies).ToArray();
+        var enemiesHit = Physics.RaycastAll(origin, dir.normalized, 100).Where(x => x.collider.gameObject.LayerMatchesWith("Enemy")).Take(maxEnemies).ToArray();
         float objDist;
 
         if (enemiesHit.Any())
@@ -22,8 +21,7 @@ public class HitscanRay
 
                 Debug.DrawRay(origin, dir * dist, Color.red, 3);
 
-                var damageable = col.GetComponent(typeof(IDamageable)) as IDamageable;
-                if (damageable != null)
+                if (col.GetComponent(typeof(IDamageable)) is IDamageable damageable)
                 {
                     damageable.TakeDamage(Mathf.RoundToInt(damage), DamageTypes.Bullet);
                 }

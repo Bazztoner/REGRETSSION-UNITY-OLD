@@ -39,6 +39,7 @@ public class WPN_RocketLauncher : WeaponBase
     IEnumerator ShootHandler()
     {
         UpdateReserveAmmo(-1);
+        SetAmmoOnHUD();
         _shooting = true;
 
         _an.CrossFadeInFixedTime("shoot", .1f);
@@ -70,13 +71,14 @@ public class WPN_RocketLauncher : WeaponBase
 
     public override void Reload()
     {
+        if (GetReserveAmmo() < 1) return;
         StartCoroutine(ReloadWeapon());
     }
 
     protected override IEnumerator ReloadWeapon()
     {
         //wait for anim
-
+        _an.CrossFadeInFixedTime("reload", .1f);
         _reloading = true;
 
         yield return new WaitForSeconds(reloadTime);

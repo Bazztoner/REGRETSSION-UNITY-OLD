@@ -83,8 +83,8 @@ Transform:
   - {fileID: 3939717023609319041}
   - {fileID: 3939717022589350626}
   - {fileID: 3939717022472383245}
-  - {fileID: 3939717022682399589}
   - {fileID: 3939717021923780230}
+  - {fileID: 3939717022682399589}
   - {fileID: 3939717022302820126}
   m_Father: {fileID: 3939717022797575403}
   m_RootOrder: 0
@@ -266,8 +266,8 @@ MonoBehaviour:
   _maxAmmoReserve: 2c010000320000001900000004010000f4010000fa000000
   _currentWpn: 0
   cam: {fileID: 0}
-  movementSpeed: 5
-  jumpForce: 3.5
+  movementSpeed: 6
+  jumpForce: 4
   maxHp: 100
 --- !u!136 &3939717023419645367
 CapsuleCollider:
@@ -407,10 +407,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 652008504, guid: 2ec48f0fbac2a224b8946f45965e7856, type: 3}
-      propertyPath: ammoType
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ec48f0fbac2a224b8946f45965e7856, type: 3}
 --- !u!4 &3939717022589350626 stripped
@@ -537,10 +533,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 768880219, guid: d90eea455df897b438ffc2ba28bde16e, type: 3}
-      propertyPath: ammoType
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d90eea455df897b438ffc2ba28bde16e, type: 3}
 --- !u!4 &3939717022302820126 stripped
@@ -604,10 +596,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 452932145, guid: e1055f68f4300e04e897822723ab64f3, type: 3}
-      propertyPath: ammoType
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1055f68f4300e04e897822723ab64f3, type: 3}
 --- !u!4 &3939717022472383245 stripped
@@ -657,7 +645,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 252727925, guid: 33ce87f59d02d724fb903001d9e6bc24, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 252727925, guid: 33ce87f59d02d724fb903001d9e6bc24, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -670,10 +658,6 @@ PrefabInstance:
     - target: {fileID: 252727925, guid: 33ce87f59d02d724fb903001d9e6bc24, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 252727927, guid: 33ce87f59d02d724fb903001d9e6bc24, type: 3}
-      propertyPath: ammoType
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33ce87f59d02d724fb903001d9e6bc24, type: 3}
@@ -850,7 +834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1511616807, guid: 40cf89e90e8111d45a7cb1e8cb72f5ae, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1511616807, guid: 40cf89e90e8111d45a7cb1e8cb72f5ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -863,10 +847,6 @@ PrefabInstance:
     - target: {fileID: 1511616807, guid: 40cf89e90e8111d45a7cb1e8cb72f5ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1511616809, guid: 40cf89e90e8111d45a7cb1e8cb72f5ae, type: 3}
-      propertyPath: ammoType
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40cf89e90e8111d45a7cb1e8cb72f5ae, type: 3}
@@ -930,10 +910,6 @@ PrefabInstance:
     - target: {fileID: 1239648437, guid: 545919b980f12644e91ddfeca558ce83, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1239648439, guid: 545919b980f12644e91ddfeca558ce83, type: 3}
-      propertyPath: ammoType
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 545919b980f12644e91ddfeca558ce83, type: 3}

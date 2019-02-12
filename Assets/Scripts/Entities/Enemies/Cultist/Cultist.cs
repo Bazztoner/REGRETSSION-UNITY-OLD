@@ -64,7 +64,7 @@ public class Cultist : MonoBehaviour
     bool frontalHit = false;
 
     private EventFSM<Inputs> _stateMachine;
-    public enum Inputs { EnemyFound, EnemyLost, EnemyInAttackRange, Rage, Pain, StateEnd, Die };
+    public enum Inputs { EnemyFound, EnemyLost, EnemyInAttackRange, Rage, RageEnd, Pain, StateEnd, Die };
 
     public void InitFsm()
     {
@@ -104,14 +104,15 @@ public class Cultist : MonoBehaviour
              .Done();
 
         StateConfigurer.Create(berserk)
-            .SetTransition(Inputs.Pain, flinch)
-            .SetTransition(Inputs.StateEnd, idle)
+            //.SetTransition(Inputs.Pain, flinch)
+            .SetTransition(Inputs.RageEnd, idle)
             .SetTransition(Inputs.Die, death)
             .Done();
 
         StateConfigurer.Create(attack)
            .SetTransition(Inputs.StateEnd, chase)
            .SetTransition(Inputs.Pain, flinch)
+           .SetTransition(Inputs.Rage, berserk)
            .SetTransition(Inputs.Die, death)
            .Done();
 
@@ -220,6 +221,7 @@ public class Cultist : MonoBehaviour
         berserk.OnEnter += x =>
         {
             _currentBerserkDuration = 0;
+            initialFlinchPerc /= 3;
 
             _agent.isStopped = false;
 
@@ -237,7 +239,7 @@ public class Cultist : MonoBehaviour
             {
                 _currentBerserkDuration += Time.deltaTime;
             }
-            else ProcessInput(Inputs.StateEnd);
+            else ProcessInput(Inputs.RageEnd);
         };
 
         berserk.OnFixedUpdate += () =>
@@ -250,6 +252,7 @@ public class Cultist : MonoBehaviour
         berserk.OnExit += x =>
         {
             _currentBerserkDuration = 0;
+            initialFlinchPerc *= 3;
         };
 
         death.OnEnter += x =>
@@ -281,7 +284,13 @@ public class Cultist : MonoBehaviour
 
     public void OnTakeDamage()
     {
-        UpdateFlinchPerc();
+        UpdateBerserkPerc();
+        var rnd = Random.Range(0, 100 + 1);
+        var input = rnd <= _currentRagePerc ? Inputs.Rage : Inputs.EnemyFound;
+
+        ProcessInput(input);
+
+       /* UpdateFlinchPerc();
 
         var rnd = Random.Range(0, 100 + 1);
 
@@ -296,7 +305,7 @@ public class Cultist : MonoBehaviour
             var input = rnd <= _currentRagePerc ? Inputs.Rage : Inputs.EnemyFound;
 
             ProcessInput(input);
-        }
+        }*/
     }
 
     public void Die(bool frontalHit)

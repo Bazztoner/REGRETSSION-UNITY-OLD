@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed106341dc197414889a21d7e0e0ba9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 300
+  maxHp: 500
 --- !u!114 &8017305684521764743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,18 +136,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 0.7
-  runSpeedMultiplier: 2.3
-  berserkSpeedMultiplier: 3.2
+  runSpeedMultiplier: 6
+  berserkSpeedMultiplier: 10
   player: {fileID: 0}
   playerLostCountdown: 5
   idleDuration: 0.8
   flinchCooldown: 1.3
   initialFlinchPerc: 15
-  berserkDuration: 1.3
+  berserkDuration: 2
   initialRagePerc: 50
   chaseCooldown: 0.5
   sightRange: 12
-  attackRange: 8
+  attackRange: 3
 --- !u!1001 &2846354093455530864
 PrefabInstance:
   m_ObjectHideFlags: 0

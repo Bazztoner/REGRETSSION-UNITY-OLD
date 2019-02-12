@@ -23,7 +23,7 @@ public class LineOfSight : MonoBehaviour
 
     void Start()
     {
-        layerMask = 1 << LayerMask.NameToLayer("Default") | 1 << LayerMask.NameToLayer("Floor");
+        layerMask = LayerMask.GetMask("Default", "Floor");
         if (Target != null) target = GameObject.FindObjectOfType<PlayerController>().gameObject;
     }
 

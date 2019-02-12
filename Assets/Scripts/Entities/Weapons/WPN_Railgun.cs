@@ -44,6 +44,7 @@ public class WPN_Railgun : WeaponBase
     IEnumerator ShootHandler()
     {
         UpdateReserveAmmo(-1);
+        SetAmmoOnHUD();
         _shooting = true;
 
         _an.CrossFadeInFixedTime("shoot", .1f);
@@ -77,6 +78,11 @@ public class WPN_Railgun : WeaponBase
 
     public override void Reload()
     {
+        if (GetReserveAmmo() < 1)
+        {
+            _an.CrossFadeInFixedTime("idle", .1f);
+            return;
+        }
         StartCoroutine(ReloadWeapon());
     }
 
@@ -85,6 +91,7 @@ public class WPN_Railgun : WeaponBase
         //wait for anim
 
         _reloading = true;
+        _an.CrossFadeInFixedTime("reload", .1f);
 
         yield return new WaitForSeconds(reloadTime);
 
@@ -105,7 +112,7 @@ public class WPN_Railgun : WeaponBase
 
         yield return new WaitUntil(() => smb.finishedAnim);
 
-        StartCoroutine(base.ReloadWeapon());
+        Reload();
     }
 
     protected override void ManageProjectile()

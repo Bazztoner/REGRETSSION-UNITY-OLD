@@ -61,7 +61,7 @@ public class Mafia : MonoBehaviour
 
     //Attack
     public float attackCooldown;
-    public int attackPerc = 13;
+    public int attackPerc;
 
     public float attackRange;
 

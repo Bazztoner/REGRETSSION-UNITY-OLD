@@ -58,6 +58,7 @@ public class WPN_SuperShotgun : WeaponBase
         if (!_canShoot()) yield break;
 
         OnShoot();
+        OnReload(1);
         _shooting = true;
 
         _an.CrossFadeInFixedTime("shoot", .1f);
@@ -115,8 +116,9 @@ public class WPN_SuperShotgun : WeaponBase
 
     public override void Reload()
     {
+        if (GetReserveAmmo() < 1) return;
         base.Reload();
-        OnReload(1);
+        //OnReload(1);
     }
 
     IEnumerator WaitForDrawEnd()
