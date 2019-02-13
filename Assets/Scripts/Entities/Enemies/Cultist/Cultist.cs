@@ -14,6 +14,7 @@ public class Cultist : MonoBehaviour
     CultistAnimModule _anim;
     CultistModel _model;
     LineOfSight _loS;
+    public LineOfSight LineOfSightModule { get => _loS; private set => _loS = value; }
     NavMeshAgent _agent;
     Rigidbody _rb;
     public Transform player;
@@ -211,6 +212,7 @@ public class Cultist : MonoBehaviour
         {
             _agent.isStopped = true;
             _anim.SetAttack();
+            _model.AttackStart();
         };
 
         attack.OnExit += x =>

@@ -23,7 +23,7 @@ public class LineOfSight : MonoBehaviour
 
     void Start()
     {
-        layerMask = LayerMask.GetMask("Default", "Floor");
+        layerMask = LayerMask.GetMask("Default", "Floor", "Destructible");
         if (Target != null) target = GameObject.FindObjectOfType<PlayerController>().gameObject;
     }
 
@@ -35,14 +35,12 @@ public class LineOfSight : MonoBehaviour
 
         var sqrDistanceToTarget = (transform.position - target.transform.position).sqrMagnitude;
 
-        RaycastHit rch;
-
         targetInSight = angleToTarget <= viewAngle && sqrDistanceToTarget <= viewDistance * viewDistance &&
 
             !Physics.Raycast(
                 transform.position,
                 dirToTarget,
-                out rch,
+                out RaycastHit rch,
                 Mathf.Sqrt(sqrDistanceToTarget),
                 layerMask
             );

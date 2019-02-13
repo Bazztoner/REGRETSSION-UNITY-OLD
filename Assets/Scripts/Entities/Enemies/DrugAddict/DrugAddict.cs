@@ -17,13 +17,15 @@ public class DrugAddict : MonoBehaviour
     Rigidbody _rb;
     public Transform player;
 
+    public LineOfSight LineOfSightModule { get => _loS; private set => _loS = value; }
+
     void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         _agent = GetComponent<NavMeshAgent>();
         _anim = GetComponent<DrugAddictAnimModule>();
         _model = GetComponent<DrugAddictModel>();
-        _loS = GetComponent<LineOfSight>();
+        LineOfSightModule = GetComponent<LineOfSight>();
         player = FindObjectOfType<PlayerController>().transform;
     }
 
@@ -60,6 +62,7 @@ public class DrugAddict : MonoBehaviour
 
     #region Properties
     private EventFSM<Inputs> _stateMachine;
+
     public enum Inputs { EnemyFound, EnemyLost, EnemyInAttackRange, Pain, StateEnd, Die };
 
     void InitFsm()
@@ -142,7 +145,7 @@ public class DrugAddict : MonoBehaviour
 
         chase.OnUpdate += () =>
         {
-            if (!_loS.TargetInSight)
+            if (!LineOfSightModule.TargetInSight)
             {
                 if (_actualPlayerLostCountdown >= playerLostCountdown)
                 {
@@ -171,6 +174,7 @@ public class DrugAddict : MonoBehaviour
         {
             _agent.isStopped = true;
             _anim.SetAttack();
+            _model.AttackStart();
         };
 
         attack.OnExit += x =>
@@ -256,7 +260,7 @@ public class DrugAddict : MonoBehaviour
     //Sensor checking
     void CheckSensors()
     {
-        if (_loS.TargetInSight) ProcessInput(Inputs.EnemyFound);
+        if (LineOfSightModule.TargetInSight) ProcessInput(Inputs.EnemyFound);
 
         if (PlayerInRange()) ProcessInput(Inputs.EnemyInAttackRange);
     }

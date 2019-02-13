@@ -102,8 +102,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     void Update()
     {
-        CheckInteract();
         CheckJump();
+        CheckInteract();
         CheckChangeWeapon();
     }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class Enemy : MonoBehaviour, IDamageable
+public abstract class Enemy : MonoBehaviour, IDamageable
 {
     public int maxHp;
 
@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour, IDamageable
         }
     }
 
-    void Start()
+    protected virtual void Start()
     {
         _hp = maxHp;
     }
@@ -32,22 +32,18 @@ public class Enemy : MonoBehaviour, IDamageable
         if (HP <= 0) Die();
     }
 
-    public virtual void Die()
-    {
-        //die
-    }
+    public abstract void Die();
 
-    public virtual void AttackEnd()
+    public abstract void AttackStart();
+
+    public abstract void AttackEnd();
+
+    public virtual void EvadeEnd()
     {
 
     }
 
     public virtual void FlinchEnd()
-    {
-
-    }
-
-    public virtual void EvadeEnd()
     {
 
     }

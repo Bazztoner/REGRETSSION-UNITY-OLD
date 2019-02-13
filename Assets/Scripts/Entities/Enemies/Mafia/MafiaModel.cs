@@ -30,6 +30,11 @@ public class MafiaModel : Enemy
 
     }
 
+    public override void AttackStart()
+    {
+       //
+    }
+
     public override void AttackEnd()
     {
         _logicModule.AttackEnd();

@@ -10,7 +10,7 @@ public class HitscanBullet
     public HitscanBullet(Vector3 origin, Vector3 dir, float damage, int inputPellets)
     {
         var pellets = Mathf.Max(1, inputPellets);
-        var hitDamagable = Physics.Raycast(origin, dir.normalized, out RaycastHit rch, 100);
+        var hitDamagable = Physics.Raycast(origin, dir.normalized, out RaycastHit rch, 100, ~LayerMask.GetMask("SeeThrough"));
         var col = rch.collider;
         var dist = rch.distance;
         objDist = dist;

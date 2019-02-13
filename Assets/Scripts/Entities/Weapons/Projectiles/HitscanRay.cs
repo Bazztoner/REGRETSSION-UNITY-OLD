@@ -9,7 +9,7 @@ public class HitscanRay
 
     public HitscanRay(Vector3 origin, Vector3 dir, float damage, int maxEnemies)
     {
-        var enemiesHit = Physics.RaycastAll(origin, dir.normalized, 100).Where(x => x.collider.gameObject.LayerMatchesWith("Enemy")).Take(maxEnemies).ToArray();
+        var enemiesHit = Physics.RaycastAll(origin, dir.normalized, 100, ~LayerMask.GetMask("SeeThrough")).Where(x => x.collider.gameObject.LayerMatchesWith("Enemy")).Take(maxEnemies).ToArray();
         float objDist;
 
         if (enemiesHit.Any())
