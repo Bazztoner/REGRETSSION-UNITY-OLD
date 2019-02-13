@@ -212,7 +212,7 @@ public class Cultist : MonoBehaviour
         {
             _agent.isStopped = true;
             _anim.SetAttack();
-            _model.AttackStart();
+            _model.RangedAttackStart();
         };
 
         attack.OnExit += x =>
@@ -233,6 +233,7 @@ public class Cultist : MonoBehaviour
             _agent.speed = movementSpeed * berserkSpeedMultiplier;
 
             _anim.SetBerserk();
+            _model.AttackStart();
         };
 
         berserk.OnUpdate += () =>

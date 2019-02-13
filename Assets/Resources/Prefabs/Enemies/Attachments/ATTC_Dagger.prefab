@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2454877375692645968}
-  - component: {fileID: 2343700832804349371}
+  - component: {fileID: 6165402713813306014}
   m_Layer: 0
   m_Name: ATTC_Dagger
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2343700832804349371
+--- !u!114 &6165402713813306014
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1502156531029447570}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09d97a3410d8c5a4885d3700d14a40dc, type: 3}
+  m_Script: {fileID: 11500000, guid: fd48a61ed7fc5c74ea52d6cef0cf808d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2406510299646506494
@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 1285551898228450594}
   - component: {fileID: 5560355719831240028}
   - component: {fileID: 1851071799663272095}
+  - component: {fileID: 8113209277744855088}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Untagged
@@ -136,6 +137,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8113209277744855088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2406510299646506494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 316b4d1e261f1e64d9352738d44fd05e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2927104037330167967
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,7 +160,6 @@ GameObject:
   - component: {fileID: 2619465627964894177}
   - component: {fileID: 7040111083733797570}
   - component: {fileID: 8079869701745042729}
-  - component: {fileID: 6901267551319572927}
   m_Layer: 0
   m_Name: Pivot
   m_TagString: Untagged
@@ -216,18 +228,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &6901267551319572927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2927104037330167967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eed45c4a2751c0469dadacdbd0e391a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5459085079389275305
 PrefabInstance:
   m_ObjectHideFlags: 0

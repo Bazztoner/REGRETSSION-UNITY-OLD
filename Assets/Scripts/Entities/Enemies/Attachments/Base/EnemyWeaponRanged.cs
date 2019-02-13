@@ -5,9 +5,10 @@ using System.Linq;
 
 public class EnemyWeaponRanged : EnemyWeaponBase
 {
-    EnemyRangedMuzzle _muzzle;
+    protected EnemyRangedMuzzle _muzzle;
+    protected Vector3 _storedDir;
 
-    void Awake()
+    protected virtual void Awake()
     {
         _muzzle = GetComponentInChildren<EnemyRangedMuzzle>();
     }

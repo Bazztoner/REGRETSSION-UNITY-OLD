@@ -6,10 +6,19 @@ using System.Linq;
 public class MafiaModel : Enemy
 {
     Mafia _logicModule;
+    EnemyWeaponRanged _wpn;
+    public int damage;
 
     void Awake()
     {
         _logicModule = GetComponent<Mafia>();
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        _wpn = GetComponentInChildren<EnemyWeaponRanged>();
+        _wpn.Configure(damage, this, _logicModule.LineOfSightModule.Target.GetComponent<PlayerController>());
     }
 
     public override void Die()
@@ -32,7 +41,7 @@ public class MafiaModel : Enemy
 
     public override void AttackStart()
     {
-       //
+        _wpn.AttackStart();
     }
 
     public override void AttackEnd()

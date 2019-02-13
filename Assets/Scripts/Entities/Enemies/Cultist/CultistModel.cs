@@ -55,6 +55,19 @@ public class CultistModel : Enemy
         _logicModule.AttackEnd();
     }
 
+    /// <summary>
+    /// Melee
+    /// </summary>
+    public void RangedAttackStart()
+    {
+        _rangedWpn.AttackStart();
+    }
+
+    public void RangedAttackEnd()
+    {
+        _rangedWpn.AttackEnd();
+    }
+
     public override void FlinchEnd()
     {
         _logicModule.FlinchEnd();

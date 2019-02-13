@@ -14,6 +14,7 @@ public class Mafia : MonoBehaviour
     MafiaAnimModule _anim;
     MafiaModel _model;
     LineOfSight _loS;
+    public LineOfSight LineOfSightModule { get => _loS; private set => _loS = value; }
     NavMeshAgent _agent;
     Rigidbody _rb;
     public Transform player;
@@ -237,6 +238,7 @@ public class Mafia : MonoBehaviour
         {
             _agent.isStopped = true;
             _anim.SetAttack();
+            _model.AttackStart();
         };
 
         attack.OnExit += x =>
