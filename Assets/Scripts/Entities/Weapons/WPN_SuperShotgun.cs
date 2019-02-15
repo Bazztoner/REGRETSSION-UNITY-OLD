@@ -132,7 +132,7 @@ public class WPN_SuperShotgun : WeaponBase
         Reload();
     }
 
-    protected override void SetAmmoOnHUD()
+    public override void SetAmmoOnHUD()
     {
         HUDController.Instance.SetAmmo(GetReserveAmmo().ToString());
     }

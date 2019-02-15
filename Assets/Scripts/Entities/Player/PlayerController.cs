@@ -33,6 +33,14 @@ public class PlayerController : MonoBehaviour, IDamageable
     public Dictionary<AmmoTypes, int> ammoReserve;
 
     public int[] MaxAmmoReserve { get => _maxAmmoReserve; }
+    public float CurrentHp
+    {
+        get => Mathf.Round(_currentHp);
+        set
+        {
+            _currentHp = Mathf.Round(Mathf.Clamp(value, 0, maxHp));
+        }
+    }
 
     void Awake()
     {
@@ -40,13 +48,13 @@ public class PlayerController : MonoBehaviour, IDamageable
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        _currentHp = maxHp;
+        CurrentHp = maxHp;
         _keysOnInventory = new Dictionary<KeysForDoors, bool>();
     }
 
     void Start()
     {
-        HUDController.Instance.SetHealth(Mathf.Round(_currentHp).ToString());
+        UpdateHP();
 
         cam = GetComponentInChildren<Camera>();
         _camShake = cam.GetComponent<CameraShake>();
@@ -89,6 +97,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     public void OnPickedUpAmmo(int ammoGiven, AmmoTypes type)
     {
         ammoReserve[type] += ammoGiven;
+        allWeapons[_currentWpn].SetAmmoOnHUD();
     }
 
     public void OnPickedUpWeapon(string name)
@@ -98,6 +107,11 @@ public class PlayerController : MonoBehaviour, IDamageable
             _weaponAvailability.Add(name);
             ExecuteChangeWeapon(allWeapons.Where(x => x.gameObject.name == name).FirstOrDefault().wpnNumber - 1);
         }
+    }
+
+    public void OnPickedUpLife(int lifeGiven)
+    {
+        TakeHealing(lifeGiven);
     }
 
     void Update()
@@ -238,17 +252,28 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage, string damageType)
     {
-        _currentHp -= damage;
+        CurrentHp -= damage;
 
-        if (_currentHp < 1)
+        if (CurrentHp < 1)
         {
             Die();
-            _currentHp = 0;
+            CurrentHp = 0;
         }
 
-        _currentHp = Mathf.Round(_currentHp);
+        CurrentHp = Mathf.Round(CurrentHp);
 
-        HUDController.Instance.SetHealth(_currentHp.ToString());
+        UpdateHP();
+    }
+
+    public void TakeHealing(int healing)
+    {
+        CurrentHp += healing;
+        UpdateHP();
+    }
+
+    void UpdateHP()
+    {
+        HUDController.Instance.SetHealth(CurrentHp.ToString());
     }
 
     void Die()

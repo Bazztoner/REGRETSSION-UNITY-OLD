@@ -12,8 +12,12 @@ public class AmmoPickupBase : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            other.GetComponent<PlayerController>().OnPickedUpAmmo(_ammoGiven, ammoType);
-            gameObject.SetActive(false);
+            var player = other.GetComponent<PlayerController>();
+            if (player.ammoReserve[ammoType] < player.MaxAmmoReserve[(int)ammoType])
+            {
+                other.GetComponent<PlayerController>().OnPickedUpAmmo(_ammoGiven, ammoType);
+                gameObject.SetActive(false);
+            }
         }
     }
 }

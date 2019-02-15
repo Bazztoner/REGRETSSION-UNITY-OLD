@@ -7,7 +7,8 @@ public class MafiaModel : Enemy
 {
     Mafia _logicModule;
     EnemyWeaponRanged _wpn;
-    public int damage;
+    public int damage, dropChance;
+    public AmmoPickupBase bulletDrop;
 
     void Awake()
     {
@@ -30,6 +31,11 @@ public class MafiaModel : Enemy
         var frontalHit = angleToTarget < 90;
 
         _logicModule.Die(frontalHit);
+
+        if (Random.Range(0, 101) <= dropChance)
+        {
+            GameObject.Instantiate(bulletDrop, transform.position, Quaternion.identity);
+        }
     }
 
     public override void TakeDamage(int dmg, string damageType)

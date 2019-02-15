@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 500
-  meleeDamage: 25
-  rangedDamage: 15
+  meleeDamage: 20
+  rangedDamage: 30
 --- !u!114 &8017305684521764743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   initialRagePerc: 50
   chaseCooldown: 0.5
   sightRange: 12
-  attackRange: 3
+  attackRange: 4
 --- !u!1001 &2846354093455530864
 PrefabInstance:
   m_ObjectHideFlags: 0

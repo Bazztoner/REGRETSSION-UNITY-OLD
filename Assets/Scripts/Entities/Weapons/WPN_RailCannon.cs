@@ -140,7 +140,7 @@ public class WPN_RailCannon : WeaponBase
         Reload();
     }
 
-    protected override void SetAmmoOnHUD()
+    public override void SetAmmoOnHUD()
     {
         HUDController.Instance.SetAmmo(_currentBulletsInMag + "/" + GetReserveAmmo());
     }

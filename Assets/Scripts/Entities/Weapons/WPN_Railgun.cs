@@ -136,7 +136,7 @@ public class WPN_Railgun : WeaponBase
         SimpleParticleSpawner.Instance.SpawnParticle(muzzleFlashParticle.gameObject, _muzzle.transform.position, dir.normalized, _muzzle.transform);
     }
 
-    protected override void SetAmmoOnHUD()
+    public override void SetAmmoOnHUD()
     {
         HUDController.Instance.SetAmmo(GetReserveAmmo().ToString());
     }

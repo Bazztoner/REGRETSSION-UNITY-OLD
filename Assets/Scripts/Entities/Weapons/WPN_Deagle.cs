@@ -138,7 +138,7 @@ public class WPN_Deagle : WeaponBase
         OnReload(diff);
     }
 
-    protected override void SetAmmoOnHUD()
+    public override void SetAmmoOnHUD()
     {
         HUDController.Instance.SetAmmo(_currentBulletsInMag + "/" + GetReserveAmmo());
     }

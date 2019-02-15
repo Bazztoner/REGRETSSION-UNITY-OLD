@@ -389,6 +389,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 100
   damage: 10
+  dropChance: 75
+  bulletDrop: {fileID: 1871579345029480844, guid: 739b3ed8eae96724282ec8d74623dfbf,
+    type: 3}
 --- !u!114 &483836415
 MonoBehaviour:
   m_ObjectHideFlags: 0

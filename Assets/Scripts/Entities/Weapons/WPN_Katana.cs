@@ -58,7 +58,7 @@ public class WPN_Katana : WeaponBase
         var b = new MeleeHitscan(_owner.cam.transform.position, dir.normalized, damage, SwordSize);
     }
 
-    protected override void SetAmmoOnHUD()
+    public override void SetAmmoOnHUD()
     {
         HUDController.Instance.SetAmmo("-");
     }

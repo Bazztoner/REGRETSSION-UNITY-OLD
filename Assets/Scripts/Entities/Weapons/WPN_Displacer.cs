@@ -95,7 +95,7 @@ public class WPN_Displacer : WeaponBase
         _shooting = false;
     }
 
-    protected override void SetAmmoOnHUD()
+    public override void SetAmmoOnHUD()
     {
         HUDController.Instance.SetAmmo(GetReserveAmmo().ToString());
     }

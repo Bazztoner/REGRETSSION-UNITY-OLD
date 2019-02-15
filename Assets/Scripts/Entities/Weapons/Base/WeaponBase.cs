@@ -96,7 +96,7 @@ public abstract class WeaponBase : MonoBehaviour
         SetAmmoOnHUD();
     }
 
-    protected abstract void SetAmmoOnHUD();
+    public abstract void SetAmmoOnHUD();
 
 
     protected IEnumerator DrawWeapon()

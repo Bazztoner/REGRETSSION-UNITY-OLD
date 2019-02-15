@@ -124,7 +124,7 @@ public class WPN_Shockroach : WeaponBase
         var b = new HitscanBeam(_muzzle.transform.position, dir.normalized, damage * shootCooldown, BeamSize);
     }
 
-    protected override void SetAmmoOnHUD()
+    public override void SetAmmoOnHUD()
     {
         HUDController.Instance.SetAmmo(GetReserveAmmo().ToString());
     }

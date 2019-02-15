@@ -87,7 +87,7 @@ public class WPN_RocketLauncher : WeaponBase
         _shooting = false;
     }
 
-    protected override void SetAmmoOnHUD()
+    public override void SetAmmoOnHUD()
     {
         HUDController.Instance.SetAmmo(GetReserveAmmo().ToString());
     }
