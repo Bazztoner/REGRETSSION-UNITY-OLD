@@ -21,6 +21,11 @@ public class LineOfSight : MonoBehaviour
         this.viewDistance = viewDistance;
     }
 
+    public void SetTarget(Transform player)
+    {
+        target = player.gameObject;
+    }
+
     void Start()
     {
         layerMask = LayerMask.GetMask("Default", "Floor", "Destructible");

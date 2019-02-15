@@ -27,6 +27,7 @@ public class DrugAddict : MonoBehaviour
         _model = GetComponent<DrugAddictModel>();
         LineOfSightModule = GetComponent<LineOfSight>();
         player = FindObjectOfType<PlayerController>().transform;
+        LineOfSightModule.SetTarget(player);
     }
 
     void Start()

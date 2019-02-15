@@ -15,6 +15,7 @@ public class Cultist : MonoBehaviour
     CultistModel _model;
     LineOfSight _loS;
     public LineOfSight LineOfSightModule { get => _loS; private set => _loS = value; }
+
     NavMeshAgent _agent;
     Rigidbody _rb;
     public Transform player;
@@ -27,6 +28,7 @@ public class Cultist : MonoBehaviour
         _model = GetComponent<CultistModel>();
         _loS = GetComponent<LineOfSight>();
         player = FindObjectOfType<PlayerController>().transform;
+        LineOfSightModule.SetTarget(player);
     }
 
     void Start()
@@ -35,7 +37,6 @@ public class Cultist : MonoBehaviour
         InitFsm();
     }
 
-    bool _canChase = true;
     bool _frontalHit = false;
 
     public float playerLostCountdown;
@@ -43,12 +44,6 @@ public class Cultist : MonoBehaviour
 
     public float idleDuration;
     float _currentIdleTime;
-
-    //Flinch
-    public float flinchCooldown;
-    bool _canFlinch = true;
-    public int initialFlinchPerc;
-    int _actualFlinchPerc;
 
     public float berserkDuration;
     float _currentBerserkDuration;
@@ -62,57 +57,51 @@ public class Cultist : MonoBehaviour
     public float sightRange;
     public float attackRange;
 
-    bool frontalHit = false;
-
-    private EventFSM<Inputs> _stateMachine;
+    EventFSM<Inputs> _stateMachine;
     public enum Inputs { EnemyFound, EnemyLost, EnemyInAttackRange, Rage, RageEnd, Pain, StateEnd, Die };
+
+    public string GetCurrentState()
+    {
+        return _stateMachine.Current.Name;
+    }
 
     public void InitFsm()
     {
         //-----------------------------------------STATE CREATE-------------------------------------------//
         var idle = new State<Inputs>("Idle");
-        var flinch = new State<Inputs>("Flinch");
-        var patrol = new State<Inputs>("Patrol");
+        var search = new State<Inputs>("Search");
         var chase = new State<Inputs>("Chase");
         var berserk = new State<Inputs>("Berserk");
         var attack = new State<Inputs>("Attack");
         var death = new State<Inputs>("Death");
 
         StateConfigurer.Create(idle)
-            .SetTransition(Inputs.Pain, flinch)
-            .SetTransition(Inputs.StateEnd, patrol)
+            .SetTransition(Inputs.Pain, chase)
+            .SetTransition(Inputs.StateEnd, search)
             .SetTransition(Inputs.EnemyFound, chase)
             .SetTransition(Inputs.Die, death)
             .Done();
 
-        StateConfigurer.Create(flinch)
-            .SetTransition(Inputs.StateEnd, chase)
-            .SetTransition(Inputs.Die, death)
-            .Done();
-
-        StateConfigurer.Create(patrol)
-            .SetTransition(Inputs.Pain, flinch)
+        StateConfigurer.Create(search)
+            .SetTransition(Inputs.Pain, chase)
             .SetTransition(Inputs.EnemyFound, chase)
             .SetTransition(Inputs.Die, death)
             .Done();
 
         StateConfigurer.Create(chase)
-             .SetTransition(Inputs.Pain, flinch)
-             .SetTransition(Inputs.EnemyLost, patrol)
+             .SetTransition(Inputs.EnemyLost, search)
              .SetTransition(Inputs.EnemyInAttackRange, attack)
              .SetTransition(Inputs.Rage, berserk)
              .SetTransition(Inputs.Die, death)
              .Done();
 
         StateConfigurer.Create(berserk)
-            //.SetTransition(Inputs.Pain, flinch)
             .SetTransition(Inputs.RageEnd, idle)
             .SetTransition(Inputs.Die, death)
             .Done();
 
         StateConfigurer.Create(attack)
            .SetTransition(Inputs.StateEnd, chase)
-           .SetTransition(Inputs.Pain, flinch)
            .SetTransition(Inputs.Rage, berserk)
            .SetTransition(Inputs.Die, death)
            .Done();
@@ -142,34 +131,21 @@ public class Cultist : MonoBehaviour
             _currentIdleTime = 0;
         };
 
-
-        flinch.OnEnter += x =>
+        search.OnEnter += x =>
         {
-            _agent.isStopped = true;
-            _anim.SetFlinch();
-        };
-
-        flinch.OnExit += x =>
-        {
-            StartCoroutine(FlinchCooldown());
-        };
-
-
-        patrol.OnEnter += x =>
-        {
-            //set waypoints
-
             _agent.isStopped = false;
             _anim.SetWalk();
-            /*_agent.SetDestination(player.transform.position);
+            _agent.SetDestination(player.transform.position);
             var dir = player.position - transform.position;
-            transform.forward = new Vector3(dir.x, 0, dir.z).normalized;*/
+            transform.forward = new Vector3(dir.x, 0, dir.z).normalized;
             _agent.speed = movementSpeed;
         };
 
-        patrol.OnFixedUpdate += () =>
+        search.OnFixedUpdate += () =>
         {
-            //cycle through waypoints
+            _agent.SetDestination(player.transform.position);
+            var dir = player.position - transform.position;
+            transform.forward = new Vector3(dir.x, 0, dir.z).normalized;
         };
 
 
@@ -203,11 +179,6 @@ public class Cultist : MonoBehaviour
             transform.forward = new Vector3(dir.x, 0, dir.z).normalized;
         };
 
-        chase.OnExit += x =>
-        {
-            StartCoroutine(ChaseCooldown());
-        };
-
         attack.OnEnter += x =>
         {
             _agent.isStopped = true;
@@ -223,7 +194,6 @@ public class Cultist : MonoBehaviour
         berserk.OnEnter += x =>
         {
             _currentBerserkDuration = 0;
-            initialFlinchPerc /= 3;
 
             _agent.isStopped = false;
 
@@ -255,7 +225,6 @@ public class Cultist : MonoBehaviour
         berserk.OnExit += x =>
         {
             _currentBerserkDuration = 0;
-            initialFlinchPerc *= 3;
         };
 
         death.OnEnter += x =>
@@ -292,34 +261,12 @@ public class Cultist : MonoBehaviour
         var input = rnd <= _currentRagePerc ? Inputs.Rage : Inputs.EnemyFound;
 
         ProcessInput(input);
-
-       /* UpdateFlinchPerc();
-
-        var rnd = Random.Range(0, 100 + 1);
-
-        if (rnd <= _actualFlinchPerc && _canFlinch)
-        {
-            ProcessInput(Inputs.Pain);
-        }
-        else
-        {
-            UpdateBerserkPerc();
-
-            var input = rnd <= _currentRagePerc ? Inputs.Rage : Inputs.EnemyFound;
-
-            ProcessInput(input);
-        }*/
     }
 
     public void Die(bool frontalHit)
     {
         this._frontalHit = frontalHit;
         ProcessInput(Inputs.Die);
-    }
-
-    public void FlinchEnd()
-    {
-        ProcessInput(Inputs.StateEnd);
     }
 
     public void AttackEnd()
@@ -333,16 +280,6 @@ public class Cultist : MonoBehaviour
         if (_loS.TargetInSight) ProcessInput(Inputs.EnemyFound);
 
         if (PlayerInRange()) ProcessInput(Inputs.EnemyInAttackRange);
-    }
-
-    void UpdateFlinchPerc()
-    {
-        // 1% hp > 50%
-        // 100%hp > 0%
-
-        var percHp = _model.HP / _model.maxHp;
-        var percBasedOnHp = Mathf.Lerp(50, 0, percHp);
-        _actualFlinchPerc = Mathf.FloorToInt(initialFlinchPerc + percBasedOnHp);
     }
 
     void UpdateBerserkPerc()
@@ -367,23 +304,5 @@ public class Cultist : MonoBehaviour
         var zCondition = zDistance <= attackRange;
 
         return xCondition && yCondition && zCondition;
-    }
-
-    IEnumerator ChaseCooldown()
-    {
-        _canChase = false;
-
-        yield return new WaitForSeconds(chaseCooldown);
-
-        _canChase = true;
-    }
-
-    IEnumerator FlinchCooldown()
-    {
-        _canFlinch = false;
-
-        yield return new WaitForSeconds(flinchCooldown);
-
-        _canFlinch = true;
     }
 }

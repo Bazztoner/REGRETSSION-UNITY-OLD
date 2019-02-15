@@ -68,8 +68,14 @@ public class CultistModel : Enemy
         _rangedWpn.AttackEnd();
     }
 
-    public override void FlinchEnd()
+    void OnTriggerEnter(Collider col)
     {
-        _logicModule.FlinchEnd();
+        if (col.gameObject.GetComponentInParent<Door>() is Door door)
+        {
+            var doorCondition = !door.locked && !door.Opened;
+            var stateCondition = _logicModule.GetCurrentState() == "Chase" || _logicModule.GetCurrentState() == "Search";
+
+            if (doorCondition && stateCondition) door.Use();
+        }
     }
 }

@@ -5,10 +5,12 @@ using System.Linq;
 
 public class Door : MonoBehaviour, IInteractuable
 {
-    protected bool _opened = false;
+    bool opened = false;
     public bool locked;
     protected Animator _an;
     protected Queue<string> _states;
+
+    public bool Opened { get => opened; protected set => opened = value; }
 
     protected virtual void Start()
     {
@@ -25,7 +27,7 @@ public class Door : MonoBehaviour, IInteractuable
         _states.Enqueue(dq);
 
         _an.CrossFadeInFixedTime(dq, .1f);
-        _opened = !_opened;
+        Opened = !Opened;
     }
 
 }

@@ -27,6 +27,7 @@ public class Mafia : MonoBehaviour
         _model = GetComponent<MafiaModel>();
         _loS = GetComponent<LineOfSight>();
         player = FindObjectOfType<PlayerController>().transform;
+        LineOfSightModule.SetTarget(player);
     }
 
     void Start()
@@ -136,18 +137,15 @@ public class Mafia : MonoBehaviour
 
         returnToPosition.OnFixedUpdate += () =>
         {
+            _agent.SetDestination(_initialPosition);
             var dir = _agent.velocity.normalized;
             transform.forward = new Vector3(dir.x, 0, dir.z);
 
-            if (Vector3.Distance(transform.position, _initialPosition) <= .1f)
+            if (Vector3.Distance(transform.position, _initialPosition) <= .5f)
             {
                 ArrivedToStart();
+                transform.forward = _initialForward;
             }
-        };
-
-        returnToPosition.OnExit += x =>
-        {
-            transform.forward = _initialForward;
         };
 
         //chase

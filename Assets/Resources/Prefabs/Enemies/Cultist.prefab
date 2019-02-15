@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 500
   meleeDamage: 20
-  rangedDamage: 30
+  rangedDamage: 20
 --- !u!114 &8017305684521764743
 MonoBehaviour:
   m_ObjectHideFlags: 0
