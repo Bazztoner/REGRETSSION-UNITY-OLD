@@ -306,28 +306,31 @@ public class Mafia : MonoBehaviour
     //Sensor checking
     void CheckSensors()
     {
-        if (_loS.TargetInSight) ProcessInput(Inputs.EnemyFound);
-
-        if (PlayerInRange())
+        if (_loS.TargetInSight)
         {
-            if (Random.Range(0, 101) >= attackPerc)
+            ProcessInput(Inputs.EnemyFound);
+
+            if (PlayerInRange())
             {
-                ProcessInput(Inputs.EnemyInAttackRange);
+                if (Random.Range(0, 101) >= attackPerc)
+                {
+                    ProcessInput(Inputs.EnemyInAttackRange);
+                }
+                else
+                {
+                    var leftRay = Physics.Raycast(transform.position, -transform.right, 2.01f, HitscanLayers.BlockerLayerMask());
+                    var rightRay = Physics.Raycast(transform.position, transform.right, 2.01f, HitscanLayers.BlockerLayerMask());
+
+                    var hits = new Tuple<bool, EvadeDirection>[3] { Tuple.Create(leftRay, EvadeDirection.Left), Tuple.Create(rightRay, EvadeDirection.Right), Tuple.Create(true, EvadeDirection.Duck) };
+
+                    var actionList = hits.Where(x => x.Item1).ToList();
+                    actionList.KnuthShuffle();
+                    _evadeDir = actionList.First().Item2;
+
+                    ProcessInput(Inputs.Evade);
+                }
+
             }
-            else
-            {
-                var leftRay = Physics.Raycast(transform.position, -transform.right, 2.01f, HitscanLayers.BlockerLayerMask());
-                var rightRay = Physics.Raycast(transform.position, transform.right, 2.01f, HitscanLayers.BlockerLayerMask());
-
-                var hits = new Tuple<bool, EvadeDirection>[3] { Tuple.Create(leftRay, EvadeDirection.Left), Tuple.Create(rightRay, EvadeDirection.Right), Tuple.Create(true, EvadeDirection.Duck) };
-
-                var actionList = hits.Where(x => x.Item1).ToList();
-                actionList.KnuthShuffle();
-                _evadeDir = actionList.First().Item2;
-
-                ProcessInput(Inputs.Evade);
-            }
-
         }
     }
 
