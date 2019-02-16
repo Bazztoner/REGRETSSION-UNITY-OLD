@@ -190,7 +190,7 @@ MonoBehaviour:
   shoot: {fileID: 0}
   draw: {fileID: 8300000, guid: d92867bcab9a74f47a081c2c69c5733b, type: 3}
   magIn: {fileID: 8300000, guid: 540065af99c1e8f4284d5149cdda4749, type: 3}
-  magOut: {fileID: 0}
+  magOut: {fileID: 8300000, guid: 2af34242db3185a48b82ea5291312aa6, type: 3}
   boltCatch: {fileID: 8300000, guid: d533fecf99a339f4d94a44c4c48301db, type: 3}
   shootSounds:
   - {fileID: 8300000, guid: 9cdb5c9fad64b3447a37e96767be0bee, type: 3}

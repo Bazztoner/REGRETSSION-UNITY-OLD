@@ -197,7 +197,7 @@ public class Mafia : MonoBehaviour
             if (_evadeDir == EvadeDirection.Duck)
             {
                 _anim.SetDuck();
-                _model.SetEvade(true);
+                //_model.SetEvade(true);
                 _agent.isStopped = true;
             }
             else
@@ -229,7 +229,7 @@ public class Mafia : MonoBehaviour
 
         evade.OnExit += x =>
         {
-            _model.SetEvade(false);
+            //_model.SetEvade(false);
             StartCoroutine(EvadeCooldown());
         };
 

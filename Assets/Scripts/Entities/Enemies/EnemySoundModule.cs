@@ -31,6 +31,8 @@ public abstract class EnemySoundModule : MonoBehaviour
 
     public virtual void OnDeath()
     {
+        _audioSrc.enabled = false;
+        _audioSrc.enabled = true;
         PlaySound(death);
     }
 }

@@ -60,7 +60,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3, z: 0.1}
+  m_Size: {x: 0.6, y: 0.6, z: 0.3}
   m_Center: {x: 0, y: 0, z: -0.015}
 --- !u!82 &7929413511826931071
 AudioSource:
@@ -171,15 +171,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f0abd63c49a06f94790e42c946ec5665, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.0013599
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f0abd63c49a06f94790e42c946ec5665, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.01024
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f0abd63c49a06f94790e42c946ec5665, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.02288
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f0abd63c49a06f94790e42c946ec5665, type: 3}
       propertyPath: m_LocalRotation.x
@@ -212,6 +212,18 @@ PrefabInstance:
     - target: {fileID: 400000, guid: f0abd63c49a06f94790e42c946ec5665, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: f0abd63c49a06f94790e42c946ec5665, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: f0abd63c49a06f94790e42c946ec5665, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: f0abd63c49a06f94790e42c946ec5665, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: f0abd63c49a06f94790e42c946ec5665, type: 3}
       propertyPath: m_Controller

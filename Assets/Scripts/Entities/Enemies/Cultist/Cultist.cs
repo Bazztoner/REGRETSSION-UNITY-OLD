@@ -42,6 +42,9 @@ public class Cultist : MonoBehaviour
     bool _frontalHit = false;
     bool _firstChase = true;
 
+    public float idleTime;
+    float _currentIdleTime;
+
     public float playerLostCountdown;
     float _actualPlayerLostCountdown;
 
@@ -58,7 +61,7 @@ public class Cultist : MonoBehaviour
     public float attackRange;
 
     EventFSM<Inputs> _stateMachine;
-    public enum Inputs { EnemyFound, EnemyLost, EnemyInAttackRange, Rage, RageEnd, Pain, StateEnd, Die };
+    public enum Inputs { EnemyFound, EnemyLost, IdleEnd, EnemyInAttackRange, Rage, RageEnd, Pain, StateEnd, Die };
 
     public string GetCurrentState()
     {
@@ -78,6 +81,7 @@ public class Cultist : MonoBehaviour
         StateConfigurer.Create(idle)
             .SetTransition(Inputs.Pain, chase)
             .SetTransition(Inputs.EnemyFound, chase)
+            .SetTransition(Inputs.IdleEnd, search)
             .SetTransition(Inputs.Die, death)
             .Done();
 
@@ -113,6 +117,20 @@ public class Cultist : MonoBehaviour
         {
             _anim.SetIdle();
             _agent.isStopped = true;
+            _currentIdleTime = 0;
+        };
+
+        idle.OnUpdate += () =>
+        {
+            if (!_firstChase)
+            {
+                _currentIdleTime += Time.deltaTime;
+                if (_currentIdleTime >= idleTime)
+                {
+                    ProcessInput(Inputs.IdleEnd);
+                    _currentIdleTime = 0;
+                }
+            }
         };
 
         search.OnEnter += x =>
@@ -266,9 +284,11 @@ public class Cultist : MonoBehaviour
     //Sensor checking
     void CheckSensors()
     {
-        if (_loS.TargetInSight) ProcessInput(Inputs.EnemyFound);
-
-        if (PlayerInRange()) ProcessInput(Inputs.EnemyInAttackRange);
+        if (_loS.TargetInSight)
+        {
+            ProcessInput(Inputs.EnemyFound);
+            if (PlayerInRange()) ProcessInput(Inputs.EnemyInAttackRange);
+        }
     }
 
     void UpdateBerserkPerc()
