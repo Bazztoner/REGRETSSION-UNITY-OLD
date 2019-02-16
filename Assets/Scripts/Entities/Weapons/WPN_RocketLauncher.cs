@@ -13,6 +13,11 @@ public class WPN_RocketLauncher : WeaponBase
         base.Draw();
     }
 
+    protected override void InitializeSoundModule()
+    {
+        _sound = GetComponent<KatanaSoundModule>();
+    }
+
     protected override void CheckInput()
     {
         if (Input.GetMouseButtonDown(0))

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 220313647}
   - component: {fileID: 7076016192562391959}
   - component: {fileID: 220313649}
+  - component: {fileID: 8028676515275057402}
+  - component: {fileID: 7098949771385308383}
   m_Layer: 0
   m_Name: Deagle
   m_TagString: Untagged
@@ -65,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a44ecd73a5c00943b9aed90a0f994fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ammoType: 0
   recoilStats:
     amount: 3
     recoveryTime: 0.2
@@ -72,12 +75,126 @@ MonoBehaviour:
     currentZPosVelocity: 0
   wpnNumber: 2
   magSize: 7
-  maxReserveAmmo: 140
   shootCooldown: 0.35
   _currentBulletsInMag: 7
-  _currentReserveAmmo: 98
   damage: 35
   pellets: 1
+--- !u!82 &8028676515275057402
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220313646}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.7
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &7098949771385308383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220313646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d12f9dce313a9e64593e66ea20a053a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shoot: {fileID: 0}
+  draw: {fileID: 8300000, guid: d92867bcab9a74f47a081c2c69c5733b, type: 3}
+  magIn: {fileID: 8300000, guid: 540065af99c1e8f4284d5149cdda4749, type: 3}
+  magOut: {fileID: 0}
+  boltCatch: {fileID: 8300000, guid: d533fecf99a339f4d94a44c4c48301db, type: 3}
+  shootSounds:
+  - {fileID: 8300000, guid: 9cdb5c9fad64b3447a37e96767be0bee, type: 3}
+  - {fileID: 8300000, guid: 8a5388063b1c6594a8e747f4086748b6, type: 3}
 --- !u!1 &418369119487409627
 GameObject:
   m_ObjectHideFlags: 0

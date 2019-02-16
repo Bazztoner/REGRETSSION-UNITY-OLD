@@ -28,6 +28,11 @@ public class WPN_SuperShotgun : WeaponBase
         }
     }
 
+    protected override void InitializeSoundModule()
+    {
+        _sound = GetComponent<SuperShotgunSoundModule>();
+    }
+
     void OnReload(int bulletsToReload)
     {
         SetBulletsInMag(bulletsToReload);
@@ -41,6 +46,7 @@ public class WPN_SuperShotgun : WeaponBase
         SetBulletsInMag(-1);
         _an.SetInteger(_bulletsInMagHash, GetBulletsInMag());
         SetAmmoOnHUD();
+        _sound.OnShoot();
     }
 
     protected override void InitializeConditions()

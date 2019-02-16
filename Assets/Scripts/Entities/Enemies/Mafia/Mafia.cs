@@ -13,6 +13,7 @@ public class Mafia : MonoBehaviour
 
     MafiaAnimModule _anim;
     MafiaModel _model;
+    MafiaSoundModule _sound;
     LineOfSight _loS;
     public LineOfSight LineOfSightModule { get => _loS; private set => _loS = value; }
     NavMeshAgent _agent;
@@ -25,6 +26,7 @@ public class Mafia : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _anim = GetComponent<MafiaAnimModule>();
         _model = GetComponent<MafiaModel>();
+        _sound = GetComponent<MafiaSoundModule>();
         _loS = GetComponent<LineOfSight>();
         player = FindObjectOfType<PlayerController>().transform;
         LineOfSightModule.SetTarget(player);
@@ -40,6 +42,7 @@ public class Mafia : MonoBehaviour
 
     #region Variables
     bool _canChase = true;
+    bool _firstChase = true;
 
     Vector3 _initialPosition;
     Vector3 _initialForward;
@@ -151,15 +154,14 @@ public class Mafia : MonoBehaviour
         //chase
         chase.OnEnter += x =>
         {
+            if (_firstChase) _sound.OnEnemyFound();
+            _firstChase = false;
             _agent.isStopped = false;
             _agent.SetDestination(player.transform.position);
             _anim.SetRun();
             var dir = player.position - transform.position;
             transform.forward = new Vector3(dir.x, 0, dir.z).normalized;
             _agent.speed = movementSpeed * runSpeedMultiplier;
-
-            //_evadePercCoroutine = StartCoroutine(EvadePercCounter());
-
         };
 
         chase.OnUpdate += () =>
@@ -195,6 +197,7 @@ public class Mafia : MonoBehaviour
             if (_evadeDir == EvadeDirection.Duck)
             {
                 _anim.SetDuck();
+                _model.SetEvade(true);
                 _agent.isStopped = true;
             }
             else
@@ -209,8 +212,6 @@ public class Mafia : MonoBehaviour
 
                 _agent.SetDestination(_rollPosition);
             }
-
-
         };
 
         evade.OnFixedUpdate += () =>
@@ -228,6 +229,7 @@ public class Mafia : MonoBehaviour
 
         evade.OnExit += x =>
         {
+            _model.SetEvade(false);
             StartCoroutine(EvadeCooldown());
         };
 
@@ -236,6 +238,7 @@ public class Mafia : MonoBehaviour
         {
             _agent.isStopped = true;
             _anim.SetAttack();
+            _sound.OnAttack();
             _model.AttackStart();
         };
 
@@ -244,11 +247,10 @@ public class Mafia : MonoBehaviour
 
         };
 
-        //Evade (roll ó duck)
-
         //death
         death.OnEnter += x =>
         {
+            _sound.OnDeath();
             _anim.SetDeath(_frontalHit);
             _rb.useGravity = false;
             GetComponent<Collider>().enabled = false;

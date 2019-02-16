@@ -12,14 +12,19 @@ public class Lift : MonoBehaviour
     enum ArrivePositions { Start, End };
     ArrivePositions _toArrive = ArrivePositions.End;
 
+    AudioSource _src;
+    public AudioClip interactSound;
+
     void Start()
     {
+        _src = GetComponent<AudioSource>();
         startPos = transform.position;
         _rb = GetComponent<Rigidbody>();
     }
 
     IEnumerator MoveToNextPos(Vector3 arrivePosition)
     {
+        _src.PlayOneShot(interactSound);
         _moving = true;
 
         var elapsed = 0f;

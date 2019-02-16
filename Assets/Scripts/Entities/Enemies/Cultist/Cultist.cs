@@ -13,6 +13,7 @@ public class Cultist : MonoBehaviour
 
     CultistAnimModule _anim;
     CultistModel _model;
+    CultistSoundModule _sound;
     LineOfSight _loS;
     public LineOfSight LineOfSightModule { get => _loS; private set => _loS = value; }
 
@@ -26,6 +27,7 @@ public class Cultist : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _anim = GetComponent<CultistAnimModule>();
         _model = GetComponent<CultistModel>();
+        _sound = GetComponent<CultistSoundModule>();
         _loS = GetComponent<LineOfSight>();
         player = FindObjectOfType<PlayerController>().transform;
         LineOfSightModule.SetTarget(player);
@@ -38,12 +40,10 @@ public class Cultist : MonoBehaviour
     }
 
     bool _frontalHit = false;
+    bool _firstChase = true;
 
     public float playerLostCountdown;
     float _actualPlayerLostCountdown;
-
-    public float idleDuration;
-    float _currentIdleTime;
 
     public float berserkDuration;
     float _currentBerserkDuration;
@@ -77,7 +77,6 @@ public class Cultist : MonoBehaviour
 
         StateConfigurer.Create(idle)
             .SetTransition(Inputs.Pain, chase)
-            .SetTransition(Inputs.StateEnd, search)
             .SetTransition(Inputs.EnemyFound, chase)
             .SetTransition(Inputs.Die, death)
             .Done();
@@ -112,23 +111,8 @@ public class Cultist : MonoBehaviour
 
         idle.OnEnter += x =>
         {
-            _currentIdleTime = 0;
             _anim.SetIdle();
             _agent.isStopped = true;
-        };
-
-        idle.OnUpdate += () =>
-        {
-            if (_currentIdleTime < idleDuration)
-            {
-                _currentIdleTime += Time.deltaTime;
-            }
-            else ProcessInput(Inputs.StateEnd);
-        };
-
-        idle.OnExit += x =>
-        {
-            _currentIdleTime = 0;
         };
 
         search.OnEnter += x =>
@@ -151,6 +135,8 @@ public class Cultist : MonoBehaviour
 
         chase.OnEnter += x =>
         {
+            if (_firstChase) _sound.OnEnemyFound();
+            _firstChase = false;
             _agent.isStopped = false;
             _anim.SetRun();
             _agent.SetDestination(player.transform.position);
@@ -183,6 +169,7 @@ public class Cultist : MonoBehaviour
         {
             _agent.isStopped = true;
             _anim.SetAttack();
+            _sound.OnAttack();
             _model.RangedAttackStart();
         };
 
@@ -193,6 +180,7 @@ public class Cultist : MonoBehaviour
 
         berserk.OnEnter += x =>
         {
+            _sound.OnRage();
             _currentBerserkDuration = 0;
 
             _agent.isStopped = false;
@@ -229,6 +217,7 @@ public class Cultist : MonoBehaviour
 
         death.OnEnter += x =>
         {
+            _sound.OnDeath();
             _anim.SetDeath(_frontalHit);
             _rb.useGravity = false;
             GetComponent<Collider>().enabled = false;

@@ -15,6 +15,11 @@ public class WPN_SCARH : WeaponBase
         return _owner.ammoReserve[ammoType];
     }
 
+    protected override void InitializeSoundModule()
+    {
+        _sound = GetComponent<ScarSoundModule>();
+    }
+
     protected override void SetBulletsInMag(int bullets, bool overrideBullets = false)
     {
         if (overrideBullets)
@@ -65,6 +70,7 @@ public class WPN_SCARH : WeaponBase
     {
         SetBulletsInMag(-1);
         SetAmmoOnHUD();
+        _sound.OnShoot();
     }
 
     protected override void InitializeConditions()

@@ -9,6 +9,7 @@ public class MafiaModel : Enemy
     EnemyWeaponRanged _wpn;
     public int damage, dropChance;
     public AmmoPickupBase bulletDrop;
+    bool _evading = false;
 
     void Awake()
     {
@@ -20,6 +21,11 @@ public class MafiaModel : Enemy
         base.Start();
         _wpn = GetComponentInChildren<EnemyWeaponRanged>();
         _wpn.Configure(damage, this, _logicModule.LineOfSightModule.Target.GetComponent<PlayerController>());
+    }
+
+    public void SetEvade(bool set)
+    {
+        _evading = set;
     }
 
     public override void Die()
@@ -40,6 +46,8 @@ public class MafiaModel : Enemy
 
     public override void TakeDamage(int dmg, string damageType)
     {
+        if (_evading) return;
+
         base.TakeDamage(dmg, damageType);
         _logicModule.OnTakeDamage(); 
 

@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+
 public class Door : MonoBehaviour, IInteractuable
 {
-    bool opened = false;
+    bool _opened = false;
     public bool locked;
     protected Animator _an;
     protected Queue<string> _states;
+    AudioSource _src;
+    //public AudioClip openSound;
+    public AudioClip lockedSound;
 
-    public bool Opened { get => opened; protected set => opened = value; }
+    public bool Opened { get => _opened; protected set => _opened = value; }
 
     protected virtual void Start()
     {
+        _src = GetComponent<AudioSource>();
         _an = GetComponent<Animator>();
         _states = new Queue<string>();
         _states.Enqueue("Open");
@@ -22,7 +27,11 @@ public class Door : MonoBehaviour, IInteractuable
 
     public virtual void Use()
     {
-        if (locked) return;
+        if (locked)
+        {
+            _src.PlayOneShot(lockedSound);
+            return;
+        }
         var dq = _states.Dequeue();
         _states.Enqueue(dq);
 

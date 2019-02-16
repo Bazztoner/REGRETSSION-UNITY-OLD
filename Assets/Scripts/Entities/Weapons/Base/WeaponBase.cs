@@ -7,6 +7,7 @@ using System;
 public abstract class WeaponBase : MonoBehaviour
 {
     public AmmoTypes ammoType;
+    protected WeaponSoundModuleBase _sound;
 
     protected Animator _an;
     protected readonly int _shootHash = Animator.StringToHash("shoot");
@@ -48,7 +49,10 @@ public abstract class WeaponBase : MonoBehaviour
     {
         _an = GetComponent<Animator>();
         _owner = GetComponentInParent<PlayerController>();
+        InitializeSoundModule();
     }
+
+    protected abstract void InitializeSoundModule();
 
     protected virtual void Start()
     {
@@ -102,6 +106,7 @@ public abstract class WeaponBase : MonoBehaviour
     protected IEnumerator DrawWeapon()
     {
         //wait for anim
+        _sound.OnDraw();
 
         var smb = _an.GetBehaviour<SMB_DrawState>();
 

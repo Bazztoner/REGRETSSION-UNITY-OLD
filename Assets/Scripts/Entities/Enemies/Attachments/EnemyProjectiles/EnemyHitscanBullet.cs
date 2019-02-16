@@ -19,7 +19,6 @@ public class EnemyHitscanBullet
         if (hitDamagable)
         {
             Debug.DrawRay(origin, dir * dist, Color.red, 3);
-            Debug.Log(rch.collider.gameObject.name);
 
             if (col.GetComponent(typeof(IDamageable)) is IDamageable damageable && col.gameObject.LayerDifferentFrom("Enemy"))
             {

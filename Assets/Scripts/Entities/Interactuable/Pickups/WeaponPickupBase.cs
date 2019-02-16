@@ -14,7 +14,8 @@ public class WeaponPickupBase : AmmoPickupBase
             var player = other.GetComponent<PlayerController>();
             player.OnPickedUpWeapon(_weaponName);
             player.OnPickedUpAmmo(_ammoGiven, ammoType);
-            gameObject.SetActive(false);
+            _src.PlayOneShot(pickedSound);
+            DisablePickable();
         }
     }
 

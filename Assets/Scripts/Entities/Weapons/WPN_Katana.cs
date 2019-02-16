@@ -17,6 +17,11 @@ public class WPN_Katana : WeaponBase
         get => new Vector3(xSize, ySize, zSize);
     }
 
+    protected override void InitializeSoundModule()
+    {
+        _sound = GetComponent<KatanaSoundModule>();
+    }
+
     protected override void CheckInput()
     {
         if (Input.GetMouseButtonDown(0) && _canShoot())
@@ -42,6 +47,7 @@ public class WPN_Katana : WeaponBase
         var stateName = "slash" + rndStyle;
 
         _shooting = true;
+        _sound.OnShoot();
 
         ManageProjectile();
 

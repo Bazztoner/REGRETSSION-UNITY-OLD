@@ -43,6 +43,11 @@ public class WPN_Deagle : WeaponBase
         base.OnEnable();
     }
 
+    protected override void InitializeSoundModule()
+    {
+        _sound = GetComponent<DeagleSoundModule>();
+    }
+
     protected override void Draw()
     {
         base.Draw();
@@ -74,6 +79,7 @@ public class WPN_Deagle : WeaponBase
         SetBulletsInMag(-1);
         _an.SetInteger(_bulletsInMagHash, GetBulletsInMag());
         SetAmmoOnHUD();
+        _sound.OnShoot();
     }
 
     protected override void InitializeConditions()

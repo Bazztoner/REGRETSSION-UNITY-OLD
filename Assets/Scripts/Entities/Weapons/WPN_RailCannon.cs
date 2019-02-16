@@ -17,6 +17,11 @@ public class WPN_RailCannon : WeaponBase
         return _owner.ammoReserve[ammoType];
     }
 
+    protected override void InitializeSoundModule()
+    {
+        _sound = GetComponent<KatanaSoundModule>();
+    }
+
     protected override void SetBulletsInMag(int bullets, bool overrideBullets = false)
     {
         if (overrideBullets)

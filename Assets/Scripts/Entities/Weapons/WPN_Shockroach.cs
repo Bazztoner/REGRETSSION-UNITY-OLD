@@ -33,6 +33,11 @@ public class WPN_Shockroach : WeaponBase
         return _currentBulletsInMag <= 0 ? 0 : _currentBulletsInMag;
     }
 
+    protected override void InitializeSoundModule()
+    {
+        _sound = GetComponent<KatanaSoundModule>();
+    }
+
     protected override void InitializeConditions()
     {
         _canShoot = () => !_shooting && !_reloading && !_holstering && GetReserveAmmo() > 0 && _drawn;

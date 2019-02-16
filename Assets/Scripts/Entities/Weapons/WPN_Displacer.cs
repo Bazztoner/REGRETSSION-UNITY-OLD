@@ -22,6 +22,11 @@ public class WPN_Displacer : WeaponBase
         _tickDuration = 1 / ticks;
     }
 
+    protected override void InitializeSoundModule()
+    {
+        _sound = GetComponent<KatanaSoundModule>();
+    }
+
     protected override void CheckInput()
     {
         if (Input.GetMouseButton(0))

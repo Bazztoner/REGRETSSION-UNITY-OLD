@@ -11,6 +11,7 @@ public class DrugAddict : MonoBehaviour
     public float runSpeedMultiplier;
 
     DrugAddictAnimModule _anim;
+    DrugAddictSoundModule _sound;
     DrugAddictModel _model;
     LineOfSight _loS;
     NavMeshAgent _agent;
@@ -24,6 +25,7 @@ public class DrugAddict : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _agent = GetComponent<NavMeshAgent>();
         _anim = GetComponent<DrugAddictAnimModule>();
+        _sound = GetComponent<DrugAddictSoundModule>();
         _model = GetComponent<DrugAddictModel>();
         LineOfSightModule = GetComponent<LineOfSight>();
         player = FindObjectOfType<PlayerController>().transform;
@@ -40,6 +42,7 @@ public class DrugAddict : MonoBehaviour
 
     #region Variables
     bool _canChase = true;
+    bool _firstChase = true;
 
     public float playerLostCountdown;
     float _actualPlayerLostCountdown;
@@ -72,7 +75,6 @@ public class DrugAddict : MonoBehaviour
         var idle = new State<Inputs>("Idle");
         var flinch = new State<Inputs>("Flinch");
         var chase = new State<Inputs>("Chase");
-        //var returnToStartPos = new State<Inputs>("ReturnToStartPosition");
         var attack = new State<Inputs>("Attack");
         var death = new State<Inputs>("Death");
 
@@ -136,6 +138,8 @@ public class DrugAddict : MonoBehaviour
         //chase
         chase.OnEnter += x =>
         {
+            if (_firstChase) _sound.OnEnemyFound();
+            _firstChase = false;
             _agent.isStopped = false;
             _anim.SetRun();
             _agent.SetDestination(player.transform.position);
@@ -176,6 +180,7 @@ public class DrugAddict : MonoBehaviour
             _agent.isStopped = true;
             _anim.SetAttack();
             _model.AttackStart();
+            _sound.OnAttack();
         };
 
         attack.OnExit += x =>
@@ -188,6 +193,7 @@ public class DrugAddict : MonoBehaviour
         {
             _agent.isStopped = true;
             _anim.SetFlinch();
+            _sound.OnFlinch();
         };
 
         //Flinch
@@ -199,6 +205,7 @@ public class DrugAddict : MonoBehaviour
         //death
         death.OnEnter += x =>
         {
+            _sound.OnDeath();
             _anim.SetDeath(_frontalHit);
             _rb.useGravity = false;
             GetComponent<Collider>().enabled = false;

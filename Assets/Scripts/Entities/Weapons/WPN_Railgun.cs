@@ -20,6 +20,11 @@ public class WPN_Railgun : WeaponBase
         }
     }
 
+    protected override void InitializeSoundModule()
+    {
+        _sound = GetComponent<KatanaSoundModule>();
+    }
+
     protected override void Draw()
     {
         base.Draw();
