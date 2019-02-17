@@ -253,6 +253,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     public void TakeDamage(int damage, string damageType)
     {
         CurrentHp -= damage;
+        AddRecoil(.3f, 5f);
+        HUDController.Instance.OnDamage();
 
         if (CurrentHp < 1)
         {

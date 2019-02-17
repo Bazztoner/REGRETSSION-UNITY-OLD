@@ -10,6 +10,7 @@ public class HUDController: MonoBehaviour
     [SerializeField] Canvas _canvas;
     [SerializeField] Image[] _keys;
     [SerializeField] TextMeshProUGUI _hpText, _ammoText;
+    [SerializeField] Animator _damageFeedback;
 
     #region Singleton
     static HUDController instance;
@@ -43,5 +44,10 @@ public class HUDController: MonoBehaviour
     public void SetKey(KeysForDoors key)
     {
         _keys[(int)key].gameObject.SetActive(true);
+    }
+
+    public void OnDamage()
+    {
+        _damageFeedback.CrossFadeInFixedTime("Activate", .1f);
     }
 }
