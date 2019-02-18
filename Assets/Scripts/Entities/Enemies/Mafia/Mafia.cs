@@ -81,6 +81,11 @@ public class Mafia : MonoBehaviour
     private EventFSM<Inputs> _stateMachine;
     public enum Inputs { EnemyFound, EnemyLost, EnemyInAttackRange, Evade, StateEnd, Die };
 
+    public string GetCurrentState()
+    {
+        return _stateMachine.Current.Name;
+    }
+
     void InitFsm()
     {
         _initialPosition = transform.position;

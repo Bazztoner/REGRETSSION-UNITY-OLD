@@ -42,6 +42,8 @@ public class MafiaModel : Enemy
         {
             GameObject.Instantiate(bulletDrop, transform.position, Quaternion.identity);
         }
+
+        _wpn.gameObject.SetActive(false);
     }
 
     public override void TakeDamage(int dmg, string damageType)
@@ -66,5 +68,28 @@ public class MafiaModel : Enemy
     public override void EvadeEnd()
     {
         _logicModule.EvadeEnd();
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.GetComponentInParent<Door>() is Door door)
+        {
+            var doorCondition = !door.locked && !door.Opened;
+            var stateCondition = StateMatchesWith("Chase", "Evade", "ReturnToStartPosition", "Attack");
+
+            if (doorCondition && stateCondition) door.Use();
+        }
+    }
+
+    bool StateMatchesWith(params string[] stateNames)
+    {
+        var list = new FList<bool>();
+
+        foreach (var item in stateNames)
+        {
+            list += _logicModule.GetCurrentState() == item;
+        }
+
+        return list.Any();
     }
 }

@@ -72,6 +72,11 @@ public class DrugAddict : MonoBehaviour
 
     public enum Inputs { EnemyFound, EnemyLost, EnemyInAttackRange, Pain, StateEnd, Die };
 
+    public string GetCurrentState()
+    {
+        return _stateMachine.Current.Name;
+    }
+
     void InitFsm()
     {
         //-----------------------------------------STATE CREATE-------------------------------------------//
@@ -160,7 +165,11 @@ public class DrugAddict : MonoBehaviour
             }
             else
             {
-                _agent.SetDestination(player.transform.position);
+                if (NavMesh.SamplePosition(player.transform.position, out NavMeshHit myNavHit, 100, -1))
+                {
+                    _agent.SetDestination(myNavHit.position);
+                }
+
                 var dir = player.position - transform.position;
                 transform.forward = new Vector3(dir.x, 0, dir.z).normalized;
                 _navMeshUpdateCurrent = 0;

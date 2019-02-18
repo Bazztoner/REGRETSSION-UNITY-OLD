@@ -36,6 +36,7 @@ public class DrugAddictModel : Enemy
         var frontalHit = angleToTarget < 90;
 
         _logicModule.Die(frontalHit);
+        _wpn.gameObject.SetActive(false);
     }
 
     public override void AttackStart()
@@ -52,5 +53,28 @@ public class DrugAddictModel : Enemy
     public override void FlinchEnd()
     {
         _logicModule.FlinchEnd();
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.GetComponentInParent<Door>() is Door door)
+        {
+            var doorCondition = !door.locked && !door.Opened;
+            var stateCondition = StateMatchesWith("Chase", "Attack");
+
+            if (doorCondition && stateCondition) door.Use();
+        }
+    }
+
+    bool StateMatchesWith(params string[] stateNames)
+    {
+        var list = new FList<bool>();
+
+        foreach (var item in stateNames)
+        {
+            list += _logicModule.GetCurrentState() == item;
+        }
+
+        return list.Any();
     }
 }

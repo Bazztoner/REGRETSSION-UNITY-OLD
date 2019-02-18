@@ -748,6 +748,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ATTC_Dagger
       objectReference: {fileID: 0}
+    - target: {fileID: 1502156531029447570, guid: 8fbfce19cb1c16742bde3c042c4f7956,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 2454877375692645968, guid: 8fbfce19cb1c16742bde3c042c4f7956,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -803,6 +808,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -179.99998
       objectReference: {fileID: 0}
+    - target: {fileID: 2927104037330167967, guid: 8fbfce19cb1c16742bde3c042c4f7956,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459085079389372937, guid: 8fbfce19cb1c16742bde3c042c4f7956,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406510299646506494, guid: 8fbfce19cb1c16742bde3c042c4f7956,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fbfce19cb1c16742bde3c042c4f7956, type: 3}
 --- !u!1001 &6449496376489828807
@@ -816,6 +836,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ATTC_ThrowingKnife
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581431873965215759, guid: d0f5d86d02f154641b6af481887cbc42,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6917364717438887373, guid: d0f5d86d02f154641b6af481887cbc42,
         type: 3}
@@ -871,6 +896,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -101.284004
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156766924977171202, guid: d0f5d86d02f154641b6af481887cbc42,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324421336791971493, guid: d0f5d86d02f154641b6af481887cbc42,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015501148849976898, guid: d0f5d86d02f154641b6af481887cbc42,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0f5d86d02f154641b6af481887cbc42, type: 3}

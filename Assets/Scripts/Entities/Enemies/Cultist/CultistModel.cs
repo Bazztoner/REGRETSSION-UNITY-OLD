@@ -40,6 +40,9 @@ public class CultistModel : Enemy
         var frontalHit = angleToTarget < 90;
 
         _logicModule.Die(frontalHit);
+
+        _meleeWpn.gameObject.SetActive(false);
+        _rangedWpn.gameObject.SetActive(false);
     }
 
     /// <summary>

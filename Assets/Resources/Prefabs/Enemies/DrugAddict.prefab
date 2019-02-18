@@ -475,7 +475,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 0.71
   m_BaseOffset: 0.36
-  m_WalkableMask: 7
+  m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &1677228282
 MonoBehaviour:
@@ -1679,6 +1679,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ATTC_Knife
       objectReference: {fileID: 0}
+    - target: {fileID: 7581431873965215759, guid: c7a5134a6f0b8554ead1c3e7d94bbda6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6917364717438887373, guid: c7a5134a6f0b8554ead1c3e7d94bbda6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1733,6 +1738,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 74.194
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156766924977171202, guid: c7a5134a6f0b8554ead1c3e7d94bbda6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324421336791971493, guid: c7a5134a6f0b8554ead1c3e7d94bbda6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 209911978234654639, guid: c7a5134a6f0b8554ead1c3e7d94bbda6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7a5134a6f0b8554ead1c3e7d94bbda6, type: 3}
