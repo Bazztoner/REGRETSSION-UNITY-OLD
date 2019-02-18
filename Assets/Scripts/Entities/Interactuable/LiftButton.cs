@@ -5,11 +5,11 @@ using System.Linq;
 
 public class LiftButton : MonoBehaviour, IInteractuable
 {
-    Lift _lift;
+    [SerializeField] Lift _lift;
 
     void Start()
     {
-        _lift = GetComponentInParent<Lift>();
+        if (!_lift) _lift = GetComponentInParent<Lift>();       
     }
 
     public void Use()
