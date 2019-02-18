@@ -226,6 +226,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3956795225641585872, guid: 282ce657dbe6f624ea04337f0dfd1c5e,
+        type: 3}
+      propertyPath: ShapeModule.m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 5163449bc5efcbd4a86ee30a144ac2d1, type: 3}
+    - target: {fileID: 3956795225641585872, guid: 282ce657dbe6f624ea04337f0dfd1c5e,
+        type: 3}
+      propertyPath: ShapeModule.m_MeshSpawn.mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956795225641585872, guid: 282ce657dbe6f624ea04337f0dfd1c5e,
+        type: 3}
+      propertyPath: ShapeModule.placementMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956795225641585872, guid: 282ce657dbe6f624ea04337f0dfd1c5e,
+        type: 3}
+      propertyPath: ShapeModule.alignToDirection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956795225641585872, guid: 282ce657dbe6f624ea04337f0dfd1c5e,
+        type: 3}
+      propertyPath: ShapeModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 282ce657dbe6f624ea04337f0dfd1c5e, type: 3}
 --- !u!4 &3442660552647939834 stripped
