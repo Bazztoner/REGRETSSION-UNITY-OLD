@@ -7,6 +7,6 @@ public class SMB_Bypass : StateMachineBehaviour
 {
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        animator.enabled = false;
+        //animator.enabled = false;
     }
 }
