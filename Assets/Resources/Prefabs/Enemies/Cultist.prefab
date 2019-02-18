@@ -237,6 +237,7 @@ MonoBehaviour:
   runSpeedMultiplier: 6
   berserkSpeedMultiplier: 7
   player: {fileID: 0}
+  navMeshUpdateTime: 0.1
   idleTime: 0.2
   playerLostCountdown: 3
   berserkDuration: 2

@@ -382,6 +382,7 @@ MonoBehaviour:
   runSpeedMultiplier: 3.2
   player: {fileID: 0}
   playerLostCountdown: 2
+  navMeshUpdateTime: 0.1
   flinchCooldown: 0.5
   initialFlinchPerc: 15
   chaseCooldown: 2

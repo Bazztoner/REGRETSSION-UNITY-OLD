@@ -416,6 +416,7 @@ MonoBehaviour:
   attackCooldown: 0.2
   attackPerc: 20
   attackRange: 7
+  navMeshUpdateTime: 0.1
 --- !u!114 &483836416
 MonoBehaviour:
   m_ObjectHideFlags: 0

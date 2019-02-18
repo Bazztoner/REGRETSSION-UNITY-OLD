@@ -73,6 +73,10 @@ public class Mafia : MonoBehaviour
     bool _frontalHit = false;
     #endregion
 
+
+    public float navMeshUpdateTime;
+    float _navMeshUpdateCurrent;
+
     #region Properties
     private EventFSM<Inputs> _stateMachine;
     public enum Inputs { EnemyFound, EnemyLost, EnemyInAttackRange, Evade, StateEnd, Die };
@@ -132,6 +136,7 @@ public class Mafia : MonoBehaviour
         //backToPos
         returnToPosition.OnEnter += x =>
         {
+            _navMeshUpdateCurrent = 0;
             _anim.SetWalk();
             _agent.isStopped = false;
             _agent.SetDestination(_initialPosition);
@@ -140,11 +145,10 @@ public class Mafia : MonoBehaviour
 
         returnToPosition.OnFixedUpdate += () =>
         {
-            _agent.SetDestination(_initialPosition);
             var dir = _agent.velocity.normalized;
             transform.forward = new Vector3(dir.x, 0, dir.z);
 
-            if (Vector3.Distance(transform.position, _initialPosition) <= .5f)
+            if (Vector3.Distance(transform.position, _initialPosition) <= 2f)
             {
                 ArrivedToStart();
                 transform.forward = _initialForward;
@@ -154,6 +158,7 @@ public class Mafia : MonoBehaviour
         //chase
         chase.OnEnter += x =>
         {
+            _navMeshUpdateCurrent = 0;
             if (_firstChase) _sound.OnEnemyFound();
             _firstChase = false;
             _agent.isStopped = false;
@@ -166,6 +171,18 @@ public class Mafia : MonoBehaviour
 
         chase.OnUpdate += () =>
         {
+            if (_navMeshUpdateCurrent <= navMeshUpdateTime)
+            {
+                _navMeshUpdateCurrent += Time.deltaTime;
+            }
+            else
+            {
+                _agent.SetDestination(player.transform.position);
+                var dir = player.position - transform.position;
+                transform.forward = new Vector3(dir.x, 0, dir.z).normalized;
+                _navMeshUpdateCurrent = 0;
+            }
+
             if (!_loS.TargetInSight)
             {
                 if (_actualPlayerLostCountdown >= playerLostCountdown)
@@ -176,13 +193,6 @@ public class Mafia : MonoBehaviour
                 else _actualPlayerLostCountdown += Time.deltaTime;
             }
 
-        };
-
-        chase.OnFixedUpdate += () =>
-        {
-            _agent.SetDestination(player.transform.position);
-            var dir = player.position - transform.position;
-            transform.forward = new Vector3(dir.x, 0, dir.z).normalized;
         };
 
         chase.OnExit += x =>

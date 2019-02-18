@@ -42,6 +42,10 @@ public class Cultist : MonoBehaviour
     bool _frontalHit = false;
     bool _firstChase = true;
 
+
+    public float navMeshUpdateTime;
+    float _navMeshUpdateCurrent;
+
     public float idleTime;
     float _currentIdleTime;
 
@@ -135,24 +139,34 @@ public class Cultist : MonoBehaviour
 
         search.OnEnter += x =>
         {
+            _navMeshUpdateCurrent = 0;
             _agent.isStopped = false;
             _anim.SetWalk();
             _agent.SetDestination(player.transform.position);
             var dir = player.position - transform.position;
             transform.forward = new Vector3(dir.x, 0, dir.z).normalized;
             _agent.speed = movementSpeed;
+            
         };
 
-        search.OnFixedUpdate += () =>
+        search.OnUpdate += () =>
         {
-            _agent.SetDestination(player.transform.position);
-            var dir = player.position - transform.position;
-            transform.forward = new Vector3(dir.x, 0, dir.z).normalized;
+            if (_navMeshUpdateCurrent <= navMeshUpdateTime)
+            {
+                _navMeshUpdateCurrent += Time.deltaTime;
+            }
+            else
+            {
+                _agent.SetDestination(player.transform.position);
+                var dir = player.position - transform.position;
+                transform.forward = new Vector3(dir.x, 0, dir.z).normalized;
+                _navMeshUpdateCurrent = 0;
+            }
         };
-
 
         chase.OnEnter += x =>
         {
+            _navMeshUpdateCurrent = 0;
             if (_firstChase) _sound.OnEnemyFound();
             _firstChase = false;
             _agent.isStopped = false;
@@ -165,6 +179,18 @@ public class Cultist : MonoBehaviour
 
         chase.OnUpdate += () =>
         {
+            if (_navMeshUpdateCurrent <= navMeshUpdateTime)
+            {
+                _navMeshUpdateCurrent += Time.deltaTime;
+            }
+            else
+            {
+                _agent.SetDestination(player.transform.position);
+                var dir = player.position - transform.position;
+                transform.forward = new Vector3(dir.x, 0, dir.z).normalized;
+                _navMeshUpdateCurrent = 0;
+            }
+
             if (!_loS.TargetInSight)
             {
                 if (_actualPlayerLostCountdown >= playerLostCountdown)
@@ -174,13 +200,6 @@ public class Cultist : MonoBehaviour
                 }
                 else _actualPlayerLostCountdown += Time.deltaTime;
             }
-        };
-
-        chase.OnFixedUpdate += () =>
-        {
-            _agent.SetDestination(player.transform.position);
-            var dir = player.position - transform.position;
-            transform.forward = new Vector3(dir.x, 0, dir.z).normalized;
         };
 
         attack.OnEnter += x =>
@@ -214,18 +233,23 @@ public class Cultist : MonoBehaviour
 
         berserk.OnUpdate += () =>
         {
+            if (_navMeshUpdateCurrent <= navMeshUpdateTime)
+            {
+                _navMeshUpdateCurrent += Time.deltaTime;
+            }
+            else
+            {
+                _agent.SetDestination(player.transform.position);
+                var dir = player.position - transform.position;
+                transform.forward = new Vector3(dir.x, 0, dir.z).normalized;
+                _navMeshUpdateCurrent = 0;
+            }
+
             if (_currentBerserkDuration < berserkDuration)
             {
                 _currentBerserkDuration += Time.deltaTime;
             }
             else ProcessInput(Inputs.RageEnd);
-        };
-
-        berserk.OnFixedUpdate += () =>
-        {
-            _agent.SetDestination(player.transform.position);
-            var dir = player.position - transform.position;
-            transform.forward = new Vector3(dir.x, 0, dir.z).normalized;
         };
 
         berserk.OnExit += x =>

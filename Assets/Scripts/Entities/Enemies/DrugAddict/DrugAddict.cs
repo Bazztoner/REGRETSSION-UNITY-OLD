@@ -47,6 +47,9 @@ public class DrugAddict : MonoBehaviour
     public float playerLostCountdown;
     float _actualPlayerLostCountdown;
 
+    public float navMeshUpdateTime;
+    float _navMeshUpdateCurrent;
+
     //Flinch
     public float flinchCooldown;
     bool _canFlinch = true;
@@ -138,6 +141,7 @@ public class DrugAddict : MonoBehaviour
         //chase
         chase.OnEnter += x =>
         {
+            _navMeshUpdateCurrent = 0;
             if (_firstChase) _sound.OnEnemyFound();
             _firstChase = false;
             _agent.isStopped = false;
@@ -150,6 +154,18 @@ public class DrugAddict : MonoBehaviour
 
         chase.OnUpdate += () =>
         {
+            if (_navMeshUpdateCurrent <= navMeshUpdateTime)
+            {
+                _navMeshUpdateCurrent += Time.deltaTime;
+            }
+            else
+            {
+                _agent.SetDestination(player.transform.position);
+                var dir = player.position - transform.position;
+                transform.forward = new Vector3(dir.x, 0, dir.z).normalized;
+                _navMeshUpdateCurrent = 0;
+            }
+
             if (!LineOfSightModule.TargetInSight)
             {
                 if (_actualPlayerLostCountdown >= playerLostCountdown)
@@ -160,13 +176,6 @@ public class DrugAddict : MonoBehaviour
                 else _actualPlayerLostCountdown += Time.deltaTime;
             }
 
-        };
-
-        chase.OnFixedUpdate += () =>
-        {
-            _agent.SetDestination(player.transform.position);
-            var dir = player.position - transform.position;
-            transform.forward = new Vector3(dir.x, 0, dir.z).normalized;
         };
 
         chase.OnExit += x =>
