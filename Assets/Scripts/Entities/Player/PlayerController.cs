@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     public int maxHp;
     float _currentHp;
 
+    float _fow, _back, _left, _right;
+
     Dictionary<KeysForDoors, bool> _keysOnInventory;
 
     public Dictionary<AmmoTypes, int> ammoReserve;
@@ -117,6 +119,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     void Update()
     {
         CheckJump();
+        CheckMovementInput();
         CheckInteract();
         CheckChangeWeapon();
     }
@@ -126,9 +129,17 @@ public class PlayerController : MonoBehaviour, IDamageable
         CheckMovement();
     }
 
+    void CheckMovementInput()
+    {
+        _fow = Input.GetKey(KeyCode.W) ? 1 : 0;
+        _back = Input.GetKey(KeyCode.S) ? -1 : 0;
+        _left = Input.GetKey(KeyCode.A) ? -1 : 0;
+        _right = Input.GetKey(KeyCode.D) ? 1 : 0;
+    }
+
     void CheckMovement()
     {
-        var dir = transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal");
+        var dir = transform.forward * (_fow + _back) + transform.right * (_left + _right);
         var movVector = _rb.position + dir.normalized * Time.fixedDeltaTime * movementSpeed;
         _rb.MovePosition(movVector);
     }

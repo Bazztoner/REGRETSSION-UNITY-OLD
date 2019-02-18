@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2454877375692645968}
   - component: {fileID: 6165402713813306014}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: ATTC_Dagger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 5560355719831240028}
   - component: {fileID: 1851071799663272095}
   - component: {fileID: 8113209277744855088}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 2619465627964894177}
   - component: {fileID: 7040111083733797570}
   - component: {fileID: 8079869701745042729}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,6 +238,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: f59dc231cf8c84d4a9ae8cd273e8ae0a, type: 3}
       propertyPath: m_Name
       value: P_Dagger
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f59dc231cf8c84d4a9ae8cd273e8ae0a, type: 3}
+      propertyPath: m_Layer
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f59dc231cf8c84d4a9ae8cd273e8ae0a, type: 3}
       propertyPath: m_LocalPosition.x

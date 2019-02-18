@@ -748,11 +748,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ATTC_Dagger
       objectReference: {fileID: 0}
-    - target: {fileID: 1502156531029447570, guid: 8fbfce19cb1c16742bde3c042c4f7956,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 2454877375692645968, guid: 8fbfce19cb1c16742bde3c042c4f7956,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -807,21 +802,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -179.99998
-      objectReference: {fileID: 0}
-    - target: {fileID: 2927104037330167967, guid: 8fbfce19cb1c16742bde3c042c4f7956,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5459085079389372937, guid: 8fbfce19cb1c16742bde3c042c4f7956,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2406510299646506494, guid: 8fbfce19cb1c16742bde3c042c4f7956,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fbfce19cb1c16742bde3c042c4f7956, type: 3}
