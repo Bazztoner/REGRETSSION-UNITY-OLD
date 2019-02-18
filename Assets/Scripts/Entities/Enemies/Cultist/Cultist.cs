@@ -264,6 +264,7 @@ public class Cultist : MonoBehaviour
             _rb.useGravity = false;
             GetComponent<Collider>().enabled = false;
             _agent.isStopped = true;
+            _model.enabled = false;
         };
 
         _stateMachine = new EventFSM<Inputs>(idle);

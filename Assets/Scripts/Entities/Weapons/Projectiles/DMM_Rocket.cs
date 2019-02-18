@@ -21,7 +21,7 @@ public class DMM_Rocket : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.LayerDifferentFrom(LayerMask.NameToLayer("Unrenderizable"), LayerMask.NameToLayer("Ignore Raycast"), LayerMask.NameToLayer("Player")))
+        if (col.gameObject.LayerDifferentFrom(LayerMask.NameToLayer("Unrenderizable"), LayerMask.NameToLayer("Ignore Raycast"), LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Pickable")))
         {
             if (col.GetComponent(typeof(IDamageable)) is IDamageable dmgeable)
             {

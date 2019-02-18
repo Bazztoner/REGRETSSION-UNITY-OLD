@@ -56,5 +56,7 @@ public class CultistAnimModule : MonoBehaviour
             var rndIndx = Random.Range(0, DeathAnimations.Count);
             _an.CrossFadeInFixedTime(DeathAnimations[rndIndx], .1f);
         }
+
+        this.enabled = false;
     }
 }

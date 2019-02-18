@@ -30,7 +30,7 @@ public class DMM_ThrowingKnife : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.LayerDifferentFrom("Unrenderizable", "Ignore Raycast"))
+        if (col.gameObject.LayerDifferentFrom("Unrenderizable", "Ignore Raycast", "Pickable"))
         {
             if (col.GetComponent(typeof(IDamageable)) is IDamageable dmgeable && col.gameObject.LayerDifferentFrom("Enemy"))
             {

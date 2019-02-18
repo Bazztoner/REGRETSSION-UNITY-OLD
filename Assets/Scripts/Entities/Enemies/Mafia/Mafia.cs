@@ -265,6 +265,7 @@ public class Mafia : MonoBehaviour
             _rb.useGravity = false;
             GetComponent<Collider>().enabled = false;
             _agent.isStopped = true;
+            _model.enabled = false;
         };
 
         //-----------------------------------------FSM INIT-------------------------------------------//
