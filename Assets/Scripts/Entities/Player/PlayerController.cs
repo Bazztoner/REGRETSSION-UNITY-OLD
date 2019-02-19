@@ -291,7 +291,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     void Die()
     {
-        gameObject.SetActive(false);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("DeadPlayer");
+        //gameObject.SetActive(false);
     }
 }
 
