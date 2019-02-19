@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TrainV2.unity
+    path: Assets/Scenes/Train.unity
     guid: 6e68cdcf074e0c542a81ff49f521f7fd
   - enabled: 1
     path: Assets/Scenes/Endgame.unity
     guid: 8871a8a828ee6624da3764cb1120b09f
+  - enabled: 1
+    path: Assets/Scenes/DeadPlayer.unity
+    guid: 698156875ee0fd34fbde9ec9394e21b0
   m_configObjects: {}
