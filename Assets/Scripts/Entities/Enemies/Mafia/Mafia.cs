@@ -259,7 +259,7 @@ public class Mafia : MonoBehaviour
 
         attack.OnExit += x =>
         {
-
+            
         };
 
         //death

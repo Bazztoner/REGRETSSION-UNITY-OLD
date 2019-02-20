@@ -62,6 +62,7 @@ public class MafiaModel : Enemy
 
     public override void AttackEnd()
     {
+        _wpn.AttackEnd();
         _logicModule.AttackEnd();
     }
 
