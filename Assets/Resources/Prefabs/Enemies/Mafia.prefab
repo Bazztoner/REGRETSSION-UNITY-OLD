@@ -1541,6 +1541,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 313823723}
     m_Modifications:
+    - target: {fileID: 8051512630145225042, guid: 9230b7b6b4423474b8950130e8367979,
+        type: 3}
+      propertyPath: m_Name
+      value: ATTC_Beretta
+      objectReference: {fileID: 0}
     - target: {fileID: 8381840437154837738, guid: 9230b7b6b4423474b8950130e8367979,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1550,11 +1555,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.28783134
-      objectReference: {fileID: 0}
-    - target: {fileID: 8051512630145225042, guid: 9230b7b6b4423474b8950130e8367979,
-        type: 3}
-      propertyPath: m_Name
-      value: ATTC_Beretta
       objectReference: {fileID: 0}
     - target: {fileID: 6446193151490532496, guid: 9230b7b6b4423474b8950130e8367979,
         type: 3}

@@ -6,44 +6,46 @@ using System.Linq;
 public class Pistol : EnemyWeaponRanged
 {
     [SerializeField] float _shootDelay;
-    [SerializeField] Transform _laserSight;
-    Renderer _laserSightRenderer;
+    bool _attacking;
+    LineRenderer _line;
 
     protected override void Awake()
     {
         base.Awake();
-        _laserSightRenderer = _laserSight.GetComponent<Renderer>();
-        _laserSightRenderer.enabled = false;
+        _line = GetComponentInChildren<LineRenderer>();
+        _line.enabled = false;
+    }
+
+    void Update()
+    {
+        if (_attacking)
+        {
+            _line.SetPosition(0, _muzzle.transform.position);
+        }
     }
 
     public override void AttackStart()
     {
+        _attacking = true;
         _storedDir = (_target.transform.position - _muzzle.transform.position).normalized;
 
-        _laserSight.parent = null;
-
-        var distance = Vector3.Distance(_target.transform.position, _muzzle.transform.position);
-        var promPos = Vector3.Lerp(_muzzle.transform.position, _target.transform.position, .5f);
-
-        _laserSight.localScale = new Vector3(_laserSight.localScale.x, distance / 2, _laserSight.localScale.z);
-        //_laserSight.parent = _muzzle.transform;
-        _laserSight.position = promPos;
-        _laserSight.up = _storedDir.normalized;
-
-        _laserSightRenderer.enabled = true;
+        _line.enabled = true;
+        _line.SetPosition(1, _target.transform.position);
 
         Invoke("ManageProjectile", _shootDelay);
     }
 
     public override void AttackEnd()
     {
-        _laserSightRenderer.enabled = false;
-        //CancelInvoke();
+        _line.enabled = false;
+        _attacking = false;
     }
 
     void ManageProjectile()
     {
-        _laserSightRenderer.enabled = false;
+        _line.enabled = false;
+        _attacking = false;
+
         var b = new EnemyHitscanBullet(_muzzle.transform.position, _storedDir.normalized, _damage);
         var particleID = SimpleParticleSpawner.ParticleID.BULLET;
 
