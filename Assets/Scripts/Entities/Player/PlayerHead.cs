@@ -10,14 +10,18 @@ public class PlayerHead : MonoBehaviour
     public float sensitivity;
     public float rotationSpeed;
     PlayerController _player;
+    Animator _an;
 
     void Start()
     {
         _player = GetComponentInParent<PlayerController>();
+        _an = GetComponentInParent<Animator>();
     }
 
     void Update()
     {
+        if (_player.LockedByGame) return;
+
         MouseLook();
     }
 
@@ -43,5 +47,15 @@ public class PlayerHead : MonoBehaviour
         if (angle < 0f) angle = 360 + angle;
         if (angle > 180f) return Mathf.Max(angle, 360 + from);
         return Mathf.Min(angle, to);
+    }
+
+    public void OnDeath()
+    {
+        _an.CrossFadeInFixedTime("Death", .01f);
+    }
+
+    public void OnRespawn()
+    {
+        _an.CrossFadeInFixedTime("Idle", .01f);
     }
 }

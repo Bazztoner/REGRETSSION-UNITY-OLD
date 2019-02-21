@@ -10,7 +10,7 @@ public class HUDController: MonoBehaviour
     [SerializeField] Canvas _canvas;
     [SerializeField] Image[] _keys;
     [SerializeField] TextMeshProUGUI _hpText, _ammoText;
-    [SerializeField] Animator _damageFeedback;
+    [SerializeField] Animator _damageFeedback, _deathFade;
 
     #region Singleton
     static HUDController instance;
@@ -49,5 +49,22 @@ public class HUDController: MonoBehaviour
     public void OnDamage()
     {
         _damageFeedback.CrossFadeInFixedTime("Activate", .1f);
+    }
+
+    public void OnDeath()
+    {
+        _deathFade.enabled = true;
+        _deathFade.CrossFadeInFixedTime("FadeIn", .1f);
+    }
+
+    public void OnRespawn()
+    {
+        _deathFade.CrossFadeInFixedTime("FadeOut", .1f);
+        Invoke("DisableFader", 1f);
+    }
+
+    void DisableFader()
+    {
+        _deathFade.enabled = false;
     }
 }

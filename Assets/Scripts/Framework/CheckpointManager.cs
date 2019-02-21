@@ -21,35 +21,25 @@ public class CheckpointManager: MonoBehaviour
 			return instance;
 		}
 	}
-
-    public static HashSet<ISaveable> savedObjects = new HashSet<ISaveable>();
     public Checkpoint lastCheckpoint = null;
+    PlayerController _player;
 
-    public static void AddToSavedObjects(ISaveable obj)
+     void Awake()
     {
-        if (savedObjects == null) savedObjects = new HashSet<ISaveable>();
-
-        if (!savedObjects.Contains(obj))
-        {
-            savedObjects.Add(obj);
-        }
+        _player = GameObject.FindObjectOfType<PlayerController>();
     }
 
     public void SetCheckpoint(Checkpoint last)
     {
         lastCheckpoint = last;
-        SaveAll();
     }
 
-    public void SaveAll()
+    public void OnPlayerDeath(float delay)
     {
-        foreach (var item in savedObjects)
-        {
-            item.SaveData();
-        }
+        Invoke("OnPlayerDeath", delay);
     }
 
-    public void OnPlayerDeath()
+    void OnPlayerDeath()
     {
         if (!lastCheckpoint)
         {
@@ -63,16 +53,13 @@ public class CheckpointManager: MonoBehaviour
     void ResetScene()
     {
         instance = null;
-        savedObjects = null;
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
     void LoadFromLastCheckpoint()
     {
-        foreach (var item in savedObjects)
-        {
-            item.SaveData();
-        }
+        _player.transform.position = lastCheckpoint.spawnPos.position;
+        _player.OnRespawn(lastCheckpoint.life);
+        HUDController.Instance.OnRespawn();
     }
-
 }
