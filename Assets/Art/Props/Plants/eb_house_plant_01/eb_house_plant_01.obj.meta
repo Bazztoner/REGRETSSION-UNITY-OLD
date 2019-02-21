@@ -8,6 +8,7 @@ ModelImporter:
     400000: //RootNode
     400002: polySurface8
     2100000: blinn1SG
+    2100002: polySurface8Mat
     2300000: polySurface8
     3300000: polySurface8
     4300000: polySurface8
