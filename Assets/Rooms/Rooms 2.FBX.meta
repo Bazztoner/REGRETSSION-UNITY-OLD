@@ -1,0 +1,229 @@
+fileFormatVersion: 2
+guid: 223b9c3dddbdda148b4052ed9f867253
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Breakable Door
+    100002: Object007
+    100004: Pared chica006
+    100006: Pared chica007
+    100008: Pared chica008
+    100010: Pared chica009
+    100012: Pared chica010
+    100014: Pared chica011
+    100016: Pared chica012
+    100018: Pared chica013
+    100020: Pared chica014
+    100022: Pared chica015
+    100024: Pared chica016
+    100026: Pared chica017
+    100028: Pared chica018
+    100030: Pared chica019
+    100032: Pared chica020
+    100034: Pared chica021
+    100036: Pared chica022
+    100038: Pared chica023
+    100040: Pared chica024
+    100042: Pared chica025
+    100044: Pared chica026
+    100046: Pared chica027
+    100048: Pared chica028
+    100050: Pared chica029
+    100052: Pared chica032
+    100054: //RootNode
+    400000: Breakable Door
+    400002: Object007
+    400004: Pared chica006
+    400006: Pared chica007
+    400008: Pared chica008
+    400010: Pared chica009
+    400012: Pared chica010
+    400014: Pared chica011
+    400016: Pared chica012
+    400018: Pared chica013
+    400020: Pared chica014
+    400022: Pared chica015
+    400024: Pared chica016
+    400026: Pared chica017
+    400028: Pared chica018
+    400030: Pared chica019
+    400032: Pared chica020
+    400034: Pared chica021
+    400036: Pared chica022
+    400038: Pared chica023
+    400040: Pared chica024
+    400042: Pared chica025
+    400044: Pared chica026
+    400046: Pared chica027
+    400048: Pared chica028
+    400050: Pared chica029
+    400052: Pared chica032
+    400054: //RootNode
+    2100000: 01 - Default
+    2300000: Breakable Door
+    2300002: Object007
+    2300004: Pared chica006
+    2300006: Pared chica007
+    2300008: Pared chica008
+    2300010: Pared chica009
+    2300012: Pared chica010
+    2300014: Pared chica011
+    2300016: Pared chica012
+    2300018: Pared chica013
+    2300020: Pared chica014
+    2300022: Pared chica015
+    2300024: Pared chica016
+    2300026: Pared chica017
+    2300028: Pared chica018
+    2300030: Pared chica019
+    2300032: Pared chica020
+    2300034: Pared chica021
+    2300036: Pared chica022
+    2300038: Pared chica023
+    2300040: Pared chica024
+    2300042: Pared chica025
+    2300044: Pared chica026
+    2300046: Pared chica027
+    2300048: Pared chica028
+    2300050: Pared chica029
+    2300052: Pared chica032
+    3300000: Breakable Door
+    3300002: Object007
+    3300004: Pared chica006
+    3300006: Pared chica007
+    3300008: Pared chica008
+    3300010: Pared chica009
+    3300012: Pared chica010
+    3300014: Pared chica011
+    3300016: Pared chica012
+    3300018: Pared chica013
+    3300020: Pared chica014
+    3300022: Pared chica015
+    3300024: Pared chica016
+    3300026: Pared chica017
+    3300028: Pared chica018
+    3300030: Pared chica019
+    3300032: Pared chica020
+    3300034: Pared chica021
+    3300036: Pared chica022
+    3300038: Pared chica023
+    3300040: Pared chica024
+    3300042: Pared chica025
+    3300044: Pared chica026
+    3300046: Pared chica027
+    3300048: Pared chica028
+    3300050: Pared chica029
+    3300052: Pared chica032
+    4300000: Pared chica006
+    4300002: Pared chica007
+    4300004: Pared chica008
+    4300006: Pared chica009
+    4300008: Pared chica010
+    4300010: Pared chica011
+    4300012: Pared chica012
+    4300014: Pared chica013
+    4300016: Pared chica014
+    4300018: Pared chica015
+    4300020: Pared chica016
+    4300022: Pared chica017
+    4300024: Pared chica018
+    4300026: Pared chica019
+    4300028: Pared chica020
+    4300030: Pared chica021
+    4300032: Pared chica022
+    4300034: Pared chica023
+    4300036: Pared chica024
+    4300038: Pared chica025
+    4300040: Pared chica026
+    4300042: Pared chica027
+    4300044: Pared chica028
+    4300046: Pared chica029
+    4300048: Pared chica032
+    4300050: Object007
+    4300052: Breakable Door
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
