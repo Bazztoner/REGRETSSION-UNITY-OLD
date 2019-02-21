@@ -1,0 +1,259 @@
+fileFormatVersion: 2
+guid: 526b677ab4a63f14cbf9f675224e4e2b
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Breakable Door
+    100002: Object007
+    100004: Pared chica002
+    100006: Pared chica003
+    100008: Pared chica004
+    100010: Pared chica005
+    100012: Pared chica006
+    100014: Pared chica007
+    100016: Pared chica008
+    100018: Pared chica009
+    100020: Pared chica010
+    100022: Pared chica011
+    100024: Pared chica012
+    100026: Pared chica013
+    100028: Pared chica014
+    100030: Pared chica015
+    100032: Pared chica016
+    100034: Pared chica017
+    100036: Pared chica018
+    100038: Pared chica019
+    100040: Pared chica020
+    100042: Pared chica021
+    100044: Pared chica022
+    100046: Pared chica023
+    100048: Pared chica024
+    100050: Pared chica025
+    100052: Pared chica026
+    100054: Pared chica027
+    100056: Pared chica028
+    100058: Pared chica029
+    100060: Pared chica030
+    100062: Pared chica031
+    100064: Pared chica032
+    100066: //RootNode
+    400000: Breakable Door
+    400002: Object007
+    400004: Pared chica002
+    400006: Pared chica003
+    400008: Pared chica004
+    400010: Pared chica005
+    400012: Pared chica006
+    400014: Pared chica007
+    400016: Pared chica008
+    400018: Pared chica009
+    400020: Pared chica010
+    400022: Pared chica011
+    400024: Pared chica012
+    400026: Pared chica013
+    400028: Pared chica014
+    400030: Pared chica015
+    400032: Pared chica016
+    400034: Pared chica017
+    400036: Pared chica018
+    400038: Pared chica019
+    400040: Pared chica020
+    400042: Pared chica021
+    400044: Pared chica022
+    400046: Pared chica023
+    400048: Pared chica024
+    400050: Pared chica025
+    400052: Pared chica026
+    400054: Pared chica027
+    400056: Pared chica028
+    400058: Pared chica029
+    400060: Pared chica030
+    400062: Pared chica031
+    400064: Pared chica032
+    400066: //RootNode
+    2100000: 01 - Default
+    2300000: Breakable Door
+    2300002: Object007
+    2300004: Pared chica002
+    2300006: Pared chica003
+    2300008: Pared chica004
+    2300010: Pared chica005
+    2300012: Pared chica006
+    2300014: Pared chica007
+    2300016: Pared chica008
+    2300018: Pared chica009
+    2300020: Pared chica010
+    2300022: Pared chica011
+    2300024: Pared chica012
+    2300026: Pared chica013
+    2300028: Pared chica014
+    2300030: Pared chica015
+    2300032: Pared chica016
+    2300034: Pared chica017
+    2300036: Pared chica018
+    2300038: Pared chica019
+    2300040: Pared chica020
+    2300042: Pared chica021
+    2300044: Pared chica022
+    2300046: Pared chica023
+    2300048: Pared chica024
+    2300050: Pared chica025
+    2300052: Pared chica026
+    2300054: Pared chica027
+    2300056: Pared chica028
+    2300058: Pared chica029
+    2300060: Pared chica030
+    2300062: Pared chica031
+    2300064: Pared chica032
+    3300000: Breakable Door
+    3300002: Object007
+    3300004: Pared chica002
+    3300006: Pared chica003
+    3300008: Pared chica004
+    3300010: Pared chica005
+    3300012: Pared chica006
+    3300014: Pared chica007
+    3300016: Pared chica008
+    3300018: Pared chica009
+    3300020: Pared chica010
+    3300022: Pared chica011
+    3300024: Pared chica012
+    3300026: Pared chica013
+    3300028: Pared chica014
+    3300030: Pared chica015
+    3300032: Pared chica016
+    3300034: Pared chica017
+    3300036: Pared chica018
+    3300038: Pared chica019
+    3300040: Pared chica020
+    3300042: Pared chica021
+    3300044: Pared chica022
+    3300046: Pared chica023
+    3300048: Pared chica024
+    3300050: Pared chica025
+    3300052: Pared chica026
+    3300054: Pared chica027
+    3300056: Pared chica028
+    3300058: Pared chica029
+    3300060: Pared chica030
+    3300062: Pared chica031
+    3300064: Pared chica032
+    4300000: Pared chica002
+    4300002: Pared chica003
+    4300004: Pared chica004
+    4300006: Pared chica005
+    4300008: Pared chica006
+    4300010: Pared chica007
+    4300012: Pared chica008
+    4300014: Pared chica009
+    4300016: Pared chica010
+    4300018: Pared chica011
+    4300020: Pared chica012
+    4300022: Pared chica013
+    4300024: Pared chica014
+    4300026: Pared chica015
+    4300028: Pared chica016
+    4300030: Pared chica017
+    4300032: Pared chica018
+    4300034: Pared chica019
+    4300036: Pared chica020
+    4300038: Pared chica021
+    4300040: Pared chica022
+    4300042: Pared chica023
+    4300044: Pared chica024
+    4300046: Pared chica025
+    4300048: Pared chica026
+    4300050: Pared chica027
+    4300052: Pared chica028
+    4300054: Pared chica029
+    4300056: Pared chica030
+    4300058: Pared chica031
+    4300060: Pared chica032
+    4300062: Object007
+    4300064: Breakable Door
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

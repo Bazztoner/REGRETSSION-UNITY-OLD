@@ -1,0 +1,484 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2192842666221336378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7137262616549553580, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2043800022880324828}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2190095877726052174}
+  - component: {fileID: 2170334686879386276}
+  - component: {fileID: 2177860074173709508}
+  m_Layer: 14
+  m_Name: ClassicKitchenChair2 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2190095877726052174
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7135642281474104792, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2043800022880324828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2192842666221336378}
+  m_LocalRotation: {x: 0.2719672, y: -0.46749994, z: -0.78742194, w: 0.29570976}
+  m_LocalPosition: {x: -0.45696568, y: 1.0157652, z: -0.73863083}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7247396177427205729}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 19.156, y: -88.747, z: -185.28499}
+--- !u!33 &2170334686879386276
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7168815433251457074, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2043800022880324828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2192842666221336378}
+  m_Mesh: {fileID: 4300000, guid: 34844fab031efd7428463c208a0e841d, type: 3}
+--- !u!23 &2177860074173709508
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7159452867136077394, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2043800022880324828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2192842666221336378}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 10abe150740a3f74d86a66a20ccf29a5, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!1 &2953789491826078558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 6169891516270391752, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2043800022880324828}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2952027870530820906}
+  - component: {fileID: 2922254292750814912}
+  - component: {fileID: 2930204119434229920}
+  m_Layer: 14
+  m_Name: ClassicKitchenChair2 (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2952027870530820906
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 6167004541065091516, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2043800022880324828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2953789491826078558}
+  m_LocalRotation: {x: 0.5236592, y: 0.4697306, z: -0.5442522, w: 0.45708174}
+  m_LocalPosition: {x: -0.8972259, y: 0.5915995, z: 0.17008515}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7247396177427205729}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 6.8250003, y: -211.344, z: -269.432}
+--- !u!33 &2922254292750814912
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 6192381912743988310, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2043800022880324828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2953789491826078558}
+  m_Mesh: {fileID: 4300000, guid: 34844fab031efd7428463c208a0e841d, type: 3}
+--- !u!23 &2930204119434229920
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 6181191994793949750, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2043800022880324828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2953789491826078558}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 10abe150740a3f74d86a66a20ccf29a5, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!1 &3435949787222374627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5966388115040565877, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2043800022880324828}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7247396177427205729}
+  - component: {fileID: 2240052417512798832}
+  - component: {fileID: 4824086567495634122}
+  m_Layer: 14
+  m_Name: ClassicKitchenChair2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7247396177427205729
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1869486621292727543, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2043800022880324828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3435949787222374627}
+  m_LocalRotation: {x: 0.62955517, y: -0.26146677, z: 0.21658216, w: 0.6988474}
+  m_LocalPosition: {x: 0.5140002, y: 0, z: -0.36900043}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2190095877726052174}
+  - {fileID: 4904381971592540714}
+  - {fileID: 2952027870530820906}
+  m_Father: {fileID: 1050732781193281889}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 83.30701, y: -52.726, z: -13.141001}
+--- !u!33 &2240052417512798832
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7094417975812815078, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2043800022880324828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3435949787222374627}
+  m_Mesh: {fileID: 4300000, guid: 34844fab031efd7428463c208a0e841d, type: 3}
+--- !u!23 &4824086567495634122
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4580360301146443356, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2043800022880324828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3435949787222374627}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 10abe150740a3f74d86a66a20ccf29a5, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!1 &4901498843537054302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4136472123699796168, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2043800022880324828}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4904381971592540714}
+  - component: {fileID: 4932996395420706752}
+  - component: {fileID: 4923074038702789024}
+  m_Layer: 14
+  m_Name: ClassicKitchenChair2 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4904381971592540714
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4138228798333612220, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2043800022880324828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4901498843537054302}
+  m_LocalRotation: {x: 0.4618547, y: 0.32240346, z: 0.39203674, w: 0.72736067}
+  m_LocalPosition: {x: 0.08630526, y: 0.37013167, z: -0.706088}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7247396177427205729}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 25.632002, y: -285.102, z: -192.28499}
+--- !u!33 &4932996395420706752
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4113944064447505750, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2043800022880324828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4901498843537054302}
+  m_Mesh: {fileID: 4300000, guid: 34844fab031efd7428463c208a0e841d, type: 3}
+--- !u!23 &4923074038702789024
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4120909660603470646, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2043800022880324828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4901498843537054302}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 10abe150740a3f74d86a66a20ccf29a5, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!1 &7042968076702913902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1050732781193281889}
+  - component: {fileID: 4721631542322655045}
+  - component: {fileID: 8840691706253826094}
+  - component: {fileID: 6922345579226833556}
+  m_Layer: 14
+  m_Name: Destructible1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1050732781193281889
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7042968076702913902}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.912, y: 2.493, z: -10.323}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7247396177427205729}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4721631542322655045
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7042968076702913902}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.43, y: 1.09, z: 1.29}
+  m_Center: {x: 0, y: 0.35, z: 0}
+--- !u!114 &8840691706253826094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7042968076702913902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d37e0de0507bb84182f9eeabd5e6d1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _life: 1
+--- !u!208 &6922345579226833556
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7042968076702913902}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.715, y: 0.545, z: 0.645}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0.35, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!1001 &2043800022880324828
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1050732781193281889}
+    m_Modifications:
+    - target: {fileID: 5966388115040565877, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+        type: 3}
+      propertyPath: m_Name
+      value: ClassicKitchenChair2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869486621292727543, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5140002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869486621292727543, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869486621292727543, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.36900043
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869486621292727543, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.62955517
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869486621292727543, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.26146677
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869486621292727543, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.21658216
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869486621292727543, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6988474
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869486621292727543, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869486621292727543, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 83.30701
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869486621292727543, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -52.726
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869486621292727543, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -13.141001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869486621292727543, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869486621292727543, guid: 190ea76c2a6b3cc4c8435e22b11751ed,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 190ea76c2a6b3cc4c8435e22b11751ed, type: 3}
