@@ -10,7 +10,7 @@ public class DeathScreen : MonoBehaviour
 	{
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene("TrainV2");
+            SceneManager.LoadScene(0);
         }
 	}
 }
