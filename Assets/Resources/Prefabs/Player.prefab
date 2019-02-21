@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3939717022797575403}
   - component: {fileID: 3939717022797575402}
+  - component: {fileID: 3939717023100840194}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -47,6 +48,25 @@ MonoBehaviour:
   rotClamp: 45
   sensitivity: 200
   rotationSpeed: 10
+--- !u!95 &3939717023100840194
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3939717022797575404}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 226e9ccd27c23e44f9cbc78cfa16c323, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3939717023187223217
 GameObject:
   m_ObjectHideFlags: 0

@@ -32,6 +32,7 @@ public class CheckpointManager: MonoBehaviour
     public void SetCheckpoint(Checkpoint last)
     {
         lastCheckpoint = last;
+        TutorialManager.Instance.StartCheckPoint();
     }
 
     public void OnPlayerDeath(float delay)
@@ -53,6 +54,11 @@ public class CheckpointManager: MonoBehaviour
     void ResetScene()
     {
         instance = null;
+        Invoke("LoadScene", 1f);
+    }
+
+    void LoadScene()
+    {
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 

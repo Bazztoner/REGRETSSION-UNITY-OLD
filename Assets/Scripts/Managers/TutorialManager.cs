@@ -6,7 +6,7 @@ using System;
 
 public class TutorialManager : MonoBehaviour
 {
-    [SerializeField] HUD_Tooltip _move, _use, _jump, _shoot, _reload, _katana;
+    [SerializeField] HUD_Tooltip _move, _use, _jump, _shoot, _reload, _katana, _checkpoint;
 
     #region Singleton
     static TutorialManager instance;
@@ -119,6 +119,14 @@ public class TutorialManager : MonoBehaviour
         void callback() => _katana.Hide();
 
         StartCoroutine(WaitForCondition(predicate, callback));
+    }
+
+    public void StartCheckPoint()
+    {
+        _checkpoint.gameObject.SetActive(true);
+        void callback() => _checkpoint.Hide();
+
+        StartCoroutine(WaitThenCallback(1, callback));
     }
 
 }
