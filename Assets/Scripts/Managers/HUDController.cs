@@ -53,18 +53,11 @@ public class HUDController: MonoBehaviour
 
     public void OnDeath()
     {
-        _deathFade.enabled = true;
         _deathFade.CrossFadeInFixedTime("FadeIn", .1f);
     }
 
     public void OnRespawn()
     {
         _deathFade.CrossFadeInFixedTime("FadeOut", .1f);
-        Invoke("DisableFader", 1f);
-    }
-
-    void DisableFader()
-    {
-        _deathFade.enabled = false;
     }
 }

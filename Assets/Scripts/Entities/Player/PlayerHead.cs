@@ -51,11 +51,18 @@ public class PlayerHead : MonoBehaviour
 
     public void OnDeath()
     {
+        _an.enabled = true;
         _an.CrossFadeInFixedTime("Death", .01f);
     }
 
     public void OnRespawn()
     {
         _an.CrossFadeInFixedTime("Idle", .01f);
+        Invoke("DisableAnimator", .1f);
+    }
+
+    void DisableAnimator()
+    {
+        _an.enabled = false;
     }
 }

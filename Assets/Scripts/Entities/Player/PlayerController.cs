@@ -297,6 +297,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         CurrentHp = hp;
         UpdateHP();
         LockedByGame = false;
+        allWeapons[_currentWpn].gameObject.SetActive(true);
     }
 
     public void TakeHealing(int healing)
@@ -315,6 +316,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         GetComponent<Collider>().enabled = false;
         _rb.isKinematic = true;
         _rb.useGravity = false;
+        allWeapons[_currentWpn].gameObject.SetActive(false);
 
         _head.OnDeath();
         LockedByGame = true;
