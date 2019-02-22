@@ -70,7 +70,7 @@ public class DrugAddict : MonoBehaviour
     #region Properties
     private EventFSM<Inputs> _stateMachine;
 
-    public enum Inputs { EnemyFound, EnemyLost, EnemyInAttackRange, Pain, StateEnd, Die };
+    public enum Inputs { EnemyFound, EnemyLost, EnemyInAttackRange, Pain, StateEnd, AttackEnd, Die };
 
     public string GetCurrentState()
     {
@@ -125,7 +125,7 @@ public class DrugAddict : MonoBehaviour
 	        rest => idle
          * */
         StateConfigurer.Create(attack)
-           .SetTransition(Inputs.StateEnd, chase)
+           .SetTransition(Inputs.AttackEnd, chase)
            .SetTransition(Inputs.Pain, flinch)
            .SetTransition(Inputs.Die, death)
            .Done();
@@ -281,7 +281,7 @@ public class DrugAddict : MonoBehaviour
 
     public void AttackEnd()
     {
-        ProcessInput(Inputs.StateEnd);
+        ProcessInput(Inputs.AttackEnd);
     }
 
     //Sensor checking

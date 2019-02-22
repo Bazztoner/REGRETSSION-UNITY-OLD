@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     HashSet<string> _weaponAvailability;
     CameraShake _camShake;
     CameraController _camController;
+    PlayerHead _head;
     Rigidbody _rb;
     [SerializeField] int _currentWpn;
 
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     float _currentHp;
 
     float _fow, _back, _left, _right;
+    bool _lockedByGame = false;
 
     Dictionary<KeysForDoors, bool> _keysOnInventory;
 
@@ -43,6 +45,9 @@ public class PlayerController : MonoBehaviour, IDamageable
             _currentHp = Mathf.Round(Mathf.Clamp(value, 0, maxHp));
         }
     }
+
+    public PlayerHead Head { get => _head; private set => _head = value; }
+    public bool LockedByGame { get => _lockedByGame; private set => _lockedByGame = value; }
 
     void Awake()
     {
@@ -62,6 +67,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         _camShake = cam.GetComponent<CameraShake>();
         _camController = cam.GetComponent<CameraController>();
         _rb = GetComponent<Rigidbody>();
+        Head = GetComponentInChildren<PlayerHead>();
 
         InitializeWeapons();
     }
@@ -118,6 +124,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     void Update()
     {
+        if (LockedByGame) return;
+
         CheckJump();
         CheckMovementInput();
         CheckInteract();
@@ -126,6 +134,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     void FixedUpdate()
     {
+        if (LockedByGame) return;
+
         CheckMovement();
     }
 
@@ -278,6 +288,18 @@ public class PlayerController : MonoBehaviour, IDamageable
         UpdateHP();
     }
 
+    public void OnRespawn(float hp)
+    {
+        GetComponent<Collider>().enabled = true;
+        _rb.isKinematic = false;
+        _rb.useGravity = true;
+        Head.OnRespawn();
+        CurrentHp = hp;
+        UpdateHP();
+        LockedByGame = false;
+        allWeapons[_currentWpn].gameObject.SetActive(true);
+    }
+
     public void TakeHealing(int healing)
     {
         CurrentHp += healing;
@@ -291,7 +313,16 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     void Die()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("DeadPlayer");
+        GetComponent<Collider>().enabled = false;
+        _rb.isKinematic = true;
+        _rb.useGravity = false;
+        allWeapons[_currentWpn].gameObject.SetActive(false);
+
+        _head.OnDeath();
+        LockedByGame = true;
+        HUDController.Instance.OnDeath();
+        CheckpointManager.Instance.OnPlayerDeath(1);
+        //UnityEngine.SceneManagement.SceneManager.LoadScene("DeadPlayer");
         //gameObject.SetActive(false);
     }
 }

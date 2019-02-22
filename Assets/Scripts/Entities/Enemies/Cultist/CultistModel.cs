@@ -56,6 +56,7 @@ public class CultistModel : Enemy
     public override void AttackEnd()
     {
         _logicModule.AttackEnd();
+        _meleeWpn.AttackEnd();
     }
 
     /// <summary>
