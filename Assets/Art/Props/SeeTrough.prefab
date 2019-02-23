@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2784379710075921538}
+  - component: {fileID: 7346060697627652470}
   m_Layer: 15
   m_Name: SeeTrough
   m_TagString: Untagged
@@ -33,6 +34,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7346060697627652470
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2309350471488721192}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.84, y: 2.13, z: 3.03}
+  m_Center: {x: 0, y: 1.16, z: 0}
 --- !u!1001 &9100849739185534686
 PrefabInstance:
   m_ObjectHideFlags: 0
