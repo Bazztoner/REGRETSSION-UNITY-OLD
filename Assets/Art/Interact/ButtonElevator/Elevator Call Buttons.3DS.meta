@@ -18,7 +18,27 @@ ModelImporter:
     2300000: 1:1
     3300000: 1:1
     4300000: 1:1
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C01
+    second: {fileID: 2100000, guid: 4d30b0e46af29214a817d1546e794c60, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass-Lamp
+    second: {fileID: 2100000, guid: 86066bf9b2843dc4bbb886ba0151ec0b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal-Aluminium
+    second: {fileID: 2100000, guid: b344a021ffabbf94588a9f6f875adb5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Surface-Paint, f
+    second: {fileID: 2100000, guid: ce228b622a075e0468b66bd671fb2720, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
