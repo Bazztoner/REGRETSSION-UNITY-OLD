@@ -10,7 +10,7 @@ public class EnemyHitscanBullet
 
     public EnemyHitscanBullet(Vector3 origin, Vector3 dir, int damage)
     {
-        var hitDamagable = Physics.Raycast(origin, dir.normalized, out RaycastHit rch, 100, ~LayerMask.GetMask("SeeThrough", "Pickable"));
+        var hitDamagable = Physics.Raycast(origin, dir.normalized, out RaycastHit rch, 100, ~LayerMask.GetMask("SeeThrough", "Pickable", "Ignore Raycast"));
         var col = rch.collider;
         var dist = rch.distance;
         objDist = dist;

@@ -135,6 +135,7 @@ public class Mafia : MonoBehaviour
         idle.OnEnter += x =>
         {
             _anim.SetIdle();
+            _agent.velocity = Vector3.zero;
             _agent.isStopped = true;
         };
 
@@ -213,6 +214,7 @@ public class Mafia : MonoBehaviour
             {
                 _anim.SetDuck();
                 //_model.SetEvade(true);
+                _agent.velocity = Vector3.zero;
                 _agent.isStopped = true;
             }
             else
@@ -251,6 +253,7 @@ public class Mafia : MonoBehaviour
         //attack
         attack.OnEnter += x =>
         {
+            _agent.velocity = Vector3.zero;
             _agent.isStopped = true;
             _anim.SetAttack();
             _sound.OnAttack();
@@ -265,6 +268,7 @@ public class Mafia : MonoBehaviour
         //death
         death.OnEnter += x =>
         {
+            _agent.velocity = Vector3.zero;
             _sound.OnDeath();
             _anim.SetDeath(_frontalHit);
             _rb.useGravity = false;

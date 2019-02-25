@@ -140,6 +140,7 @@ public class DrugAddict : MonoBehaviour
         idle.OnEnter += x =>
         {
             _anim.SetIdle();
+            _agent.velocity = Vector3.zero;
             _agent.isStopped = true;
         };
 
@@ -195,6 +196,7 @@ public class DrugAddict : MonoBehaviour
         //attack
         attack.OnEnter += x =>
         {
+            _agent.velocity = Vector3.zero;
             _agent.isStopped = true;
             _anim.SetAttack();
             _model.AttackStart();
@@ -209,6 +211,7 @@ public class DrugAddict : MonoBehaviour
         //Flinch
         flinch.OnEnter += x =>
         {
+            _agent.velocity = Vector3.zero;
             _agent.isStopped = true;
             _anim.SetFlinch();
             _sound.OnFlinch();
@@ -227,6 +230,7 @@ public class DrugAddict : MonoBehaviour
             _anim.SetDeath(_frontalHit);
             _rb.useGravity = false;
             GetComponent<Collider>().enabled = false;
+            _agent.velocity = Vector3.zero;
             _agent.isStopped = true;
             _model.enabled = false;
         };
