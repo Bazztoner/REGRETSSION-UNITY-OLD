@@ -29,7 +29,13 @@ public class PlayerController : MonoBehaviour, IDamageable
     public int maxHp;
     float _currentHp;
 
+    float _accelerationCoeficient = 12f;
     float _fow, _back, _left, _right;
+    public float Fow { get => _fow; set => _fow = Mathf.Clamp01(value); }
+    public float Back { get => _back; set => _back = Mathf.Clamp01(value); }
+    public float Left { get => _left; set => _left = Mathf.Clamp01(value); }
+    public float Right { get => _right; set => _right = Mathf.Clamp01(value); }
+
     bool _lockedByGame = false;
 
     Dictionary<KeysForDoors, bool> _keysOnInventory;
@@ -141,15 +147,15 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     void CheckMovementInput()
     {
-        _fow = Input.GetKey(KeyCode.W) ? 1 : 0;
-        _back = Input.GetKey(KeyCode.S) ? -1 : 0;
-        _left = Input.GetKey(KeyCode.A) ? -1 : 0;
-        _right = Input.GetKey(KeyCode.D) ? 1 : 0;
+        Fow += Input.GetKey(KeyCode.W) ? _accelerationCoeficient * Time.deltaTime : -_accelerationCoeficient * Time.deltaTime;
+        Back += Input.GetKey(KeyCode.S) ? _accelerationCoeficient * Time.deltaTime : -_accelerationCoeficient * Time.deltaTime;
+        Left += Input.GetKey(KeyCode.A) ? _accelerationCoeficient * Time.deltaTime : -_accelerationCoeficient * Time.deltaTime;
+        Right += Input.GetKey(KeyCode.D) ? _accelerationCoeficient * Time.deltaTime : -_accelerationCoeficient * Time.deltaTime;
     }
 
     void CheckMovement()
     {
-        var dir = transform.forward * (_fow + _back) + transform.right * (_left + _right);
+        var dir = transform.forward * (Fow - Back) + transform.right * (Right - Left);
         var movVector = _rb.position + dir.normalized * Time.fixedDeltaTime * movementSpeed;
         _rb.MovePosition(movVector);
     }

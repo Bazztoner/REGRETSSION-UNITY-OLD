@@ -1,0 +1,236 @@
+fileFormatVersion: 2
+guid: 39c4e745ea8f58345b687d868e1fa894
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: bolt
+    100002: Bone01
+    100004: Bone02
+    100006: Bone03
+    100008: Bone04
+    100010: Bone05
+    100012: Bone06
+    100014: Bone08
+    100016: Bone09
+    100018: Bone10
+    100020: Bone12
+    100022: Bone13
+    100024: Bone14
+    100026: Bone16
+    100028: Bone17
+    100030: Bone18
+    100032: Bone20
+    100034: Bone21
+    100036: Bone22
+    100038: Bone47
+    100040: Bone48
+    100042: Bone49
+    100044: Bone50
+    100046: Bone51
+    100048: Bone52
+    100050: Bone54
+    100052: Bone55
+    100054: Bone56
+    100056: Bone58
+    100058: Bone59
+    100060: Bone60
+    100062: Bone62
+    100064: Bone63
+    100066: Bone64
+    100068: Bone66
+    100070: Bone67
+    100072: Bone68
+    100074: clip
+    100076: clipempty
+    100078: Dummy02
+    100080: Dummy05
+    100082: //RootNode
+    100084: Mesh1
+    100086: skin1.bmp
+    100088: skin3_test
+    100090: SphereGizmo02
+    100092: trigger
+    400000: bolt
+    400002: Bone01
+    400004: Bone02
+    400006: Bone03
+    400008: Bone04
+    400010: Bone05
+    400012: Bone06
+    400014: Bone08
+    400016: Bone09
+    400018: Bone10
+    400020: Bone12
+    400022: Bone13
+    400024: Bone14
+    400026: Bone16
+    400028: Bone17
+    400030: Bone18
+    400032: Bone20
+    400034: Bone21
+    400036: Bone22
+    400038: Bone47
+    400040: Bone48
+    400042: Bone49
+    400044: Bone50
+    400046: Bone51
+    400048: Bone52
+    400050: Bone54
+    400052: Bone55
+    400054: Bone56
+    400056: Bone58
+    400058: Bone59
+    400060: Bone60
+    400062: Bone62
+    400064: Bone63
+    400066: Bone64
+    400068: Bone66
+    400070: Bone67
+    400072: Bone68
+    400074: clip
+    400076: clipempty
+    400078: Dummy02
+    400080: Dummy05
+    400082: //RootNode
+    400084: Mesh1
+    400086: skin1.bmp
+    400088: skin3_test
+    400090: SphereGizmo02
+    400092: trigger
+    2100000: hands_axis
+    2100002: axis_sleeve
+    2100004: clip
+    2100006: bullet
+    2100008: metal
+    2100010: wood
+    4300000: Mesh1
+    7400000: idle
+    7400002: shoot_empty
+    7400004: reload
+    7400006: draw
+    7400008: draw_empty
+    7400010: empty_idle
+    7400012: shoot1
+    7400014: shoot2
+    7400016: shoot3
+    7400018: smash
+    7400020: smash_empty
+    9500000: //RootNode
+    13700000: Mesh1
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: axis_sleeve
+    second: {fileID: 2100000, guid: 546b39c8a4bff9a41bb0944355470997, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bullet
+    second: {fileID: 2100000, guid: bd687bf4a35af0b4cb813d3ea8152bce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: clip
+    second: {fileID: 2100000, guid: 4adafbbc17361ce41a5e8b95d23878f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hands_axis
+    second: {fileID: 2100000, guid: a0364ac7bd815af49abe37765dd8b2be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal
+    second: {fileID: 2100000, guid: 7e14b020e31b2684494f206cfb864306, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood
+    second: {fileID: 2100000, guid: a053637bc82bf4945ae159d06e69a660, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
