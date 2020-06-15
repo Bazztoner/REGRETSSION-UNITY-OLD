@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using TMPro;
+using PhoenixDevelopment;
 
 public class HUDController: MonoBehaviour
 {
@@ -30,6 +31,33 @@ public class HUDController: MonoBehaviour
 		}
 	}
     #endregion
+
+    void Awake()
+    {
+        if (!_canvas)
+        {
+            FindCanvas();
+            FindAmmoAndHPTextes();
+        }
+    }
+
+    void FindCanvas()
+    {
+        _canvas = FindObjectsOfType<Canvas>().FilterGetFirst(x => x.gameObject.name == "HUDCanvas");
+    }
+
+    void FindAmmoAndHPTextes()
+    {
+        //Orders Health Text and Ammo Text found in _canvas alphabetically and puts them in an array
+        var txts = _canvas.GetComponentsInChildren<TextMeshProUGUI>()
+                    .Where(x => x.gameObject.name == "HealthText" || x.gameObject.name == "AmmoText")
+                    .OrderBy(x => x.name)
+                    .ToArray();
+
+        _ammoText = txts[0];
+        _hpText = txts[1];
+    }
+
 
     public void SetAmmo(string ammo)
     {

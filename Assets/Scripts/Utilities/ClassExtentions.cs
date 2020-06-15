@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public static class ClassExtentions
 {
@@ -104,6 +105,11 @@ public static class ClassExtentions
         {
             curve.AddKey(key);
         }
+    }
+
+    public static T FilterGetFirst<T>(this IEnumerable<T> list, Func<T, bool> lambda)
+    {
+        return list.Where(lambda).FirstOrDefault();
     }
 
 }

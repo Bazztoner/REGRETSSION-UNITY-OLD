@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Endgame.unity
     guid: 8871a8a828ee6624da3764cb1120b09f
   - enabled: 0
-    path: Assets/Scenes/DeadPlayer.unity
+    path: Assets/Scenes/DEVROOMS/DEVROOM_M1GarandADS.unity
     guid: 698156875ee0fd34fbde9ec9394e21b0
   m_configObjects: {}
