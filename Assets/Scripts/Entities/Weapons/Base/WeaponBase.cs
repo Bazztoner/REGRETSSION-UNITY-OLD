@@ -118,7 +118,7 @@ public abstract class WeaponBase : MonoBehaviour
     public virtual void ChangeWeapon()
     {
         //_an.SetBool(_holsterHash, true);
-        if(gameObject.activeInHierarchy) StartCoroutine(HolsterWeapon());
+        if (gameObject.activeInHierarchy) StartCoroutine(HolsterWeapon());
     }
 
     protected IEnumerator HolsterWeapon()
@@ -162,8 +162,15 @@ public abstract class WeaponBase : MonoBehaviour
 
         var smb = _an.GetBehaviour<SMB_ReloadState>();
 
-        yield return new WaitUntil(() => smb.finishedAnim && !smb.reloadCancelled);
+        while(true)
+        {
+            yield return new WaitForEndOfFrame();
 
+            if (smb.finishedAnim || smb.reloadCancelled)
+            {
+                break;
+            }
+        }
         _reloading = false;
 
         //override and add update ammo
