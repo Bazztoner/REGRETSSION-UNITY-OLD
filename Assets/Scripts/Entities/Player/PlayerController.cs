@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     CameraController _camController;
     PlayerHead _head;
     Rigidbody _rb;
-    [SerializeField] int _currentWpn;
+    [SerializeField] int _currentWpIndex;
 
     List<KeyCode> _wpnKeys;
 
@@ -98,20 +98,28 @@ public class PlayerController : MonoBehaviour, IDamageable
 
         WeaponControlUtilities.Initialize();
         allWeapons = GetComponentsInChildren<WeaponBase>(true).OrderBy(X => X.wpnNumber).ToList();
-        _currentWpn = allWeapons.Where(x => x.isActiveAndEnabled).First().wpnNumber;
-        _currentWpn--;
 
-        _weaponAvailability = new HashSet<string>()
-        {
-            allWeapons[0].gameObject.name,
-            allWeapons[1].gameObject.name
-        };
+        //Get current WeaponBase or default(WeaponBase) - almost the same  same as null
+        var currWpn = allWeapons.Where(x => x.isActiveAndEnabled).FirstOrDefault();
+        _currentWpIndex = currWpn == default(WeaponBase) ? 1 : currWpn.wpnNumber;
+
+        //one minus because of array purposes
+        _currentWpIndex--;
+
+        _weaponAvailability = new HashSet<string>();
+
+        /*
+        //Katana
+        _weaponAvailability.Add(allWeapons[0].gameObject.name);
+        //Deagle
+        _weaponAvailability.Add(allWeapons[1].gameObject.name);
+        */
     }
 
     public void OnPickedUpAmmo(int ammoGiven, AmmoTypes type)
     {
         ammoReserve[type] += ammoGiven;
-        allWeapons[_currentWpn].SetAmmoOnHUD();
+        allWeapons[_currentWpIndex].SetAmmoOnHUD();
     }
 
     public void OnPickedUpWeapon(string name)
@@ -192,7 +200,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         for (byte i = 0; i < _wpnKeys.Count; i++)
         {
-            if (i != _currentWpn && _weaponAvailability.Contains(allWeapons[i].gameObject.name))
+            if (i != _currentWpIndex && _weaponAvailability.Contains(allWeapons[i].gameObject.name))
             {
                 if (Input.GetKeyDown(_wpnKeys[i]) && !_changingWeapon)
                 {
@@ -211,15 +219,15 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     IEnumerator ChangeWeapon(int indx)
     {
-        allWeapons[_currentWpn].ChangeWeapon();
+        allWeapons[_currentWpIndex].ChangeWeapon();
 
-        yield return new WaitUntil(() => !allWeapons[_currentWpn].Drawn);
+        yield return new WaitUntil(() => !allWeapons[_currentWpIndex].Drawn);
 
-        _currentWpn = indx;
+        _currentWpIndex = indx;
 
-        allWeapons[_currentWpn].gameObject.SetActive(true);
+        allWeapons[_currentWpIndex].gameObject.SetActive(true);
 
-        yield return new WaitUntil(() => allWeapons[_currentWpn].Drawn);
+        yield return new WaitUntil(() => allWeapons[_currentWpIndex].Drawn);
 
         _changingWeapon = false;
     }
@@ -303,7 +311,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         CurrentHp = hp;
         UpdateHP();
         LockedByGame = false;
-        allWeapons[_currentWpn].gameObject.SetActive(true);
+        allWeapons[_currentWpIndex].gameObject.SetActive(true);
     }
 
     public void TakeHealing(int healing)
@@ -322,7 +330,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         GetComponent<Collider>().enabled = false;
         _rb.isKinematic = true;
         _rb.useGravity = false;
-        allWeapons[_currentWpn].gameObject.SetActive(false);
+        allWeapons[_currentWpIndex].gameObject.SetActive(false);
 
         _head.OnDeath();
         LockedByGame = true;

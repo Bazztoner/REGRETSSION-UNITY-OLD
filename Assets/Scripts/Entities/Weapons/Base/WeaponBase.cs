@@ -118,7 +118,7 @@ public abstract class WeaponBase : MonoBehaviour
     public virtual void ChangeWeapon()
     {
         //_an.SetBool(_holsterHash, true);
-        StartCoroutine(HolsterWeapon());
+        if(gameObject.activeInHierarchy) StartCoroutine(HolsterWeapon());
     }
 
     protected IEnumerator HolsterWeapon()
@@ -208,7 +208,8 @@ public enum AmmoTypes
     Rockets,
     Cells,
     Energy,
-    Cores
+    Cores,
+    GENERIC
 }
 
 [Serializable]

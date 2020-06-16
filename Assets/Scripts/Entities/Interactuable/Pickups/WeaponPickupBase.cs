@@ -13,7 +13,7 @@ public class WeaponPickupBase : AmmoPickupBase
         {
             var player = other.GetComponent<PlayerController>();
             player.OnPickedUpWeapon(_weaponName);
-            player.OnPickedUpAmmo(_ammoGiven, ammoType);
+            if(ammoType != AmmoTypes.GENERIC) player.OnPickedUpAmmo(_ammoGiven, ammoType);
             _src.PlayOneShot(pickedSound);
             DisablePickable();
         }
