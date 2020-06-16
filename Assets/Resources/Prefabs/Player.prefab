@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 3939717023419645366}
   - component: {fileID: 3939717023419645363}
   - component: {fileID: 3939717023419645364}
+  - component: {fileID: 7240192955116881133}
   - component: {fileID: 3939717023419645367}
   m_Layer: 12
   m_Name: Player
@@ -284,11 +285,24 @@ MonoBehaviour:
   allWeapons: []
   _initialAmmoReserve: 150000000f0000000500000034000000c800000000000000
   _maxAmmoReserve: 2c010000320000001900000004010000f4010000fa000000
-  _currentWpn: 0
+  _currentWpIndex: 0
   cam: {fileID: 0}
   movementSpeed: 6
   jumpForce: 4
   maxHp: 100
+--- !u!114 &7240192955116881133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3939717023419645369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be61b8a30b9466e499b0c972a966e02e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialWeapons: []
 --- !u!136 &3939717023419645367
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -296,7 +310,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3939717023419645369}
-  m_Material: {fileID: 13400000, guid: b0a60f16c702e574a9f795ddd3b447b3, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.24877688

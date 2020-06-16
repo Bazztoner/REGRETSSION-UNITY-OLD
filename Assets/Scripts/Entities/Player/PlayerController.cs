@@ -108,12 +108,22 @@ public class PlayerController : MonoBehaviour, IDamageable
 
         _weaponAvailability = new HashSet<string>();
 
-        /*
+        var initWpns = GetComponent<InitialWeapons>();
+
+        if (initWpns)
+        {
+            foreach (var item in initWpns.initialWeapons)
+            {
+                _weaponAvailability.Add(item);
+            }
+        }
+
+        /* Hardcoded stuff
         //Katana
         _weaponAvailability.Add(allWeapons[0].gameObject.name);
         //Deagle
         _weaponAvailability.Add(allWeapons[1].gameObject.name);
-        */
+        end of hardcoded stuff*/
     }
 
     public void OnPickedUpAmmo(int ammoGiven, AmmoTypes type)

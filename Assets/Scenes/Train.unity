@@ -86909,6 +86909,21 @@ PrefabInstance:
       propertyPath: m_Range
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 7240192955116881133, guid: 73595305a8c4f5248b0587766d694ba6,
+        type: 3}
+      propertyPath: initialWeapons.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240192955116881133, guid: 73595305a8c4f5248b0587766d694ba6,
+        type: 3}
+      propertyPath: initialWeapons.Array.data[0]
+      value: Katana
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240192955116881133, guid: 73595305a8c4f5248b0587766d694ba6,
+        type: 3}
+      propertyPath: initialWeapons.Array.data[1]
+      value: Deagle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73595305a8c4f5248b0587766d694ba6, type: 3}
 --- !u!1001 &4963368901502922762
