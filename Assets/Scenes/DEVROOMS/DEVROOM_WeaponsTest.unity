@@ -179,10 +179,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3939717023419645364, guid: 73595305a8c4f5248b0587766d694ba6,
+        type: 3}
+      propertyPath: _currentWpIndex
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939717023419645364, guid: 73595305a8c4f5248b0587766d694ba6,
+        type: 3}
+      propertyPath: _initialAmmoReserve.Array.data[0]
+      value: 21
+      objectReference: {fileID: 0}
     - target: {fileID: 3939717022372341708, guid: 73595305a8c4f5248b0587766d694ba6,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973567970118559104, guid: 73595305a8c4f5248b0587766d694ba6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73595305a8c4f5248b0587766d694ba6, type: 3}

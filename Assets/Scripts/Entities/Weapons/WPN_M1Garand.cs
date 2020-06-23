@@ -6,6 +6,7 @@ using System.Linq;
 public class WPN_M1Garand : WeaponBase
 {
     int _bulletsInMagHash = Animator.StringToHash("bullets");
+    int _bulletPool = Animator.StringToHash("bulletPool");
     new protected M1GarandSoundModule _sound;
     protected override int GetBulletsInMag()
     {
@@ -35,6 +36,8 @@ public class WPN_M1Garand : WeaponBase
         _owner.ammoReserve[ammoType] += ammo;
 
         _owner.ammoReserve[ammoType] = Mathf.Clamp(_owner.ammoReserve[ammoType], 0, _owner.MaxAmmoReserve[(int)ammoType]);
+
+        _an.SetInteger(_bulletPool, _owner.ammoReserve[ammoType]);
     }
 
     protected override void OnEnable()
