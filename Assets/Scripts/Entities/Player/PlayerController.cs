@@ -208,14 +208,24 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     void CheckChangeWeapon()
     {
-        for (byte i = 0; i < _wpnKeys.Count; i++)
+        var mouseWheelDelta = Input.GetAxis("Mouse ScrollWheel");
+
+        if (mouseWheelDelta != 0)
         {
-            if (i != _currentWpIndex && _weaponAvailability.Contains(allWeapons[i].gameObject.name))
+
+            ExecuteChangeWeapon(_currentWpIndex += Mathf.RoundToInt(mouseWheelDelta));
+        }
+        else
+        {
+            for (byte i = 0; i < _wpnKeys.Count; i++)
             {
-                if (Input.GetKeyDown(_wpnKeys[i]) && !_changingWeapon)
+                if (i != _currentWpIndex && _weaponAvailability.Contains(allWeapons[i].gameObject.name))
                 {
-                    ExecuteChangeWeapon(i);
-                    return;
+                    if (Input.GetKeyDown(_wpnKeys[i]) && !_changingWeapon)
+                    {
+                        ExecuteChangeWeapon(i);
+                        return;
+                    }
                 }
             }
         }

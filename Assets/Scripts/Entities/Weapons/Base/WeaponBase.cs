@@ -103,7 +103,7 @@ public abstract class WeaponBase : MonoBehaviour
     public abstract void SetAmmoOnHUD();
 
 
-    protected IEnumerator DrawWeapon()
+    protected virtual IEnumerator DrawWeapon()
     {
         //wait for anim
         _sound.OnDraw();
