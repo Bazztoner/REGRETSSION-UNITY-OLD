@@ -461,6 +461,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deagle
       objectReference: {fileID: 0}
+    - target: {fileID: 220313646, guid: 397f4570e753b2141982c116d95a1ed5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 220313647, guid: 397f4570e753b2141982c116d95a1ed5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -525,6 +529,21 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.8308543
       objectReference: {fileID: 0}
+    - target: {fileID: 7098949771385308383, guid: 397f4570e753b2141982c116d95a1ed5,
+        type: 3}
+      propertyPath: shootSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7098949771385308383, guid: 397f4570e753b2141982c116d95a1ed5,
+        type: 3}
+      propertyPath: shootSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9cdb5c9fad64b3447a37e96767be0bee, type: 3}
+    - target: {fileID: 7098949771385308383, guid: 397f4570e753b2141982c116d95a1ed5,
+        type: 3}
+      propertyPath: shootSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8a5388063b1c6594a8e747f4086748b6, type: 3}
     - target: {fileID: 8028676515275057402, guid: 397f4570e753b2141982c116d95a1ed5,
         type: 3}
       propertyPath: m_Volume
@@ -1053,6 +1072,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: M1Garand
+      objectReference: {fileID: 0}
+    - target: {fileID: 2479254063072211900, guid: 5a3c04e3c0e17f442956b945f4f5498f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8967973899373911261, guid: 5a3c04e3c0e17f442956b945f4f5498f,
         type: 3}

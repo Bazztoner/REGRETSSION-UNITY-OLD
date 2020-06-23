@@ -415,8 +415,8 @@ GameObject:
   - component: {fileID: 8967973899373911261}
   - component: {fileID: 2414408493402318116}
   - component: {fileID: 3290962487250913805}
+  - component: {fileID: 2465185288528329112}
   - component: {fileID: 6116612179141953890}
-  - component: {fileID: 2259901091855925142}
   m_Layer: 0
   m_Name: M1Garand
   m_TagString: Untagged
@@ -477,16 +477,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoType: 0
   recoilStats:
-    amount: 3
-    recoveryTime: 2
+    amount: 17
+    recoveryTime: 0.25
     currentZPosition: 0
     currentZPosVelocity: 0
   wpnNumber: 9
   magSize: 8
   shootCooldown: 0.75
   _currentBulletsInMag: 8
-  damage: 45
+  damage: 95
   pellets: 1
+--- !u!114 &2465185288528329112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2479254063072211900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f14af708b6cb6f49a8699a493911727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shoot: {fileID: 8300000, guid: 6df5b5617e10b1f43aece63db42891ac, type: 3}
+  draw: {fileID: 8300000, guid: d92867bcab9a74f47a081c2c69c5733b, type: 3}
+  reload: {fileID: 8300000, guid: bc3ff7c4024e7934088ce74d16e49d7a, type: 3}
+  lastShotSound: {fileID: 8300000, guid: 5458d909f35c37343b86afefbb4a3a06, type: 3}
 --- !u!82 &6116612179141953890
 AudioSource:
   m_ObjectHideFlags: 0
@@ -583,26 +599,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2259901091855925142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2479254063072211900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d12f9dce313a9e64593e66ea20a053a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shoot: {fileID: 0}
-  draw: {fileID: 8300000, guid: d92867bcab9a74f47a081c2c69c5733b, type: 3}
-  magIn: {fileID: 8300000, guid: 540065af99c1e8f4284d5149cdda4749, type: 3}
-  magOut: {fileID: 8300000, guid: 2af34242db3185a48b82ea5291312aa6, type: 3}
-  boltCatch: {fileID: 8300000, guid: d533fecf99a339f4d94a44c4c48301db, type: 3}
-  shootSounds:
-  - {fileID: 8300000, guid: fb7f6128cb5669f469de32b7e2d62864, type: 3}
-  - {fileID: 8300000, guid: 7df6f6056e50e5f41ada4d7bb15d5da9, type: 3}
 --- !u!1 &2483730689655641309
 GameObject:
   m_ObjectHideFlags: 0

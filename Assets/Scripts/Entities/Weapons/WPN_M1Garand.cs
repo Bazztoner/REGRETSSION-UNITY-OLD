@@ -6,7 +6,7 @@ using System.Linq;
 public class WPN_M1Garand : WeaponBase
 {
     int _bulletsInMagHash = Animator.StringToHash("bullets");
-
+    new protected M1GarandSoundModule _sound;
     protected override int GetBulletsInMag()
     {
         return _currentBulletsInMag;
@@ -46,7 +46,7 @@ public class WPN_M1Garand : WeaponBase
     protected override void InitializeSoundModule()
     {
         //TODO make m1garand sound module
-        _sound = GetComponent<DeagleSoundModule>();
+        _sound = GetComponent<M1GarandSoundModule>();
     }
 
     protected override void Draw()
@@ -93,7 +93,9 @@ public class WPN_M1Garand : WeaponBase
         SetBulletsInMag(-1);
         _an.SetInteger(_bulletsInMagHash, GetBulletsInMag());
         SetAmmoOnHUD();
-        _sound.OnShoot();
+        if (_currentBulletsInMag <= 0) _sound.OnLastShot();
+        else _sound.OnShoot();
+
     }
 
     protected override void InitializeConditions()
@@ -155,6 +157,7 @@ public class WPN_M1Garand : WeaponBase
     {
         if (!_canReload()) return;
         base.Reload();
+
         var bulletsToReload = GetReserveAmmo() >= magSize ? magSize : GetReserveAmmo();
         var diff = bulletsToReload - _currentBulletsInMag;
         OnReload(diff);
