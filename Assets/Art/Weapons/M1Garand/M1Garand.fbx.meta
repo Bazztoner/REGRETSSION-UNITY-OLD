@@ -180,14 +180,14 @@ ModelImporter:
       name: idle
       takeName: idle
       firstFrame: 0
-      lastFrame: 86
+      lastFrame: 85.5
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -208,7 +208,7 @@ ModelImporter:
       name: shoot_empty
       takeName: shoot_empty
       firstFrame: 0
-      lastFrame: 86
+      lastFrame: 46.5
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -271,7 +271,7 @@ ModelImporter:
       name: draw
       takeName: draw
       firstFrame: 0
-      lastFrame: 86
+      lastFrame: 46.5
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -299,7 +299,7 @@ ModelImporter:
       name: draw_empty
       takeName: draw_empty
       firstFrame: 0
-      lastFrame: 86
+      lastFrame: 46.5
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -327,14 +327,14 @@ ModelImporter:
       name: empty_idle
       takeName: empty_idle
       firstFrame: 0
-      lastFrame: 86
+      lastFrame: 85.5
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -355,7 +355,7 @@ ModelImporter:
       name: shoot1
       takeName: shoot1
       firstFrame: 0
-      lastFrame: 86
+      lastFrame: 46.5
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -383,7 +383,7 @@ ModelImporter:
       name: shoot2
       takeName: shoot2
       firstFrame: 0
-      lastFrame: 86
+      lastFrame: 46.5
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -411,7 +411,7 @@ ModelImporter:
       name: shoot3
       takeName: shoot3
       firstFrame: 0
-      lastFrame: 86
+      lastFrame: 46.5
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -439,7 +439,7 @@ ModelImporter:
       name: smash
       takeName: smash
       firstFrame: 0
-      lastFrame: 86
+      lastFrame: 49.5
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -467,7 +467,7 @@ ModelImporter:
       name: smash_empty
       takeName: smash_empty
       firstFrame: 0
-      lastFrame: 86
+      lastFrame: 49.5
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

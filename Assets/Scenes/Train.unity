@@ -86072,26 +86072,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 382136013}
-    - target: {fileID: 1702142215388956958, guid: dc469ed1b29641140bbcc466123d7396,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 1702142215388956958, guid: dc469ed1b29641140bbcc466123d7396,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3.8976228
-      objectReference: {fileID: 0}
-    - target: {fileID: 1702142215388956958, guid: dc469ed1b29641140bbcc466123d7396,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.191
-      objectReference: {fileID: 0}
-    - target: {fileID: 1702142215388956958, guid: dc469ed1b29641140bbcc466123d7396,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 8.20407
-      objectReference: {fileID: 0}
     - target: {fileID: 1702142215946458279, guid: dc469ed1b29641140bbcc466123d7396,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -86121,6 +86101,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 4.19471
+      objectReference: {fileID: 0}
+    - target: {fileID: 1702142215388956958, guid: dc469ed1b29641140bbcc466123d7396,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 1702142215388956958, guid: dc469ed1b29641140bbcc466123d7396,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.8976228
+      objectReference: {fileID: 0}
+    - target: {fileID: 1702142215388956958, guid: dc469ed1b29641140bbcc466123d7396,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.191
+      objectReference: {fileID: 0}
+    - target: {fileID: 1702142215388956958, guid: dc469ed1b29641140bbcc466123d7396,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8.20407
       objectReference: {fileID: 0}
     - target: {fileID: 1702142215388956956, guid: dc469ed1b29641140bbcc466123d7396,
         type: 3}
@@ -86923,6 +86923,11 @@ PrefabInstance:
         type: 3}
       propertyPath: initialWeapons.Array.data[1]
       value: Deagle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939717022372341708, guid: 73595305a8c4f5248b0587766d694ba6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73595305a8c4f5248b0587766d694ba6, type: 3}
