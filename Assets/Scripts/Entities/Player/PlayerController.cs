@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         WeaponControlUtilities.Initialize();
         allWeapons = GetComponentsInChildren<WeaponBase>(true).OrderBy(X => X.wpnNumber).ToList();
 
-        //Get current WeaponBase or default(WeaponBase) - almost the same  same as null
+        //Get current WeaponBase or default(WeaponBase) - almost the same as null
         var currWpn = allWeapons.Where(x => x.isActiveAndEnabled).FirstOrDefault();
         _currentWpIndex = currWpn == default(WeaponBase) ? 1 : currWpn.wpnNumber;
 
