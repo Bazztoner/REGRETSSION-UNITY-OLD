@@ -71,10 +71,11 @@ MonoBehaviour:
     recoveryTime: 0.6
     currentZPosition: 0
     currentZPosVelocity: 0
-  wpnNumber: 7
   magSize: 1
   shootCooldown: 1.55
   _currentBulletsInMag: 1
+  wpnNumberX: 7
+  wpnNumberY: 0
   damage: 155
   pellets: 1
   railgunRecoilStats:

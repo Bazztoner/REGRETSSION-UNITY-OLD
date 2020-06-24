@@ -67,14 +67,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoType: 5
   recoilStats:
-    amount: 9
+    amount: 23
     recoveryTime: 0.7
     currentZPosition: 0
     currentZPosVelocity: 0
-  wpnNumber: 9
   magSize: 0
   shootCooldown: 1
   _currentBulletsInMag: 0
+  wpnNumberX: 9
+  wpnNumberY: 0
   damage: 0
   pellets: 0
   maxChargeTime: 2

@@ -13,12 +13,12 @@ public class PlayerController : MonoBehaviour, IDamageable
     [Header("Bullets, Shells, Rockets, Cells, Energy, Cores")]
     int[] _initialAmmoReserve, _maxAmmoReserve;
 
-    HashSet<string> _weaponAvailability;
     CameraShake _camShake;
     CameraController _camController;
     PlayerHead _head;
     Rigidbody _rb;
-    [SerializeField] int _currentWpIndex;
+    [SerializeField] int _currentWeaponIndex, _currentWeaponSubIndex;
+
 
     List<KeyCode> _wpnKeys;
 
@@ -90,54 +90,35 @@ public class PlayerController : MonoBehaviour, IDamageable
     void InitializeWeapons()
     {
         _wpnKeys = new List<KeyCode>();
-        for (byte i = 1; i <= 9; i++)
+        for (byte i = 0; i <= 9; i++)
         {
-            //Alpha 0 is KeyCode 48.
+            //Number 0 is KeyCode 48.
             _wpnKeys.Add((KeyCode)Enum.ToObject(typeof(KeyCode), i + 48));
         }
+        //_wpnKeys.Add((KeyCode)Enum.ToObject(typeof(KeyCode), 48));
 
         WeaponControlUtilities.Initialize();
-        allWeapons = GetComponentsInChildren<WeaponBase>(true).OrderBy(X => X.wpnNumber).ToList();
+        allWeapons = GetComponentsInChildren<WeaponBase>(true).OrderBy(X => X.wpnNumberX).ThenBy(x => x.wpnNumberY).ToList();
 
         //Get current WeaponBase or default(WeaponBase) - almost the same as null
         var currWpn = allWeapons.Where(x => x.isActiveAndEnabled).FirstOrDefault();
-        _currentWpIndex = currWpn == default(WeaponBase) ? 1 : currWpn.wpnNumber;
-
-        //one minus because of array purposes
-        _currentWpIndex--;
-
-        _weaponAvailability = new HashSet<string>();
-
-        var initWpns = GetComponent<InitialWeapons>();
-
-        if (initWpns)
-        {
-            foreach (var item in initWpns.initialWeapons)
-            {
-                _weaponAvailability.Add(item);
-            }
-        }
-
-        /* Hardcoded stuff
-        //Katana
-        _weaponAvailability.Add(allWeapons[0].gameObject.name);
-        //Deagle
-        _weaponAvailability.Add(allWeapons[1].gameObject.name);
-        end of hardcoded stuff*/
+        _currentWeaponIndex = currWpn == default(WeaponBase) ? 1 : allWeapons.IndexOf(currWpn);
+        _currentWeaponSubIndex = currWpn == default(WeaponBase) ? 1 : currWpn.wpnNumberY;
     }
 
     public void OnPickedUpAmmo(int ammoGiven, AmmoTypes type)
     {
         ammoReserve[type] += ammoGiven;
-        allWeapons[_currentWpIndex].SetAmmoOnHUD();
+        if(allWeapons.Count > 0) allWeapons[_currentWeaponIndex].SetAmmoOnHUD();
     }
 
-    public void OnPickedUpWeapon(string name)
+    public void OnPickedUpWeapon(string wpnName)
     {
-        if (!_weaponAvailability.Contains(name))
+        if (allWeapons.Where(x => x.gameObject.name == wpnName).Count() == 0)
         {
-            _weaponAvailability.Add(name);
-            ExecuteChangeWeapon(allWeapons.Where(x => x.gameObject.name == name).FirstOrDefault().wpnNumber - 1);
+            //create and add prefab to player head
+            /*_weaponAvailability.Add(wpnName);
+            ExecuteChangeWeapon(allWeapons.Where(x => x.gameObject.name == wpnName).FirstOrDefault().wpnNumber - 1);*/
         }
     }
 
@@ -210,22 +191,24 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         var mouseWheelDelta = Input.GetAxis("Mouse ScrollWheel");
 
-        if (mouseWheelDelta != 0)
+        if (mouseWheelDelta != 0 && !_changingWeapon && allWeapons.Count > 0)
         {
+            var nextIndex = _currentWeaponIndex + (int)Mathf.Sign(mouseWheelDelta);
 
-            ExecuteChangeWeapon(_currentWpIndex += Mathf.RoundToInt(mouseWheelDelta));
+            if (nextIndex < 0) nextIndex = allWeapons.Count - 1;
+            else if (nextIndex >= allWeapons.Count) nextIndex = 0;
+
+            ExecuteChangeWeapon(nextIndex);
         }
         else
         {
             for (byte i = 0; i < _wpnKeys.Count; i++)
             {
-                if (i != _currentWpIndex && _weaponAvailability.Contains(allWeapons[i].gameObject.name))
+                if (Input.GetKeyDown(_wpnKeys[i]) && !_changingWeapon && allWeapons.Count > 0)
                 {
-                    if (Input.GetKeyDown(_wpnKeys[i]) && !_changingWeapon)
-                    {
-                        ExecuteChangeWeapon(i);
-                        return;
-                    }
+                    var weaponChangeTo = allWeapons.FirstOrDefault(x => x.wpnNumberX == i);
+                    ExecuteChangeWeapon(allWeapons.IndexOf(weaponChangeTo));
+                    return;
                 }
             }
         }
@@ -239,15 +222,15 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     IEnumerator ChangeWeapon(int indx)
     {
-        allWeapons[_currentWpIndex].ChangeWeapon();
+        allWeapons[_currentWeaponIndex].ChangeWeapon();
 
-        yield return new WaitUntil(() => !allWeapons[_currentWpIndex].Drawn);
+        yield return new WaitUntil(() => !allWeapons[_currentWeaponIndex].Drawn);
 
-        _currentWpIndex = indx;
+        _currentWeaponIndex = indx;
 
-        allWeapons[_currentWpIndex].gameObject.SetActive(true);
+        allWeapons[_currentWeaponIndex].gameObject.SetActive(true);
 
-        yield return new WaitUntil(() => allWeapons[_currentWpIndex].Drawn);
+        yield return new WaitUntil(() => allWeapons[_currentWeaponIndex].Drawn);
 
         _changingWeapon = false;
     }
@@ -331,7 +314,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         CurrentHp = hp;
         UpdateHP();
         LockedByGame = false;
-        allWeapons[_currentWpIndex].gameObject.SetActive(true);
+        allWeapons[_currentWeaponIndex].gameObject.SetActive(true);
     }
 
     public void TakeHealing(int healing)
@@ -350,7 +333,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         GetComponent<Collider>().enabled = false;
         _rb.isKinematic = true;
         _rb.useGravity = false;
-        allWeapons[_currentWpIndex].gameObject.SetActive(false);
+        allWeapons[_currentWeaponIndex].gameObject.SetActive(false);
 
         _head.OnDeath();
         LockedByGame = true;

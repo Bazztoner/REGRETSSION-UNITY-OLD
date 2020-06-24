@@ -119,10 +119,11 @@ MonoBehaviour:
     recoveryTime: 0.5
     currentZPosition: 0
     currentZPosVelocity: 0
-  wpnNumber: 5
   magSize: 1
   shootCooldown: 1.8
   _currentBulletsInMag: 1
+  wpnNumberX: 5
+  wpnNumberY: 0
   damage: 155
   pellets: 1
   reloadTime: 1.1

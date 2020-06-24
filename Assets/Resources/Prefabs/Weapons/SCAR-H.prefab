@@ -77,14 +77,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoType: 0
   recoilStats:
-    amount: 1.1
+    amount: 1.5
     recoveryTime: 0.2
     currentZPosition: 0
     currentZPosVelocity: 0
-  wpnNumber: 4
   magSize: 30
   shootCooldown: 0.096
   _currentBulletsInMag: 30
+  wpnNumberX: 4
+  wpnNumberY: 0
   damage: 15
   pellets: 1
 --- !u!114 &7432915009404973
@@ -99,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9c25a2b5c831643b2a90f70871b5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot: {fileID: 0}
+  shoot: {fileID: 8300000, guid: fb7f6128cb5669f469de32b7e2d62864, type: 3}
   draw: {fileID: 8300000, guid: d92867bcab9a74f47a081c2c69c5733b, type: 3}
   magIn: {fileID: 8300000, guid: 3a517bfc6ac50224e84f329ae37ce777, type: 3}
   magOut: {fileID: 8300000, guid: dde20c7b3420d264fb89ca69337d29a1, type: 3}
@@ -117,7 +118,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0

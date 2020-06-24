@@ -423,7 +423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8967973899373911261
 Transform:
   m_ObjectHideFlags: 0
@@ -481,10 +481,11 @@ MonoBehaviour:
     recoveryTime: 0.25
     currentZPosition: 0
     currentZPosVelocity: 0
-  wpnNumber: 9
   magSize: 8
   shootCooldown: 0.75
   _currentBulletsInMag: 8
+  wpnNumberX: 0
+  wpnNumberY: 0
   damage: 95
   pellets: 1
 --- !u!114 &2465185288528329112

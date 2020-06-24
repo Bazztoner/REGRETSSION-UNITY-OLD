@@ -24,10 +24,14 @@ public abstract class WeaponBase : MonoBehaviour
     [SerializeField]
     public WeaponRecoilStats recoilStats;
 
-    public byte wpnNumber;
     public int magSize;
     public float shootCooldown;
     [SerializeField] protected int _currentBulletsInMag;
+
+    //new Stuff
+    public byte wpnNumberX;
+    public byte wpnNumberY;
+
 
     protected abstract int GetBulletsInMag();
     protected abstract int GetReserveAmmo();
