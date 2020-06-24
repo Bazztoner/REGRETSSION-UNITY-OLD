@@ -103,23 +103,39 @@ public class PlayerController : MonoBehaviour, IDamageable
         //Get current WeaponBase or default(WeaponBase) - almost the same as null
         var currWpn = allWeapons.Where(x => x.isActiveAndEnabled).FirstOrDefault();
         _currentWeaponIndex = currWpn == default(WeaponBase) ? 1 : allWeapons.IndexOf(currWpn);
-        _currentWeaponSubIndex = currWpn == default(WeaponBase) ? 1 : currWpn.wpnNumberY;
+        _currentWeaponSubIndex = currWpn == default(WeaponBase) ? 0 : currWpn.wpnNumberY;
     }
 
     public void OnPickedUpAmmo(int ammoGiven, AmmoTypes type)
     {
         ammoReserve[type] += ammoGiven;
-        if(allWeapons.Count > 0) allWeapons[_currentWeaponIndex].SetAmmoOnHUD();
+        if (allWeapons.Count > _currentWeaponIndex && allWeapons[_currentWeaponIndex] != null) allWeapons[_currentWeaponIndex].SetAmmoOnHUD();
     }
 
     public void OnPickedUpWeapon(string wpnName)
     {
-        if (allWeapons.Where(x => x.gameObject.name == wpnName).Count() == 0)
+        if (allWeapons.Where(x => x.gameObject.name == wpnName).Count() < 1)
         {
             //create and add prefab to player head
-            /*_weaponAvailability.Add(wpnName);
-            ExecuteChangeWeapon(allWeapons.Where(x => x.gameObject.name == wpnName).FirstOrDefault().wpnNumber - 1);*/
+
+            var addedWeapon = GameObject.Instantiate(weaponPrefabManager.Instance.GetWeapon(wpnName), cam.transform.position, Quaternion.identity, cam.transform);
+            addedWeapon.gameObject.name = wpnName;
+            addedWeapon.transform.localPosition = Vector3.zero;
+            addedWeapon.transform.localEulerAngles = Vector3.zero;
+
+            allWeapons.Add(addedWeapon);
+
+            ExecuteChangeWeapon(allWeapons.IndexOf(addedWeapon));
         }
+    }
+
+    public void AddWeaponToList(WeaponBase wpnToAdd)
+    {
+        if (allWeapons == null) allWeapons = new List<WeaponBase>();
+
+        allWeapons.Add(wpnToAdd);
+
+        allWeapons = allWeapons.OrderBy(X => X.wpnNumberX).ThenBy(x => x.wpnNumberY).ToList();
     }
 
     public void OnPickedUpLife(int lifeGiven)
@@ -206,8 +222,37 @@ public class PlayerController : MonoBehaviour, IDamageable
             {
                 if (Input.GetKeyDown(_wpnKeys[i]) && !_changingWeapon && allWeapons.Count > 0)
                 {
-                    var weaponChangeTo = allWeapons.FirstOrDefault(x => x.wpnNumberX == i);
-                    ExecuteChangeWeapon(allWeapons.IndexOf(weaponChangeTo));
+                    //Weapons ordered by sub index
+                    var weaponsToChangeTo = allWeapons.Where(x => x.wpnNumberX == i).OrderBy(x => x.wpnNumberY).ToList();
+
+                    //initialize variable
+                    WeaponBase pickedWeapon = default;
+
+                    //save current weapon in local variable so we don't iterate a lot of times in the array
+                    var currentWeaponData = allWeapons[_currentWeaponIndex];
+
+                    if (weaponsToChangeTo.Count == 1)
+                    {
+                        //if it's our current weapon we do nothing
+                        if (currentWeaponData.wpnNumberX == i) return;
+                        else pickedWeapon = weaponsToChangeTo.FirstOrDefault();
+                    }
+                    else if (weaponsToChangeTo.Count > 1)
+                    {
+                        //Here we will select a weapon based on the sub index
+                        if (currentWeaponData.wpnNumberX == i)
+                        {
+                            //If we have the last weapon on the category we get the first one
+                            if (currentWeaponData.wpnNumberY == weaponsToChangeTo.Count - 1) pickedWeapon = weaponsToChangeTo.FirstOrDefault();
+                            else //we get the next on the list, as it is ordered by wpnNumberY
+                            {
+                                var actualIndex = weaponsToChangeTo.IndexOf(currentWeaponData);
+                                pickedWeapon = weaponsToChangeTo[actualIndex + 1];
+                            }
+                        }
+                    }
+
+                    if (pickedWeapon != default) ExecuteChangeWeapon(allWeapons.IndexOf(pickedWeapon));
                     return;
                 }
             }
@@ -222,9 +267,12 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     IEnumerator ChangeWeapon(int indx)
     {
-        allWeapons[_currentWeaponIndex].ChangeWeapon();
+        if (allWeapons.Count > _currentWeaponIndex && allWeapons[_currentWeaponIndex] != null)
+        {
+            allWeapons[_currentWeaponIndex].ChangeWeapon();
 
-        yield return new WaitUntil(() => !allWeapons[_currentWeaponIndex].Drawn);
+            yield return new WaitUntil(() => !allWeapons[_currentWeaponIndex].Drawn);
+        }
 
         _currentWeaponIndex = indx;
 

@@ -6883,16 +6883,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3939717023419645363, guid: 73595305a8c4f5248b0587766d694ba6,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7069966048618461947, guid: 73595305a8c4f5248b0587766d694ba6,
-        type: 3}
-      propertyPath: m_Range
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 3939717023419645366, guid: 73595305a8c4f5248b0587766d694ba6,
         type: 3}
       propertyPath: m_Enabled
@@ -6903,6 +6893,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ce228b622a075e0468b66bd671fb2720, type: 2}
+    - target: {fileID: 3939717023419645363, guid: 73595305a8c4f5248b0587766d694ba6,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7240192955116881133, guid: 73595305a8c4f5248b0587766d694ba6,
         type: 3}
       propertyPath: initialWeapons.Array.size
@@ -6917,6 +6912,11 @@ PrefabInstance:
         type: 3}
       propertyPath: initialWeapons.Array.data[1]
       value: Deagle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069966048618461947, guid: 73595305a8c4f5248b0587766d694ba6,
+        type: 3}
+      propertyPath: m_Range
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73595305a8c4f5248b0587766d694ba6, type: 3}
@@ -7092,6 +7092,11 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4963368902044962420, guid: 0498ec648c48c2f4fa88509f3c281d74,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4963368903130727036, guid: 0498ec648c48c2f4fa88509f3c281d74,
         type: 3}
       propertyPath: m_text
@@ -7158,11 +7163,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textAlignment
       value: 514
-      objectReference: {fileID: 0}
-    - target: {fileID: 4963368902044962420, guid: 0498ec648c48c2f4fa88509f3c281d74,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0498ec648c48c2f4fa88509f3c281d74, type: 3}
