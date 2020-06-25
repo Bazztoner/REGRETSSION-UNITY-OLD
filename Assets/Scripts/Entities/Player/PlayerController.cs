@@ -95,7 +95,6 @@ public class PlayerController : MonoBehaviour, IDamageable
             //Number 0 is KeyCode 48.
             _wpnKeys.Add((KeyCode)Enum.ToObject(typeof(KeyCode), i + 48));
         }
-        //_wpnKeys.Add((KeyCode)Enum.ToObject(typeof(KeyCode), 48));
 
         WeaponControlUtilities.Initialize();
         allWeapons = GetComponentsInChildren<WeaponBase>(true).OrderBy(X => X.wpnNumberX).ThenBy(x => x.wpnNumberY).ToList();
