@@ -12,7 +12,7 @@ NavMeshProjectSettings:
   - name: Jump
     cost: 2
   - name: Door
-    cost: 4
+    cost: 3
   - name: 
     cost: 1
   - name: 
@@ -74,9 +74,9 @@ NavMeshProjectSettings:
   - serializedVersion: 2
     agentTypeID: 0
     agentRadius: 0.2
-    agentHeight: 1.8
-    agentSlope: 60
-    agentClimb: 0.6
+    agentHeight: 1.5
+    agentSlope: 50
+    agentClimb: 0.35
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
