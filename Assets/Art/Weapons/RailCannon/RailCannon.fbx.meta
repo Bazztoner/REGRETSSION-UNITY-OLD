@@ -268,6 +268,10 @@ ModelImporter:
     2100012: ef_railcannon01
     2100014: railcannon_light
     2100016: railcannon_light2
+    2100018: test
+    2100020: plasma_v
+    2100022: plasma_v_alpha
+    2100024: plasma_v1
     4300000: Mesh1
     7400000: draw
     7400002: fire
@@ -277,6 +281,12 @@ ModelImporter:
     7400010: idle2
     7400012: spin
     7400014: spinup
+    7400016: shoot
+    7400018: shoot2
+    7400020: charge
+    7400022: reload
+    7400024: shoot3
+    7400026: shoot4
     9500000: //RootNode
     13700000: Mesh1
     2186277476908879412: ImportLogs
@@ -309,6 +319,21 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: plasma_v
+    second: {fileID: 2100000, guid: 456de033cfeb7df44a3a7f33f487ccd2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plasma_v1
+    second: {fileID: 2100000, guid: 2468a2e3cb2d94c4caf691ef0c4a517b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plasma_v_alpha
+    second: {fileID: 2100000, guid: 572325fb73956d54a88a584f840d1741, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: railcannon_light
     second: {fileID: 2100000, guid: 26287a02197a8cf49909287ec6de9798, type: 2}
   - first:
@@ -320,12 +345,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: railcannon_v
-    second: {fileID: 2100000, guid: 22c36ab61e1f8fa4b8e2c6efda5cf7e1, type: 2}
+    second: {fileID: 2100000, guid: 29fe9bd679cbdd44e84ff33e54ea5501, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: rubbergloveCHROME
     second: {fileID: 2100000, guid: b07642bcdb4b38c4db12a5dc3ee68b20, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: test
+    second: {fileID: 2100000, guid: aa11a212a9d73b746b89c75da5537ff6, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -355,7 +385,7 @@ ModelImporter:
     clipAnimations:
     - serializedVersion: 16
       name: draw
-      takeName: draw
+      takeName: draw_1
       firstFrame: 0
       lastFrame: 51
       wrapMode: 0
@@ -382,8 +412,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: fire
-      takeName: fire
+      name: shoot
+      takeName: shoot1
       firstFrame: 0
       lastFrame: 46.5
       wrapMode: 0
@@ -410,38 +440,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: fire2
-      takeName: fire2
+      name: shoot2
+      takeName: shoot2
       firstFrame: 0
       lastFrame: 46.5
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: holster
-      takeName: holster
-      firstFrame: 0
-      lastFrame: 76
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -494,10 +496,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: idle2
-      takeName: idle2
+      name: charge
+      takeName: v_idle_chage1
       firstFrame: 0
-      lastFrame: 76
+      lastFrame: 76.5
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -522,10 +524,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: spin
-      takeName: spin
+      name: reload
+      takeName: reload_1
       firstFrame: 0
-      lastFrame: 54
+      lastFrame: 132
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -550,10 +552,38 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: spinup
-      takeName: spinup
+      name: shoot3
+      takeName: shoot3
       firstFrame: 0
-      lastFrame: 76
+      lastFrame: 46.5
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: shoot4
+      takeName: shoot4
+      firstFrame: 0
+      lastFrame: 46.5
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
