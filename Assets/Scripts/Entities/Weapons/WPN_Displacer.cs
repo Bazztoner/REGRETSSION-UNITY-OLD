@@ -24,7 +24,7 @@ public class WPN_Displacer : WeaponBase
 
     protected override void InitializeSoundModule()
     {
-        _sound = GetComponent<KatanaSoundModule>();
+        _sound = GetComponent<DisplacerSoundModule>();
     }
 
     protected override void CheckInput()

@@ -35,7 +35,7 @@ public class WPN_Shockroach : WeaponBase
 
     protected override void InitializeSoundModule()
     {
-        _sound = GetComponent<KatanaSoundModule>();
+        _sound = GetComponent<ShockroachSoundModule>();
     }
 
     protected override void InitializeConditions()
@@ -49,6 +49,7 @@ public class WPN_Shockroach : WeaponBase
         _tickDuration = 1 / ticks;
         StartCoroutine(Recharge());
     }
+
 
     protected override void CheckInput()
     {

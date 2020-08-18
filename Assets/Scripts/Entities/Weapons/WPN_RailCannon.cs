@@ -19,7 +19,7 @@ public class WPN_RailCannon : WeaponBase
 
     protected override void InitializeSoundModule()
     {
-        _sound = GetComponent<KatanaSoundModule>();
+        _sound = GetComponent<RailCannonSoundModule>();
     }
 
     protected override void SetBulletsInMag(int bullets, bool overrideBullets = false)
@@ -77,12 +77,8 @@ public class WPN_RailCannon : WeaponBase
 
         OnShoot();
         _shooting = true;
-        var rndStyle = Random.Range(0, 2);
-        var idleStyle = Random.Range(0, 2);
-        _an.SetInteger("idleStyle", idleStyle);
 
-        var stateName = "shoot" + rndStyle;
-        _an.CrossFadeInFixedTime(stateName, .1f);
+        _an.CrossFadeInFixedTime("shoot", .1f);
 
         yield return new WaitForEndOfFrame();
 

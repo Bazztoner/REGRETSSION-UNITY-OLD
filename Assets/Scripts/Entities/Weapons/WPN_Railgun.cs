@@ -22,7 +22,7 @@ public class WPN_Railgun : WeaponBase
 
     protected override void InitializeSoundModule()
     {
-        _sound = GetComponent<KatanaSoundModule>();
+        _sound = GetComponent<RailgunSoundModule>();
     }
 
     protected override void Draw()

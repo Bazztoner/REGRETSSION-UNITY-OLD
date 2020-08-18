@@ -48,7 +48,6 @@ public class WPN_M1Garand : WeaponBase
 
     protected override void InitializeSoundModule()
     {
-        //TODO make m1garand sound module
         _sound = GetComponent<M1GarandSoundModule>();
     }
 

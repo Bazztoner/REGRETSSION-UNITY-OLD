@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             //create and add prefab to player head
 
-            var addedWeapon = GameObject.Instantiate(weaponPrefabManager.Instance.GetWeapon(wpnName), cam.transform.position, Quaternion.identity, cam.transform);
+            var addedWeapon = GameObject.Instantiate(WeaponPrefabManager.Instance.GetWeapon(wpnName), cam.transform.position, Quaternion.identity, cam.transform);
             addedWeapon.gameObject.name = wpnName;
             addedWeapon.transform.localPosition = Vector3.zero;
             addedWeapon.transform.localEulerAngles = Vector3.zero;

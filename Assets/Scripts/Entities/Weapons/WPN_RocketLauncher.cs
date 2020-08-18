@@ -15,7 +15,7 @@ public class WPN_RocketLauncher : WeaponBase
 
     protected override void InitializeSoundModule()
     {
-        _sound = GetComponent<KatanaSoundModule>();
+        _sound = GetComponent<RocketLauncherSoundModule>();
     }
 
     protected override void CheckInput()

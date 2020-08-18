@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class weaponPrefabManager: MonoBehaviour
+public class WeaponPrefabManager: MonoBehaviour
 {
-	static weaponPrefabManager instance;
-	public static weaponPrefabManager Instance
+	static WeaponPrefabManager instance;
+	public static WeaponPrefabManager Instance
 	{
 		get
 		{
 			if(instance == null)
 			{
-				instance = FindObjectOfType<weaponPrefabManager>();
+				instance = FindObjectOfType<WeaponPrefabManager>();
 				if(instance == null)
 				{
-					instance = new GameObject("new weaponPrefabManager Object").AddComponent<weaponPrefabManager>().GetComponent<weaponPrefabManager>();
+					instance = new GameObject("new weaponPrefabManager Object").AddComponent<WeaponPrefabManager>().GetComponent<WeaponPrefabManager>();
 				}
 			}
 			return instance;
