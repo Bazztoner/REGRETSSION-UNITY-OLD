@@ -5,20 +5,20 @@ using System.Linq;
 
 public class SuperShotgunSoundModule : WeaponSoundModuleBase
 {
-    public AudioClip magIn, magOut, magTap;
-
-    public virtual void OnMagIn()
-    {
-        PlaySound(magIn);
-    }
+    public AudioClip insertShell, breakOpen, breakClose;
 
     public virtual void OnMagOut()
     {
-        PlaySound(magOut);
+        PlaySound(breakOpen);
+    }
+
+    public virtual void OnMagIn()
+    {
+        PlaySound(insertShell);
     }
 
     public virtual void OnMagTap()
     {
-        PlaySound(magTap);
+        PlaySound(breakClose);
     }
 }

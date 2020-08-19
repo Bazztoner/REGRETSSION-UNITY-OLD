@@ -100,8 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9c25a2b5c831643b2a90f70871b5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot: {fileID: 8300000, guid: fb7f6128cb5669f469de32b7e2d62864, type: 3}
-  draw: {fileID: 8300000, guid: d92867bcab9a74f47a081c2c69c5733b, type: 3}
+  shootClips:
+  - {fileID: 8300000, guid: fb7f6128cb5669f469de32b7e2d62864, type: 3}
+  draw: {fileID: 8300000, guid: 6418fdc90cc6ea348bde9a0b9924efc3, type: 3}
   magIn: {fileID: 8300000, guid: 3a517bfc6ac50224e84f329ae37ce777, type: 3}
   magOut: {fileID: 8300000, guid: dde20c7b3420d264fb89ca69337d29a1, type: 3}
   magTap: {fileID: 8300000, guid: 31d0d5ea28d085c4f9471c40b7815e1e, type: 3}
@@ -832,6 +833,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -851,6 +853,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -1729,11 +1732,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5788270975278857287}
     m_Modifications:
-    - target: {fileID: 7624187562435761989, guid: 50eb1a0ef77bed641a70942532f8c891,
-        type: 3}
-      propertyPath: m_Name
-      value: Muzzle
-      objectReference: {fileID: 0}
     - target: {fileID: 4922181808670527470, guid: 50eb1a0ef77bed641a70942532f8c891,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1788,6 +1786,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624187562435761989, guid: 50eb1a0ef77bed641a70942532f8c891,
+        type: 3}
+      propertyPath: m_Name
+      value: Muzzle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50eb1a0ef77bed641a70942532f8c891, type: 3}

@@ -69,17 +69,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoType: 5
   recoilStats:
-    amount: 23
-    recoveryTime: 0.7
+    amount: 32
+    recoveryTime: 1.2
     currentZPosition: 0
     currentZPosVelocity: 0
-  magSize: 0
+  magSize: 1
   shootCooldown: 1
-  _currentBulletsInMag: 0
+  _currentBulletsInMag: 1
   wpnNumberX: 9
   wpnNumberY: 0
-  damage: 0
-  pellets: 0
+  damage: 300
+  pellets: 200
   maxChargeTime: 2
   maxCharge: 200
   minCharge: 50
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a43c272b024de64ea8ff3f20a77f9ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot: {fileID: 0}
+  shootClips: []
   draw: {fileID: 0}
 --- !u!1 &14823676935744027
 GameObject:
@@ -861,6 +861,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -878,6 +879,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -2015,11 +2017,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5526708180896454425}
     m_Modifications:
-    - target: {fileID: 7624187562435761989, guid: 50eb1a0ef77bed641a70942532f8c891,
-        type: 3}
-      propertyPath: m_Name
-      value: Muzzle
-      objectReference: {fileID: 0}
     - target: {fileID: 4922181808670527470, guid: 50eb1a0ef77bed641a70942532f8c891,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2074,6 +2071,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624187562435761989, guid: 50eb1a0ef77bed641a70942532f8c891,
+        type: 3}
+      propertyPath: m_Name
+      value: Muzzle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50eb1a0ef77bed641a70942532f8c891, type: 3}

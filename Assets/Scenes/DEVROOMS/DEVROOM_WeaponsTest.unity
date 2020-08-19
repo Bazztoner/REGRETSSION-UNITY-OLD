@@ -138,30 +138,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3939717022797575402, guid: 73595305a8c4f5248b0587766d694ba6,
-        type: 3}
-      propertyPath: sensitivity
-      value: 450
-      objectReference: {fileID: 0}
     - target: {fileID: 3939717023419645364, guid: 73595305a8c4f5248b0587766d694ba6,
         type: 3}
       propertyPath: _currentWpIndex
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3939717023419645364, guid: 73595305a8c4f5248b0587766d694ba6,
-        type: 3}
-      propertyPath: _initialAmmoReserve.Array.data[0]
-      value: 21
-      objectReference: {fileID: 0}
-    - target: {fileID: 3939717023419645364, guid: 73595305a8c4f5248b0587766d694ba6,
-        type: 3}
-      propertyPath: movementSpeed
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 3939717023419645364, guid: 73595305a8c4f5248b0587766d694ba6,
-        type: 3}
-      propertyPath: jumpForce
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3939717023419645368, guid: 73595305a8c4f5248b0587766d694ba6,
         type: 3}

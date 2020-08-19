@@ -188,11 +188,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12f9dce313a9e64593e66ea20a053a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot: {fileID: 0}
-  draw: {fileID: 8300000, guid: d92867bcab9a74f47a081c2c69c5733b, type: 3}
-  magIn: {fileID: 8300000, guid: 540065af99c1e8f4284d5149cdda4749, type: 3}
-  magOut: {fileID: 8300000, guid: 2af34242db3185a48b82ea5291312aa6, type: 3}
-  boltCatch: {fileID: 8300000, guid: d533fecf99a339f4d94a44c4c48301db, type: 3}
+  shootClips:
+  - {fileID: 8300000, guid: 795bfeba1fd3d7b4ea76d5e464bea340, type: 3}
+  - {fileID: 8300000, guid: 90d8bd8c1af81c249bf0399d2be2243a, type: 3}
+  draw: {fileID: 8300000, guid: 6418fdc90cc6ea348bde9a0b9924efc3, type: 3}
+  magIn: {fileID: 8300000, guid: bc263e15125bcb54d8253e6710d5a9a9, type: 3}
+  magOut: {fileID: 8300000, guid: 9709eb4845cffed4ca05fa57b21fcfe2, type: 3}
+  boltCatch: {fileID: 8300000, guid: e1eef0288dcab6842a700844ef5b3adf, type: 3}
   shootSounds:
   - {fileID: 8300000, guid: 9cdb5c9fad64b3447a37e96767be0bee, type: 3}
   - {fileID: 8300000, guid: 8a5388063b1c6594a8e747f4086748b6, type: 3}
@@ -799,6 +801,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -812,6 +815,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -1565,11 +1569,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1251155483880268315}
     m_Modifications:
-    - target: {fileID: 7624187562435761989, guid: 50eb1a0ef77bed641a70942532f8c891,
-        type: 3}
-      propertyPath: m_Name
-      value: Muzzle
-      objectReference: {fileID: 0}
     - target: {fileID: 4922181808670527470, guid: 50eb1a0ef77bed641a70942532f8c891,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1624,6 +1623,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624187562435761989, guid: 50eb1a0ef77bed641a70942532f8c891,
+        type: 3}
+      propertyPath: m_Name
+      value: Muzzle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50eb1a0ef77bed641a70942532f8c891, type: 3}

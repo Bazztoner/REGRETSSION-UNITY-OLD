@@ -965,7 +965,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2306dcf16ae73c449b4f1d303629b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot: {fileID: 8300000, guid: cf0cdd44a728c2745af63a10bb765a80, type: 3}
+  shootClips:
+  - {fileID: 8300000, guid: d6001e965d9f70d449c661b5ab619cd3, type: 3}
   draw: {fileID: 8300000, guid: 9dbedd527ffb4f6469d5ebcf9059df88, type: 3}
   clipIn: {fileID: 8300000, guid: 928e2e1d95ac5a445b4aaac43bc9bc54, type: 3}
   clipOut: {fileID: 8300000, guid: bd1a0497873b5474cb3ef7b9f809ba3a, type: 3}

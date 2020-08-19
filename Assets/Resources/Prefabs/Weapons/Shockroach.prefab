@@ -73,16 +73,16 @@ MonoBehaviour:
     recoveryTime: 0.2
     currentZPosition: 0
     currentZPosVelocity: 0
-  magSize: 0
+  magSize: 500
   shootCooldown: 0.197
-  _currentBulletsInMag: 0
+  _currentBulletsInMag: 500
   wpnNumberX: 8
   wpnNumberY: 0
   damage: 50
   pellets: 1
   initialChargeDuration: 0.35
   ammoPerSecond: 25
-  damagePerSecond: 0
+  damagePerSecond: 50
   ticks: 6
   xSize: 0.1
   ySize: 0.1
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec4fc52b9655964583b9ffecd6828ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot: {fileID: 0}
+  shootClips: []
   draw: {fileID: 0}
 --- !u!1 &430074992183108191
 GameObject:
@@ -367,6 +367,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -381,6 +382,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -1663,11 +1665,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 954557319168878178}
     m_Modifications:
-    - target: {fileID: 7624187562435761989, guid: 50eb1a0ef77bed641a70942532f8c891,
-        type: 3}
-      propertyPath: m_Name
-      value: Muzzle
-      objectReference: {fileID: 0}
     - target: {fileID: 4922181808670527470, guid: 50eb1a0ef77bed641a70942532f8c891,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1722,6 +1719,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624187562435761989, guid: 50eb1a0ef77bed641a70942532f8c891,
+        type: 3}
+      propertyPath: m_Name
+      value: Muzzle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50eb1a0ef77bed641a70942532f8c891, type: 3}

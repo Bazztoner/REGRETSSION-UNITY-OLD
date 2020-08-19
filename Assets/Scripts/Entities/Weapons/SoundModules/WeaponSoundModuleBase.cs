@@ -6,7 +6,8 @@ using System.Linq;
 [RequireComponent(typeof(AudioSource))]
 public class WeaponSoundModuleBase : MonoBehaviour
 {
-    public AudioClip shoot, draw;
+    public AudioClip[] shootClips;
+    public AudioClip draw;
     AudioSource _src;
 
     void Awake()
@@ -20,12 +21,15 @@ public class WeaponSoundModuleBase : MonoBehaviour
 
         if (snd != null) _src.PlayOneShot(snd);
         else Debug.Log("Sound not found");
-        
+
     }
 
     public virtual void OnShoot()
     {
-        PlaySound(shoot);
+        if (shootClips.Length <= 0) return;
+
+        var rndShoot = Random.Range(0, shootClips.Length);
+        PlaySound(shootClips[rndShoot]);
     }
 
     public virtual void OnDraw()

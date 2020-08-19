@@ -5,6 +5,11 @@ using System.Linq;
 
 public class RailgunSoundModule : WeaponSoundModuleBase
 {
+    public AudioClip reloadClip;
 
+    public void OnReload()
+    {
+        PlaySound(reloadClip);
+    }
 }
 

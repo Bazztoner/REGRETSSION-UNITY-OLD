@@ -95,11 +95,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472a501b8ef269c45bfc64c658568406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot: {fileID: 8300000, guid: d4ca1489246267d4bb2e3b14d1fc798a, type: 3}
-  draw: {fileID: 8300000, guid: d92867bcab9a74f47a081c2c69c5733b, type: 3}
-  enemyHit: {fileID: 8300000, guid: eadb8319a2c7ade4d813b551517f270a, type: 3}
-  wallHit: {fileID: 8300000, guid: d38a1240da4a2344e8530739838898ee, type: 3}
-  destructHit: {fileID: 8300000, guid: b31718d970aac4f48a24c7fab98bf88c, type: 3}
+  shootClips:
+  - {fileID: 8300000, guid: 617ca2fe2d6e1d34cbd1af6eede3cc46, type: 3}
+  - {fileID: 8300000, guid: 65ec7b7c5d2b91e4a9952c2200679639, type: 3}
+  draw: {fileID: 8300000, guid: 6418fdc90cc6ea348bde9a0b9924efc3, type: 3}
+  enemyHit: {fileID: 8300000, guid: 68b20a9c9e025724faa8902ba9b982c8, type: 3}
+  wallHit: {fileID: 8300000, guid: b7236626e1381b04898f99f3af0260de, type: 3}
+  destructHit: {fileID: 8300000, guid: 3dcadfb5e2c53e44b97b228634373d85, type: 3}
 --- !u!82 &6518467789068172027
 AudioSource:
   m_ObjectHideFlags: 0
@@ -832,6 +834,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -844,6 +847,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

@@ -56,6 +56,8 @@ public class WPN_Railgun : WeaponBase
 
         yield return new WaitForEndOfFrame();
 
+        _sound.OnShoot();
+
         ManageProjectile();
         StartCoroutine(ProgressiveRecoil());
 

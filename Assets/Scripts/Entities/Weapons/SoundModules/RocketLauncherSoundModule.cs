@@ -5,5 +5,10 @@ using System.Linq;
 
 public class RocketLauncherSoundModule : WeaponSoundModuleBase
 {
+    public AudioClip reloadClip;
 
+    public void OnReload()
+    {
+        PlaySound(reloadClip);
+    }
 }

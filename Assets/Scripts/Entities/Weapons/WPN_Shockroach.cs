@@ -18,6 +18,7 @@ public class WPN_Shockroach : WeaponBase
     public float ySize;
     public float zSize;
 
+
     public float ReloadByTick
     {
         get { return ammoPerSecond / ticks; }

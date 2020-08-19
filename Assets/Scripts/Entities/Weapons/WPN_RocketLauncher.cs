@@ -51,6 +51,7 @@ public class WPN_RocketLauncher : WeaponBase
 
         yield return new WaitForEndOfFrame();
 
+        _sound.OnShoot();
         ManageProjectile();
         AddRecoil();
 
@@ -85,6 +86,8 @@ public class WPN_RocketLauncher : WeaponBase
         //wait for anim
         _an.CrossFadeInFixedTime("reload", .1f);
         _reloading = true;
+
+        
 
         yield return new WaitForSeconds(reloadTime);
 

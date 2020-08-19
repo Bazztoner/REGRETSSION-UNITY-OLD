@@ -69,8 +69,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoType: 3
   recoilStats:
-    amount: 3
-    recoveryTime: 0.6
+    amount: 10
+    recoveryTime: 0.82
     currentZPosition: 0
     currentZPosVelocity: 0
   magSize: 1
@@ -193,8 +193,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6da359640af004a97b756e43958527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot: {fileID: 0}
-  draw: {fileID: 0}
+  shootClips:
+  - {fileID: 8300000, guid: cdd799c96ba50f943b5be04c1247c6e0, type: 3}
+  draw: {fileID: 8300000, guid: 6418fdc90cc6ea348bde9a0b9924efc3, type: 3}
+  reloadClip: {fileID: 8300000, guid: 8440e98b89ef65f4086eeb2cd6a2fd14, type: 3}
 --- !u!1 &174808606309272729
 GameObject:
   m_ObjectHideFlags: 0
@@ -1571,6 +1573,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1588,6 +1591,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -1856,11 +1860,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2047888604300536664}
     m_Modifications:
-    - target: {fileID: 7624187562435761989, guid: 50eb1a0ef77bed641a70942532f8c891,
-        type: 3}
-      propertyPath: m_Name
-      value: Muzzle
-      objectReference: {fileID: 0}
     - target: {fileID: 4922181808670527470, guid: 50eb1a0ef77bed641a70942532f8c891,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1915,6 +1914,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624187562435761989, guid: 50eb1a0ef77bed641a70942532f8c891,
+        type: 3}
+      propertyPath: m_Name
+      value: Muzzle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50eb1a0ef77bed641a70942532f8c891, type: 3}
