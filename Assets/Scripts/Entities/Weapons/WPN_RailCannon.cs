@@ -108,7 +108,8 @@ public class WPN_RailCannon : WeaponBase
         _reloading = false;
 
         var bulletsToReload = GetReserveAmmo() >= magSize ? magSize : GetReserveAmmo();
-        OnReload(bulletsToReload);
+        var diff = bulletsToReload - _currentBulletsInMag;
+        OnReload(diff);
     }
 
     void ForceDrawReload()
@@ -119,7 +120,7 @@ public class WPN_RailCannon : WeaponBase
     void OnReload(int bulletsToReload)
     {
         SetBulletsInMag(bulletsToReload);
-        UpdateReserveAmmo(-_currentBulletsInMag);
+        UpdateReserveAmmo(-bulletsToReload);
 
         SetAmmoOnHUD();
     }
