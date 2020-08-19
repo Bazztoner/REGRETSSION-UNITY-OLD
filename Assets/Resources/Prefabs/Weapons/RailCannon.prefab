@@ -965,8 +965,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2306dcf16ae73c449b4f1d303629b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot: {fileID: 0}
-  draw: {fileID: 0}
+  shoot: {fileID: 8300000, guid: cf0cdd44a728c2745af63a10bb765a80, type: 3}
+  draw: {fileID: 8300000, guid: 9dbedd527ffb4f6469d5ebcf9059df88, type: 3}
+  clipIn: {fileID: 8300000, guid: 928e2e1d95ac5a445b4aaac43bc9bc54, type: 3}
+  clipOut: {fileID: 8300000, guid: bd1a0497873b5474cb3ef7b9f809ba3a, type: 3}
 --- !u!1 &4879735449702757398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,6 +1704,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1717,6 +1720,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

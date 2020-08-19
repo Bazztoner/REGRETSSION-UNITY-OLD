@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 987703577586106637}
   - component: {fileID: 8045633432788837954}
   m_Layer: 0
-  m_Name: Super Shotgun
+  m_Name: SuperShotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1106,6 +1106,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1119,6 +1120,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -1627,11 +1629,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7988261302433636856}
     m_Modifications:
-    - target: {fileID: 7624187562435761989, guid: 50eb1a0ef77bed641a70942532f8c891,
-        type: 3}
-      propertyPath: m_Name
-      value: Muzzle
-      objectReference: {fileID: 0}
     - target: {fileID: 4922181808670527470, guid: 50eb1a0ef77bed641a70942532f8c891,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1686,6 +1683,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624187562435761989, guid: 50eb1a0ef77bed641a70942532f8c891,
+        type: 3}
+      propertyPath: m_Name
+      value: Muzzle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50eb1a0ef77bed641a70942532f8c891, type: 3}

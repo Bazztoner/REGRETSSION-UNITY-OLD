@@ -127,6 +127,7 @@ public class WPN_RailCannon : WeaponBase
     void OnShoot()
     {
         SetBulletsInMag(-1);
+        _sound.OnShoot();
         SetAmmoOnHUD();
     }
 
