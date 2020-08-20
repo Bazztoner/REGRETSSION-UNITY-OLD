@@ -195,8 +195,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec4fc52b9655964583b9ffecd6828ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootClips: []
-  draw: {fileID: 0}
+  shootClips:
+  - {fileID: 8300000, guid: f08ba1ee7c623744b894ec1125412360, type: 3}
+  draw: {fileID: 8300000, guid: 8799d303917817e4cbd380a6d0f41d36, type: 3}
+  shootLoop: {fileID: 8300000, guid: 73a35ff9db2c55e45930ceb6cf0c249d, type: 3}
 --- !u!1 &430074992183108191
 GameObject:
   m_ObjectHideFlags: 0

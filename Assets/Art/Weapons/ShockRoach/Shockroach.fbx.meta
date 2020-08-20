@@ -1,115 +1,323 @@
 fileFormatVersion: 2
 guid: b4cf433a15596f1448753b73468e27bd
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: damn
-    100002: damn01
-    100004: damn02
-    100006: Hands biped
-    100008: Hands biped L Clavicle
-    100010: Hands biped L Finger0
-    100012: Hands biped L Finger01
-    100014: Hands biped L Finger1
-    100016: Hands biped L Finger11
-    100018: Hands biped L Finger12
-    100020: Hands biped L Finger2
-    100022: Hands biped L Finger21
-    100024: Hands biped L Finger22
-    100026: Hands biped L Finger3
-    100028: Hands biped L Finger31
-    100030: Hands biped L Finger32
-    100032: Hands biped L Finger4
-    100034: Hands biped L Finger41
-    100036: Hands biped L Finger42
-    100038: Hands biped L Forearm
-    100040: Hands biped L Hand
-    100042: Hands biped L UpperArm
-    100044: Hands biped Neck
-    100046: Hands biped Pelvis
-    100048: Hands biped R Clavicle
-    100050: Hands biped R Forearm
-    100052: Hands biped R Hand
-    100054: Hands biped R UpperArm
-    100056: Hands biped Spine
-    100058: Hands biped Spine1
-    100060: Hands biped Spine2
-    100062: Hands biped Spine3
-    100064: Mesh1
-    100066: shock_rifle_bhorn
-    100068: shock_rifle_body
-    100070: shock_rifle_larm
-    100072: shock_rifle_rarm
-    100074: shock_rifle_rods
-    100076: shock_rifle_tarm
-    100078: shock_rifle_tele1
-    100080: shock_rifle_tele2
-    100082: shock_rifle_tele3
-    100084: shock_rifle_tele4
-    100086: shock_rifle_thorn
-    100088: //RootNode
-    400000: damn
-    400002: damn01
-    400004: damn02
-    400006: Hands biped
-    400008: Hands biped L Clavicle
-    400010: Hands biped L Finger0
-    400012: Hands biped L Finger01
-    400014: Hands biped L Finger1
-    400016: Hands biped L Finger11
-    400018: Hands biped L Finger12
-    400020: Hands biped L Finger2
-    400022: Hands biped L Finger21
-    400024: Hands biped L Finger22
-    400026: Hands biped L Finger3
-    400028: Hands biped L Finger31
-    400030: Hands biped L Finger32
-    400032: Hands biped L Finger4
-    400034: Hands biped L Finger41
-    400036: Hands biped L Finger42
-    400038: Hands biped L Forearm
-    400040: Hands biped L Hand
-    400042: Hands biped L UpperArm
-    400044: Hands biped Neck
-    400046: Hands biped Pelvis
-    400048: Hands biped R Clavicle
-    400050: Hands biped R Forearm
-    400052: Hands biped R Hand
-    400054: Hands biped R UpperArm
-    400056: Hands biped Spine
-    400058: Hands biped Spine1
-    400060: Hands biped Spine2
-    400062: Hands biped Spine3
-    400064: Mesh1
-    400066: shock_rifle_bhorn
-    400068: shock_rifle_body
-    400070: shock_rifle_larm
-    400072: shock_rifle_rarm
-    400074: shock_rifle_rods
-    400076: shock_rifle_tarm
-    400078: shock_rifle_tele1
-    400080: shock_rifle_tele2
-    400082: shock_rifle_tele3
-    400084: shock_rifle_tele4
-    400086: shock_rifle_thorn
-    400088: //RootNode
-    2100000: SHOCKRIFLE6
-    2100002: white
-    2100004: hand
-    2100006: skin
-    4300000: Mesh1
-    7400000: draw
-    7400002: fire
-    7400004: holster
-    7400006: idle1
-    7400008: idle3
-    7400010: FireLoop
-    9500000: //RootNode
-    13700000: Mesh1
-    2186277476908879412: ImportLogs
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: damn
+  - first:
+      1: 100002
+    second: damn01
+  - first:
+      1: 100004
+    second: damn02
+  - first:
+      1: 100006
+    second: Hands biped
+  - first:
+      1: 100008
+    second: Hands biped L Clavicle
+  - first:
+      1: 100010
+    second: Hands biped L Finger0
+  - first:
+      1: 100012
+    second: Hands biped L Finger01
+  - first:
+      1: 100014
+    second: Hands biped L Finger1
+  - first:
+      1: 100016
+    second: Hands biped L Finger11
+  - first:
+      1: 100018
+    second: Hands biped L Finger12
+  - first:
+      1: 100020
+    second: Hands biped L Finger2
+  - first:
+      1: 100022
+    second: Hands biped L Finger21
+  - first:
+      1: 100024
+    second: Hands biped L Finger22
+  - first:
+      1: 100026
+    second: Hands biped L Finger3
+  - first:
+      1: 100028
+    second: Hands biped L Finger31
+  - first:
+      1: 100030
+    second: Hands biped L Finger32
+  - first:
+      1: 100032
+    second: Hands biped L Finger4
+  - first:
+      1: 100034
+    second: Hands biped L Finger41
+  - first:
+      1: 100036
+    second: Hands biped L Finger42
+  - first:
+      1: 100038
+    second: Hands biped L Forearm
+  - first:
+      1: 100040
+    second: Hands biped L Hand
+  - first:
+      1: 100042
+    second: Hands biped L UpperArm
+  - first:
+      1: 100044
+    second: Hands biped Neck
+  - first:
+      1: 100046
+    second: Hands biped Pelvis
+  - first:
+      1: 100048
+    second: Hands biped R Clavicle
+  - first:
+      1: 100050
+    second: Hands biped R Forearm
+  - first:
+      1: 100052
+    second: Hands biped R Hand
+  - first:
+      1: 100054
+    second: Hands biped R UpperArm
+  - first:
+      1: 100056
+    second: Hands biped Spine
+  - first:
+      1: 100058
+    second: Hands biped Spine1
+  - first:
+      1: 100060
+    second: Hands biped Spine2
+  - first:
+      1: 100062
+    second: Hands biped Spine3
+  - first:
+      1: 100064
+    second: Mesh1
+  - first:
+      1: 100066
+    second: shock_rifle_bhorn
+  - first:
+      1: 100068
+    second: shock_rifle_body
+  - first:
+      1: 100070
+    second: shock_rifle_larm
+  - first:
+      1: 100072
+    second: shock_rifle_rarm
+  - first:
+      1: 100074
+    second: shock_rifle_rods
+  - first:
+      1: 100076
+    second: shock_rifle_tarm
+  - first:
+      1: 100078
+    second: shock_rifle_tele1
+  - first:
+      1: 100080
+    second: shock_rifle_tele2
+  - first:
+      1: 100082
+    second: shock_rifle_tele3
+  - first:
+      1: 100084
+    second: shock_rifle_tele4
+  - first:
+      1: 100086
+    second: shock_rifle_thorn
+  - first:
+      1: 100088
+    second: //RootNode
+  - first:
+      4: 400000
+    second: damn
+  - first:
+      4: 400002
+    second: damn01
+  - first:
+      4: 400004
+    second: damn02
+  - first:
+      4: 400006
+    second: Hands biped
+  - first:
+      4: 400008
+    second: Hands biped L Clavicle
+  - first:
+      4: 400010
+    second: Hands biped L Finger0
+  - first:
+      4: 400012
+    second: Hands biped L Finger01
+  - first:
+      4: 400014
+    second: Hands biped L Finger1
+  - first:
+      4: 400016
+    second: Hands biped L Finger11
+  - first:
+      4: 400018
+    second: Hands biped L Finger12
+  - first:
+      4: 400020
+    second: Hands biped L Finger2
+  - first:
+      4: 400022
+    second: Hands biped L Finger21
+  - first:
+      4: 400024
+    second: Hands biped L Finger22
+  - first:
+      4: 400026
+    second: Hands biped L Finger3
+  - first:
+      4: 400028
+    second: Hands biped L Finger31
+  - first:
+      4: 400030
+    second: Hands biped L Finger32
+  - first:
+      4: 400032
+    second: Hands biped L Finger4
+  - first:
+      4: 400034
+    second: Hands biped L Finger41
+  - first:
+      4: 400036
+    second: Hands biped L Finger42
+  - first:
+      4: 400038
+    second: Hands biped L Forearm
+  - first:
+      4: 400040
+    second: Hands biped L Hand
+  - first:
+      4: 400042
+    second: Hands biped L UpperArm
+  - first:
+      4: 400044
+    second: Hands biped Neck
+  - first:
+      4: 400046
+    second: Hands biped Pelvis
+  - first:
+      4: 400048
+    second: Hands biped R Clavicle
+  - first:
+      4: 400050
+    second: Hands biped R Forearm
+  - first:
+      4: 400052
+    second: Hands biped R Hand
+  - first:
+      4: 400054
+    second: Hands biped R UpperArm
+  - first:
+      4: 400056
+    second: Hands biped Spine
+  - first:
+      4: 400058
+    second: Hands biped Spine1
+  - first:
+      4: 400060
+    second: Hands biped Spine2
+  - first:
+      4: 400062
+    second: Hands biped Spine3
+  - first:
+      4: 400064
+    second: Mesh1
+  - first:
+      4: 400066
+    second: shock_rifle_bhorn
+  - first:
+      4: 400068
+    second: shock_rifle_body
+  - first:
+      4: 400070
+    second: shock_rifle_larm
+  - first:
+      4: 400072
+    second: shock_rifle_rarm
+  - first:
+      4: 400074
+    second: shock_rifle_rods
+  - first:
+      4: 400076
+    second: shock_rifle_tarm
+  - first:
+      4: 400078
+    second: shock_rifle_tele1
+  - first:
+      4: 400080
+    second: shock_rifle_tele2
+  - first:
+      4: 400082
+    second: shock_rifle_tele3
+  - first:
+      4: 400084
+    second: shock_rifle_tele4
+  - first:
+      4: 400086
+    second: shock_rifle_thorn
+  - first:
+      4: 400088
+    second: //RootNode
+  - first:
+      21: 2100000
+    second: SHOCKRIFLE6
+  - first:
+      21: 2100002
+    second: white
+  - first:
+      21: 2100004
+    second: hand
+  - first:
+      21: 2100006
+    second: skin
+  - first:
+      43: 4300000
+    second: Mesh1
+  - first:
+      74: 7400000
+    second: draw
+  - first:
+      74: 7400002
+    second: fire
+  - first:
+      74: 7400004
+    second: holster
+  - first:
+      74: 7400006
+    second: idle1
+  - first:
+      74: 7400008
+    second: idle3
+  - first:
+      74: 7400010
+    second: FireLoop
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Mesh1
+  - first:
+      41386430: 2186277476908879412
+    second: ImportLogs
   externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -138,6 +346,7 @@ ModelImporter:
     - serializedVersion: 16
       name: draw
       takeName: draw
+      internalID: 0
       firstFrame: 0
       lastFrame: 46
       wrapMode: 0
@@ -166,6 +375,7 @@ ModelImporter:
     - serializedVersion: 16
       name: fire
       takeName: fire
+      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -186,7 +396,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.11956522
+        functionName: OnStartShoot
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -194,6 +411,7 @@ ModelImporter:
     - serializedVersion: 16
       name: holster
       takeName: holster
+      internalID: 0
       firstFrame: 0
       lastFrame: 39
       wrapMode: 0
@@ -222,6 +440,7 @@ ModelImporter:
     - serializedVersion: 16
       name: idle1
       takeName: idle1
+      internalID: 0
       firstFrame: 0
       lastFrame: 152
       wrapMode: 0
@@ -250,6 +469,7 @@ ModelImporter:
     - serializedVersion: 16
       name: idle3
       takeName: idle3
+      internalID: 0
       firstFrame: 0
       lastFrame: 76.5
       wrapMode: 0
@@ -278,6 +498,7 @@ ModelImporter:
     - serializedVersion: 16
       name: FireLoop
       takeName: fire1
+      internalID: 0
       firstFrame: 4.8
       lastFrame: 10.7
       wrapMode: 0
@@ -310,25 +531,28 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -337,10 +561,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -350,13 +574,16 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

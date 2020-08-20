@@ -97,7 +97,7 @@ public class WPN_Shockroach : WeaponBase
         var idleStyle = Random.Range(0, 2);
         _an.SetInteger("idleStyle", idleStyle);
 
-        _an.CrossFadeInFixedTime("shoot_start", Mathf.Epsilon);
+        _an.CrossFadeInFixedTime("shoot_start", .1f);
 
         _keyDown = true;
 
@@ -105,8 +105,10 @@ public class WPN_Shockroach : WeaponBase
         {
             if (channelTime > initialChargeDuration)
             {
-                _an.CrossFadeInFixedTime("shoot_channel", Mathf.Epsilon);
+                _sound.ForceStop();
+                _sound.OnShoot();
 
+                _an.CrossFadeInFixedTime("shoot_channel", .1f);             
             }
 
             yield return new WaitForSeconds(shootCooldown);
@@ -116,7 +118,6 @@ public class WPN_Shockroach : WeaponBase
 
             channelTime += shootCooldown;
         }
-
         _shooting = false;
     }
 
