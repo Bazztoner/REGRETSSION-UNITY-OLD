@@ -1,141 +1,401 @@
 fileFormatVersion: 2
 guid: e0bfb69c3a2644843b7ed85c4718336d
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Bip01
-    100002: Bip01 L Clavicle
-    100004: Bip01 L Finger0
-    100006: Bip01 L Finger01
-    100008: Bip01 L Finger1
-    100010: Bip01 L Finger11
-    100012: Bip01 L Finger12
-    100014: Bip01 L Finger2
-    100016: Bip01 L Finger21
-    100018: Bip01 L Finger22
-    100020: Bip01 L Finger3
-    100022: Bip01 L Finger31
-    100024: Bip01 L Finger32
-    100026: Bip01 L Finger4
-    100028: Bip01 L Finger41
-    100030: Bip01 L Finger42
-    100032: Bip01 L Forearm
-    100034: Bip01 L Hand
-    100036: Bip01 L UpperArm
-    100038: Bip01 Neck
-    100040: Bip01 Pelvis
-    100042: Bip01 R Clavicle
-    100044: Bip01 R Finger0
-    100046: Bip01 R Forearm
-    100048: Bip01 R Hand
-    100050: Bip01 R UpperArm
-    100052: Bip01 Spine
-    100054: Bip01 Spine1
-    100056: Bip01 Spine2
-    100058: Bip01 Spine3
-    100060: blast_emitter
-    100062: Bone01
-    100064: Bone02
-    100066: Bone05
-    100068: Bone06
-    100070: Bone07
-    100072: Bone08
-    100074: Bone09
-    100076: Bone10
-    100078: Bone11
-    100080: Bone12
-    100082: Bone13
-    100084: Bone16
-    100086: Bone17
-    100088: Bone18
-    100090: Bone20
-    100092: Bone21
-    100094: Bone22
-    100096: Bone23
-    100098: //RootNode
-    100100: Dummy12
-    100102: Mesh1
-    100104: reflector01
-    100106: reflector02
-    100108: reflector03
-    100110: spinner
-    400000: Bip01
-    400002: Bip01 L Clavicle
-    400004: Bip01 L Finger0
-    400006: Bip01 L Finger01
-    400008: Bip01 L Finger1
-    400010: Bip01 L Finger11
-    400012: Bip01 L Finger12
-    400014: Bip01 L Finger2
-    400016: Bip01 L Finger21
-    400018: Bip01 L Finger22
-    400020: Bip01 L Finger3
-    400022: Bip01 L Finger31
-    400024: Bip01 L Finger32
-    400026: Bip01 L Finger4
-    400028: Bip01 L Finger41
-    400030: Bip01 L Finger42
-    400032: Bip01 L Forearm
-    400034: Bip01 L Hand
-    400036: Bip01 L UpperArm
-    400038: Bip01 Neck
-    400040: Bip01 Pelvis
-    400042: Bip01 R Clavicle
-    400044: Bip01 R Finger0
-    400046: Bip01 R Forearm
-    400048: Bip01 R Hand
-    400050: Bip01 R UpperArm
-    400052: Bip01 Spine
-    400054: Bip01 Spine1
-    400056: Bip01 Spine2
-    400058: Bip01 Spine3
-    400060: blast_emitter
-    400062: Bone01
-    400064: Bone02
-    400066: Bone05
-    400068: Bone06
-    400070: Bone07
-    400072: Bone08
-    400074: Bone09
-    400076: Bone10
-    400078: Bone11
-    400080: Bone12
-    400082: Bone13
-    400084: Bone16
-    400086: Bone17
-    400088: Bone18
-    400090: Bone20
-    400092: Bone21
-    400094: Bone22
-    400096: Bone23
-    400098: //RootNode
-    400100: Dummy12
-    400102: Mesh1
-    400104: reflector01
-    400106: reflector02
-    400108: reflector03
-    400110: spinner
-    2100000: displacer
-    2100002: displacer_pipe
-    2100004: silver_Chrome
-    2100006: hand
-    2100008: skin
-    2100010: hand1
-    2100012: skin1
-    4300000: Mesh1
-    7400000: draw
-    7400002: fire
-    7400004: holster1
-    7400006: idle1
-    7400008: idle2
-    7400010: spin
-    7400012: spinup
-    9500000: //RootNode
-    13700000: Mesh1
-    2186277476908879412: ImportLogs
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Bip01
+  - first:
+      1: 100002
+    second: Bip01 L Clavicle
+  - first:
+      1: 100004
+    second: Bip01 L Finger0
+  - first:
+      1: 100006
+    second: Bip01 L Finger01
+  - first:
+      1: 100008
+    second: Bip01 L Finger1
+  - first:
+      1: 100010
+    second: Bip01 L Finger11
+  - first:
+      1: 100012
+    second: Bip01 L Finger12
+  - first:
+      1: 100014
+    second: Bip01 L Finger2
+  - first:
+      1: 100016
+    second: Bip01 L Finger21
+  - first:
+      1: 100018
+    second: Bip01 L Finger22
+  - first:
+      1: 100020
+    second: Bip01 L Finger3
+  - first:
+      1: 100022
+    second: Bip01 L Finger31
+  - first:
+      1: 100024
+    second: Bip01 L Finger32
+  - first:
+      1: 100026
+    second: Bip01 L Finger4
+  - first:
+      1: 100028
+    second: Bip01 L Finger41
+  - first:
+      1: 100030
+    second: Bip01 L Finger42
+  - first:
+      1: 100032
+    second: Bip01 L Forearm
+  - first:
+      1: 100034
+    second: Bip01 L Hand
+  - first:
+      1: 100036
+    second: Bip01 L UpperArm
+  - first:
+      1: 100038
+    second: Bip01 Neck
+  - first:
+      1: 100040
+    second: Bip01 Pelvis
+  - first:
+      1: 100042
+    second: Bip01 R Clavicle
+  - first:
+      1: 100044
+    second: Bip01 R Finger0
+  - first:
+      1: 100046
+    second: Bip01 R Forearm
+  - first:
+      1: 100048
+    second: Bip01 R Hand
+  - first:
+      1: 100050
+    second: Bip01 R UpperArm
+  - first:
+      1: 100052
+    second: Bip01 Spine
+  - first:
+      1: 100054
+    second: Bip01 Spine1
+  - first:
+      1: 100056
+    second: Bip01 Spine2
+  - first:
+      1: 100058
+    second: Bip01 Spine3
+  - first:
+      1: 100060
+    second: blast_emitter
+  - first:
+      1: 100062
+    second: Bone01
+  - first:
+      1: 100064
+    second: Bone02
+  - first:
+      1: 100066
+    second: Bone05
+  - first:
+      1: 100068
+    second: Bone06
+  - first:
+      1: 100070
+    second: Bone07
+  - first:
+      1: 100072
+    second: Bone08
+  - first:
+      1: 100074
+    second: Bone09
+  - first:
+      1: 100076
+    second: Bone10
+  - first:
+      1: 100078
+    second: Bone11
+  - first:
+      1: 100080
+    second: Bone12
+  - first:
+      1: 100082
+    second: Bone13
+  - first:
+      1: 100084
+    second: Bone16
+  - first:
+      1: 100086
+    second: Bone17
+  - first:
+      1: 100088
+    second: Bone18
+  - first:
+      1: 100090
+    second: Bone20
+  - first:
+      1: 100092
+    second: Bone21
+  - first:
+      1: 100094
+    second: Bone22
+  - first:
+      1: 100096
+    second: Bone23
+  - first:
+      1: 100098
+    second: //RootNode
+  - first:
+      1: 100100
+    second: Dummy12
+  - first:
+      1: 100102
+    second: Mesh1
+  - first:
+      1: 100104
+    second: reflector01
+  - first:
+      1: 100106
+    second: reflector02
+  - first:
+      1: 100108
+    second: reflector03
+  - first:
+      1: 100110
+    second: spinner
+  - first:
+      4: 400000
+    second: Bip01
+  - first:
+      4: 400002
+    second: Bip01 L Clavicle
+  - first:
+      4: 400004
+    second: Bip01 L Finger0
+  - first:
+      4: 400006
+    second: Bip01 L Finger01
+  - first:
+      4: 400008
+    second: Bip01 L Finger1
+  - first:
+      4: 400010
+    second: Bip01 L Finger11
+  - first:
+      4: 400012
+    second: Bip01 L Finger12
+  - first:
+      4: 400014
+    second: Bip01 L Finger2
+  - first:
+      4: 400016
+    second: Bip01 L Finger21
+  - first:
+      4: 400018
+    second: Bip01 L Finger22
+  - first:
+      4: 400020
+    second: Bip01 L Finger3
+  - first:
+      4: 400022
+    second: Bip01 L Finger31
+  - first:
+      4: 400024
+    second: Bip01 L Finger32
+  - first:
+      4: 400026
+    second: Bip01 L Finger4
+  - first:
+      4: 400028
+    second: Bip01 L Finger41
+  - first:
+      4: 400030
+    second: Bip01 L Finger42
+  - first:
+      4: 400032
+    second: Bip01 L Forearm
+  - first:
+      4: 400034
+    second: Bip01 L Hand
+  - first:
+      4: 400036
+    second: Bip01 L UpperArm
+  - first:
+      4: 400038
+    second: Bip01 Neck
+  - first:
+      4: 400040
+    second: Bip01 Pelvis
+  - first:
+      4: 400042
+    second: Bip01 R Clavicle
+  - first:
+      4: 400044
+    second: Bip01 R Finger0
+  - first:
+      4: 400046
+    second: Bip01 R Forearm
+  - first:
+      4: 400048
+    second: Bip01 R Hand
+  - first:
+      4: 400050
+    second: Bip01 R UpperArm
+  - first:
+      4: 400052
+    second: Bip01 Spine
+  - first:
+      4: 400054
+    second: Bip01 Spine1
+  - first:
+      4: 400056
+    second: Bip01 Spine2
+  - first:
+      4: 400058
+    second: Bip01 Spine3
+  - first:
+      4: 400060
+    second: blast_emitter
+  - first:
+      4: 400062
+    second: Bone01
+  - first:
+      4: 400064
+    second: Bone02
+  - first:
+      4: 400066
+    second: Bone05
+  - first:
+      4: 400068
+    second: Bone06
+  - first:
+      4: 400070
+    second: Bone07
+  - first:
+      4: 400072
+    second: Bone08
+  - first:
+      4: 400074
+    second: Bone09
+  - first:
+      4: 400076
+    second: Bone10
+  - first:
+      4: 400078
+    second: Bone11
+  - first:
+      4: 400080
+    second: Bone12
+  - first:
+      4: 400082
+    second: Bone13
+  - first:
+      4: 400084
+    second: Bone16
+  - first:
+      4: 400086
+    second: Bone17
+  - first:
+      4: 400088
+    second: Bone18
+  - first:
+      4: 400090
+    second: Bone20
+  - first:
+      4: 400092
+    second: Bone21
+  - first:
+      4: 400094
+    second: Bone22
+  - first:
+      4: 400096
+    second: Bone23
+  - first:
+      4: 400098
+    second: //RootNode
+  - first:
+      4: 400100
+    second: Dummy12
+  - first:
+      4: 400102
+    second: Mesh1
+  - first:
+      4: 400104
+    second: reflector01
+  - first:
+      4: 400106
+    second: reflector02
+  - first:
+      4: 400108
+    second: reflector03
+  - first:
+      4: 400110
+    second: spinner
+  - first:
+      21: 2100000
+    second: displacer
+  - first:
+      21: 2100002
+    second: displacer_pipe
+  - first:
+      21: 2100004
+    second: silver_Chrome
+  - first:
+      21: 2100006
+    second: hand
+  - first:
+      21: 2100008
+    second: skin
+  - first:
+      21: 2100010
+    second: hand1
+  - first:
+      21: 2100012
+    second: skin1
+  - first:
+      43: 4300000
+    second: Mesh1
+  - first:
+      74: 7400000
+    second: draw
+  - first:
+      74: 7400002
+    second: fire
+  - first:
+      74: 7400004
+    second: holster1
+  - first:
+      74: 7400006
+    second: idle1
+  - first:
+      74: 7400008
+    second: idle2
+  - first:
+      74: 7400010
+    second: spin
+  - first:
+      74: 7400012
+    second: spinup
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Mesh1
+  - first:
+      41386430: 2186277476908879412
+    second: ImportLogs
   externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -164,6 +424,7 @@ ModelImporter:
     - serializedVersion: 16
       name: draw
       takeName: draw
+      internalID: 0
       firstFrame: 0
       lastFrame: 24
       wrapMode: 0
@@ -192,6 +453,7 @@ ModelImporter:
     - serializedVersion: 16
       name: fire
       takeName: fire
+      internalID: 0
       firstFrame: 0
       lastFrame: 46
       wrapMode: 0
@@ -220,6 +482,7 @@ ModelImporter:
     - serializedVersion: 16
       name: holster1
       takeName: holster1
+      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -248,6 +511,7 @@ ModelImporter:
     - serializedVersion: 16
       name: idle1
       takeName: idle1
+      internalID: 0
       firstFrame: 0
       lastFrame: 136
       wrapMode: 0
@@ -276,6 +540,7 @@ ModelImporter:
     - serializedVersion: 16
       name: idle2
       takeName: idle2
+      internalID: 0
       firstFrame: 0
       lastFrame: 136
       wrapMode: 0
@@ -304,6 +569,7 @@ ModelImporter:
     - serializedVersion: 16
       name: spin
       takeName: spin
+      internalID: 0
       firstFrame: 0
       lastFrame: 46.5
       wrapMode: 0
@@ -332,6 +598,7 @@ ModelImporter:
     - serializedVersion: 16
       name: spinup
       takeName: spinup
+      internalID: 0
       firstFrame: 0
       lastFrame: 46.5
       wrapMode: 0
@@ -352,7 +619,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: OnCharge
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -364,25 +638,28 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -391,10 +668,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -404,13 +681,16 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

@@ -90,9 +90,11 @@ public class WPN_Displacer : WeaponBase
         }
 
         UpdateReserveAmmo(-chargeAcum);
+        _sound.ForceStop();
         _an.CrossFadeInFixedTime("fire", .1f);
 
         yield return new WaitForEndOfFrame();
+        _sound.OnShoot();
 
         //shoot
         AddRecoil();

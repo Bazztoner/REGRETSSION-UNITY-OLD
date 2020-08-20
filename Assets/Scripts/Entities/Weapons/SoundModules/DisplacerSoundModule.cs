@@ -5,5 +5,10 @@ using System.Linq;
 
 public class DisplacerSoundModule : WeaponSoundModuleBase
 {
+    public AudioClip chargeClip;
 
+    public void OnCharge()
+    {
+        PlaySound(chargeClip);
+    }
 }

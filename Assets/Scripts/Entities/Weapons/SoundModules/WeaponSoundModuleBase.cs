@@ -36,4 +36,9 @@ public class WeaponSoundModuleBase : MonoBehaviour
     {
         PlaySound(draw);
     }
+
+    public virtual void ForceStop()
+    {
+        _src.Stop();
+    }
 }

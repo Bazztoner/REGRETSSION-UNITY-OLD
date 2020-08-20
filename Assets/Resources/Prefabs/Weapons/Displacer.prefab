@@ -192,8 +192,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a43c272b024de64ea8ff3f20a77f9ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootClips: []
-  draw: {fileID: 0}
+  shootClips:
+  - {fileID: 8300000, guid: 8bbbb37b5d3b9ef4ea1b2fda2e91e804, type: 3}
+  draw: {fileID: 8300000, guid: 6418fdc90cc6ea348bde9a0b9924efc3, type: 3}
+  chargeClip: {fileID: 8300000, guid: 4d22fc3edaaff004f8d73cc526a244f9, type: 3}
 --- !u!1 &14823676935744027
 GameObject:
   m_ObjectHideFlags: 0
