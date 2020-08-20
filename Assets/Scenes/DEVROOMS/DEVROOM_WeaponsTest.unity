@@ -143,6 +143,11 @@ PrefabInstance:
       propertyPath: _currentWpIndex
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 3939717023419645364, guid: 73595305a8c4f5248b0587766d694ba6,
+        type: 3}
+      propertyPath: _initialAmmoReserve.Array.data[5]
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 3939717023419645368, guid: 73595305a8c4f5248b0587766d694ba6,
         type: 3}
       propertyPath: m_LocalPosition.x

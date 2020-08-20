@@ -73,9 +73,9 @@ MonoBehaviour:
     recoveryTime: 1.2
     currentZPosition: 0
     currentZPosVelocity: 0
-  magSize: 1
-  shootCooldown: 1
-  _currentBulletsInMag: 1
+  magSize: 0
+  shootCooldown: 2
+  _currentBulletsInMag: 0
   wpnNumberX: 9
   wpnNumberY: 0
   damage: 300

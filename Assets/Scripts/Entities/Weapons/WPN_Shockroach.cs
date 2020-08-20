@@ -90,7 +90,6 @@ public class WPN_Shockroach : WeaponBase
 
     IEnumerator ShootHandler()
     {
-        UpdateReserveAmmo(-1);
         _shooting = true;
 
         var channelTime = 0f;
@@ -111,7 +110,7 @@ public class WPN_Shockroach : WeaponBase
             }
 
             yield return new WaitForSeconds(shootCooldown);
-
+            UpdateReserveAmmo(-1);
             ManageProjectile();
             AddRecoil();
 
@@ -151,5 +150,7 @@ public class WPN_Shockroach : WeaponBase
         _owner.ammoReserve[ammoType] += ammo;
 
         _owner.ammoReserve[ammoType] = Mathf.Clamp(_owner.ammoReserve[ammoType], 0, _owner.MaxAmmoReserve[(int)ammoType]);
+
+        SetAmmoOnHUD();
     }
 }
