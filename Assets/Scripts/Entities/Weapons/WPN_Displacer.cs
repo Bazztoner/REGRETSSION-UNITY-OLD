@@ -78,7 +78,7 @@ public class WPN_Displacer : WeaponBase
 
             yield return new WaitForSeconds(_tickDuration);
 
-            if (channelTime < ChargePerTick && chargeAcum < maxCharge && chargeAcum < _currentBulletsInMag)
+            if (channelTime < ChargePerTick && chargeAcum < maxCharge)
             {
                 channelTime += _tickDuration;
             }
