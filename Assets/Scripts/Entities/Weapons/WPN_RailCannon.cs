@@ -6,6 +6,7 @@ using System.Linq;
 public class WPN_RailCannon : WeaponBase
 {
     public float reloadTime;
+    public GameObject plasmaBallPrefab;
 
     protected override int GetBulletsInMag()
     {
@@ -75,10 +76,11 @@ public class WPN_RailCannon : WeaponBase
     {
         if (!_canShoot()) yield break;
 
-        OnShoot();
         _shooting = true;
 
         _an.CrossFadeInFixedTime("shoot", .1f);
+        ManageProjectile();
+        OnShoot();
 
         yield return new WaitForEndOfFrame();
 
@@ -95,8 +97,23 @@ public class WPN_RailCannon : WeaponBase
         }
     }
 
+    protected override void ManageProjectile()
+    {
+        var dir = (_owner.cam.transform.forward + _muzzle.transform.forward).normalized;
+        dir.Normalize();
+
+        var b = Instantiate(plasmaBallPrefab, _muzzle.transform.position, Quaternion.identity);
+        b.transform.forward = dir.normalized;
+
+        var muzzleFlashID = SimpleParticleSpawner.ParticleID.MUZZLEFLASH;
+        var muzzleFlashParticle = SimpleParticleSpawner.Instance.particles[muzzleFlashID].GetComponentInChildren<ParticleSystem>();
+
+        SimpleParticleSpawner.Instance.SpawnParticle(muzzleFlashParticle.gameObject, _muzzle.transform.position, dir.normalized, _muzzle.transform);
+    }
+
     protected override IEnumerator ReloadWeapon()
     {
+        if (GetReserveAmmo() < 1) yield break;
         //wait for anim
 
         _reloading = true;
@@ -107,9 +124,9 @@ public class WPN_RailCannon : WeaponBase
 
         _reloading = false;
 
-        var bulletsToReload = GetReserveAmmo() >= magSize ? magSize : GetReserveAmmo();
-        var diff = bulletsToReload - _currentBulletsInMag;
-        OnReload(diff);
+        var magDiff = magSize - _currentBulletsInMag;
+        var bulletsToReload = GetReserveAmmo() >= magDiff ? magDiff : GetReserveAmmo();
+        OnReload(bulletsToReload);
     }
 
     void ForceDrawReload()

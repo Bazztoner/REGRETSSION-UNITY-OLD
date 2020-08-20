@@ -100,7 +100,7 @@ public class WPN_Deagle : WeaponBase
         OnShoot();
         _shooting = true;
 
-        var stateName = GetBulletsInMag() >= 1 ? "shoot" : "shootlast";
+        var stateName = GetBulletsInMag() >= 1 ? "shoot" : "shoot_last";
 
         _an.CrossFadeInFixedTime(stateName, .1f);
 
@@ -139,9 +139,9 @@ public class WPN_Deagle : WeaponBase
     {
         if (!_canReload()) return;
         base.Reload();
-        var bulletsToReload = GetReserveAmmo() >= magSize ? magSize : GetReserveAmmo();
-        var diff = bulletsToReload - _currentBulletsInMag;
-        OnReload(diff);
+        var magDiff = magSize - _currentBulletsInMag;
+        var bulletsToReload = GetReserveAmmo() >= magDiff ? magDiff : GetReserveAmmo();
+        OnReload(bulletsToReload);
     }
 
     public override void SetAmmoOnHUD()

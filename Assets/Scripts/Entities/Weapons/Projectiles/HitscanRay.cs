@@ -23,7 +23,7 @@ public class HitscanRay
 
                 if (col.GetComponent(typeof(IDamageable)) is IDamageable damageable)
                 {
-                    damageable.TakeDamage(Mathf.RoundToInt(damage), DamageTypes.Bullet);
+                    damageable.TakeDamage(Mathf.RoundToInt(damage), DamageTypes.Plasma);
                 }
             }
         }

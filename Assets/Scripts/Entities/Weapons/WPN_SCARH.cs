@@ -129,9 +129,10 @@ public class WPN_SCARH : WeaponBase
     {
         if (!_canReload()) return;
         base.Reload();
-        var bulletsToReload = GetReserveAmmo() >= magSize ? magSize : GetReserveAmmo();
-        var diff = bulletsToReload - _currentBulletsInMag;
-        OnReload(diff);
+        
+        var magDiff = magSize - _currentBulletsInMag;
+        var bulletsToReload = GetReserveAmmo() >= magDiff ? magDiff : GetReserveAmmo();
+        OnReload(bulletsToReload);
     }
 
     public override void SetAmmoOnHUD()

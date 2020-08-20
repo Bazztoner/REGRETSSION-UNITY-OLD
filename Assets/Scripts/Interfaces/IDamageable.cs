@@ -11,5 +11,7 @@ public struct DamageTypes
 {
     public const string Melee = "MeleeDamageType";
     public const string Bullet = "BulletDamageType";
+    public const string Laser = "LaserDamageType";
+    public const string Plasma = "PlasmaDamageType";
     public const string Explosive = "ExplosiveDamageType";
 }

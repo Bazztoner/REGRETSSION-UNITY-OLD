@@ -202,6 +202,9 @@ public class PlayerController : MonoBehaviour, IDamageable
         }
     }
 
+    /// <summary>
+    /// Review mouse weapon changing, doesn't work as intended
+    /// </summary>
     void CheckChangeWeapon()
     {
         var mouseWheelDelta = Input.GetAxis("Mouse ScrollWheel");

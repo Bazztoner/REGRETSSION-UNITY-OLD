@@ -18,7 +18,7 @@ public class HitscanBeam
 
                 if (col.GetComponent(typeof(IDamageable)) is IDamageable damageable)
                 {
-                    damageable.TakeDamage(Mathf.RoundToInt(damage), DamageTypes.Bullet);
+                    damageable.TakeDamage(Mathf.RoundToInt(damage), DamageTypes.Laser);
                 }
             }
         }
