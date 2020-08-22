@@ -277,13 +277,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allWeapons: []
-  _initialAmmoReserve: 150000000f0000000500000034000000c800000000000000
+  _initialAmmoReserve: 150000000f0000000500000034000000c8000000fa000000
   _maxAmmoReserve: 2c010000320000001900000004010000f4010000fa000000
   _currentWeaponIndex: 0
   _currentWeaponSubIndex: 0
   cam: {fileID: 0}
   movementSpeed: 13
-  jumpForce: 6
+  jumpForce: 4
   maxHp: 100
 --- !u!114 &7240192955116881133
 MonoBehaviour:
