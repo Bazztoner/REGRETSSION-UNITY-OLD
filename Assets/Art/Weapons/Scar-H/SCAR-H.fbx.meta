@@ -1,121 +1,347 @@
 fileFormatVersion: 2
 guid: 1b0dab26e6f68ac4c94070c3b1b26020
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Bolt
-    100002: Charging Handle
-    100004: Cover
-    100006: L_Armdummy
-    100008: L_Forearm
-    100010: L_Index1
-    100012: L_Index2
-    100014: L_Index3
-    100016: L_Mid1
-    100018: L_Mid2
-    100020: L_Mid3
-    100022: L_Pinky1
-    100024: L_Pinky2
-    100026: L_Pinky3
-    100028: L_Ring1
-    100030: L_Ring2
-    100032: L_Ring3
-    100034: L_Thumb1
-    100036: L_Thumb2
-    100038: L_Thumb3
-    100040: L_Upperarm
-    100042: L_Wrist
-    100044: M4
-    100046: Magazine
-    100048: Mesh1
-    100050: R_Armdummy
-    100052: R_Forearm
-    100054: R_Index1
-    100056: R_Index2
-    100058: R_Index3
-    100060: R_Mid1
-    100062: R_Mid2
-    100064: R_Mid3
-    100066: R_Pinky1
-    100068: R_Pinky2
-    100070: R_Pinky3
-    100072: R_Ring1
-    100074: R_Ring2
-    100076: R_Ring3
-    100078: R_Thumb1
-    100080: R_Thumb2
-    100082: R_Thumb3
-    100084: R_Upperarm
-    100086: R_Wrist
-    100088: //RootNode
-    100090: Suppressor
-    100092: Trigger
-    400000: Bolt
-    400002: Charging Handle
-    400004: Cover
-    400006: L_Armdummy
-    400008: L_Forearm
-    400010: L_Index1
-    400012: L_Index2
-    400014: L_Index3
-    400016: L_Mid1
-    400018: L_Mid2
-    400020: L_Mid3
-    400022: L_Pinky1
-    400024: L_Pinky2
-    400026: L_Pinky3
-    400028: L_Ring1
-    400030: L_Ring2
-    400032: L_Ring3
-    400034: L_Thumb1
-    400036: L_Thumb2
-    400038: L_Thumb3
-    400040: L_Upperarm
-    400042: L_Wrist
-    400044: M4
-    400046: Magazine
-    400048: Mesh1
-    400050: R_Armdummy
-    400052: R_Forearm
-    400054: R_Index1
-    400056: R_Index2
-    400058: R_Index3
-    400060: R_Mid1
-    400062: R_Mid2
-    400064: R_Mid3
-    400066: R_Pinky1
-    400068: R_Pinky2
-    400070: R_Pinky3
-    400072: R_Ring1
-    400074: R_Ring2
-    400076: R_Ring3
-    400078: R_Thumb1
-    400080: R_Thumb2
-    400082: R_Thumb3
-    400084: R_Upperarm
-    400086: R_Wrist
-    400088: //RootNode
-    400090: Suppressor
-    400092: Trigger
-    2100000: rec
-    2100002: mag
-    2100004: stock
-    2100006: rec1
-    2100008: silencer
-    2100010: rec2
-    2100012: view_glove
-    2100014: view_finger
-    2100016: view_skin
-    4300000: Mesh1
-    7400000: reload_unsil
-    7400002: idle_unsil
-    7400004: draw
-    7400006: shoot1_unsil
-    7400008: shoot2_unsil
-    7400010: shoot3_unsil
-    9500000: //RootNode
-    13700000: Mesh1
-    2186277476908879412: ImportLogs
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Bolt
+  - first:
+      1: 100002
+    second: Charging Handle
+  - first:
+      1: 100004
+    second: Cover
+  - first:
+      1: 100006
+    second: L_Armdummy
+  - first:
+      1: 100008
+    second: L_Forearm
+  - first:
+      1: 100010
+    second: L_Index1
+  - first:
+      1: 100012
+    second: L_Index2
+  - first:
+      1: 100014
+    second: L_Index3
+  - first:
+      1: 100016
+    second: L_Mid1
+  - first:
+      1: 100018
+    second: L_Mid2
+  - first:
+      1: 100020
+    second: L_Mid3
+  - first:
+      1: 100022
+    second: L_Pinky1
+  - first:
+      1: 100024
+    second: L_Pinky2
+  - first:
+      1: 100026
+    second: L_Pinky3
+  - first:
+      1: 100028
+    second: L_Ring1
+  - first:
+      1: 100030
+    second: L_Ring2
+  - first:
+      1: 100032
+    second: L_Ring3
+  - first:
+      1: 100034
+    second: L_Thumb1
+  - first:
+      1: 100036
+    second: L_Thumb2
+  - first:
+      1: 100038
+    second: L_Thumb3
+  - first:
+      1: 100040
+    second: L_Upperarm
+  - first:
+      1: 100042
+    second: L_Wrist
+  - first:
+      1: 100044
+    second: M4
+  - first:
+      1: 100046
+    second: Magazine
+  - first:
+      1: 100048
+    second: Mesh1
+  - first:
+      1: 100050
+    second: R_Armdummy
+  - first:
+      1: 100052
+    second: R_Forearm
+  - first:
+      1: 100054
+    second: R_Index1
+  - first:
+      1: 100056
+    second: R_Index2
+  - first:
+      1: 100058
+    second: R_Index3
+  - first:
+      1: 100060
+    second: R_Mid1
+  - first:
+      1: 100062
+    second: R_Mid2
+  - first:
+      1: 100064
+    second: R_Mid3
+  - first:
+      1: 100066
+    second: R_Pinky1
+  - first:
+      1: 100068
+    second: R_Pinky2
+  - first:
+      1: 100070
+    second: R_Pinky3
+  - first:
+      1: 100072
+    second: R_Ring1
+  - first:
+      1: 100074
+    second: R_Ring2
+  - first:
+      1: 100076
+    second: R_Ring3
+  - first:
+      1: 100078
+    second: R_Thumb1
+  - first:
+      1: 100080
+    second: R_Thumb2
+  - first:
+      1: 100082
+    second: R_Thumb3
+  - first:
+      1: 100084
+    second: R_Upperarm
+  - first:
+      1: 100086
+    second: R_Wrist
+  - first:
+      1: 100088
+    second: //RootNode
+  - first:
+      1: 100090
+    second: Suppressor
+  - first:
+      1: 100092
+    second: Trigger
+  - first:
+      4: 400000
+    second: Bolt
+  - first:
+      4: 400002
+    second: Charging Handle
+  - first:
+      4: 400004
+    second: Cover
+  - first:
+      4: 400006
+    second: L_Armdummy
+  - first:
+      4: 400008
+    second: L_Forearm
+  - first:
+      4: 400010
+    second: L_Index1
+  - first:
+      4: 400012
+    second: L_Index2
+  - first:
+      4: 400014
+    second: L_Index3
+  - first:
+      4: 400016
+    second: L_Mid1
+  - first:
+      4: 400018
+    second: L_Mid2
+  - first:
+      4: 400020
+    second: L_Mid3
+  - first:
+      4: 400022
+    second: L_Pinky1
+  - first:
+      4: 400024
+    second: L_Pinky2
+  - first:
+      4: 400026
+    second: L_Pinky3
+  - first:
+      4: 400028
+    second: L_Ring1
+  - first:
+      4: 400030
+    second: L_Ring2
+  - first:
+      4: 400032
+    second: L_Ring3
+  - first:
+      4: 400034
+    second: L_Thumb1
+  - first:
+      4: 400036
+    second: L_Thumb2
+  - first:
+      4: 400038
+    second: L_Thumb3
+  - first:
+      4: 400040
+    second: L_Upperarm
+  - first:
+      4: 400042
+    second: L_Wrist
+  - first:
+      4: 400044
+    second: M4
+  - first:
+      4: 400046
+    second: Magazine
+  - first:
+      4: 400048
+    second: Mesh1
+  - first:
+      4: 400050
+    second: R_Armdummy
+  - first:
+      4: 400052
+    second: R_Forearm
+  - first:
+      4: 400054
+    second: R_Index1
+  - first:
+      4: 400056
+    second: R_Index2
+  - first:
+      4: 400058
+    second: R_Index3
+  - first:
+      4: 400060
+    second: R_Mid1
+  - first:
+      4: 400062
+    second: R_Mid2
+  - first:
+      4: 400064
+    second: R_Mid3
+  - first:
+      4: 400066
+    second: R_Pinky1
+  - first:
+      4: 400068
+    second: R_Pinky2
+  - first:
+      4: 400070
+    second: R_Pinky3
+  - first:
+      4: 400072
+    second: R_Ring1
+  - first:
+      4: 400074
+    second: R_Ring2
+  - first:
+      4: 400076
+    second: R_Ring3
+  - first:
+      4: 400078
+    second: R_Thumb1
+  - first:
+      4: 400080
+    second: R_Thumb2
+  - first:
+      4: 400082
+    second: R_Thumb3
+  - first:
+      4: 400084
+    second: R_Upperarm
+  - first:
+      4: 400086
+    second: R_Wrist
+  - first:
+      4: 400088
+    second: //RootNode
+  - first:
+      4: 400090
+    second: Suppressor
+  - first:
+      4: 400092
+    second: Trigger
+  - first:
+      21: 2100000
+    second: rec
+  - first:
+      21: 2100002
+    second: mag
+  - first:
+      21: 2100004
+    second: stock
+  - first:
+      21: 2100006
+    second: rec1
+  - first:
+      21: 2100008
+    second: silencer
+  - first:
+      21: 2100010
+    second: rec2
+  - first:
+      21: 2100012
+    second: view_glove
+  - first:
+      21: 2100014
+    second: view_finger
+  - first:
+      21: 2100016
+    second: view_skin
+  - first:
+      43: 4300000
+    second: Mesh1
+  - first:
+      74: 7400000
+    second: reload_unsil
+  - first:
+      74: 7400002
+    second: idle_unsil
+  - first:
+      74: 7400004
+    second: draw
+  - first:
+      74: 7400006
+    second: shoot1_unsil
+  - first:
+      74: 7400008
+    second: shoot2_unsil
+  - first:
+      74: 7400010
+    second: shoot3_unsil
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Mesh1
+  - first:
+      41386430: 2186277476908879412
+    second: ImportLogs
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -163,7 +389,7 @@ ModelImporter:
       name: view_skin
     second: {fileID: 2100000, guid: 869eab1cef715f546bcf7cee4ad001c0, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -192,6 +418,7 @@ ModelImporter:
     - serializedVersion: 16
       name: reload_unsil
       takeName: reload_unsil
+      internalID: 0
       firstFrame: 0
       lastFrame: 172
       wrapMode: 0
@@ -248,6 +475,7 @@ ModelImporter:
     - serializedVersion: 16
       name: idle_unsil
       takeName: idle_unsil
+      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -256,7 +484,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -276,6 +504,7 @@ ModelImporter:
     - serializedVersion: 16
       name: draw
       takeName: jumpdafuckup
+      internalID: 0
       firstFrame: 0
       lastFrame: 60
       wrapMode: 0
@@ -311,6 +540,7 @@ ModelImporter:
     - serializedVersion: 16
       name: shoot1_unsil
       takeName: shoot1_unsil
+      internalID: 0
       firstFrame: 0
       lastFrame: 48
       wrapMode: 0
@@ -339,6 +569,7 @@ ModelImporter:
     - serializedVersion: 16
       name: shoot2_unsil
       takeName: shoot2_unsil
+      internalID: 0
       firstFrame: 0
       lastFrame: 48
       wrapMode: 0
@@ -367,6 +598,7 @@ ModelImporter:
     - serializedVersion: 16
       name: shoot3_unsil
       takeName: shoot3_unsil
+      internalID: 0
       firstFrame: 0
       lastFrame: 48
       wrapMode: 0
@@ -399,25 +631,28 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -426,10 +661,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -439,13 +674,16 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
