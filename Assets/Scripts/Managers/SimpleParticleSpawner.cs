@@ -19,7 +19,7 @@ public class SimpleParticleSpawner : MonoBehaviour
                 }
             }
 
-            if (instance.allParticles == null) instance.allParticles = Resources.Load<SO_ParticleSpawnerList>("ScriptableObjects/DATA_ParticleSpawnerList");
+            if (instance.ParticleData == null) instance.ParticleData = Resources.Load<SO_ParticleSpawnerList>("ScriptableObjects/DATA_ParticleSpawnerList");
 
             return instance;
         }
@@ -40,24 +40,21 @@ public class SimpleParticleSpawner : MonoBehaviour
         }
     }
 
-    public SO_ParticleSpawnerList allParticles;
+    public SO_ParticleSpawnerList ParticleData;
 
-    public struct ParticleID
+    public GameObject GetParticleByID(ParticleIDs id)
     {
-        public const int BULLET = 0;
-        public const int MUZZLEFLASH = 1;
-        public const int ROCKETHIT = 2;
-        public const int PLASMABALLHIT = 3;
-    }
+        if (ParticleData.allParticles == null) ParticleData.Init();
 
-    public GameObject GetParticleByID(int id)
-    {
-        return allParticles.particleList[id];
+        var list = ParticleData.allParticles[id];
+        var rnd = Random.Range(0, list.Length);
+        return list[rnd].gameObject;
     }
 
     void Awake()
     {
-        if (allParticles == null) allParticles = Resources.Load<SO_ParticleSpawnerList>("ScriptableObjects/DATA_ParticleSpawnerList");
+        ParticleData = Resources.Load<SO_ParticleSpawnerList>("ScriptableObjects/DATA_ParticleSpawnerList");
+        ParticleData.Init();
     }
 
     public void SpawnParticle(GameObject part, Vector3 pos, Vector3 dir, Transform prnt = null)
@@ -95,35 +92,35 @@ public class SimpleParticleSpawner : MonoBehaviour
         Invoke("CleanParticles", lifeTime + .3f);
     }
 
-    public void SpawnParticle(int part, Vector3 pos, Vector3 dir, Transform prnt = null)
+    public void SpawnParticle(ParticleIDs part, Vector3 pos, Vector3 dir, Transform prnt = null)
     {
-        var p = prnt ? GameObject.Instantiate(allParticles.particleList[part], pos, Quaternion.identity, prnt) : GameObject.Instantiate(allParticles.particleList[part], pos, Quaternion.identity);
+        var p = prnt ? GameObject.Instantiate(GetParticleByID(part), pos, Quaternion.identity, prnt) : GameObject.Instantiate(GetParticleByID(part), pos, Quaternion.identity);
         p.transform.forward = dir.normalized;
         GameObject.Destroy(p, 3);
         ActiveParticles.Add(p);
         Invoke("CleanParticles", 3.3f);
     }
 
-    public void SpawnParticle(int part, Vector3 pos, Vector3 dir, float lifeTime, Transform prnt = null)
+    public void SpawnParticle(ParticleIDs part, Vector3 pos, Vector3 dir, float lifeTime, Transform prnt = null)
     {
-        var p = prnt ? GameObject.Instantiate(allParticles.particleList[part], pos, Quaternion.identity, prnt) : GameObject.Instantiate(allParticles.particleList[part], pos, Quaternion.identity);
+        var p = prnt ? GameObject.Instantiate(GetParticleByID(part), pos, Quaternion.identity, prnt) : GameObject.Instantiate(GetParticleByID(part), pos, Quaternion.identity);
         p.transform.forward = dir.normalized;
         GameObject.Destroy(p, lifeTime);
         ActiveParticles.Add(p);
         Invoke("CleanParticles", lifeTime + .3f);
     }
 
-    public void SpawnParticle(int part, Vector3 pos, Quaternion dir, Transform prnt = null)
+    public void SpawnParticle(ParticleIDs part, Vector3 pos, Quaternion dir, Transform prnt = null)
     {
-        var p = prnt ? GameObject.Instantiate(allParticles.particleList[part], pos, dir, prnt) : GameObject.Instantiate(allParticles.particleList[part], pos, dir);
+        var p = prnt ? GameObject.Instantiate(GetParticleByID(part), pos, dir, prnt) : GameObject.Instantiate(GetParticleByID(part), pos, dir);
         GameObject.Destroy(p, 3);
         ActiveParticles.Add(p);
         Invoke("CleanParticles", 3.3f);
     }
 
-    public void SpawnParticle(int part, Vector3 pos, Quaternion dir, float lifeTime, Transform prnt = null)
+    public void SpawnParticle(ParticleIDs part, Vector3 pos, Quaternion dir, float lifeTime, Transform prnt = null)
     {
-        var p = prnt ? GameObject.Instantiate(allParticles.particleList[part], pos, dir, prnt) : GameObject.Instantiate(allParticles.particleList[part], pos, dir);
+        var p = prnt ? GameObject.Instantiate(GetParticleByID(part), pos, dir, prnt) : GameObject.Instantiate(GetParticleByID(part), pos, dir);
         GameObject.Destroy(p, lifeTime);
         ActiveParticles.Add(p);
         Invoke("CleanParticles", lifeTime + .3f);

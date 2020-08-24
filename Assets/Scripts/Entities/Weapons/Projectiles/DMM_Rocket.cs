@@ -42,7 +42,7 @@ public class DMM_Rocket : MonoBehaviour
 
     void SpawnParticle()
     {
-        var partID = SimpleParticleSpawner.ParticleID.ROCKETHIT;
+        var partID = ParticleIDs.ROCKET_HIT;
         var part = SimpleParticleSpawner.Instance.GetParticleByID(partID);
 
         SimpleParticleSpawner.Instance.SpawnParticle(part, transform.position, Quaternion.identity);

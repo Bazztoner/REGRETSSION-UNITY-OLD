@@ -96,7 +96,7 @@ public class WPN_SuperShotgun : WeaponBase
 
             var b = new HitscanBullet(_muzzle.transform.position, dir.normalized, damage, pellets);
 
-            var bulletParticleID = SimpleParticleSpawner.ParticleID.BULLET;
+            var bulletParticleID = ParticleIDs.BULLET_TRACER_GENERIC;
 
             var bulletParticle = SimpleParticleSpawner.Instance.GetParticleByID(bulletParticleID).GetComponentInChildren<ParticleSystem>();
             var speed = bulletParticle.main.startSpeed.constant * bulletParticle.main.simulationSpeed;
@@ -106,7 +106,7 @@ public class WPN_SuperShotgun : WeaponBase
 
         }
 
-        var muzzleFlashID = SimpleParticleSpawner.ParticleID.MUZZLEFLASH;
+        var muzzleFlashID = ParticleIDs.MUZZLE_FLASH_GENERIC;
         var muzzleFlashParticle = SimpleParticleSpawner.Instance.GetParticleByID(muzzleFlashID).GetComponentInChildren<ParticleSystem>();
 
         var muzzleDir = (_owner.cam.transform.forward + _muzzle.transform.forward).normalized;

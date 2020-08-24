@@ -47,7 +47,7 @@ public class Pistol : EnemyWeaponRanged
         _attacking = false;
 
         var b = new EnemyHitscanBullet(_muzzle.transform.position, _storedDir.normalized, _damage);
-        var particleID = SimpleParticleSpawner.ParticleID.BULLET;
+        var particleID = ParticleIDs.BULLET_TRACER_GENERIC;
 
         var particle = SimpleParticleSpawner.Instance.GetParticleByID(particleID).GetComponentInChildren<ParticleSystem>();
         var speed = particle.main.startSpeed.constant * particle.main.simulationSpeed;

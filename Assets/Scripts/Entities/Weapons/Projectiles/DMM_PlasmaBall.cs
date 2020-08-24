@@ -42,7 +42,7 @@ public class DMM_PlasmaBall : MonoBehaviour
 
     void SpawnParticle()
     {
-        var partID = SimpleParticleSpawner.ParticleID.PLASMABALLHIT;
+        var partID = ParticleIDs.PLASMA_HIT;
         var part = SimpleParticleSpawner.Instance.GetParticleByID(partID);
 
         SimpleParticleSpawner.Instance.SpawnParticle(part, transform.position, Quaternion.identity);
