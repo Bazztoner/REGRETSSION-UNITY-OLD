@@ -44,6 +44,7 @@ public class SimpleParticleSpawner : MonoBehaviour
         public const int BULLET = 0;
         public const int MUZZLEFLASH = 1;
         public const int ROCKETHIT = 2;
+        public const int PLASMABALLHIT = 3;
     }
 
     public GameObject GetParticleByID(int id)
