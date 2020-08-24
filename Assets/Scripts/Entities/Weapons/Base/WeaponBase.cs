@@ -185,6 +185,10 @@ public abstract class WeaponBase : MonoBehaviour
         var dir = (_owner.cam.transform.forward + _muzzle.transform.forward).normalized;
         dir.Normalize();
 
+        var muzzleFlashID = ParticleIDs.MUZZLE_FLASH_GENERIC;
+        var muzzleFlashParticle = SimpleParticleSpawner.Instance.GetParticleByID(muzzleFlashID);
+        SimpleParticleSpawner.Instance.SpawnParticle(muzzleFlashParticle, _muzzle.transform.position, dir.normalized, _muzzle.transform);
+
         var b = new HitscanBullet(_muzzle.transform.position, dir.normalized, damage, pellets);
         var particleID = ParticleIDs.BULLET_TRACER_GENERIC;
 
@@ -193,10 +197,6 @@ public abstract class WeaponBase : MonoBehaviour
         var lifeTime = b.objDist / speed;
         SimpleParticleSpawner.Instance.SpawnParticle(particle.gameObject, _muzzle.transform.position, dir.normalized, lifeTime);
 
-        var muzzleFlashID = ParticleIDs.MUZZLE_FLASH_GENERIC;
-        var muzzleFlashParticle = SimpleParticleSpawner.Instance.GetParticleByID(muzzleFlashID).GetComponentInChildren<ParticleSystem>();
-
-        SimpleParticleSpawner.Instance.SpawnParticle(muzzleFlashParticle.gameObject, _muzzle.transform.position, dir.normalized, _muzzle.transform);
     }
 
     protected virtual void AddRecoil()

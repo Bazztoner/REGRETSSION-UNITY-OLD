@@ -18,7 +18,6 @@ MonoBehaviour:
   - {fileID: 19800004, guid: 2376f6d6e24e94e48bb7d35c0a7a0142, type: 3}
   - {fileID: 19800000, guid: 108c53376eeb2cb49934ba038487383c, type: 3}
   - {fileID: 19800000, guid: 9f501122636e37c4d9f1195ceea4ba74, type: 3}
-  - {fileID: 198576687903152716, guid: b10a04203c78d3b4db119edc084526af, type: 3}
   rocketHit:
   - {fileID: 2254787844886954287, guid: 4f9d5741e70edcb4981cbdbf734ef3af, type: 3}
   plasmaHit:
