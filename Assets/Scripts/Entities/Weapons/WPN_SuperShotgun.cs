@@ -98,7 +98,7 @@ public class WPN_SuperShotgun : WeaponBase
 
             var bulletParticleID = SimpleParticleSpawner.ParticleID.BULLET;
 
-            var bulletParticle = SimpleParticleSpawner.Instance.particles[bulletParticleID].GetComponentInChildren<ParticleSystem>();
+            var bulletParticle = SimpleParticleSpawner.Instance.GetParticleByID(bulletParticleID).GetComponentInChildren<ParticleSystem>();
             var speed = bulletParticle.main.startSpeed.constant * bulletParticle.main.simulationSpeed;
             var lifeTime = b.objDist / speed;
 
@@ -107,7 +107,7 @@ public class WPN_SuperShotgun : WeaponBase
         }
 
         var muzzleFlashID = SimpleParticleSpawner.ParticleID.MUZZLEFLASH;
-        var muzzleFlashParticle = SimpleParticleSpawner.Instance.particles[muzzleFlashID].GetComponentInChildren<ParticleSystem>();
+        var muzzleFlashParticle = SimpleParticleSpawner.Instance.GetParticleByID(muzzleFlashID).GetComponentInChildren<ParticleSystem>();
 
         var muzzleDir = (_owner.cam.transform.forward + _muzzle.transform.forward).normalized;
         muzzleDir.Normalize();

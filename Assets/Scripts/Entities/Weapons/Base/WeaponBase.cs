@@ -188,13 +188,13 @@ public abstract class WeaponBase : MonoBehaviour
         var b = new HitscanBullet(_muzzle.transform.position, dir.normalized, damage, pellets);
         var particleID = SimpleParticleSpawner.ParticleID.BULLET;
 
-        var particle = SimpleParticleSpawner.Instance.particles[particleID].GetComponentInChildren<ParticleSystem>();
+        var particle = SimpleParticleSpawner.Instance.GetParticleByID(particleID).GetComponentInChildren<ParticleSystem>();
         var speed = particle.main.startSpeed.constant * particle.main.simulationSpeed;
         var lifeTime = b.objDist / speed;
         SimpleParticleSpawner.Instance.SpawnParticle(particle.gameObject, _muzzle.transform.position, dir.normalized, lifeTime);
 
         var muzzleFlashID = SimpleParticleSpawner.ParticleID.MUZZLEFLASH;
-        var muzzleFlashParticle = SimpleParticleSpawner.Instance.particles[muzzleFlashID].GetComponentInChildren<ParticleSystem>();
+        var muzzleFlashParticle = SimpleParticleSpawner.Instance.GetParticleByID(muzzleFlashID).GetComponentInChildren<ParticleSystem>();
 
         SimpleParticleSpawner.Instance.SpawnParticle(muzzleFlashParticle.gameObject, _muzzle.transform.position, dir.normalized, _muzzle.transform);
     }

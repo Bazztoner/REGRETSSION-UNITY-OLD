@@ -106,7 +106,7 @@ public class WPN_RailCannon : WeaponBase
         b.transform.forward = dir.normalized;
 
         var muzzleFlashID = SimpleParticleSpawner.ParticleID.MUZZLEFLASH;
-        var muzzleFlashParticle = SimpleParticleSpawner.Instance.particles[muzzleFlashID].GetComponentInChildren<ParticleSystem>();
+        var muzzleFlashParticle = SimpleParticleSpawner.Instance.GetParticleByID(muzzleFlashID).GetComponentInChildren<ParticleSystem>();
 
         SimpleParticleSpawner.Instance.SpawnParticle(muzzleFlashParticle.gameObject, _muzzle.transform.position, dir.normalized, _muzzle.transform);
     }

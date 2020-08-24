@@ -2380,11 +2380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01ec2d6f668b3b4449526d244c8941b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particles:
-  - {fileID: 1847104954241580, guid: 65cb080cc7b200946a2c821269d3ee71, type: 3}
-  - {fileID: 1091434919398558, guid: b10a04203c78d3b4db119edc084526af, type: 3}
-  - {fileID: 6022676811281533940, guid: 4f9d5741e70edcb4981cbdbf734ef3af, type: 3}
-  - {fileID: 6022676811281533940, guid: ecf981981b9138949aa37fcf9d7c2ded, type: 3}
+  allParticles: {fileID: 11400000, guid: 9698fd2d8fc3b97498e9820012ce3f52, type: 2}
 --- !u!1001 &2225605496598778323
 PrefabInstance:
   m_ObjectHideFlags: 0

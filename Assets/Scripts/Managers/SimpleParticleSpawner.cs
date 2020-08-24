@@ -18,6 +18,9 @@ public class SimpleParticleSpawner : MonoBehaviour
                     instance = new GameObject("new SimpleParticleSpawner Object").AddComponent<SimpleParticleSpawner>().GetComponent<SimpleParticleSpawner>();
                 }
             }
+
+            if (instance.allParticles == null) instance.allParticles = Resources.Load<SO_ParticleSpawnerList>("ScriptableObjects/DATA_ParticleSpawnerList");
+
             return instance;
         }
     }
@@ -37,7 +40,7 @@ public class SimpleParticleSpawner : MonoBehaviour
         }
     }
 
-    public GameObject[] particles;
+    public SO_ParticleSpawnerList allParticles;
 
     public struct ParticleID
     {
@@ -49,7 +52,12 @@ public class SimpleParticleSpawner : MonoBehaviour
 
     public GameObject GetParticleByID(int id)
     {
-        return particles[id];
+        return allParticles.particleList[id];
+    }
+
+    void Awake()
+    {
+        if (allParticles == null) allParticles = Resources.Load<SO_ParticleSpawnerList>("ScriptableObjects/DATA_ParticleSpawnerList");
     }
 
     public void SpawnParticle(GameObject part, Vector3 pos, Vector3 dir, Transform prnt = null)
@@ -89,7 +97,7 @@ public class SimpleParticleSpawner : MonoBehaviour
 
     public void SpawnParticle(int part, Vector3 pos, Vector3 dir, Transform prnt = null)
     {
-        var p = prnt ? GameObject.Instantiate(particles[part], pos, Quaternion.identity, prnt) : GameObject.Instantiate(particles[part], pos, Quaternion.identity);
+        var p = prnt ? GameObject.Instantiate(allParticles.particleList[part], pos, Quaternion.identity, prnt) : GameObject.Instantiate(allParticles.particleList[part], pos, Quaternion.identity);
         p.transform.forward = dir.normalized;
         GameObject.Destroy(p, 3);
         ActiveParticles.Add(p);
@@ -98,7 +106,7 @@ public class SimpleParticleSpawner : MonoBehaviour
 
     public void SpawnParticle(int part, Vector3 pos, Vector3 dir, float lifeTime, Transform prnt = null)
     {
-        var p = prnt ? GameObject.Instantiate(particles[part], pos, Quaternion.identity, prnt) : GameObject.Instantiate(particles[part], pos, Quaternion.identity);
+        var p = prnt ? GameObject.Instantiate(allParticles.particleList[part], pos, Quaternion.identity, prnt) : GameObject.Instantiate(allParticles.particleList[part], pos, Quaternion.identity);
         p.transform.forward = dir.normalized;
         GameObject.Destroy(p, lifeTime);
         ActiveParticles.Add(p);
@@ -107,7 +115,7 @@ public class SimpleParticleSpawner : MonoBehaviour
 
     public void SpawnParticle(int part, Vector3 pos, Quaternion dir, Transform prnt = null)
     {
-        var p = prnt ? GameObject.Instantiate(particles[part], pos, dir, prnt) : GameObject.Instantiate(particles[part], pos, dir);
+        var p = prnt ? GameObject.Instantiate(allParticles.particleList[part], pos, dir, prnt) : GameObject.Instantiate(allParticles.particleList[part], pos, dir);
         GameObject.Destroy(p, 3);
         ActiveParticles.Add(p);
         Invoke("CleanParticles", 3.3f);
@@ -115,7 +123,7 @@ public class SimpleParticleSpawner : MonoBehaviour
 
     public void SpawnParticle(int part, Vector3 pos, Quaternion dir, float lifeTime, Transform prnt = null)
     {
-        var p = prnt ? GameObject.Instantiate(particles[part], pos, dir, prnt) : GameObject.Instantiate(particles[part], pos, dir);
+        var p = prnt ? GameObject.Instantiate(allParticles.particleList[part], pos, dir, prnt) : GameObject.Instantiate(allParticles.particleList[part], pos, dir);
         GameObject.Destroy(p, lifeTime);
         ActiveParticles.Add(p);
         Invoke("CleanParticles", lifeTime + .3f);
