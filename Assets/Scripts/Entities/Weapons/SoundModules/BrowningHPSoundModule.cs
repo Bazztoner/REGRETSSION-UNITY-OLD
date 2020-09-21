@@ -5,7 +5,7 @@ using System.Linq;
 
 public class BrowningHPSoundModule : WeaponSoundModuleBase
 {
-    public AudioClip magIn, magOut, boltCatch;
+    public AudioClip magIn, magOut, slideRelease;
 
     public virtual void OnMagIn()
     {
@@ -16,9 +16,8 @@ public class BrowningHPSoundModule : WeaponSoundModuleBase
     {
         PlaySound(magOut);
     }
-
-    public virtual void OnBoltCatch()
+    public virtual void OnSlideRelease()
     {
-        PlaySound(boltCatch);
+        PlaySound(slideRelease);
     }
 }

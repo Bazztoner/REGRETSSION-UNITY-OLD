@@ -5,5 +5,21 @@ using System.Linq;
 
 public class MalvinasKnifeSoundModule : WeaponSoundModuleBase
 {
-    
+
+    public AudioClip enemyHit, wallHit, destructHit;
+
+    public void OnEnemyHit()
+    {
+        PlaySound(enemyHit);
+    }
+
+    public void OnWallHit()
+    {
+        PlaySound(wallHit);
+    }
+
+    public void OnDestructibleHit()
+    {
+        PlaySound(destructHit);
+    }
 }

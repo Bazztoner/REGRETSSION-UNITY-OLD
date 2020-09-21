@@ -137,7 +137,7 @@ MonoBehaviour:
   shootCooldown: 0.4
   _currentBulletsInMag: 13
   wpnNumberX: 2
-  wpnNumberY: 0
+  wpnNumberY: 1
   damage: 23
   pellets: 1
 --- !u!114 &7657773445875685433
@@ -157,7 +157,7 @@ MonoBehaviour:
   draw: {fileID: 8300000, guid: 6418fdc90cc6ea348bde9a0b9924efc3, type: 3}
   magIn: {fileID: 8300000, guid: 37f9c83b56ced304c887014a30d909a9, type: 3}
   magOut: {fileID: 8300000, guid: f8845449a00d8f245b2175febb032c88, type: 3}
-  boltCatch: {fileID: 8300000, guid: 46bc0ed2719b6bf43878fc453861fd12, type: 3}
+  slideRelease: {fileID: 8300000, guid: 007de596992c3eb43a2a088e92f5e67c, type: 3}
 --- !u!1 &8471877493636118608
 GameObject:
   m_ObjectHideFlags: 0

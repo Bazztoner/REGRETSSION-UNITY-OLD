@@ -5,7 +5,7 @@ using System.Linq;
 
 public class FNFALSoundModule : WeaponSoundModuleBase
 {
-    public AudioClip magIn, magOut, magTap, boltCatch;
+    public AudioClip magIn, magOut, startReload, boltCatch;
 
     public virtual void OnMagIn()
     {
@@ -17,9 +17,9 @@ public class FNFALSoundModule : WeaponSoundModuleBase
         PlaySound(magOut);
     }
 
-    public virtual void OnMagTap()
+    public virtual void OnStartReload()
     {
-        PlaySound(magTap);
+        PlaySound(startReload);
     }
 
     public virtual void OnBoltCatch()

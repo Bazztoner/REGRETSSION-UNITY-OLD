@@ -5,7 +5,7 @@ using System.Linq;
 
 public class PAM2SoundModule : WeaponSoundModuleBase
 {
-    public AudioClip magIn, magOut, magTap, boltCatch;
+    public AudioClip magIn, magOut, boltCatch;
 
     public virtual void OnMagIn()
     {
@@ -15,11 +15,6 @@ public class PAM2SoundModule : WeaponSoundModuleBase
     public virtual void OnMagOut()
     {
         PlaySound(magOut);
-    }
-
-    public virtual void OnMagTap()
-    {
-        PlaySound(magTap);
     }
 
     public virtual void OnBoltCatch()

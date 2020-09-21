@@ -137,7 +137,7 @@ MonoBehaviour:
   shootCooldown: 0.75
   _currentBulletsInMag: 0
   wpnNumberX: 1
-  wpnNumberY: 0
+  wpnNumberY: 1
   damage: 45
   pellets: 1
   xSize: 0.5
@@ -161,6 +161,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 51c0d7d560960ca4c94cdbf3f484add4, type: 3}
   - {fileID: 8300000, guid: 362ca197610db0b46801383b3f7b5b1b, type: 3}
   draw: {fileID: 8300000, guid: 8b70d7fda76186f429562d79f327b268, type: 3}
+  enemyHit: {fileID: 8300000, guid: 8dd4afbb9625ea74899361f963c20767, type: 3}
+  wallHit: {fileID: 8300000, guid: d1ba1ffb7ab4f2b4c984db48f03295cb, type: 3}
+  destructHit: {fileID: 8300000, guid: 87dd07970c398294da34579f5294d0ad, type: 3}
 --- !u!1001 &2527563886020485570
 PrefabInstance:
   m_ObjectHideFlags: 0
