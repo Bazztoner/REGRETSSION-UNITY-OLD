@@ -170,8 +170,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0d407f06743ce849a8a8721b5ded721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootClips: []
-  draw: {fileID: 0}
+  shootClips:
+  - {fileID: 8300000, guid: 65dedb2b38e37124eb29f1d6de4dd901, type: 3}
+  draw: {fileID: 8300000, guid: 6418fdc90cc6ea348bde9a0b9924efc3, type: 3}
   magIn: {fileID: 0}
   magOut: {fileID: 0}
   magTap: {fileID: 0}

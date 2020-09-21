@@ -155,8 +155,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59419a666872f8d4fa83991e4907a3da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootClips: []
-  draw: {fileID: 0}
+  shootClips:
+  - {fileID: 8300000, guid: 485f7c956a56a684a84cae6a30ffc212, type: 3}
+  - {fileID: 8300000, guid: 9128fe73a82fa494babb09fc0a850a37, type: 3}
+  - {fileID: 8300000, guid: 51c0d7d560960ca4c94cdbf3f484add4, type: 3}
+  - {fileID: 8300000, guid: 362ca197610db0b46801383b3f7b5b1b, type: 3}
+  draw: {fileID: 8300000, guid: 8b70d7fda76186f429562d79f327b268, type: 3}
 --- !u!1001 &2527563886020485570
 PrefabInstance:
   m_ObjectHideFlags: 0

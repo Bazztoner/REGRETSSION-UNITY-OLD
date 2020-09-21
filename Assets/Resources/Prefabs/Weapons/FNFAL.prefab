@@ -127,12 +127,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6187a193628bf824b989ef0ef4a6721c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootClips: []
-  draw: {fileID: 0}
-  magIn: {fileID: 0}
-  magOut: {fileID: 0}
+  shootClips:
+  - {fileID: 8300000, guid: 32ab6247658592a47a7a13d381290917, type: 3}
+  - {fileID: 8300000, guid: 6e12f42e6bbc78a4bb0d244cccf97ad4, type: 3}
+  draw: {fileID: 8300000, guid: 6418fdc90cc6ea348bde9a0b9924efc3, type: 3}
+  magIn: {fileID: 8300000, guid: c08c6a92448d3cb4abd121ac7e5941d3, type: 3}
+  magOut: {fileID: 8300000, guid: c08c6a92448d3cb4abd121ac7e5941d3, type: 3}
   magTap: {fileID: 0}
-  boltCatch: {fileID: 0}
+  boltCatch: {fileID: 8300000, guid: 853e6dd65643d7243939115ccea514f4, type: 3}
 --- !u!114 &8271942656744046585
 MonoBehaviour:
   m_ObjectHideFlags: 0
