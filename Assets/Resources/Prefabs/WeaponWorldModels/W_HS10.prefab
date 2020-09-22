@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a106e12dcaffc4c429dfc16239e17c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ammoGiven: 10
+  _ammoGiven: 12
   ammoType: 1
   pickedSound: {fileID: 8300000, guid: cef5637da130e054d9c9f6c757773e7c, type: 3}
   _weaponName: HS10

@@ -137,6 +137,15 @@ public class PlayerController : MonoBehaviour, IDamageable
         allWeapons = allWeapons.OrderBy(X => X.wpnNumberX).ThenBy(x => x.wpnNumberY).ToList();
     }
 
+    public void RemoveWeaponFromList(WeaponBase wpnToRemove)
+    {
+        if (allWeapons == null) allWeapons = new List<WeaponBase>();
+
+        allWeapons.Remove(wpnToRemove);
+
+        allWeapons = allWeapons.Where(x => x != null).OrderBy(X => X.wpnNumberX).ThenBy(x => x.wpnNumberY).ToList();
+    }
+
     public void OnPickedUpLife(int lifeGiven)
     {
         TakeHealing(lifeGiven);
@@ -202,9 +211,16 @@ public class PlayerController : MonoBehaviour, IDamageable
         }
     }
 
-    /// <summary>
-    /// Review mouse weapon changing, doesn't work as intended
-    /// </summary>
+    public void ChangeWeaponByOutOfAmmo()
+    {
+        var nextIndex = _currentWeaponIndex - 1;
+
+        if (nextIndex < 0) nextIndex = allWeapons.Count - 1;
+        else if (nextIndex >= allWeapons.Count) nextIndex = 0;
+
+        ExecuteChangeWeapon(nextIndex, true);
+    }
+
     void CheckChangeWeapon()
     {
         var mouseWheelDelta = Input.GetAxis("Mouse ScrollWheel");
@@ -261,10 +277,11 @@ public class PlayerController : MonoBehaviour, IDamageable
         }
     }
 
-    public void ExecuteChangeWeapon(int indx)
+    public void ExecuteChangeWeapon(int indx, bool fastChange = false)
     {
         _changingWeapon = true;
-        StartCoroutine(ChangeWeapon(indx));
+        if (fastChange) StartCoroutine(ChangeWeaponFast(indx));
+        else StartCoroutine(ChangeWeapon(indx));
     }
 
     IEnumerator ChangeWeapon(int indx)
@@ -283,6 +300,28 @@ public class PlayerController : MonoBehaviour, IDamageable
         yield return new WaitUntil(() => allWeapons[_currentWeaponIndex].Drawn);
 
         _changingWeapon = false;
+    }
+
+    IEnumerator ChangeWeaponFast(int indx)
+    {
+        allWeapons[_currentWeaponIndex].gameObject.SetActive(false);
+        if (allWeapons.Count <= 1)
+        {
+            _currentWeaponIndex = 0;
+            RemoveWeaponFromList(allWeapons[_currentWeaponIndex]);
+            _changingWeapon = false;
+            yield break;
+        }
+
+        _currentWeaponIndex = indx;
+
+        allWeapons[_currentWeaponIndex].gameObject.SetActive(true);
+
+        yield return new WaitUntil(() => allWeapons[_currentWeaponIndex].Drawn);
+
+        _changingWeapon = false;
+
+        allWeapons = allWeapons.Where(x => x != null).ToList();
     }
 
     public void AddRecoil(float recoveryTime, float amount)
