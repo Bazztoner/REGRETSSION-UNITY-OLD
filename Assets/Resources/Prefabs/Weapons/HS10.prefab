@@ -177,13 +177,13 @@ MonoBehaviour:
     currentZPosition: 0
     currentZPosVelocity: 0
   magSize: 4
-  shootCooldown: 0.5
+  shootCooldown: 0.35
   _currentBulletsInMag: 4
   wpnNumberX: 3
   wpnNumberY: 1
   damage: 45
   pellets: 12
-  dispersionConeRadius: 2
+  dispersionConeRadius: 3.5
 --- !u!114 &4478875074339409742
 MonoBehaviour:
   m_ObjectHideFlags: 0

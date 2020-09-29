@@ -158,7 +158,7 @@ MonoBehaviour:
   _currentBulletsInMag: 25
   wpnNumberX: 6
   wpnNumberY: 1
-  damage: 25
+  damage: 35
   pellets: 1
 --- !u!1 &224265184079051881
 GameObject:

@@ -134,7 +134,7 @@ MonoBehaviour:
     currentZPosition: 0
     currentZPosVelocity: 0
   magSize: 0
-  shootCooldown: 0.75
+  shootCooldown: 0.5
   _currentBulletsInMag: 0
   wpnNumberX: 1
   wpnNumberY: 1

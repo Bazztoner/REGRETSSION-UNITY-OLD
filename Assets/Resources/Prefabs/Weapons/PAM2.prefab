@@ -199,7 +199,7 @@ MonoBehaviour:
   _currentBulletsInMag: 30
   wpnNumberX: 4
   wpnNumberY: 1
-  damage: 25
+  damage: 20
   pellets: 1
 --- !u!1001 &5179228977904029545
 PrefabInstance:

@@ -138,7 +138,7 @@ MonoBehaviour:
   _currentBulletsInMag: 13
   wpnNumberX: 2
   wpnNumberY: 1
-  damage: 23
+  damage: 30
   pellets: 1
 --- !u!114 &7657773445875685433
 MonoBehaviour:
